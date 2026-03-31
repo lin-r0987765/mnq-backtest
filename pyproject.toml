@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "mnq-backtest"
+version = "0.1.0"
+description = "MNQ / NQ futures day-trading quantitative backtest system"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "yfinance>=0.2.36",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+    "plotly>=5.18.0",
+    "rich>=13.0.0",
+    "vectorbt>=0.26.1",
+    "requests>=2.31.0",
+    "pytz>=2023.3",
+]
+
+[project.scripts]
+run-backtest = "run_backtest:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
