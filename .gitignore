@@ -19,8 +19,8 @@ venv/
 Thumbs.db
 
 # Results (keep .gitkeep, ignore actual result files)
-results/*.json
-results/*.csv
-results/*.png
-results/*.html
+
+
+
+
 results/cron.log
