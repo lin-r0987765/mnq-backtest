@@ -5,8 +5,8 @@ All tunable parameters for the ICT strategy.
 Version tracking for iterative optimization.
 """
 
-VERSION = "1.0.0"
-ITERATION = 2
+VERSION = "1.1.0"
+ITERATION = 3
 
 # === Data Settings ===
 SYMBOL = "QQQ"
@@ -22,16 +22,16 @@ COMMISSION_PER_TRADE = 1.0     # $1 per trade
 # === ICT Strategy Parameters ===
 
 # Market Structure
-STRUCTURE_LOOKBACK = 20.0# Bars to identify swing highs/lows
+STRUCTURE_LOOKBACK = int(20)# Bars to identify swing highs/lows
 SWING_THRESHOLD = 3            # Min bars on each side for swing point
 
 # Order Blocks
-OB_LOOKBACK = 15.0# Bars to look back for order blocks
+OB_LOOKBACK = int(15)# Bars to look back for order blocks
 OB_BODY_MIN_PCT = 0.3          # Min body/range ratio for OB candle
 OB_MITIGATION_TOUCH = True     # OB invalidated after first touch
 
 # Fair Value Gaps
-FVG_MIN_GAP_PCT = 0.001# Min gap size as % of price (0.2%)
+FVG_MIN_GAP_PCT = 0.001  # v3 保持不變# Min gap size as % of price (0.2%)
 FVG_MAX_AGE = 20               # Max bars before FVG expires
 
 # Liquidity Sweeps
@@ -44,10 +44,10 @@ OTE_FIB_LOW = 0.618            # OTE zone lower bound
 OTE_FIB_HIGH = 0.786           # OTE zone upper bound
 
 # === Risk Management ===
-STOP_LOSS_ATR_MULT = 2.0# SL = entry ± ATR * mult
-TAKE_PROFIT_RR = 3.5# Risk:Reward ratio for TP
-TRAILING_STOP_ATR = 2.0# Trailing stop ATR multiplier
-ATR_PERIOD = 18.0# ATR calculation period
+STOP_LOSS_ATR_MULT = 2.0    # SL = entry ± ATR * mult
+TAKE_PROFIT_RR = 4.0        # Risk:Reward ratio for TP (提高至 4.0)
+TRAILING_STOP_ATR = 2.0     # Trailing stop ATR multiplier
+ATR_PERIOD = int(14)        # ATR calculation period（整數）
 MAX_DAILY_LOSS_PCT = 0.05      # Max 5% daily loss → stop trading
 
 # === Signal Scoring ===
@@ -58,7 +58,7 @@ SCORE_LIQUIDITY_SWEEP = 3
 SCORE_OTE_ZONE = 2
 SCORE_BOS = 2
 SCORE_CHOCH = 3
-MIN_SCORE_TO_TRADE = 6.0# Min confluence score to enter
+MIN_SCORE_TO_TRADE = 6.0    # Min confluence score to enter
 
 # === Session Filters (UTC hours) ===
 LONDON_OPEN = 8

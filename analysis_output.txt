@@ -1,0 +1,47 @@
+﻿============================================================
+??啣?皜砍???
+============================================================
+
+--- ORB (backtest_20260402_043349_ORB.json) ---
+  total_return_pct: -3.1544
+  sharpe_ratio: -3.4458
+  sortino_ratio: -1.8086
+  calmar_ratio: 0.823
+  max_drawdown_pct: -3.8327
+  win_rate_pct: 29.8507
+  total_trades: 134
+  profit_factor: 0.7316
+  avg_trade_pct: -0.0235
+
+--- VWAP_Reversion (backtest_20260402_043349_VWAP_Reversion.json) ---
+  total_return_pct: -1.233
+  sharpe_ratio: -2.7656
+  sortino_ratio: -0.6945
+  calmar_ratio: 0.9621
+  max_drawdown_pct: -1.2816
+  win_rate_pct: 32.5
+  total_trades: 40
+  profit_factor: 0.4809
+  avg_trade_pct: -0.0308
+
+--- ORB_Optimised (backtest_20260402_043349_ORB_Optimised.json) ---
+  total_return_pct: -3.1669
+  sharpe_ratio: -3.3917
+  sortino_ratio: -1.7822
+  calmar_ratio: 0.8209
+  max_drawdown_pct: -3.8579
+  win_rate_pct: 29.9213
+  total_trades: 127
+  profit_factor: 0.7068
+  avg_trade_pct: -0.0249
+
+--- VWAP_Optimised (backtest_20260402_043349_VWAP_Optimised.json) ---
+  total_return_pct: -0.7792
+  sharpe_ratio: -1.7982
+  sortino_ratio: -0.4105
+  calmar_ratio: 0.8597
+  max_drawdown_pct: -0.9064
+  win_rate_pct: 31.7073
+  total_trades: 41
+  profit_factor: 0.7376
+  avg_trade_pct: -0.019

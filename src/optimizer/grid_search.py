@@ -99,28 +99,35 @@ def grid_search(
 # ── Pre-defined search spaces ──────────────────────────────────────────────
 
 ORB_PARAM_RANGES: dict[str, list[Any]] = {
-    "orb_bars": [2, 3, 4, 6],
-    "profit_ratio": [1.5, 2.0, 2.5, 3.0],
+    "orb_bars": [4, 6, 8, 12],
+    "profit_ratio": [2.0, 2.5, 3.0, 3.5, 4.0],
     "close_before_min": [10, 15, 20],
+    "breakout_confirm_pct": [0.0005, 0.001, 0.002],
+    "trailing_stop": [True, False],
+    "trailing_pct": [0.003, 0.005, 0.008],
 }
 
 VWAP_PARAM_RANGES: dict[str, list[Any]] = {
-    "k": [1.0, 1.5, 2.0],
+    "k": [1.5, 2.0, 2.5, 3.0],
     "sl_k_add": [0.3, 0.5, 0.7],
     "std_window": [15, 20, 30],
-    "rsi_os": [30, 35, 40],
-    "rsi_ob": [60, 65, 70],
+    "rsi_os": [25, 30, 35],
+    "rsi_ob": [65, 70, 75],
+    "max_trades_per_day": [1, 2, 3],
 }
 
 # Compact grids for quick runs
 ORB_QUICK_RANGES: dict[str, list[Any]] = {
-    "orb_bars": [2, 3, 4],
-    "profit_ratio": [1.5, 2.0, 2.5],
+    "orb_bars": [4, 6, 8, 12],
+    "profit_ratio": [2.0, 3.0, 4.0],
+    "breakout_confirm_pct": [0.0005, 0.001, 0.002],
+    "trailing_pct": [0.003, 0.005, 0.008],
 }
 
 VWAP_QUICK_RANGES: dict[str, list[Any]] = {
-    "k": [1.0, 1.5, 2.0],
+    "k": [1.5, 2.0, 2.5, 3.0],
     "sl_k_add": [0.5],
-    "rsi_os": [30, 35],
-    "rsi_ob": [65, 70],
+    "rsi_os": [25, 30, 35],
+    "rsi_ob": [65, 70, 75],
+    "max_trades_per_day": [1, 2],
 }
