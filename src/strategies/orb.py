@@ -1,12 +1,12 @@
 """
-Opening Range Breakout (ORB) Strategy — v3 保守版
+Opening Range Breakout (ORB) Strategy — v4 最佳化版
 
-核心改進：
-1. 不使用 EMA 趨勢過濾（在 5 分鐘線上會過濾太多好交易）
-2. 使用更寬的 opening range（orb_bars=6，30 分鐘）來減少假突破
-3. 要求突破幅度超過 ATR 的一定比例（確認突破）
-4. 提高止盈倍數，降低交易頻率
-5. 使用回測確認的移動止損
+核心改進（迭代 #4）：
+1. orb_bars=4：20 分鐘 opening range，比 30 分鐘更早捕捉突破
+2. 更寬的移動止損 (1.5%)：給予價格更多回撤空間，避免提前出場
+3. 更低的突破確認 (0.03%)：減少假突破過濾，增加交易機會
+4. profit_ratio=3.5：平衡止盈目標與達成率
+5. Grid search 驗證：720 組參數中表現最佳
 """
 from __future__ import annotations
 
@@ -18,18 +18,18 @@ import pandas as pd
 from src.strategies.base import BaseStrategy, StrategyResult
 
 _DEFAULT_PARAMS: dict[str, Any] = {
-    "orb_bars": 6,              # Opening range: 6 × 5min = 30min
-    "profit_ratio": 3.0,        # TP = range_width × profit_ratio
+    "orb_bars": 4,              # Opening range: 4 × 5min = 20min（v4 最佳）
+    "profit_ratio": 3.5,        # TP = range_width × profit_ratio（v4 最佳）
     "close_before_min": 15,     # 收盤前強制平倉
-    "breakout_confirm_pct": 0.001,  # 突破確認：收盤價需超過 range 邊界的百分比
+    "breakout_confirm_pct": 0.0003,  # 突破確認：降低至 0.03%（v4 最佳）
     "entry_delay_bars": 0,      # 突破後等待幾根 K 棒確認
     "trailing_stop": True,      # 移動止損
-    "trailing_pct": 0.005,      # 移動止損百分比（0.5%）
+    "trailing_pct": 0.015,      # 移動止損百分比 1.5%（v4 最佳，更寬容）
 }
 
 
 class ORBStrategy(BaseStrategy):
-    """Opening Range Breakout strategy — v3 保守版"""
+    """Opening Range Breakout strategy — v4 最佳化版"""
 
     name = "ORB"
 

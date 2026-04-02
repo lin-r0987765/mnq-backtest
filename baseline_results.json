@@ -1,0 +1,56 @@
+{
+  "orb_default": {
+    "metrics": {
+      "total_return_pct": -1.4692,
+      "sharpe_ratio": -1.5131,
+      "sortino_ratio": -0.9057,
+      "calmar_ratio": 0.6573,
+      "max_drawdown_pct": -2.2351,
+      "win_rate_pct": 33.7838,
+      "total_trades": 74,
+      "profit_factor": 0.8526,
+      "avg_trade_pct": -0.0199
+    },
+    "params": {
+      "orb_bars": 6,
+      "profit_ratio": 3.0,
+      "close_before_min": 15,
+      "breakout_confirm_pct": 0.001,
+      "entry_delay_bars": 0,
+      "trailing_stop": true,
+      "trailing_pct": 0.005
+    },
+    "trades_count": 74
+  },
+  "vwap_default": {
+    "metrics": {
+      "total_return_pct": -1.2349,
+      "sharpe_ratio": -2.7386,
+      "sortino_ratio": -0.682,
+      "calmar_ratio": 0.9635,
+      "max_drawdown_pct": -1.2816,
+      "win_rate_pct": 34.1463,
+      "total_trades": 41,
+      "profit_factor": 0.4882,
+      "avg_trade_pct": -0.0301
+    },
+    "params": {
+      "k": 2.0,
+      "sl_k_add": 0.5,
+      "std_window": 20,
+      "rsi_period": 14,
+      "rsi_os": 30,
+      "rsi_ob": 70,
+      "close_before_min": 15,
+      "atr_period": 14,
+      "atr_min_pct": 0.0005,
+      "vol_filter": true,
+      "vol_min_mult": 0.5,
+      "entry_start_time": "10:00",
+      "entry_end_time": "15:30",
+      "max_trades_per_day": 2
+    },
+    "trades_count": 41
+  },
+  "buy_hold_return_pct": -6.9008
+}
