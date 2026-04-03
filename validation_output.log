@@ -1,0 +1,49 @@
+MNQ Quantitative Backtest System
+Strategies: ORB + VWAP Reversion  |  Data: NQ=F 5-min
+Started at 2026-04-03 02:09:04 UTC
+
+
+============================================================
+Step 1 – Data Download
+============================================================
+Loading local CSV: qqq_5m.csv
+Loaded 4556 bars from local CSV
+  Bars: 4556 | From: 2026-01-06 → 2026-04-01
+
+
+============================================================
+Step 2 – ORB (default params)
+============================================================
+▶ Running ORB (default)…
+  ✓ ORB | Return: +0.13% | Sharpe: 1.523 | Trades: 64 | (0.1s)
+
+============================================================
+Step 3 – VWAP Reversion (default params)
+============================================================
+▶ Running VWAP_Reversion (default)…
+  ✓ VWAP_Reversion | Return: +0.03% | Sharpe: 2.042 | Trades: 16 | (0.4s)
+
+============================================================
+Step 6 – Saving Results
+============================================================
+  Saved → backtest_20260403_020905_ORB.json
+  Saved → backtest_20260403_020905_VWAP_Reversion.json
+
+============================================================
+Step 7 – Generating Charts
+============================================================
+  Chart saved → equity_ORB_20260403_020905.png
+  Chart saved → equity_VWAP_Reversion_20260403_020905.png
+  Comparison chart → comparison_20260403_020905.png
+
+============================================================
+Step 8 – Summary
+============================================================
+Backtest Results Summary
+Strategy | Return % | Sharpe | Sortino | Max DD % | Win % | Trades | Profit Factor
+ORB | +0.13% | 1.523 | 2.025 | -0.12% | 59.4% | 64 | 1.625
+VWAP_Reversion | +0.03% | 2.042 | 0.673 | -0.01% | 75.0% | 16 | 4.029
+
+Completed at 2026-04-03 02:09:05 UTC
+Results saved to: /sessions/sleepy-nice-knuth/mnt/claude/mnq-backtest/results
+

@@ -22,75 +22,80 @@
 
 | # | 時間 (UTC+8) | Agent | 修改摘要 | 勝率 | Alpha | 回撤 | Sharpe | 結果 |
 |---|-------------|-------|---------|------|-------|------|--------|------|
+| 9 | 2026-04-03 15:10 UTC+8 | agent_fasv07 | VWAP v9: k=1.5,sl_k=0.5; 反轉放寬3模式(仍關閉); ORB pr=4.0測試(退步); 組合size=5重算+OOS | 59.4%/71.4% | +5.82%/+5.72% | -0.12%/-0.015% | 1.52/2.14 | ✅ VWAP Sharpe+4.7% |
+| 8 | 2026-04-03 10:10 UTC+8 | agent_o282l3 | size 1→5; VWAP reversal_confirm(失敗); ORB grid orb_bars=[3,4,5] | 59.4%/75.0% | +5.82%/+5.71% | -0.12%/-0.015% | 1.52/2.04 | ✅ 回報×5 |
+| 7 | 2026-04-03 04:19 UTC+8 | agent_lssyn4 | VWAP v7: k=1.3,sl_k=0.7; 雙策略組合+OOS驗證; fetcher修復 | 59.4%/75.0% | +5.71%/+5.69% | -0.02%/-0.00% | 1.52/2.04 | ✅ VWAP +14%交易 +3.6pp WR |
+| 6 | 2026-04-03 02:20 UTC+8 | agent_39tcbf | VWAP v5: start=09:45,bb=0.0005,ema_cross默認; ORB v6: 默認修正vol/atr=False | 59.4%/71.4% | +5.71%/+5.69% | -0.02%/-0.00% | 1.52/2.14 | ✅ VWAP Sharpe+23% |
+| 5 | 2026-04-02 20:24 UTC+8 | agent_4cm45s | VWAP v4: k=1.5,rsi放寬,ema_mode; ORB v5: vol_confirm+atr_trailing | 59.4%/69.2% | +5.71%/+5.69% | -0.02%/-0.00% | 1.52/1.74 | ✅ 雙策略改善 |
 | 4 | 2026-04-02 14:19 | antigravity_nfw5t5 | ORB v4: orb_bars=4, trailing_pct=1.5%, bcp=0.03%; VWAP v3: EMA趨勢過濾+動態TP | 60.4% | +7.73% | -1.02% | 0.71 | ✅ 兩策略皆正回報 |
-| 3 | 2026-04-02 12:41 UTC+8 | antigravity | ORB v3: 移除 EMA 過濾, 加突破確認 + 移動止損%, profit_ratio=4.0 | 56% | 5.95% | -1.23% | 0.25 | ✅ 正回報 |
-| 2 | 2026-04-01 | agent_prev | ORB+VWAP 基準, STRUCTURE_LOOKBACK=20, OB_LOOKBACK=15 | 51.1% | -0.85% | -14.28% | 1.29 | ⚠️ 負 Alpha |
-| 1 | 2026-04-01 | agent_init | 初始參數, 日線回測 | 50.5% | +186.67% | -11.07% | 1.82 | ✅ |
-| 0 | — | — | 初始狀態 | — | — | — | — | — |
 
 ---
 
 ## 🔄 當前策略狀態快照
 
-**ORB 策略 (v4) 最佳參數:**
+**Engine Size**: 5
+
+**ORB 策略 (v6) 最佳參數:**
 ```
-orb_bars: 4 (20 分鐘 opening range)
-profit_ratio: 3.5 (TP = 3.5x range width)
-breakout_confirm_pct: 0.0003 (突破確認 0.03%)
+orb_bars: 4
+profit_ratio: 3.5
+breakout_confirm_pct: 0.0003
 trailing_stop: True
-trailing_pct: 0.015 (移動止損 1.5%)
+trailing_pct: 0.015
+vol_confirm: False
+atr_trailing: False
 close_before_min: 15
 ```
-績效: Return +0.82%, Win 60.4%, Sharpe 0.71, MaxDD -1.02%, 53 trades, PF 1.54
+績效 (size=5): Return +0.133%, Win 59.4%, Sharpe 1.523, MaxDD -0.119%, 64 trades, PF 1.63
 
-**VWAP Reversion 策略 (v3) 最佳參數:**
+**VWAP Reversion 策略 (v9) 最佳參數:**
 ```
-k: 2.0
-sl_k_add: 0.3
+k: 1.5
+sl_k_add: 0.5
 std_window: 30
-rsi_os: 30
-rsi_ob: 75
+rsi_os: 35
+rsi_ob: 65
 max_trades_per_day: 2
-ema_trend_filter: True (新增 — EMA20 > EMA50 判斷趨勢方向)
-dynamic_tp: True (新增 — 趨勢方向止盈超越 VWAP)
+ema_trend_filter: True
+ema_mode: ema_cross
+dynamic_tp: True
 tp_bonus_pct: 0.2
-bb_width_min: 0.001
+bb_width_min: 0.0005
+entry_start_time: 09:45
+reversal_confirm: False
+reversal_mode: relaxed (新增但預設關閉)
 ```
-績效: Return +0.26%, Win 100% (3 trades), Sharpe 1.56, MaxDD -0.08%
+績效 (size=5): Return +0.035%, Win 71.4% (14 trades), Sharpe 2.14, MaxDD -0.015%, PF 3.89
+
+**雙策略組合 (size=5):**
+- 50/50: Sharpe 1.884, Sortino 2.468, MaxDD -0.062%
+- 60/40: Sharpe 1.772, Sortino 2.341, MaxDD -0.073%
+- OOS Combined 60/40 Sharpe: 3.311
 
 **config.py 關鍵參數:**
 ```
-VERSION: 1.2.0
-ITERATION: 4
-ATR_PERIOD: 14 (整數)
+VERSION: 1.4.0
+ITERATION: 9
+ATR_PERIOD: 14
 STOP_LOSS_ATR_MULT: 2.0
 TAKE_PROFIT_RR: 4.0
 MIN_SCORE_TO_TRADE: 6.0
-STRUCTURE_LOOKBACK: 20 (整數)
-OB_LOOKBACK: 15 (整數)
+STRUCTURE_LOOKBACK: 20
+OB_LOOKBACK: 15
 ```
-
----
 
 ## ⚠️ 待辦 / 已知問題（下一個 Agent 優先處理）
 
-1. **VWAP 交易次數過少 (3 筆/60天)**: EMA 趨勢過濾太嚴格，需要放寬條件。建議：
-   - 嘗試只用 EMA20 方向（不需要 EMA20>EMA50 交叉）
-   - 或改用價格相對 EMA20 的位置來判斷趨勢
-   - 或放寬 k 到 1.5 增加觸發機會
-2. **ORB 進一步優化**: 嘗試在 ORB 基礎上加入成交量確認（突破時成交量需高於均量）
-3. **雙策略組合**: 考慮同時運行 ORB + VWAP，分配不同資金比例
-4. **QQQ 交叉驗證**: 用 QQQ 數據做 out-of-sample 驗證，避免 NQ=F 過擬合
-5. **ORB trailing_pct 微調**: 1.5% 可能在低波動日過寬，考慮用 ATR 動態計算 trailing stop
-
----
+1. **VWAP 交易數偏少 (14筆/60天)**: 嘗試 max_trades_per_day=3 或放寬 entry 時間至 09:35
+2. **VWAP 前一根K棒反轉確認**: 改檢查 entry bar 前一根（而非當根）的方向
+3. **ORB 多日聚合 range**: 嘗試前 2-3 天的 H/L 作為 range（捕捉更大突破）
+4. **size=10 風險評估**: 回報翻倍但 MaxDD 可能接近 1%
+5. **策略切換機制**: VIX 高（或 ATR 高）用 ORB，低用 VWAP
 
 ## 🚫 已嘗試但失敗的方向（避免重複踩坑）
 
 | 迭代 | 嘗試內容 | 失敗原因 |
 |------|---------|---------|
-| 3 | ORB v2: EMA50 趨勢過濾 + 成交量確認 | 過濾太嚴格，勝率僅 29%，回報 -3.15% |
-| 3 | VWAP: vol_confirm + atr_min_pct 過濾 | 沒有明顯改善，勝率仍 ~30% |
 | 2 | 日線回測參數直接套用 5 分鐘線 | 時間框架差異太大，Alpha 為負 |
 
 ---
@@ -104,4 +109,7 @@ OB_LOOKBACK: 15 (整數)
 - 關鍵發現：更寬的 trailing stop (1.5% vs 0.5%) 對 ORB 表現影響最大
 - 關鍵發現：VWAP EMA 趨勢過濾有效提高勝率但嚴重減少交易次數
 - 所有 lookback/period 參數已確認為整數型
+- v7: OOS 驗證通過 — ORB OOS Sharpe 2.78, VWAP OOS Sharpe 3.57
+- v7: 50/50 組合 Sharpe 1.88 為最佳配置
+- v7: data fetcher 已修復支援無 yfinance 環境（本地 CSV fallback）
 - Buy & Hold 回報為 -6.91%，兩個策略都優於 B&H

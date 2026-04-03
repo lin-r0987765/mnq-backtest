@@ -175,7 +175,7 @@ def main() -> int:
         f"{df.index[-1].strftime('%Y-%m-%d')}\n"
     )
 
-    engine = BacktestEngine(initial_cash=100_000.0, fees_pct=0.0005, size=1.0)
+    engine = BacktestEngine(initial_cash=100_000.0, fees_pct=0.0005, size=5.0)
     all_results: list[BacktestResult] = []
 
     # ── 2. Default ORB ────────────────────────────────────────────────────

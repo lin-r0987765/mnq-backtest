@@ -1,0 +1,79 @@
+{
+  "full": {
+    "orb": {
+      "total_return_pct": 0.1329,
+      "sharpe_ratio": 1.5231,
+      "sortino_ratio": 2.0252,
+      "calmar_ratio": 1.115,
+      "max_drawdown_pct": -0.1192,
+      "win_rate_pct": 59.375,
+      "total_trades": 64,
+      "profit_factor": 1.6246,
+      "avg_trade_pct": 0.0021
+    },
+    "vwap": {
+      "total_return_pct": 0.0352,
+      "sharpe_ratio": 2.1366,
+      "sortino_ratio": 0.6672,
+      "calmar_ratio": 2.3636,
+      "max_drawdown_pct": -0.0149,
+      "win_rate_pct": 71.4286,
+      "total_trades": 14,
+      "profit_factor": 3.8864,
+      "avg_trade_pct": 0.0025
+    }
+  },
+  "in_sample": {
+    "orb": {
+      "total_return_pct": 0.0448,
+      "sharpe_ratio": 0.8084,
+      "sortino_ratio": 1.0278,
+      "calmar_ratio": 0.3969,
+      "max_drawdown_pct": -0.1129,
+      "win_rate_pct": 60.9756,
+      "total_trades": 41,
+      "profit_factor": 1.5315,
+      "avg_trade_pct": 0.0011
+    },
+    "vwap": {
+      "total_return_pct": 0.0095,
+      "sharpe_ratio": 1.0694,
+      "sortino_ratio": 0.2176,
+      "calmar_ratio": 0.9432,
+      "max_drawdown_pct": -0.01,
+      "win_rate_pct": 71.4286,
+      "total_trades": 7,
+      "profit_factor": 2.8473,
+      "avg_trade_pct": 0.0014
+    },
+    "buy_hold": -1.4291
+  },
+  "out_of_sample": {
+    "orb": {
+      "total_return_pct": 0.0881,
+      "sharpe_ratio": 2.7799,
+      "sortino_ratio": 4.052,
+      "calmar_ratio": 0.984,
+      "max_drawdown_pct": -0.0895,
+      "win_rate_pct": 56.5217,
+      "total_trades": 23,
+      "profit_factor": 1.7385,
+      "avg_trade_pct": 0.0038
+    },
+    "vwap": {
+      "total_return_pct": 0.0257,
+      "sharpe_ratio": 3.5687,
+      "sortino_ratio": 1.7675,
+      "calmar_ratio": 1.7262,
+      "max_drawdown_pct": -0.0149,
+      "win_rate_pct": 71.4286,
+      "total_trades": 7,
+      "profit_factor": 5.2222,
+      "avg_trade_pct": 0.0037
+    },
+    "buy_hold": -4.2124
+  },
+  "split_date": "2026-03-05",
+  "is_days": 40,
+  "oos_days": 20
+}

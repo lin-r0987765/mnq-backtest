@@ -1,0 +1,219 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0
+// https://mozilla.org/MPL/2.0/
+// © ICT 整合交易系統 — VWAP Reversion v9 Strategy
+// 迭代 #9 | 最佳參數：k=1.5, sl_k=0.5, EMA Cross 過濾
+
+//@version=6
+strategy("VWAP Reversion v9 — Mean Reversion", overlay=true,
+     default_qty_type=strategy.fixed, default_qty_value=5,
+     initial_capital=100000, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     process_orders_on_close=false)
+
+// ══════════════════════════════════════════════════════════════════════
+// 參數設定
+// ══════════════════════════════════════════════════════════════════════
+grp_vwap = "VWAP Band 設定"
+kMult       = input.float(1.5, "Band 倍數 (k)", minval=0.5, maxval=3.0, step=0.1, group=grp_vwap)
+slKAdd      = input.float(0.5, "SL 額外倍數 (sl_k_add)", minval=0.1, maxval=2.0, step=0.1, group=grp_vwap)
+stdWindow   = input.int(30, "Std 滾動窗口", minval=10, maxval=60, group=grp_vwap)
+bbWidthMin  = input.float(0.05, "最小 Band 寬度 %", minval=0.01, maxval=0.5, step=0.01, group=grp_vwap)
+
+grp_filter = "過濾條件"
+rsiPeriod   = input.int(14, "RSI 週期", minval=5, maxval=30, group=grp_filter)
+rsiOS       = input.float(35.0, "RSI 超賣", minval=10, maxval=45, step=1.0, group=grp_filter)
+rsiOB       = input.float(65.0, "RSI 超買", minval=55, maxval=90, step=1.0, group=grp_filter)
+useEMAFilter = input.bool(true, "啟用 EMA 趨勢過濾", group=grp_filter)
+emaFast     = input.int(20, "EMA 快線", minval=5, maxval=50, group=grp_filter)
+emaSlow     = input.int(50, "EMA 慢線", minval=20, maxval=200, group=grp_filter)
+atrPeriod   = input.int(14, "ATR 週期", minval=5, maxval=30, group=grp_filter)
+atrMinPct   = input.float(0.05, "最小 ATR/價格 %", minval=0.01, maxval=0.5, step=0.01, group=grp_filter)
+useVolFilter = input.bool(true, "啟用成交量過濾", group=grp_filter)
+volMinMult  = input.float(0.5, "成交量最低倍數", minval=0.1, maxval=2.0, step=0.1, group=grp_filter)
+
+grp_tp = "止盈設定"
+useDynamicTP = input.bool(true, "啟用動態止盈", group=grp_tp)
+tpBonusPct  = input.float(0.2, "趨勢方向 TP 加成", minval=0.0, maxval=1.0, step=0.05, group=grp_tp)
+
+grp_trade = "交易管理"
+maxTradesPerDay = input.int(2, "每日最大交易次數", minval=1, maxval=5, group=grp_trade)
+closeBeforeMin  = input.int(15, "收盤前 N 分鐘平倉", minval=5, maxval=60, group=grp_trade)
+entryStartHour  = input.int(9, "入場開始 時", minval=9, maxval=12, group=grp_trade)
+entryStartMin   = input.int(45, "入場開始 分", minval=0, maxval=59, group=grp_trade)
+entryEndHour    = input.int(15, "入場結束 時", minval=12, maxval=16, group=grp_trade)
+entryEndMin     = input.int(30, "入場結束 分", minval=0, maxval=59, group=grp_trade)
+
+// ══════════════════════════════════════════════════════════════════════
+// 時間判斷
+// ══════════════════════════════════════════════════════════════════════
+nyTZ = "America/New_York"
+currentHour   = hour(time, nyTZ)
+currentMinute = minute(time, nyTZ)
+totalMinutes  = currentHour * 60 + currentMinute
+isNewSession  = ta.change(time("D")) != 0
+
+entryStartMins = entryStartHour * 60 + entryStartMin
+entryEndMins   = entryEndHour * 60 + entryEndMin
+isEntryWindow  = totalMinutes >= entryStartMins and totalMinutes <= entryEndMins
+isForceClose   = totalMinutes >= (960 - closeBeforeMin)  // 960 = 16:00
+isMarketHours  = totalMinutes >= 570 and totalMinutes <= 960  // 09:30 ~ 16:00
+
+// ══════════════════════════════════════════════════════════════════════
+// Session-Anchored VWAP 計算
+// ══════════════════════════════════════════════════════════════════════
+var float cumTPV = 0.0   // cumulative (typical_price × volume)
+var float cumVol = 0.0   // cumulative volume
+
+if isNewSession
+    cumTPV := 0.0
+    cumVol := 0.0
+
+typicalPrice = (high + low + close) / 3.0
+
+if isMarketHours
+    cumTPV += typicalPrice * volume
+    cumVol += volume
+
+vwapValue = cumVol > 0 ? cumTPV / cumVol : close
+
+// Rolling Std of typical price
+stdDev = ta.stdev(typicalPrice, stdWindow)
+
+// VWAP Bands
+upperBand = vwapValue + kMult * stdDev
+lowerBand = vwapValue - kMult * stdDev
+slUpperBand = vwapValue + (kMult + slKAdd) * stdDev
+slLowerBand = vwapValue - (kMult + slKAdd) * stdDev
+
+// Band 寬度過濾
+bbWidth = vwapValue > 0 ? (upperBand - lowerBand) / vwapValue * 100 : 0.0
+bbWidthOK = bbWidth >= bbWidthMin
+
+// ══════════════════════════════════════════════════════════════════════
+// 指標計算
+// ══════════════════════════════════════════════════════════════════════
+rsiValue = ta.rsi(close, rsiPeriod)
+atrValue = ta.atr(atrPeriod)
+emaFastLine = ta.ema(close, emaFast)
+emaSlowLine = ta.ema(close, emaSlow)
+volMA = ta.sma(volume, 20)
+
+// EMA 趨勢判斷（ema_cross 模式：EMA20 vs EMA50）
+isUptrend   = emaFastLine > emaSlowLine
+isDowntrend = emaFastLine < emaSlowLine
+
+// ATR 過濾
+atrPctValue = close > 0 ? atrValue / close * 100 : 0.0
+atrOK = atrPctValue >= atrMinPct
+
+// 成交量過濾
+volOK = not useVolFilter or (volMA > 0 and volume >= volMA * volMinMult)
+
+// ══════════════════════════════════════════════════════════════════════
+// 交易計數（每日重置）
+// ══════════════════════════════════════════════════════════════════════
+var int dailyTrades = 0
+
+if isNewSession
+    dailyTrades := 0
+
+canTrade = dailyTrades < maxTradesPerDay
+
+// ══════════════════════════════════════════════════════════════════════
+// 入場條件
+// ══════════════════════════════════════════════════════════════════════
+noPosition = strategy.position_size == 0
+
+// 共用過濾
+commonFilter = noPosition and isEntryWindow and isMarketHours and bbWidthOK and atrOK and volOK and canTrade and not na(stdDev) and stdDev > 0
+
+// 做多：價格 < 下軌 + RSI 超賣 + 非下降趨勢
+longCondition = commonFilter and close < lowerBand and rsiValue < rsiOS
+longEMAPass   = not useEMAFilter or not isDowntrend
+longEntry     = longCondition and longEMAPass
+
+// 做空：價格 > 上軌 + RSI 超買 + 非上升趨勢
+shortCondition = commonFilter and close > upperBand and rsiValue > rsiOB
+shortEMAPass   = not useEMAFilter or not isUptrend
+shortEntry     = shortCondition and shortEMAPass
+
+// 動態 TP 計算
+tpLong  = useDynamicTP and isUptrend ? vwapValue + tpBonusPct * kMult * stdDev : vwapValue
+tpShort = useDynamicTP and isDowntrend ? vwapValue - tpBonusPct * kMult * stdDev : vwapValue
+
+// ══════════════════════════════════════════════════════════════════════
+// 入場執行
+// ══════════════════════════════════════════════════════════════════════
+var float entrySL = na
+var float entryTP = na
+
+if longEntry
+    entrySL := slLowerBand
+    entryTP := tpLong
+    strategy.entry("Long", strategy.long)
+    dailyTrades += 1
+
+if shortEntry
+    entrySL := slUpperBand
+    entryTP := tpShort
+    strategy.entry("Short", strategy.short)
+    dailyTrades += 1
+
+// ══════════════════════════════════════════════════════════════════════
+// 出場邏輯
+// ══════════════════════════════════════════════════════════════════════
+
+// 做多出場：回歸 VWAP (TP) 或跌破 SL Band 或 EOD
+if strategy.position_size > 0
+    if close >= vwapValue
+        strategy.close("Long", comment="TP→VWAP")
+    else if close <= slLowerBand
+        strategy.close("Long", comment="SL")
+    else if isForceClose
+        strategy.close("Long", comment="EOD")
+
+// 做空出場：回歸 VWAP (TP) 或突破 SL Band 或 EOD
+if strategy.position_size < 0
+    if close <= vwapValue
+        strategy.close("Short", comment="TP→VWAP")
+    else if close >= slUpperBand
+        strategy.close("Short", comment="SL")
+    else if isForceClose
+        strategy.close("Short", comment="EOD")
+
+// ══════════════════════════════════════════════════════════════════════
+// 視覺化
+// ══════════════════════════════════════════════════════════════════════
+vwapPlot    = plot(isMarketHours ? vwapValue    : na, "VWAP",       color=color.new(color.orange, 0),  linewidth=2)
+upperPlot   = plot(isMarketHours ? upperBand    : na, "Upper Band", color=color.new(color.red, 40),    linewidth=1)
+lowerPlot   = plot(isMarketHours ? lowerBand    : na, "Lower Band", color=color.new(color.green, 40),  linewidth=1)
+fill(upperPlot, lowerPlot, color=color.new(color.purple, 92), title="VWAP Band")
+
+plot(isMarketHours ? slUpperBand : na, "SL Upper", color=color.new(color.red, 70),   linewidth=1, style=plot.style_stepline)
+plot(isMarketHours ? slLowerBand : na, "SL Lower", color=color.new(color.green, 70), linewidth=1, style=plot.style_stepline)
+
+// EMA 線
+plot(useEMAFilter ? emaFastLine : na, "EMA Fast", color=color.new(color.aqua, 50), linewidth=1)
+plot(useEMAFilter ? emaSlowLine : na, "EMA Slow", color=color.new(color.gray, 50), linewidth=1)
+
+// RSI 超買超賣標記
+plotshape(longEntry,  title="Long Signal",  location=location.belowbar, style=shape.triangleup,   color=color.green, size=size.small)
+plotshape(shortEntry, title="Short Signal", location=location.abovebar, style=shape.triangledown, color=color.red,   size=size.small)
+
+// ══════════════════════════════════════════════════════════════════════
+// 資訊面板
+// ══════════════════════════════════════════════════════════════════════
+var table infoTable = table.new(position.top_right, 2, 6, bgcolor=color.new(color.black, 80))
+if barstate.islast
+    table.cell(infoTable, 0, 0, "VWAP",       text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 1, 0, str.tostring(vwapValue, "#.##"), text_color=color.orange, text_size=size.small)
+    table.cell(infoTable, 0, 1, "RSI",        text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 1, 1, str.tostring(rsiValue, "#.#"), text_color=rsiValue < rsiOS ? color.green : rsiValue > rsiOB ? color.red : color.gray, text_size=size.small)
+    table.cell(infoTable, 0, 2, "BB Width %", text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 1, 2, str.tostring(bbWidth, "#.###"), text_color=bbWidthOK ? color.green : color.red, text_size=size.small)
+    table.cell(infoTable, 0, 3, "Trend",      text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 1, 3, isUptrend ? "▲ Up" : isDowntrend ? "▼ Down" : "— Flat", text_color=isUptrend ? color.green : isDowntrend ? color.red : color.gray, text_size=size.small)
+    table.cell(infoTable, 0, 4, "Trades/Day", text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 1, 4, str.tostring(dailyTrades) + "/" + str.tostring(maxTradesPerDay), text_color=canTrade ? color.green : color.red, text_size=size.small)
+    table.cell(infoTable, 0, 5, "ATR %",      text_color=color.white, text_size=size.small)
+    table.cell(infoTable, 1, 5, str.tostring(atrPctValue, "#.###"), text_color=atrOK ? color.green : color.red, text_size=size.small)

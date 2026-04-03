@@ -1,0 +1,167 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0
+// https://mozilla.org/MPL/2.0/
+// © ICT 整合交易系統 — ORB v6 Strategy
+// 迭代 #9 | 最佳參數：orb_bars=4, profit_ratio=3.5, trailing_pct=1.5%
+
+//@version=6
+strategy("ORB v6 — Opening Range Breakout", overlay=true,
+     default_qty_type=strategy.fixed, default_qty_value=5,
+     initial_capital=100000, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     process_orders_on_close=false)
+
+// ══════════════════════════════════════════════════════════════════════
+// 參數設定
+// ══════════════════════════════════════════════════════════════════════
+grp_orb = "Opening Range 設定"
+orbBars       = input.int(4, "ORB K棒數量（×時間框架）", minval=2, maxval=8, group=grp_orb)
+profitRatio   = input.float(3.5, "止盈倍數（× Range Width）", minval=1.0, maxval=8.0, step=0.5, group=grp_orb)
+breakoutPct   = input.float(0.03, "突破確認 %", minval=0.0, maxval=0.5, step=0.01, group=grp_orb)
+minRangePct   = input.float(0.1, "最小 Range 寬度 %", minval=0.01, maxval=1.0, step=0.01, group=grp_orb)
+
+grp_exit = "出場設定"
+useTrailing   = input.bool(true, "啟用移動止損", group=grp_exit)
+trailingPct   = input.float(1.5, "移動止損 %", minval=0.1, maxval=5.0, step=0.1, group=grp_exit)
+closeBeforeMin = input.int(15, "收盤前 N 分鐘強制平倉", minval=5, maxval=60, group=grp_exit)
+
+grp_time = "交易時段"
+sessionStart  = input.session("0930-0950", "Opening Range 時段", group=grp_time)
+sessionEnd    = input.session("0930-1545", "可交易時段", group=grp_time)
+
+// ══════════════════════════════════════════════════════════════════════
+// 時間判斷
+// ══════════════════════════════════════════════════════════════════════
+nyTZ = "America/New_York"
+currentHour   = hour(time, nyTZ)
+currentMinute = minute(time, nyTZ)
+totalMinutes  = currentHour * 60 + currentMinute
+
+// Opening Range 時段（09:30 ~ 09:30 + orbBars × timeframe）
+isNewSession  = ta.change(time("D")) != 0
+orbEndMinute  = 570 + orbBars * timeframe.multiplier  // 570 = 09:30
+isORBPeriod   = totalMinutes >= 570 and totalMinutes < orbEndMinute
+isPostORB     = totalMinutes >= orbEndMinute and totalMinutes < (960 - closeBeforeMin)  // 960 = 16:00
+isForceClose  = totalMinutes >= (960 - closeBeforeMin)
+
+// ══════════════════════════════════════════════════════════════════════
+// Opening Range 計算
+// ══════════════════════════════════════════════════════════════════════
+var float orbHigh = na
+var float orbLow  = na
+var bool  orbSet  = false
+
+if isNewSession
+    orbHigh := na
+    orbLow  := na
+    orbSet  := false
+
+if isORBPeriod
+    orbHigh := na(orbHigh) ? high : math.max(orbHigh, high)
+    orbLow  := na(orbLow)  ? low  : math.min(orbLow, low)
+
+// ORB 結束時鎖定
+if not isORBPeriod and not na(orbHigh) and not orbSet
+    orbSet := true
+
+rangeWidth = orbHigh - orbLow
+midPrice   = (orbHigh + orbLow) / 2.0
+rangeValid = orbSet and not na(rangeWidth) and rangeWidth > 0 and (rangeWidth / midPrice * 100) >= minRangePct
+
+// 突破確認水位
+breakoutConfirm = breakoutPct / 100.0
+longEntryLevel  = orbHigh * (1.0 + breakoutConfirm)
+shortEntryLevel = orbLow  * (1.0 - breakoutConfirm)
+
+// 止盈水位
+tpLong  = orbHigh + profitRatio * rangeWidth
+tpShort = orbLow  - profitRatio * rangeWidth
+
+// ══════════════════════════════════════════════════════════════════════
+// 交易狀態管理
+// ══════════════════════════════════════════════════════════════════════
+var float bestPriceLong  = na
+var float bestPriceShort = na
+var bool  tradedToday    = false
+
+if isNewSession
+    bestPriceLong  := na
+    bestPriceShort := na
+    tradedToday    := false
+
+// 更新最佳價格（用於 trailing stop）
+if strategy.position_size > 0
+    bestPriceLong := na(bestPriceLong) ? close : math.max(bestPriceLong, close)
+if strategy.position_size < 0
+    bestPriceShort := na(bestPriceShort) ? close : math.min(bestPriceShort, close)
+
+// ══════════════════════════════════════════════════════════════════════
+// 入場信號
+// ══════════════════════════════════════════════════════════════════════
+noPosition = strategy.position_size == 0
+
+// 做多：收盤價突破 ORB 高點
+longEntry = noPosition and isPostORB and rangeValid and not tradedToday and close > longEntryLevel
+
+// 做空：收盤價跌破 ORB 低點
+shortEntry = noPosition and isPostORB and rangeValid and not tradedToday and close < shortEntryLevel
+
+if longEntry
+    strategy.entry("Long", strategy.long)
+    bestPriceLong := close
+    tradedToday := true
+
+if shortEntry
+    strategy.entry("Short", strategy.short)
+    bestPriceShort := close
+    tradedToday := true
+
+// ══════════════════════════════════════════════════════════════════════
+// 出場邏輯
+// ══════════════════════════════════════════════════════════════════════
+
+// 做多出場
+if strategy.position_size > 0
+    // Trailing Stop
+    trailFactor = trailingPct / 100.0
+    trailSL = useTrailing and not na(bestPriceLong) ? bestPriceLong * (1.0 - trailFactor) : orbLow
+    effectiveSL = math.max(nz(orbLow, 0), nz(trailSL, 0))
+
+    // TP 或 SL 或 強制平倉
+    if close <= effectiveSL
+        strategy.close("Long", comment="SL/Trail")
+    else if close >= tpLong
+        strategy.close("Long", comment="TP")
+    else if isForceClose
+        strategy.close("Long", comment="EOD")
+
+// 做空出場
+if strategy.position_size < 0
+    trailFactor = trailingPct / 100.0
+    trailSL = useTrailing and not na(bestPriceShort) ? bestPriceShort * (1.0 + trailFactor) : orbHigh
+    effectiveSL = math.min(nz(orbHigh, 99999), nz(trailSL, 99999))
+
+    if close >= effectiveSL
+        strategy.close("Short", comment="SL/Trail")
+    else if close <= tpShort
+        strategy.close("Short", comment="TP")
+    else if isForceClose
+        strategy.close("Short", comment="EOD")
+
+// ══════════════════════════════════════════════════════════════════════
+// 視覺化
+// ══════════════════════════════════════════════════════════════════════
+orbHighLine = plot(orbSet ? orbHigh : na, "ORB High", color=color.new(color.green, 30), linewidth=2, style=plot.style_stepline)
+orbLowLine  = plot(orbSet ? orbLow  : na, "ORB Low",  color=color.new(color.red, 30),   linewidth=2, style=plot.style_stepline)
+fill(orbHighLine, orbLowLine, color=color.new(color.blue, 90), title="ORB Zone")
+
+plot(orbSet ? longEntryLevel  : na, "Long Entry",  color=color.new(color.green, 60), linewidth=1, style=plot.style_stepline)
+plot(orbSet ? shortEntryLevel : na, "Short Entry", color=color.new(color.red, 60),   linewidth=1, style=plot.style_stepline)
+plot(orbSet ? tpLong  : na, "TP Long",  color=color.new(color.lime, 70),  linewidth=1, style=plot.style_cross)
+plot(orbSet ? tpShort : na, "TP Short", color=color.new(color.fuchsia, 70), linewidth=1, style=plot.style_cross)
+
+// 背景色標記 ORB 時段
+bgcolor(isORBPeriod ? color.new(color.blue, 92) : na, title="ORB Period")
+
+// 入場標記
+plotshape(longEntry,  title="Long Signal",  location=location.belowbar, style=shape.triangleup,   color=color.green, size=size.small)
+plotshape(shortEntry, title="Short Signal", location=location.abovebar, style=shape.triangledown, color=color.red,   size=size.small)

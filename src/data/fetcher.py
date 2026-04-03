@@ -1,17 +1,28 @@
 """
-Data fetcher module - downloads NQ futures data via yfinance.
+Data fetcher module - loads local CSV or downloads NQ futures data via yfinance.
 """
 from __future__ import annotations
 
 import time
 from datetime import datetime, timedelta
+from pathlib import Path
 from typing import Optional
 
 import pandas as pd
-import yfinance as yf
+
+try:
+    import yfinance as yf
+    _HAS_YF = True
+except ImportError:
+    _HAS_YF = False
+
 from rich.console import Console
 
 console = Console()
+
+# Local CSV path (project root)
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+_LOCAL_CSV = _PROJECT_ROOT / "qqq_5m.csv"
 
 
 def fetch_nq_data(
@@ -23,56 +34,56 @@ def fetch_nq_data(
 ) -> pd.DataFrame:
     """
     Download NQ futures (or NDX index as fallback) 5-minute OHLCV data.
-
-    Parameters
-    ----------
-    symbol      : Primary ticker symbol (default NQ=F)
-    period      : History length accepted by yfinance (default 60d)
-    interval    : Bar interval (default 5m)
-    retries     : Number of download attempts before falling back
-    fallback_symbol : Ticker to try if primary fails
-
-    Returns
-    -------
-    pd.DataFrame with columns [Open, High, Low, Close, Volume] and
-    a DatetimeIndex in US/Eastern timezone.
+    Falls back to local CSV if yfinance is unavailable.
     """
+    # Try local CSV first if yfinance not available
+    if not _HAS_YF:
+        return _load_local_csv()
+
     for attempt in range(1, retries + 1):
         try:
             console.print(
-                f"[cyan]Downloading {symbol} data (attempt {attempt}/{retries})…[/cyan]"
+                f"[cyan]Downloading {symbol} data (attempt {attempt}/{retries})...[/cyan]"
             )
             ticker = yf.Ticker(symbol)
             df = ticker.history(period=period, interval=interval, auto_adjust=True)
             if df is not None and not df.empty and len(df) > 100:
                 df = _clean_df(df)
                 console.print(
-                    f"[green]✓ Downloaded {len(df)} bars for {symbol}[/green]"
+                    f"[green]Downloaded {len(df)} bars for {symbol}[/green]"
                 )
                 return df
         except Exception as exc:
             console.print(f"[yellow]Attempt {attempt} failed: {exc}[/yellow]")
             time.sleep(2)
 
-    # Fallback
-    console.print(
-        f"[yellow]Primary symbol {symbol} failed – trying fallback {fallback_symbol}[/yellow]"
-    )
-    try:
-        ticker = yf.Ticker(fallback_symbol)
-        df = ticker.history(period=period, interval=interval, auto_adjust=True)
-        if df is not None and not df.empty:
-            df = _clean_df(df)
-            console.print(
-                f"[green]✓ Downloaded {len(df)} bars for {fallback_symbol} (fallback)[/green]"
-            )
-            return df
-    except Exception as exc:
-        raise RuntimeError(
-            f"Failed to download data for {symbol} and {fallback_symbol}: {exc}"
-        ) from exc
+    # Fallback to local CSV
+    console.print(f"[yellow]yfinance failed, loading local CSV...[/yellow]")
+    return _load_local_csv()
 
-    raise RuntimeError(f"No data returned for {symbol} or {fallback_symbol}")
+
+def _load_local_csv() -> pd.DataFrame:
+    """Load the local qqq_5m.csv file."""
+    if not _LOCAL_CSV.exists():
+        raise RuntimeError(f"Local CSV not found: {_LOCAL_CSV}")
+
+    console.print(f"[cyan]Loading local CSV: {_LOCAL_CSV.name}[/cyan]")
+
+    # Handle yfinance multi-level header (row 0 = Price names, row 1 = Ticker)
+    df = pd.read_csv(_LOCAL_CSV, header=[0, 1], index_col=0)
+
+    # Flatten multi-level columns: take first level only
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+
+    # Drop any rows where index is not a valid datetime
+    df.index = pd.to_datetime(df.index, errors="coerce")
+    df = df.dropna(subset=["Close"])
+    df = df[df.index.notna()]
+
+    df = _clean_df(df)
+    console.print(f"[green]Loaded {len(df)} bars from local CSV[/green]")
+    return df
 
 
 def _clean_df(df: pd.DataFrame) -> pd.DataFrame:
@@ -101,14 +112,11 @@ def _clean_df(df: pd.DataFrame) -> pd.DataFrame:
 def get_trading_sessions(df: pd.DataFrame) -> list[pd.DataFrame]:
     """
     Split a continuous intraday DataFrame into individual trading days.
-
-    Returns a list of per-day DataFrames, each containing only regular
-    trading hours (09:30 – 16:00 US/Eastern).
     """
     sessions = []
     for date, group in df.groupby(df.index.date):
         session = group.between_time("09:30", "16:00")
-        if len(session) >= 10:  # skip days with too few bars
+        if len(session) >= 10:
             sessions.append(session)
     return sessions
 

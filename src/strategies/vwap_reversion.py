@@ -1,12 +1,10 @@
 """
-VWAP Mean-Reversion Strategy — v3 趨勢過濾版
+VWAP Mean-Reversion Strategy — v9 放寬反轉確認版
 
-改進項目（迭代 #4）：
-1. EMA 趨勢過濾：只在順勢方向做均值回歸（EMA20 > EMA50 → 只做多回歸）
-2. 動態 TP：不只回歸到 VWAP，而是回歸到 VWAP + 部分超額（趨勢方向可以多賺）
-3. 加入 Bollinger Band 寬度過濾：BB 太窄時不開倉（盤整期假信號多）
-4. 優化入場時間窗口：根據 grid search 數據限縮到最佳時段
-5. 放寬 RSI 條件至 rsi_ob=80：增加交易機會
+改進項目（迭代 #9）：
+1. 放寬反轉 K 棒確認：body_ratio 0.4→0.25，新增 simple_direction 模式
+2. 新增 reversal_mode 參數：strict(v8)/relaxed(body≥0.25)/simple(只看close vs open方向)
+3. 保留 v7 最佳參數基底：k=1.3, sl_k_add=0.7, ema_cross
 """
 from __future__ import annotations
 
@@ -18,27 +16,31 @@ import pandas as pd
 from src.strategies.base import BaseStrategy, StrategyResult
 
 _DEFAULT_PARAMS: dict[str, Any] = {
-    "k": 2.0,                # Band multiplier (VWAP ± k × std)（v3 grid 最佳）
-    "sl_k_add": 0.3,         # Extra k for stop-loss beyond entry band（v3 收緊）
-    "std_window": 30,        # Rolling window for std calculation（v3 加長）
+    "k": 1.5,                # Band multiplier — v9: 1.3→1.5 Sharpe +4.7%
+    "sl_k_add": 0.5,         # Extra k for stop-loss — v9: 0.7→0.5 配合更寬 band
+    "std_window": 30,        # Rolling window for std (grid confirmed 30 optimal)
     "rsi_period": 14,        # RSI period
-    "rsi_os": 30,            # RSI oversold threshold
-    "rsi_ob": 75,            # RSI overbought threshold（v3 grid 最佳）
+    "rsi_os": 35,            # RSI oversold — v4 放寬（原 30）
+    "rsi_ob": 65,            # RSI overbought — v4 grid最佳（原 75）
     "close_before_min": 15,
     "atr_period": 14,        # ATR 計算週期
     "atr_min_pct": 0.0005,   # 最小 ATR/價格比（過濾低波動期）
     "vol_filter": True,      # 成交量過濾開關
     "vol_min_mult": 0.5,     # 成交量至少要均量的倍數
-    "entry_start_time": "10:00",   # 最早入場時間
+    "entry_start_time": "09:45",   # 最早入場時間 — v5 提早捕捉開盤回歸
     "entry_end_time": "15:30",     # 最晚入場時間
     "max_trades_per_day": 2,       # 每日最大交易次數（v3 grid 最佳）
-    # v3 新增參數
+    # v4 趨勢過濾（改為 price vs EMA20）
     "ema_trend_filter": True,      # EMA 趨勢過濾開關
-    "ema_fast": 20,                # 快速 EMA 週期
-    "ema_slow": 50,                # 慢速 EMA 週期
+    "ema_fast": 20,                # EMA 週期（用於趨勢判斷）
+    "ema_slow": 50,                # 慢速 EMA（保留但不用於過濾）
+    "ema_mode": "ema_cross",       # v5: ema_cross 為最佳模式（EMA20>EMA50）
     "dynamic_tp": True,            # 動態止盈（趨勢方向多賺）
-    "tp_bonus_pct": 0.2,           # TP 超越 VWAP 的比例（v3 grid 最佳 20%）
-    "bb_width_min": 0.001,         # BB 寬度最小值（v3 grid 最佳）
+    "tp_bonus_pct": 0.2,           # TP 超越 VWAP 的比例
+    "bb_width_min": 0.0005,        # BB 寬度最小值 — v5 放寬增加交易機會
+    # v9 反轉 K 棒確認（放寬版）
+    "reversal_confirm": False,      # 反轉 K 棒確認開關
+    "reversal_mode": "relaxed",     # strict(v8,body>0.4)/relaxed(body>0.25)/simple(close vs open)
 }
 
 
@@ -64,8 +66,60 @@ def _compute_vwap_and_std(
     return vwap, std
 
 
+def _is_bullish_reversal(row: pd.Series, mode: str = "relaxed") -> bool:
+    """Check for bullish reversal candle.
+
+    Modes:
+    - strict (v8): body > 40% of range
+    - relaxed (v9): body > 25% of range
+    - simple: just close > open
+    """
+    o, h, l, c = row["Open"], row["High"], row["Low"], row["Close"]
+    if mode == "simple":
+        return c > o
+    body = abs(c - o)
+    full_range = h - l
+    if full_range <= 0:
+        return False
+    body_threshold = 0.4 if mode == "strict" else 0.25
+    # Hammer: small body at top, long lower wick
+    lower_wick = min(o, c) - l
+    if lower_wick > 2 * body and c >= o:
+        return True
+    # Bullish close (close > open with body > threshold of range)
+    if c > o and body / full_range > body_threshold:
+        return True
+    return False
+
+
+def _is_bearish_reversal(row: pd.Series, mode: str = "relaxed") -> bool:
+    """Check for bearish reversal candle.
+
+    Modes:
+    - strict (v8): body > 40% of range
+    - relaxed (v9): body > 25% of range
+    - simple: just close < open
+    """
+    o, h, l, c = row["Open"], row["High"], row["Low"], row["Close"]
+    if mode == "simple":
+        return c < o
+    body = abs(c - o)
+    full_range = h - l
+    if full_range <= 0:
+        return False
+    body_threshold = 0.4 if mode == "strict" else 0.25
+    # Shooting star: small body at bottom, long upper wick
+    upper_wick = h - max(o, c)
+    if upper_wick > 2 * body and c <= o:
+        return True
+    # Bearish close (close < open with body > threshold of range)
+    if c < o and body / full_range > body_threshold:
+        return True
+    return False
+
+
 class VWAPReversionStrategy(BaseStrategy):
-    """VWAP mean-reversion strategy — v3 趨勢過濾版"""
+    """VWAP mean-reversion strategy — v8 反轉確認版"""
 
     name = "VWAP_Reversion"
 
@@ -88,13 +142,16 @@ class VWAPReversionStrategy(BaseStrategy):
         entry_end = self.params.get("entry_end_time", "15:30")
         max_trades = int(self.params.get("max_trades_per_day", 1))
 
-        # v3 新增參數
+        # v4 趨勢過濾參數
         ema_trend_filter: bool = bool(self.params.get("ema_trend_filter", True))
         ema_fast: int = int(self.params.get("ema_fast", 20))
         ema_slow: int = int(self.params.get("ema_slow", 50))
+        ema_mode: str = str(self.params.get("ema_mode", "price_vs_ema"))
         dynamic_tp: bool = bool(self.params.get("dynamic_tp", True))
-        tp_bonus_pct: float = float(self.params.get("tp_bonus_pct", 0.3))
-        bb_width_min: float = float(self.params.get("bb_width_min", 0.002))
+        tp_bonus_pct: float = float(self.params.get("tp_bonus_pct", 0.2))
+        bb_width_min: float = float(self.params.get("bb_width_min", 0.001))
+        reversal_confirm: bool = bool(self.params.get("reversal_confirm", True))
+        reversal_mode: str = str(self.params.get("reversal_mode", "relaxed"))
 
         entries_long = pd.Series(False, index=df.index)
         exits_long = pd.Series(False, index=df.index)
@@ -195,16 +252,25 @@ class VWAPReversionStrategy(BaseStrategy):
                         if avg_vol > 0 and current_vol < avg_vol * vol_min_mult:
                             continue
 
-                    # v3: EMA 趨勢方向
+                    # v4: EMA 趨勢方向（支援兩種模式）
                     ema_f = ema_fast_series.loc[ts] if ts in ema_fast_series.index else np.nan
                     ema_s = ema_slow_series.loc[ts] if ts in ema_slow_series.index else np.nan
-                    is_uptrend = (not pd.isna(ema_f) and not pd.isna(ema_s) and ema_f > ema_s)
-                    is_downtrend = (not pd.isna(ema_f) and not pd.isna(ema_s) and ema_f < ema_s)
+                    if ema_mode == "price_vs_ema":
+                        # v4 新模式：價格 vs EMA20（更寬鬆）
+                        is_uptrend = (not pd.isna(ema_f) and close > ema_f)
+                        is_downtrend = (not pd.isna(ema_f) and close < ema_f)
+                    else:
+                        # v3 舊模式：EMA20 vs EMA50 交叉
+                        is_uptrend = (not pd.isna(ema_f) and not pd.isna(ema_s) and ema_f > ema_s)
+                        is_downtrend = (not pd.isna(ema_f) and not pd.isna(ema_s) and ema_f < ema_s)
 
                     # 做多入場：價格低於下軌 + RSI 超賣
                     if close < lower_band and r < rsi_os:
                         # v3: 如果開啟 EMA 過濾，只在上升趨勢或無趨勢時做多
                         if ema_trend_filter and is_downtrend:
+                            continue
+                        # v8: 反轉 K 棒確認
+                        if reversal_confirm and not _is_bullish_reversal(row, reversal_mode):
                             continue
                         entries_long[ts] = True
                         sl_stop[ts] = sl_lower
@@ -221,6 +287,9 @@ class VWAPReversionStrategy(BaseStrategy):
                     elif close > upper_band and r > rsi_ob:
                         # v3: 如果開啟 EMA 過濾，只在下降趨勢或無趨勢時做空
                         if ema_trend_filter and is_uptrend:
+                            continue
+                        # v8: 反轉 K 棒確認
+                        if reversal_confirm and not _is_bearish_reversal(row, reversal_mode):
                             continue
                         entries_short[ts] = True
                         sl_stop[ts] = sl_upper

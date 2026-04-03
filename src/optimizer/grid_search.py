@@ -116,18 +116,23 @@ VWAP_PARAM_RANGES: dict[str, list[Any]] = {
     "max_trades_per_day": [1, 2, 3],
 }
 
-# Compact grids for quick runs
+# Compact grids for quick runs — v5 含新參數
 ORB_QUICK_RANGES: dict[str, list[Any]] = {
-    "orb_bars": [4, 6, 8, 12],
-    "profit_ratio": [2.0, 3.0, 4.0],
-    "breakout_confirm_pct": [0.0005, 0.001, 0.002],
-    "trailing_pct": [0.003, 0.005, 0.008],
+    "orb_bars": [3, 4, 5],
+    "profit_ratio": [3.0, 3.5, 4.0],
+    "breakout_confirm_pct": [0.0003, 0.0005],
+    "trailing_pct": [0.012, 0.015, 0.018],
 }
 
 VWAP_QUICK_RANGES: dict[str, list[Any]] = {
-    "k": [1.5, 2.0, 2.5, 3.0],
-    "sl_k_add": [0.5],
-    "rsi_os": [25, 30, 35],
-    "rsi_ob": [65, 70, 75],
-    "max_trades_per_day": [1, 2],
+    "k": [1.3, 1.5],
+    "sl_k_add": [0.5, 0.7],
+    "std_window": [30],  # v7 確認 30 最佳
+    "rsi_os": [35],
+    "rsi_ob": [65],
+    "ema_mode": ["ema_cross"],
+    "max_trades_per_day": [2, 3],
+    "reversal_confirm": [True, False],
+    "reversal_mode": ["relaxed", "simple"],
+    "bb_width_min": [0.0005],
 }
