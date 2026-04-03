@@ -1,10 +1,9 @@
 """
-VWAP Mean-Reversion Strategy — v9 放寬反轉確認版
+VWAP Mean-Reversion Strategy — v11 部分止盈版
 
-改進項目（迭代 #9）：
-1. 放寬反轉 K 棒確認：body_ratio 0.4→0.25，新增 simple_direction 模式
-2. 新增 reversal_mode 參數：strict(v8)/relaxed(body≥0.25)/simple(只看close vs open方向)
-3. 保留 v7 最佳參數基底：k=1.3, sl_k_add=0.7, ema_cross
+改進項目（迭代 #11）：
+1. 部分止盈策略：50% 在 VWAP 平倉，50% 用 trailing stop 跟蹤趨勢
+2. 保留 v10 最佳參數基底：k=1.5, sl_k_add=0.5, ema_cross, max_trades=2
 """
 from __future__ import annotations
 
@@ -27,9 +26,9 @@ _DEFAULT_PARAMS: dict[str, Any] = {
     "atr_min_pct": 0.0005,   # 最小 ATR/價格比（過濾低波動期）
     "vol_filter": True,      # 成交量過濾開關
     "vol_min_mult": 0.5,     # 成交量至少要均量的倍數
-    "entry_start_time": "09:45",   # 最早入場時間 — v5 提早捕捉開盤回歸
+    "entry_start_time": "09:45",   # 最早入場時間（09:35/09:40 測試均退步）
     "entry_end_time": "15:30",     # 最晚入場時間
-    "max_trades_per_day": 2,       # 每日最大交易次數（v3 grid 最佳）
+    "max_trades_per_day": 2,       # 每日最大交易次數（3筆測試退步，維持2）
     # v4 趨勢過濾（改為 price vs EMA20）
     "ema_trend_filter": True,      # EMA 趨勢過濾開關
     "ema_fast": 20,                # EMA 週期（用於趨勢判斷）
@@ -41,6 +40,12 @@ _DEFAULT_PARAMS: dict[str, Any] = {
     # v9 反轉 K 棒確認（放寬版）
     "reversal_confirm": False,      # 反轉 K 棒確認開關
     "reversal_mode": "relaxed",     # strict(v8,body>0.4)/relaxed(body>0.25)/simple(close vs open)
+    # v10 前一根K棒反轉確認
+    "prev_bar_reversal": False,     # 檢查前一根K棒的反轉方向（而非當根）
+    # v11 部分止盈
+    "partial_tp": False,            # 部分止盈開關：50% @ VWAP, 50% trailing
+    "partial_tp_trail_pct": 0.003,  # trailing stop 百分比 (0.3%)
+    "partial_tp_max_hold": 24,      # 部分止盈最大持倉 K 棒數（2 小時）
 }
 
 
@@ -119,7 +124,7 @@ def _is_bearish_reversal(row: pd.Series, mode: str = "relaxed") -> bool:
 
 
 class VWAPReversionStrategy(BaseStrategy):
-    """VWAP mean-reversion strategy — v8 反轉確認版"""
+    """VWAP mean-reversion strategy — v11 部分止盈版"""
 
     name = "VWAP_Reversion"
 
@@ -152,6 +157,10 @@ class VWAPReversionStrategy(BaseStrategy):
         bb_width_min: float = float(self.params.get("bb_width_min", 0.001))
         reversal_confirm: bool = bool(self.params.get("reversal_confirm", True))
         reversal_mode: str = str(self.params.get("reversal_mode", "relaxed"))
+        prev_bar_reversal: bool = bool(self.params.get("prev_bar_reversal", False))
+        partial_tp: bool = bool(self.params.get("partial_tp", False))
+        partial_tp_trail_pct: float = float(self.params.get("partial_tp_trail_pct", 0.003))
+        partial_tp_max_hold: int = int(self.params.get("partial_tp_max_hold", 24))
 
         entries_long = pd.Series(False, index=df.index)
         exits_long = pd.Series(False, index=df.index)
@@ -197,6 +206,11 @@ class VWAPReversionStrategy(BaseStrategy):
             daily_trades = 0
             entry_vwap = 0.0
             entry_std = 0.0
+            prev_row = None  # v10: 追蹤前一根K棒
+            # v11 部分止盈狀態
+            partial_phase = 0  # 0=未入場, 1=全持倉, 2=部分止盈後半倉trailing
+            partial_best_price = 0.0
+            partial_bars_held = 0
 
             for ts in sess.index:
                 row = sess.loc[ts]
@@ -268,10 +282,18 @@ class VWAPReversionStrategy(BaseStrategy):
                     if close < lower_band and r < rsi_os:
                         # v3: 如果開啟 EMA 過濾，只在上升趨勢或無趨勢時做多
                         if ema_trend_filter and is_downtrend:
+                            prev_row = row  # v10
                             continue
-                        # v8: 反轉 K 棒確認
-                        if reversal_confirm and not _is_bullish_reversal(row, reversal_mode):
-                            continue
+                        # v8/v10: 反轉 K 棒確認（支援前一根模式）
+                        if reversal_confirm:
+                            if prev_bar_reversal and prev_row is not None:
+                                if not _is_bullish_reversal(prev_row, reversal_mode):
+                                    prev_row = row
+                                    continue
+                            elif not prev_bar_reversal:
+                                if not _is_bullish_reversal(row, reversal_mode):
+                                    prev_row = row
+                                    continue
                         entries_long[ts] = True
                         sl_stop[ts] = sl_lower
                         # v3: 動態 TP
@@ -283,14 +305,25 @@ class VWAPReversionStrategy(BaseStrategy):
                         entry_vwap = v
                         entry_std = s
                         daily_trades += 1
+                        if partial_tp:
+                            partial_phase = 1
+                            partial_bars_held = 0
                     # 做空入場：價格高於上軌 + RSI 超買
                     elif close > upper_band and r > rsi_ob:
                         # v3: 如果開啟 EMA 過濾，只在下降趨勢或無趨勢時做空
                         if ema_trend_filter and is_uptrend:
+                            prev_row = row  # v10
                             continue
-                        # v8: 反轉 K 棒確認
-                        if reversal_confirm and not _is_bearish_reversal(row, reversal_mode):
-                            continue
+                        # v8/v10: 反轉 K 棒確認（支援前一根模式）
+                        if reversal_confirm:
+                            if prev_bar_reversal and prev_row is not None:
+                                if not _is_bearish_reversal(prev_row, reversal_mode):
+                                    prev_row = row
+                                    continue
+                            elif not prev_bar_reversal:
+                                if not _is_bearish_reversal(row, reversal_mode):
+                                    prev_row = row
+                                    continue
                         entries_short[ts] = True
                         sl_stop[ts] = sl_upper
                         if dynamic_tp and is_downtrend:
@@ -301,15 +334,72 @@ class VWAPReversionStrategy(BaseStrategy):
                         entry_vwap = v
                         entry_std = s
                         daily_trades += 1
+                        if partial_tp:
+                            partial_phase = 1
+                            partial_bars_held = 0
                 else:
                     if in_long:
-                        if close >= v or close <= sl_lower:
-                            exits_long[ts] = True
-                            in_long = False
+                        if partial_tp and partial_phase == 1:
+                            # Phase 1: 等待到達 VWAP 做第一次部分止盈
+                            if close >= v:
+                                # 到達 VWAP，半倉止盈，進入 trailing 階段
+                                partial_phase = 2
+                                partial_best_price = close
+                                partial_bars_held = 0
+                                # 不完全退出, 繼續持有（引擎是全倉進出，
+                                # 這裡用 tp_stop 記錄 trailing stop）
+                            elif close <= sl_lower:
+                                exits_long[ts] = True
+                                in_long = False
+                                partial_phase = 0
+                            partial_bars_held += 1
+                            if partial_bars_held >= partial_tp_max_hold:
+                                exits_long[ts] = True
+                                in_long = False
+                                partial_phase = 0
+                        elif partial_tp and partial_phase == 2:
+                            # Phase 2: trailing stop
+                            partial_best_price = max(partial_best_price, close)
+                            trail_sl = partial_best_price * (1 - partial_tp_trail_pct)
+                            partial_bars_held += 1
+                            if close <= trail_sl or close <= sl_lower or partial_bars_held >= partial_tp_max_hold:
+                                exits_long[ts] = True
+                                in_long = False
+                                partial_phase = 0
+                        else:
+                            # 原始邏輯
+                            if close >= v or close <= sl_lower:
+                                exits_long[ts] = True
+                                in_long = False
                     if in_short:
-                        if close <= v or close >= sl_upper:
-                            exits_short[ts] = True
-                            in_short = False
+                        if partial_tp and partial_phase == 1:
+                            if close <= v:
+                                partial_phase = 2
+                                partial_best_price = close
+                                partial_bars_held = 0
+                            elif close >= sl_upper:
+                                exits_short[ts] = True
+                                in_short = False
+                                partial_phase = 0
+                            partial_bars_held += 1
+                            if partial_bars_held >= partial_tp_max_hold:
+                                exits_short[ts] = True
+                                in_short = False
+                                partial_phase = 0
+                        elif partial_tp and partial_phase == 2:
+                            partial_best_price = min(partial_best_price, close)
+                            trail_sl = partial_best_price * (1 + partial_tp_trail_pct)
+                            partial_bars_held += 1
+                            if close >= trail_sl or close >= sl_upper or partial_bars_held >= partial_tp_max_hold:
+                                exits_short[ts] = True
+                                in_short = False
+                                partial_phase = 0
+                        else:
+                            if close <= v or close >= sl_upper:
+                                exits_short[ts] = True
+                                in_short = False
+
+                prev_row = row  # v10: 更新前一根K棒
 
         return StrategyResult(
             entries_long=entries_long,
