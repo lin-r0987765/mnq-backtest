@@ -1,79 +1,189 @@
 {
   "full": {
     "orb": {
-      "total_return_pct": 0.1329,
-      "sharpe_ratio": 1.5231,
-      "sortino_ratio": 2.0252,
-      "calmar_ratio": 1.115,
-      "max_drawdown_pct": -0.1192,
-      "win_rate_pct": 59.375,
-      "total_trades": 64,
-      "profit_factor": 1.6246,
-      "avg_trade_pct": 0.0021
+      "total_return_pct": 0.5875,
+      "sharpe_ratio": 9.6757,
+      "sortino_ratio": 14.3705,
+      "calmar_ratio": 4.1241,
+      "max_drawdown_pct": -0.1425,
+      "win_rate_pct": 71.4286,
+      "total_trades": 42,
+      "profit_factor": 2.682,
+      "avg_trade_pct": 0.014
     },
     "vwap": {
-      "total_return_pct": 0.0352,
-      "sharpe_ratio": 2.1366,
-      "sortino_ratio": 0.6672,
-      "calmar_ratio": 2.3636,
-      "max_drawdown_pct": -0.0149,
-      "win_rate_pct": 71.4286,
-      "total_trades": 14,
-      "profit_factor": 3.8864,
-      "avg_trade_pct": 0.0025
+      "total_return_pct": 0.1994,
+      "sharpe_ratio": 11.3472,
+      "sortino_ratio": 21.9403,
+      "calmar_ratio": 5.6757,
+      "max_drawdown_pct": -0.0351,
+      "win_rate_pct": 60.0,
+      "total_trades": 10,
+      "profit_factor": 6.9288,
+      "avg_trade_pct": 0.0199
+    },
+    "combined": {
+      "static_60_40": {
+        "return_pct": 0.4323,
+        "sharpe": 4.978,
+        "sortino": 5.4115,
+        "max_dd_pct": -0.0855,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "static_50_50": {
+        "return_pct": 0.3935,
+        "sharpe": 5.292,
+        "sortino": 5.7918,
+        "max_dd_pct": -0.0713,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "static_70_30": {
+        "return_pct": 0.4711,
+        "sharpe": 4.719,
+        "sortino": 5.0878,
+        "max_dd_pct": -0.0998,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "active_reuse_80": {
+        "return_pct": 0.6364,
+        "sharpe": 5.6028,
+        "sortino": 6.0343,
+        "max_dd_pct": -0.1118,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "atr_adaptive_best": {
+        "return_pct": 0.4764,
+        "sharpe": 5.2205,
+        "sortino": 5.3526,
+        "max_dd_pct": -0.0998,
+        "win_rate": 0,
+        "trades": 0,
+        "threshold": 0.017,
+        "mode": "absolute"
+      },
+      "atr_adaptive_rolling": {
+        "return_pct": 0.4337,
+        "sharpe": 4.5639,
+        "sortino": 4.7634,
+        "max_dd_pct": -0.0998,
+        "win_rate": 0,
+        "trades": 0
+      }
     }
   },
   "in_sample": {
     "orb": {
-      "total_return_pct": 0.0448,
-      "sharpe_ratio": 0.8084,
-      "sortino_ratio": 1.0278,
-      "calmar_ratio": 0.3969,
-      "max_drawdown_pct": -0.1129,
-      "win_rate_pct": 60.9756,
-      "total_trades": 41,
-      "profit_factor": 1.5315,
-      "avg_trade_pct": 0.0011
+      "total_return_pct": 0.2145,
+      "sharpe_ratio": 5.6742,
+      "sortino_ratio": 8.1642,
+      "calmar_ratio": 1.5057,
+      "max_drawdown_pct": -0.1425,
+      "win_rate_pct": 68.0,
+      "total_trades": 25,
+      "profit_factor": 2.0294,
+      "avg_trade_pct": 0.0086
     },
     "vwap": {
-      "total_return_pct": 0.0095,
-      "sharpe_ratio": 1.0694,
-      "sortino_ratio": 0.2176,
-      "calmar_ratio": 0.9432,
-      "max_drawdown_pct": -0.01,
-      "win_rate_pct": 71.4286,
-      "total_trades": 7,
-      "profit_factor": 2.8473,
-      "avg_trade_pct": 0.0014
+      "total_return_pct": 0.1377,
+      "sharpe_ratio": 11.728,
+      "sortino_ratio": 23.7932,
+      "calmar_ratio": 4.1753,
+      "max_drawdown_pct": -0.033,
+      "win_rate_pct": 50.0,
+      "total_trades": 6,
+      "profit_factor": 7.2783,
+      "avg_trade_pct": 0.0229
     },
-    "buy_hold": -1.4291
+    "buy_hold": -2.437
   },
   "out_of_sample": {
     "orb": {
-      "total_return_pct": 0.0881,
-      "sharpe_ratio": 2.7799,
-      "sortino_ratio": 4.052,
-      "calmar_ratio": 0.984,
-      "max_drawdown_pct": -0.0895,
-      "win_rate_pct": 56.5217,
-      "total_trades": 23,
-      "profit_factor": 1.7385,
-      "avg_trade_pct": 0.0038
+      "total_return_pct": 0.3476,
+      "sharpe_ratio": 14.6075,
+      "sortino_ratio": 22.5343,
+      "calmar_ratio": 3.2431,
+      "max_drawdown_pct": -0.1072,
+      "win_rate_pct": 70.5882,
+      "total_trades": 17,
+      "profit_factor": 3.0493,
+      "avg_trade_pct": 0.0204
     },
     "vwap": {
-      "total_return_pct": 0.0257,
-      "sharpe_ratio": 3.5687,
-      "sortino_ratio": 1.7675,
-      "calmar_ratio": 1.7262,
-      "max_drawdown_pct": -0.0149,
-      "win_rate_pct": 71.4286,
-      "total_trades": 7,
-      "profit_factor": 5.2222,
-      "avg_trade_pct": 0.0037
+      "total_return_pct": 0.0617,
+      "sharpe_ratio": 10.5851,
+      "sortino_ratio": 18.7375,
+      "calmar_ratio": 2.2641,
+      "max_drawdown_pct": -0.0273,
+      "win_rate_pct": 75.0,
+      "total_trades": 4,
+      "profit_factor": 6.3029,
+      "avg_trade_pct": 0.0154
     },
-    "buy_hold": -4.2124
+    "buy_hold": -2.6446,
+    "combined_50_50": {
+      "return_pct": 0.2047,
+      "sharpe": 7.3579,
+      "sortino": 8.93,
+      "max_dd_pct": -0.0487,
+      "win_rate": 0,
+      "trades": 0
+    },
+    "combined_60_40": {
+      "return_pct": 0.2332,
+      "sharpe": 7.0604,
+      "sortino": 8.7158,
+      "max_dd_pct": -0.056,
+      "win_rate": 0,
+      "trades": 0
+    },
+    "combined_active_reuse_80": {
+      "return_pct": 0.3394,
+      "sharpe": 7.8446,
+      "sortino": 9.6859,
+      "max_dd_pct": -0.0664,
+      "win_rate": 0,
+      "trades": 0
+    },
+    "adaptive_absolute": {
+      "absolute_0.013": {
+        "return_pct": 0.2618,
+        "sharpe": 6.8165,
+        "sortino": 8.4518,
+        "max_dd_pct": -0.0633,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "absolute_0.015": {
+        "return_pct": 0.2618,
+        "sharpe": 6.8165,
+        "sortino": 8.4518,
+        "max_dd_pct": -0.0633,
+        "win_rate": 0,
+        "trades": 0
+      },
+      "absolute_0.017": {
+        "return_pct": 0.2618,
+        "sharpe": 6.8165,
+        "sortino": 8.4518,
+        "max_dd_pct": -0.0633,
+        "win_rate": 0,
+        "trades": 0
+      }
+    },
+    "adaptive_rolling": {
+      "return_pct": 0.2572,
+      "sharpe": 7.2152,
+      "sortino": 8.8276,
+      "max_dd_pct": -0.0633,
+      "win_rate": 0,
+      "trades": 0
+    }
   },
-  "split_date": "2026-03-05",
+  "split_date": "2026-03-06",
   "is_days": 40,
   "oos_days": 20
 }

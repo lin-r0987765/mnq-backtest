@@ -1,0 +1,256 @@
+// This Pine Script is subject to the terms of the Mozilla Public License 2.0
+// https://mozilla.org/MPL/2.0/
+// ICT VWAP Reversion v20 for TradingView
+// 對應 Python 版本：VWAP v20（rsi_ob = 66）
+
+//@version=6
+strategy("ICT VWAP Reversion v20 (QQQ 5m)", overlay=true,
+     initial_capital=100000,
+     default_qty_type=strategy.fixed,
+     default_qty_value=10,
+     commission_type=strategy.commission.percent,
+     commission_value=0.05,
+     pyramiding=0,
+     process_orders_on_close=true)
+
+f_array_stdev(float[] arr) =>
+    int sz = array.size(arr)
+    if sz < 2
+        na
+    else
+        float mean = 0.0
+        for i = 0 to sz - 1
+            mean += array.get(arr, i)
+        mean /= sz
+        float sumSq = 0.0
+        for i = 0 to sz - 1
+            float diff = array.get(arr, i) - mean
+            sumSq += diff * diff
+        math.sqrt(sumSq / (sz - 1))
+
+f_bullish_reversal(float o, float h, float l, float c, string mode) =>
+    if mode == "simple"
+        c > o
+    else
+        float body = math.abs(c - o)
+        float fullRange = h - l
+        if fullRange <= 0
+            false
+        else
+            float bodyThreshold = mode == "strict" ? 0.4 : 0.25
+            float lowerWick = math.min(o, c) - l
+            (lowerWick > 2 * body and c >= o) or (c > o and body / fullRange > bodyThreshold)
+
+f_bearish_reversal(float o, float h, float l, float c, string mode) =>
+    if mode == "simple"
+        c < o
+    else
+        float body = math.abs(c - o)
+        float fullRange = h - l
+        if fullRange <= 0
+            false
+        else
+            float bodyThreshold = mode == "strict" ? 0.4 : 0.25
+            float upperWick = h - math.max(o, c)
+            (upperWick > 2 * body and c <= o) or (c < o and body / fullRange > bodyThreshold)
+
+grpBands = "VWAP Bands"
+kMult = input.float(1.5, "Band 倍數 k", minval=1.0, maxval=3.0, step=0.1, group=grpBands)
+slKAdd = input.float(0.5, "停損額外倍數", minval=0.1, maxval=2.0, step=0.1, group=grpBands)
+stdWindow = input.int(30, "Std Window", minval=10, maxval=60, group=grpBands)
+bbWidthMin = input.float(0.0005, "最小 Band 寬度比率", minval=0.0001, maxval=0.01, step=0.0001, group=grpBands)
+
+grpFilters = "過濾"
+rsiPeriod = input.int(14, "RSI 週期", minval=5, maxval=30, group=grpFilters)
+rsiOS = input.float(32.0, "RSI Oversold", minval=25, maxval=40, step=1.0, group=grpFilters)
+rsiOB = input.float(66.0, "RSI Overbought", minval=60, maxval=75, step=1.0, group=grpFilters)
+atrPeriod = input.int(14, "ATR 週期", minval=5, maxval=30, group=grpFilters)
+atrMinPct = input.float(0.0005, "最小 ATR/價格比", minval=0.0001, maxval=0.01, step=0.0001, group=grpFilters)
+volFilter = input.bool(true, "啟用成交量過濾", group=grpFilters)
+volMinMult = input.float(0.5, "成交量至少為均量倍數", minval=0.1, maxval=2.0, step=0.1, group=grpFilters)
+emaTrendFilter = input.bool(true, "啟用 EMA 趨勢過濾", group=grpFilters)
+emaMode = input.string("ema_cross", "EMA 模式", options=["ema_cross", "price_vs_ema"], group=grpFilters)
+emaFast = input.int(20, "EMA 快線", minval=5, maxval=50, group=grpFilters)
+emaSlow = input.int(50, "EMA 慢線", minval=20, maxval=200, group=grpFilters)
+
+grpTrade = "交易管理"
+entryStartHour = input.int(9, "入場開始小時", minval=9, maxval=12, group=grpTrade)
+entryStartMin = input.int(45, "入場開始分鐘", minval=0, maxval=59, group=grpTrade)
+entryEndHour = input.int(15, "入場結束小時", minval=12, maxval=16, group=grpTrade)
+entryEndMin = input.int(30, "入場結束分鐘", minval=0, maxval=59, group=grpTrade)
+maxTradesPerDay = input.int(2, "單日最大交易數", minval=1, maxval=5, group=grpTrade)
+closeBeforeMin = input.int(15, "收盤前強制平倉（分鐘）", minval=1, maxval=60, group=grpTrade)
+
+grpTP = "出場"
+dynamicTP = input.bool(true, "啟用動態 TP", group=grpTP)
+tpBonusPct = input.float(0.2, "動態 TP 加成", minval=0.0, maxval=1.0, step=0.05, group=grpTP)
+partialTP = input.bool(true, "啟用 VWAP 觸碰後追蹤出場", group=grpTP)
+partialTrailPct = input.float(0.002, "追蹤比率", minval=0.001, maxval=0.01, step=0.001, group=grpTP)
+partialMaxHold = input.int(32, "VWAP 觸碰後最多持有 bars", minval=5, maxval=100, group=grpTP)
+reversalConfirm = input.bool(false, "啟用反轉 K 確認", group=grpTP)
+reversalMode = input.string("relaxed", "反轉 K 模式", options=["strict", "relaxed", "simple"], group=grpTP)
+prevBarReversal = input.bool(false, "使用前一根 K 做反轉確認", group=grpTP)
+
+rthSession = input.session("0930-1600", "Regular Session", group="時間")
+tfOk = timeframe.isintraday and timeframe.multiplier == 5
+inRTH = not na(time(timeframe.period, rthSession))
+newSession = inRTH and (not nz(inRTH[1]) or ta.change(time("D")) != 0)
+
+minutesNow = hour * 60 + minute
+entryStartMins = entryStartHour * 60 + entryStartMin
+entryEndMins = entryEndHour * 60 + entryEndMin
+entryWindow = inRTH and minutesNow >= entryStartMins and minutesNow <= entryEndMins
+forceClose = inRTH and minutesNow >= (16 * 60 - closeBeforeMin)
+
+typicalPrice = (high + low + close) / 3.0
+var float cumTPV = 0.0
+var float cumVol = 0.0
+var float[] sessionTypicals = array.new_float()
+var int dailyTrades = 0
+var int partialPhase = 0
+var int partialBarsHeld = 0
+var float partialBestPrice = na
+
+if newSession
+    cumTPV := 0.0
+    cumVol := 0.0
+    dailyTrades := 0
+    partialPhase := 0
+    partialBarsHeld := 0
+    partialBestPrice := na
+    array.clear(sessionTypicals)
+
+if inRTH
+    cumTPV += typicalPrice * volume
+    cumVol += volume
+    array.push(sessionTypicals, typicalPrice)
+    if array.size(sessionTypicals) > stdWindow
+        array.shift(sessionTypicals)
+
+vwapValue = cumVol > 0 ? cumTPV / cumVol : na
+stdDev = f_array_stdev(sessionTypicals)
+upperBand = not na(vwapValue) and not na(stdDev) ? vwapValue + kMult * stdDev : na
+lowerBand = not na(vwapValue) and not na(stdDev) ? vwapValue - kMult * stdDev : na
+slUpperBand = not na(vwapValue) and not na(stdDev) ? vwapValue + (kMult + slKAdd) * stdDev : na
+slLowerBand = not na(vwapValue) and not na(stdDev) ? vwapValue - (kMult + slKAdd) * stdDev : na
+bbWidth = not na(vwapValue) and vwapValue > 0 and not na(upperBand) and not na(lowerBand) ? (upperBand - lowerBand) / vwapValue : na
+
+rsiValue = ta.rsi(close, rsiPeriod)
+atrValue = ta.atr(atrPeriod)
+atrPctValue = close > 0 ? atrValue / close : na
+emaFastLine = ta.ema(close, emaFast)
+emaSlowLine = ta.ema(close, emaSlow)
+volMA = ta.sma(volume, 20)
+
+isUptrend = emaMode == "price_vs_ema" ? close > emaFastLine : emaFastLine > emaSlowLine
+isDowntrend = emaMode == "price_vs_ema" ? close < emaFastLine : emaFastLine < emaSlowLine
+atrOK = not na(atrPctValue) and atrPctValue >= atrMinPct
+bbWidthOK = not na(bbWidth) and bbWidth >= bbWidthMin
+volOK = not volFilter or (not na(volMA) and volMA > 0 and volume >= volMA * volMinMult)
+
+noPosition = strategy.position_size == 0
+canTrade = dailyTrades < maxTradesPerDay
+commonFilter = tfOk and noPosition and entryWindow and canTrade and atrOK and bbWidthOK and volOK and not na(stdDev) and stdDev > 0
+
+usePrevBull = prevBarReversal and bar_index > 0 and f_bullish_reversal(open[1], high[1], low[1], close[1], reversalMode)
+usePrevBear = prevBarReversal and bar_index > 0 and f_bearish_reversal(open[1], high[1], low[1], close[1], reversalMode)
+useCurrBull = f_bullish_reversal(open, high, low, close, reversalMode)
+useCurrBear = f_bearish_reversal(open, high, low, close, reversalMode)
+
+longEntry = commonFilter and close < lowerBand and rsiValue < rsiOS and (not emaTrendFilter or not isDowntrend)
+if reversalConfirm
+    longEntry := longEntry and (prevBarReversal ? usePrevBull : useCurrBull)
+
+shortEntry = commonFilter and close > upperBand and rsiValue > rsiOB and (not emaTrendFilter or not isUptrend)
+if reversalConfirm
+    shortEntry := shortEntry and (prevBarReversal ? usePrevBear : useCurrBear)
+
+tpLong = dynamicTP and isUptrend ? vwapValue + tpBonusPct * kMult * stdDev : vwapValue
+tpShort = dynamicTP and isDowntrend ? vwapValue - tpBonusPct * kMult * stdDev : vwapValue
+
+if longEntry
+    strategy.entry("VWAP Long", strategy.long)
+    dailyTrades += 1
+    partialPhase := partialTP ? 1 : 0
+    partialBarsHeld := 0
+    partialBestPrice := close
+
+if shortEntry
+    strategy.entry("VWAP Short", strategy.short)
+    dailyTrades += 1
+    partialPhase := partialTP ? 1 : 0
+    partialBarsHeld := 0
+    partialBestPrice := close
+
+if partialTP and strategy.position_size != 0 and partialPhase > 0
+    partialBarsHeld += 1
+
+if strategy.position_size > 0
+    if close <= slLowerBand
+        strategy.close("VWAP Long", comment="SL")
+        partialPhase := 0
+        partialBarsHeld := 0
+        partialBestPrice := na
+    else if partialTP and partialPhase == 1 and close >= vwapValue
+        partialPhase := 2
+        partialBestPrice := close
+    else if partialTP and partialPhase == 2
+        partialBestPrice := na(partialBestPrice) ? close : math.max(partialBestPrice, close)
+        trailStop = partialBestPrice * (1.0 - partialTrailPct)
+        if close <= trailStop or partialBarsHeld >= partialMaxHold
+            strategy.close("VWAP Long", comment="Trail Exit")
+            partialPhase := 0
+            partialBarsHeld := 0
+            partialBestPrice := na
+    else if not partialTP and close >= vwapValue
+        strategy.close("VWAP Long", comment="TP")
+        partialPhase := 0
+        partialBarsHeld := 0
+        partialBestPrice := na
+    else if forceClose
+        strategy.close("VWAP Long", comment="EOD")
+        partialPhase := 0
+        partialBarsHeld := 0
+        partialBestPrice := na
+
+if strategy.position_size < 0
+    if close >= slUpperBand
+        strategy.close("VWAP Short", comment="SL")
+        partialPhase := 0
+        partialBarsHeld := 0
+        partialBestPrice := na
+    else if partialTP and partialPhase == 1 and close <= vwapValue
+        partialPhase := 2
+        partialBestPrice := close
+    else if partialTP and partialPhase == 2
+        partialBestPrice := na(partialBestPrice) ? close : math.min(partialBestPrice, close)
+        trailStop = partialBestPrice * (1.0 + partialTrailPct)
+        if close >= trailStop or partialBarsHeld >= partialMaxHold
+            strategy.close("VWAP Short", comment="Trail Exit")
+            partialPhase := 0
+            partialBarsHeld := 0
+            partialBestPrice := na
+    else if not partialTP and close <= vwapValue
+        strategy.close("VWAP Short", comment="TP")
+        partialPhase := 0
+        partialBarsHeld := 0
+        partialBestPrice := na
+    else if forceClose
+        strategy.close("VWAP Short", comment="EOD")
+        partialPhase := 0
+        partialBarsHeld := 0
+        partialBestPrice := na
+
+plot(inRTH ? vwapValue : na, "VWAP", color=color.orange, linewidth=2)
+uPlot = plot(inRTH ? upperBand : na, "Upper Band", color=color.new(color.red, 35))
+lPlot = plot(inRTH ? lowerBand : na, "Lower Band", color=color.new(color.green, 35))
+fill(uPlot, lPlot, color=color.new(color.blue, 92), title="VWAP Zone")
+plot(inRTH ? slUpperBand : na, "SL Upper", color=color.new(color.red, 70))
+plot(inRTH ? slLowerBand : na, "SL Lower", color=color.new(color.green, 70))
+plot(emaTrendFilter ? emaFastLine : na, "EMA Fast", color=color.new(color.aqua, 40))
+plot(emaTrendFilter ? emaSlowLine : na, "EMA Slow", color=color.new(color.gray, 50))
+
+plotshape(longEntry, title="Long Signal", location=location.belowbar, style=shape.triangleup, color=color.green, size=size.tiny)
+plotshape(shortEntry, title="Short Signal", location=location.abovebar, style=shape.triangledown, color=color.red, size=size.tiny)
+
+bgcolor(not tfOk ? color.new(color.red, 85) : na, title="需要 5m 週期")

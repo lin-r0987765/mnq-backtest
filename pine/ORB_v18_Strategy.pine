@@ -1,0 +1,144 @@
+// This Pine Script is subject to the terms of the Mozilla Public License 2.0
+// https://mozilla.org/MPL/2.0/
+// ICT ORB v18 for TradingView
+// 對應 Python 版本：ORB v18（連兩紅禁空 + 連三紅禁多）
+
+//@version=6
+strategy("ICT ORB v18 (QQQ 5m)", overlay=true,
+     initial_capital=100000,
+     default_qty_type=strategy.fixed,
+     default_qty_value=10,
+     commission_type=strategy.commission.percent,
+     commission_value=0.05,
+     pyramiding=0,
+     process_orders_on_close=true)
+
+grpBase = "基本設定"
+orbBars = input.int(4, "Opening Range 根數", minval=2, maxval=8, group=grpBase)
+profitRatio = input.float(3.5, "停利倍數（Range Width）", minval=2.0, maxval=6.0, step=0.1, group=grpBase)
+breakoutConfirmPct = input.float(0.0003, "突破確認比率", minval=0.0, maxval=0.01, step=0.0001, group=grpBase)
+minRangePct = input.float(0.001, "最小 ORB 寬度比率", minval=0.0001, maxval=0.01, step=0.0001, group=grpBase)
+closeBeforeMin = input.int(10, "收盤前強制平倉（分鐘）", minval=1, maxval=60, group=grpBase)
+
+grpTrend = "高週期過濾"
+htfFilter = input.bool(true, "啟用 1h 結構過濾", group=grpTrend)
+htfMode = input.string("slope", "1h 過濾模式", options=["slope", "ema_cross"], group=grpTrend)
+htfEmaFast = input.int(20, "1h EMA 快線", minval=10, maxval=30, group=grpTrend)
+htfEmaSlow = input.int(30, "1h EMA 慢線", minval=20, maxval=60, group=grpTrend)
+
+grpStreak = "日級 Regime Filter"
+skipShortAfterUpDays = input.int(2, "連續收紅後禁空天數門檻", minval=0, maxval=5, group=grpStreak)
+skipLongAfterUpDays = input.int(3, "連續收紅後禁多天數門檻", minval=0, maxval=5, group=grpStreak)
+
+grpRisk = "出場"
+trailingStop = input.bool(true, "啟用移動停損", group=grpRisk)
+trailingPct = input.float(0.015, "移動停損比率", minval=0.001, maxval=0.05, step=0.001, group=grpRisk)
+
+rthSession = input.session("0930-1600", "Regular Session", group="時間")
+tfOk = timeframe.isintraday and timeframe.multiplier == 5
+inRTH = not na(time(timeframe.period, rthSession))
+newSession = inRTH and (not nz(inRTH[1]) or ta.change(time("D")) != 0)
+
+minutesNow = hour * 60 + minute
+forceClose = inRTH and minutesNow >= (16 * 60 - closeBeforeMin)
+
+emaFast1h = request.security(syminfo.tickerid, "60", ta.ema(close, htfEmaFast), gaps=barmerge.gaps_off, lookahead=barmerge.lookahead_off)
+emaSlow1h = request.security(syminfo.tickerid, "60", ta.ema(close, htfEmaSlow), gaps=barmerge.gaps_off, lookahead=barmerge.lookahead_off)
+htfBias = htfMode == "slope" ? (emaFast1h > emaFast1h[1] ? 1 : emaFast1h < emaFast1h[1] ? -1 : 0) : (emaFast1h > emaSlow1h ? 1 : emaFast1h < emaSlow1h ? -1 : 0)
+
+var float sessionOpen = na
+var float sessionClose = na
+var int upDayStreak = 0
+
+var int barsFromOpen = 0
+var float orbHigh = na
+var float orbLow = na
+
+var float bestPriceLong = na
+var float bestPriceShort = na
+
+if newSession
+    if not na(sessionOpen) and not na(sessionClose)
+        upDayStreak := sessionClose > sessionOpen ? upDayStreak + 1 : 0
+    sessionOpen := open
+    sessionClose := close
+    barsFromOpen := 1
+    orbHigh := na
+    orbLow := na
+else if inRTH
+    sessionClose := close
+    barsFromOpen += 1
+
+if inRTH and barsFromOpen <= orbBars
+    orbHigh := na(orbHigh) ? high : math.max(orbHigh, high)
+    orbLow := na(orbLow) ? low : math.min(orbLow, low)
+
+allowShortToday = not (skipShortAfterUpDays > 0 and upDayStreak >= skipShortAfterUpDays)
+allowLongToday = not (skipLongAfterUpDays > 0 and upDayStreak >= skipLongAfterUpDays)
+
+rangeWidth = orbHigh - orbLow
+midPrice = (orbHigh + orbLow) / 2.0
+rangeValid = tfOk and inRTH and barsFromOpen > orbBars and not na(rangeWidth) and rangeWidth > 0 and not na(midPrice) and midPrice > 0 and (rangeWidth / midPrice) >= minRangePct
+
+longEntryLevel = orbHigh * (1.0 + breakoutConfirmPct)
+shortEntryLevel = orbLow * (1.0 - breakoutConfirmPct)
+tpLong = orbHigh + profitRatio * rangeWidth
+tpShort = orbLow - profitRatio * rangeWidth
+
+tradeWindow = tfOk and inRTH and barsFromOpen > orbBars and not forceClose
+noPosition = strategy.position_size == 0
+
+longEntry = noPosition and tradeWindow and rangeValid and allowLongToday and close > longEntryLevel and (not htfFilter or htfBias != -1)
+shortEntry = noPosition and tradeWindow and rangeValid and allowShortToday and close < shortEntryLevel and (not htfFilter or htfBias != 1)
+
+if longEntry
+    strategy.entry("ORB Long", strategy.long)
+    bestPriceLong := close
+    bestPriceShort := na
+
+if shortEntry
+    strategy.entry("ORB Short", strategy.short)
+    bestPriceShort := close
+    bestPriceLong := na
+
+if strategy.position_size > 0
+    bestPriceLong := na(bestPriceLong) ? close : math.max(bestPriceLong, close)
+else if strategy.position_size <= 0
+    bestPriceLong := na
+
+if strategy.position_size < 0
+    bestPriceShort := na(bestPriceShort) ? close : math.min(bestPriceShort, close)
+else if strategy.position_size >= 0
+    bestPriceShort := na
+
+if strategy.position_size > 0
+    trailLong = trailingStop and not na(bestPriceLong) ? bestPriceLong * (1.0 - trailingPct) : orbLow
+    effectiveLongStop = math.max(nz(orbLow, trailLong), nz(trailLong, orbLow))
+    if close <= effectiveLongStop
+        strategy.close("ORB Long", comment="SL/Trail")
+    else if close >= tpLong
+        strategy.close("ORB Long", comment="TP")
+    else if forceClose
+        strategy.close("ORB Long", comment="EOD")
+
+if strategy.position_size < 0
+    trailShort = trailingStop and not na(bestPriceShort) ? bestPriceShort * (1.0 + trailingPct) : orbHigh
+    effectiveShortStop = math.min(nz(orbHigh, trailShort), nz(trailShort, orbHigh))
+    if close >= effectiveShortStop
+        strategy.close("ORB Short", comment="SL/Trail")
+    else if close <= tpShort
+        strategy.close("ORB Short", comment="TP")
+    else if forceClose
+        strategy.close("ORB Short", comment="EOD")
+
+plot(rangeValid ? orbHigh : na, "ORB High", color=color.new(color.green, 0), linewidth=2, style=plot.style_stepline)
+plot(rangeValid ? orbLow : na, "ORB Low", color=color.new(color.red, 0), linewidth=2, style=plot.style_stepline)
+plot(rangeValid ? longEntryLevel : na, "Long Entry", color=color.new(color.green, 60), style=plot.style_stepline)
+plot(rangeValid ? shortEntryLevel : na, "Short Entry", color=color.new(color.red, 60), style=plot.style_stepline)
+plot(rangeValid ? tpLong : na, "TP Long", color=color.new(color.lime, 60))
+plot(rangeValid ? tpShort : na, "TP Short", color=color.new(color.fuchsia, 60))
+
+plotshape(longEntry, title="Long Signal", location=location.belowbar, style=shape.triangleup, color=color.green, size=size.tiny)
+plotshape(shortEntry, title="Short Signal", location=location.abovebar, style=shape.triangledown, color=color.red, size=size.tiny)
+
+bgcolor(not tfOk ? color.new(color.red, 85) : na, title="需要 5m 週期")

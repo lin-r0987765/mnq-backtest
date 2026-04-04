@@ -32,11 +32,13 @@ _DEFAULT_PARAMS: dict[str, Any] = {
     # v7 多日聚合 range
     "multi_day_range": False,   # 是否用多日 ORB 聚合 range
     "multi_day_lookback": 2,    # 聚合前幾天的 ORB（不含當日）
-    # v8 1h 結構方向過濾（ICT 多時間框架）
-    "htf_filter": False,        # 高時間框架結構方向過濾開關
+    # v8 1h 結構方向過濾（ICT 多時間框架）— v12 best
+    "htf_filter": True,         # 高時間框架結構方向過濾開關
     "htf_ema_fast": 20,         # 1h EMA 快線
-    "htf_ema_slow": 50,         # 1h EMA 慢線
-    "htf_mode": "ema_cross",    # ema_cross: EMA20>EMA50=多, <空; slope: EMA20 斜率
+    "htf_ema_slow": 30,         # 1h EMA 慢線（v12: 50→30）
+    "htf_mode": "slope",        # v12 best: slope（EMA20 斜率方向）
+    "skip_short_after_up_days": 2,  # v17: 連續收紅日後，下一日禁做空
+    "skip_long_after_up_days": 3,   # v18: 連續強勢收紅後，下一日不再追多
 }
 
 
@@ -100,6 +102,8 @@ class ORBStrategy(BaseStrategy):
         htf_ema_fast: int = int(self.params.get("htf_ema_fast", 20))
         htf_ema_slow: int = int(self.params.get("htf_ema_slow", 50))
         htf_mode: str = str(self.params.get("htf_mode", "ema_cross"))
+        skip_short_after_up_days: int = int(self.params.get("skip_short_after_up_days", 0))
+        skip_long_after_up_days: int = int(self.params.get("skip_long_after_up_days", 0))
 
         entries_long = pd.Series(False, index=df.index)
         exits_long = pd.Series(False, index=df.index)
@@ -129,11 +133,19 @@ class ORBStrategy(BaseStrategy):
 
         # v7: 歷史 ORB 高低點用於多日聚合
         orb_history: list[tuple[float, float]] = []  # (high, low) per day
+        up_day_streak = 0
 
         for date, session in df.groupby(df.index.date):
             sess = session.between_time("09:30", "16:00")
             if len(sess) < orb_bars + 5:
                 continue
+
+            allow_short_today = not (
+                skip_short_after_up_days > 0 and up_day_streak >= skip_short_after_up_days
+            )
+            allow_long_today = not (
+                skip_long_after_up_days > 0 and up_day_streak >= skip_long_after_up_days
+            )
 
             # Opening range
             orb = sess.iloc[:orb_bars]
@@ -209,6 +221,8 @@ class ORBStrategy(BaseStrategy):
                     # 做多：收盤價突破 opening range 高點（帶確認）
                     if close > long_entry_level:
                         # v8: 如果 1h 結構看空，不做多
+                        if not allow_long_today:
+                            continue
                         if htf_filter and bias == -1:
                             continue
                         entries_long[ts] = True
@@ -220,6 +234,8 @@ class ORBStrategy(BaseStrategy):
                     # 做空：收盤價跌破 opening range 低點（帶確認）
                     elif close < short_entry_level:
                         # v8: 如果 1h 結構看多，不做空
+                        if not allow_short_today:
+                            continue
                         if htf_filter and bias == 1:
                             continue
                         entries_short[ts] = True
@@ -262,6 +278,13 @@ class ORBStrategy(BaseStrategy):
                             exits_short[ts] = True
                             in_short = False
 
+            day_open = sess["Open"].iloc[0]
+            day_close = sess["Close"].iloc[-1]
+            if day_close > day_open:
+                up_day_streak += 1
+            else:
+                up_day_streak = 0
+
         return StrategyResult(
             entries_long=entries_long,
             exits_long=exits_long,
@@ -274,3 +297,4 @@ class ORBStrategy(BaseStrategy):
                 "params": self.get_params(),
             },
         )
+            

@@ -5,8 +5,8 @@ All tunable parameters for the ICT strategy.
 Version tracking for iterative optimization.
 """
 
-VERSION = "1.5.0"
-ITERATION = 11
+VERSION = "2.6.0"
+ITERATION = 23
 
 # === Data Settings ===
 SYMBOL = "QQQ"

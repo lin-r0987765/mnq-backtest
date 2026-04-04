@@ -1,0 +1,52 @@
+MNQ Quantitative Backtest System
+Strategies: ORB + VWAP Reversion  |  Data: NQ=F 5-min
+Started at 2026-04-03 17:40:27 UTC
+
+
+============================================================
+Step 1 – Data Download
+============================================================
+Using local QQQ CSV (parameter-tuned dataset)...
+Loading local CSV: qqq_5m.csv
+Loaded 4557 bars from local CSV
+  Bars: 4557 | From: 2026-01-07 → 2026-04-02
+
+
+============================================================
+Step 2 – ORB (default params)
+============================================================
+▶ Running ORB (default)…
+  ✓ ORB | Return: +0.55% | Sharpe: 8.140 | Trades: 54 | (2.9s)
+
+============================================================
+Step 3 – VWAP Reversion (default params)
+============================================================
+▶ Running VWAP_Reversion (default)…
+  ✓ VWAP_Reversion | Return: +0.19% | Sharpe: 10.107 | Trades: 13 | (0.5s)
+
+============================================================
+Step 6 – Saving Results
+============================================================
+  Saved → backtest_20260403_174030_ORB.json
+  Saved → backtest_20260403_174030_VWAP_Reversion.json
+
+============================================================
+Step 7 – Generating Charts
+============================================================
+  Chart saved → equity_ORB_20260403_174030.png
+  Interactive chart → equity_ORB_20260403_174030.html
+  Chart saved → equity_VWAP_Reversion_20260403_174031.png
+  Interactive chart → equity_VWAP_Reversion_20260403_174031.html
+  Comparison chart → comparison_20260403_174031.png
+
+============================================================
+Step 8 – Summary
+============================================================
+Backtest Results Summary
+Strategy | Return % | Sharpe | Sortino | Max DD % | Win % | Trades | Profit Factor
+ORB | +0.55% | 8.140 | 12.004 | -0.16% | 66.7% | 54 | 2.034
+VWAP_Reversion | +0.19% | 10.107 | 18.796 | -0.05% | 46.2% | 13 | 4.955
+
+Completed at 2026-04-03 17:40:31 UTC
+Results saved to: /sessions/hopeful-clever-fermat/mnt/mnq-backtest/results
+

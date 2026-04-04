@@ -25,6 +25,11 @@ import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
+
 # ── Make sure the project root is on PYTHONPATH ────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -134,13 +139,13 @@ def run_single(
     """Run one strategy and handle errors gracefully."""
     try:
         strategy = strategy_cls(params=params)
-        console.print(f"[blue]▶ Running {strategy.name} {label}…[/blue]")
+        console.print(f"[blue]Running {strategy.name} {label}...[/blue]")
         t0 = time.time()
         result = engine.run(strategy, df)
         elapsed = time.time() - t0
         m = result.metrics
         console.print(
-            f"  [green]✓[/green] {strategy.name} | "
+            f"  [green]OK[/green] {strategy.name} | "
             f"Return: [bold]{m.get('total_return_pct', 0):+.2f}%[/bold] | "
             f"Sharpe: {m.get('sharpe_ratio', 0):.3f} | "
             f"Trades: {m.get('total_trades', 0)} | "
@@ -148,7 +153,7 @@ def run_single(
         )
         return result
     except Exception as exc:
-        console.print(f"[red]✗ {strategy_cls.name} failed: {exc}[/red]")
+        console.print(f"[red]{strategy_cls.name} failed: {exc}[/red]")
         traceback.print_exc()
         return None
 
@@ -175,7 +180,7 @@ def main() -> int:
         f"{df.index[-1].strftime('%Y-%m-%d')}\n"
     )
 
-    engine = BacktestEngine(initial_cash=100_000.0, fees_pct=0.0005, size=5.0)
+    engine = BacktestEngine(initial_cash=100_000.0, fees_pct=0.0005, size=10.0)
     all_results: list[BacktestResult] = []
 
     # ── 2. Default ORB ────────────────────────────────────────────────────

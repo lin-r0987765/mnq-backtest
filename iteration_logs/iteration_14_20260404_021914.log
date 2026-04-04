@@ -1,0 +1,101 @@
+MNQ Quantitative Backtest System
+Strategies: ORB + VWAP Reversion  |  Data: NQ=F 5-min
+Started at 2026-04-04 02:16:51 UTC
+
+
+============================================================
+Step 1 – Data Download
+============================================================
+Using local QQQ CSV (parameter-tuned dataset)...
+Loading local CSV: qqq_5m.csv
+Loaded 4557 bars from local CSV
+  Bars: 4557 | From: 2026-01-07 → 2026-04-02
+
+
+============================================================
+Step 2 – ORB (default params)
+============================================================
+▶ Running ORB (default)…
+  ✓ ORB | Return: +0.55% | Sharpe: 8.140 | Trades: 54 | (2.8s)
+
+============================================================
+Step 3 – VWAP Reversion (default params)
+============================================================
+▶ Running VWAP_Reversion (default)…
+  ✓ VWAP_Reversion | Return: +0.18% | Sharpe: 10.484 | Trades: 9 | (0.5s)
+
+============================================================
+Step 4 – Grid Search
+============================================================
+ORB grid search…
+Grid search: 54 combinations for ORB
+  Running grid search… 5/54
+  Running grid search… 10/54
+  Running grid search… 15/54
+  Running grid search… 20/54
+  Running grid search… 25/54
+  Running grid search… 30/54
+  Running grid search… 35/54
+  Running grid search… 40/54
+  Running grid search… 45/54
+  Running grid search… 50/54
+  Running grid search… 54/54
+Best sharpe_ratio: 8.1404 with params {'orb_bars': 4, 'profit_ratio': 3.5, 'close_before_min': 10, 'breakout_confirm_pct': 0.0003, 'entry_delay_bars': 0, 'trailing_stop': True, 'trailing_pct': 0.015, 'vol_confirm': False, 'vol_ma_period': 20, 'vol_mult': 0.6, 'atr_trailing': False, 'atr_period': 14, 'atr_trail_mult': 1.5, 'multi_day_range': False, 'multi_day_lookback': 2, 'htf_filter': True, 'htf_ema_fast': 20, 'htf_ema_slow': 30, 'htf_mode': 'slope'}
+
+VWAP Reversion grid search…
+Grid search: 32 combinations for VWAP_Reversion
+  Running grid search… 3/32
+  Running grid search… 6/32
+  Running grid search… 9/32
+  Running grid search… 12/32
+  Running grid search… 15/32
+  Running grid search… 18/32
+  Running grid search… 21/32
+  Running grid search… 24/32
+  Running grid search… 27/32
+  Running grid search… 30/32
+  Running grid search… 32/32
+Best sharpe_ratio: 10.1074 with params {'k': 1.5, 'sl_k_add': 0.5, 'std_window': 30, 'rsi_period': 14, 'rsi_os': 35, 'rsi_ob': 65, 'close_before_min': 15, 'atr_period': 14, 'atr_min_pct': 0.0005, 'vol_filter': True, 'vol_min_mult': 0.5, 'entry_start_time': '09:45', 'entry_end_time': '15:30', 'max_trades_per_day': 2, 'ema_trend_filter': True, 'ema_fast': 20, 'ema_slow': 50, 'ema_mode': 'ema_cross', 'dynamic_tp': True, 'tp_bonus_pct': 0.2, 'bb_width_min': 0.0005, 'reversal_confirm': False, 'reversal_mode': 'relaxed', 'prev_bar_reversal': False, 'partial_tp': True, 'partial_tp_trail_pct': 0.002, 'partial_tp_max_hold': 32}
+
+============================================================
+Step 5 – Optimised Re-run
+============================================================
+▶ Running ORB (optimised)…
+  ✓ ORB | Return: +0.55% | Sharpe: 8.140 | Trades: 54 | (0.2s)
+▶ Running VWAP_Reversion (optimised)…
+  ✓ VWAP_Reversion | Return: +0.19% | Sharpe: 10.107 | Trades: 13 | (0.5s)
+
+============================================================
+Step 6 – Saving Results
+============================================================
+  Saved → backtest_20260404_021725_ORB.json
+  Saved → backtest_20260404_021725_VWAP_Reversion.json
+  Saved → backtest_20260404_021725_ORB_Optimised.json
+  Saved → backtest_20260404_021725_VWAP_Optimised.json
+
+============================================================
+Step 7 – Generating Charts
+============================================================
+  Chart saved → equity_ORB_20260404_021725.png
+  Interactive chart → equity_ORB_20260404_021725.html
+  Chart saved → equity_VWAP_Reversion_20260404_021726.png
+  Interactive chart → equity_VWAP_Reversion_20260404_021726.html
+  Chart saved → equity_ORB_Optimised_20260404_021726.png
+  Interactive chart → equity_ORB_Optimised_20260404_021726.html
+  Chart saved → equity_VWAP_Optimised_20260404_021727.png
+  Interactive chart → equity_VWAP_Optimised_20260404_021727.html
+  Comparison chart → comparison_20260404_021728.png
+
+============================================================
+Step 8 – Summary
+============================================================
+Backtest Results Summary
+Strategy | Return % | Sharpe | Sortino | Max DD % | Win % | Trades | Profit Factor
+ORB | +0.55% | 8.140 | 12.004 | -0.16% | 66.7% | 54 | 2.034
+VWAP_Reversion | +0.18% | 10.484 | 20.110 | -0.04% | 55.6% | 9 | 6.345
+ORB_Optimised | +0.55% | 8.140 | 12.004 | -0.16% | 66.7% | 54 | 2.034
+VWAP_Optimised | +0.19% | 10.107 | 18.796 | -0.05% | 46.2% | 13 | 4.955
+
+Completed at 2026-04-04 02:17:28 UTC
+Results saved to: /sessions/great-brave-archimedes/mnt/mnq-backtest/results
+
