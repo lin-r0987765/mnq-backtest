@@ -1,0 +1,298 @@
+{
+  "analysis": "ict_lite_setup_density",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "lite_faster_retest_base": {
+      "params": {
+        "fvg_max_age": 20,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.3529,
+        "sharpe_ratio": 2.1338,
+        "sortino_ratio": 3.4169,
+        "calmar_ratio": 3.6906,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 4.6792,
+        "avg_trade_pct": 0.0196
+      },
+      "metadata": {
+        "fvg_entries": 13,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 32
+      }
+    },
+    "setup_age_10": {
+      "params": {
+        "fvg_max_age": 10,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.3149,
+        "sharpe_ratio": 2.1427,
+        "sortino_ratio": 3.5193,
+        "calmar_ratio": 3.2913,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 76.9231,
+        "total_trades": 13,
+        "profit_factor": 5.8871,
+        "avg_trade_pct": 0.0242
+      },
+      "metadata": {
+        "fvg_entries": 9,
+        "ob_entries": 3,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 32
+      }
+    },
+    "setup_age_15": {
+      "params": {
+        "fvg_max_age": 15,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.3236,
+        "sharpe_ratio": 2.0869,
+        "sortino_ratio": 3.3693,
+        "calmar_ratio": 3.3824,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 68.75,
+        "total_trades": 16,
+        "profit_factor": 4.351,
+        "avg_trade_pct": 0.0202
+      },
+      "metadata": {
+        "fvg_entries": 11,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 32
+      }
+    },
+    "setup_age_30": {
+      "params": {
+        "fvg_max_age": 30,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.3335,
+        "sharpe_ratio": 2.0065,
+        "sortino_ratio": 3.2033,
+        "calmar_ratio": 3.4877,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 68.4211,
+        "total_trades": 19,
+        "profit_factor": 4.2256,
+        "avg_trade_pct": 0.0176
+      },
+      "metadata": {
+        "fvg_entries": 14,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 32
+      }
+    },
+    "setup_age_40": {
+      "params": {
+        "fvg_max_age": 40,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.3335,
+        "sharpe_ratio": 2.0065,
+        "sortino_ratio": 3.2033,
+        "calmar_ratio": 3.4877,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 68.4211,
+        "total_trades": 19,
+        "profit_factor": 4.2256,
+        "avg_trade_pct": 0.0176
+      },
+      "metadata": {
+        "fvg_entries": 14,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 32
+      }
+    },
+    "setup_age_60": {
+      "params": {
+        "fvg_max_age": 60,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.3324,
+        "sharpe_ratio": 1.9974,
+        "sortino_ratio": 3.1879,
+        "calmar_ratio": 3.4756,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 65.0,
+        "total_trades": 20,
+        "profit_factor": 4.1996,
+        "avg_trade_pct": 0.0166
+      },
+      "metadata": {
+        "fvg_entries": 14,
+        "ob_entries": 4,
+        "breaker_entries": 2,
+        "ifvg_entries": 0,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 32
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "setup_age_60",
+      "fvg_max_age": 60,
+      "total_trades": 20,
+      "total_return_pct": 0.3324,
+      "profit_factor": 4.1996,
+      "trade_gain_vs_base": 2,
+      "fvg_entries": 14,
+      "ob_entries": 4,
+      "breaker_entries": 2,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22
+    },
+    {
+      "label": "setup_age_30",
+      "fvg_max_age": 30,
+      "total_trades": 19,
+      "total_return_pct": 0.3335,
+      "profit_factor": 4.2256,
+      "trade_gain_vs_base": 1,
+      "fvg_entries": 14,
+      "ob_entries": 4,
+      "breaker_entries": 1,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22
+    },
+    {
+      "label": "setup_age_40",
+      "fvg_max_age": 40,
+      "total_trades": 19,
+      "total_return_pct": 0.3335,
+      "profit_factor": 4.2256,
+      "trade_gain_vs_base": 1,
+      "fvg_entries": 14,
+      "ob_entries": 4,
+      "breaker_entries": 1,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22
+    },
+    {
+      "label": "lite_faster_retest_base",
+      "fvg_max_age": 20,
+      "total_trades": 18,
+      "total_return_pct": 0.3529,
+      "profit_factor": 4.6792,
+      "trade_gain_vs_base": 0,
+      "fvg_entries": 13,
+      "ob_entries": 4,
+      "breaker_entries": 1,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22
+    },
+    {
+      "label": "setup_age_15",
+      "fvg_max_age": 15,
+      "total_trades": 16,
+      "total_return_pct": 0.3236,
+      "profit_factor": 4.351,
+      "trade_gain_vs_base": -2,
+      "fvg_entries": 11,
+      "ob_entries": 4,
+      "breaker_entries": 1,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22
+    },
+    {
+      "label": "setup_age_10",
+      "fvg_max_age": 10,
+      "total_trades": 13,
+      "total_return_pct": 0.3149,
+      "profit_factor": 5.8871,
+      "trade_gain_vs_base": -5,
+      "fvg_entries": 9,
+      "ob_entries": 3,
+      "breaker_entries": 1,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22
+    }
+  ],
+  "base_label": "lite_faster_retest_base",
+  "base_trades": 18,
+  "base_total_return_pct": 0.3529,
+  "best_non_base_variant": {
+    "label": "setup_age_60",
+    "fvg_max_age": 60,
+    "total_trades": 20,
+    "total_return_pct": 0.3324,
+    "profit_factor": 4.1996,
+    "trade_gain_vs_base": 2,
+    "fvg_entries": 14,
+    "ob_entries": 4,
+    "breaker_entries": 2,
+    "bullish_shifts": 14,
+    "bearish_shifts": 22
+  },
+  "best_positive_density_variant": {
+    "label": "setup_age_60",
+    "fvg_max_age": 60,
+    "total_trades": 20,
+    "total_return_pct": 0.3324,
+    "profit_factor": 4.1996,
+    "trade_gain_vs_base": 2,
+    "fvg_entries": 14,
+    "ob_entries": 4,
+    "breaker_entries": 2,
+    "bullish_shifts": 14,
+    "bearish_shifts": 22
+  },
+  "best_robust_variant": null,
+  "verdict": "LITE_SETUP_DENSITY_EXTENSION_ONLY",
+  "interpretation": "A setup-density variant improves activity on the active lite faster-retest frontier, but not enough to replace the base cleanly."
+}

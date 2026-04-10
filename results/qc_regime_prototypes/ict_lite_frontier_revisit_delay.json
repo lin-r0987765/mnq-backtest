@@ -1,0 +1,228 @@
+{
+  "analysis": "ict_lite_frontier_revisit_delay",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "lite_frontier_base": {
+      "params": {
+        "fvg_revisit_min_delay_bars": 2,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_min_gap_pct": 0.001,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4353,
+        "sharpe_ratio": 2.4866,
+        "sortino_ratio": 3.992,
+        "calmar_ratio": 4.5516,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.0247,
+        "avg_trade_pct": 0.0242
+      },
+      "metadata": {
+        "fvg_delay_filtered_retests": 5,
+        "fvg_entries": 12,
+        "ob_entries": 5,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "delay_1": {
+      "params": {
+        "fvg_revisit_min_delay_bars": 1,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_min_gap_pct": 0.001,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4304,
+        "sharpe_ratio": 2.4494,
+        "sortino_ratio": 3.9207,
+        "calmar_ratio": 4.3243,
+        "max_drawdown_pct": -0.0995,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 4.5887,
+        "avg_trade_pct": 0.0239
+      },
+      "metadata": {
+        "fvg_delay_filtered_retests": 0,
+        "fvg_entries": 12,
+        "ob_entries": 5,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "delay_3": {
+      "params": {
+        "fvg_revisit_min_delay_bars": 3,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_min_gap_pct": 0.001,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4092,
+        "sharpe_ratio": 2.3325,
+        "sortino_ratio": 3.6574,
+        "calmar_ratio": 4.277,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 4.6924,
+        "avg_trade_pct": 0.0227
+      },
+      "metadata": {
+        "fvg_delay_filtered_retests": 11,
+        "fvg_entries": 12,
+        "ob_entries": 5,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "delay_4": {
+      "params": {
+        "fvg_revisit_min_delay_bars": 4,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_min_gap_pct": 0.001,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4211,
+        "sharpe_ratio": 2.497,
+        "sortino_ratio": 3.9928,
+        "calmar_ratio": 6.0469,
+        "max_drawdown_pct": -0.0696,
+        "win_rate_pct": 76.4706,
+        "total_trades": 17,
+        "profit_factor": 5.3819,
+        "avg_trade_pct": 0.0248
+      },
+      "metadata": {
+        "fvg_delay_filtered_retests": 19,
+        "fvg_entries": 12,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "delay_5": {
+      "params": {
+        "fvg_revisit_min_delay_bars": 5,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_min_gap_pct": 0.001,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.3735,
+        "sharpe_ratio": 2.2919,
+        "sortino_ratio": 3.5488,
+        "calmar_ratio": 5.3609,
+        "max_drawdown_pct": -0.0697,
+        "win_rate_pct": 70.5882,
+        "total_trades": 17,
+        "profit_factor": 5.0699,
+        "avg_trade_pct": 0.022
+      },
+      "metadata": {
+        "fvg_delay_filtered_retests": 31,
+        "fvg_entries": 12,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "lite_frontier_base",
+      "fvg_revisit_min_delay_bars": 2,
+      "total_trades": 18,
+      "total_return_pct": 0.4353,
+      "profit_factor": 5.0247,
+      "trade_gain_vs_base": 0,
+      "fvg_delay_filtered_retests": 5,
+      "fvg_entries": 12,
+      "ob_entries": 5,
+      "breaker_entries": 1
+    },
+    {
+      "label": "delay_1",
+      "fvg_revisit_min_delay_bars": 1,
+      "total_trades": 18,
+      "total_return_pct": 0.4304,
+      "profit_factor": 4.5887,
+      "trade_gain_vs_base": 0,
+      "fvg_delay_filtered_retests": 0,
+      "fvg_entries": 12,
+      "ob_entries": 5,
+      "breaker_entries": 1
+    },
+    {
+      "label": "delay_3",
+      "fvg_revisit_min_delay_bars": 3,
+      "total_trades": 18,
+      "total_return_pct": 0.4092,
+      "profit_factor": 4.6924,
+      "trade_gain_vs_base": 0,
+      "fvg_delay_filtered_retests": 11,
+      "fvg_entries": 12,
+      "ob_entries": 5,
+      "breaker_entries": 1
+    },
+    {
+      "label": "delay_4",
+      "fvg_revisit_min_delay_bars": 4,
+      "total_trades": 17,
+      "total_return_pct": 0.4211,
+      "profit_factor": 5.3819,
+      "trade_gain_vs_base": -1,
+      "fvg_delay_filtered_retests": 19,
+      "fvg_entries": 12,
+      "ob_entries": 4,
+      "breaker_entries": 1
+    },
+    {
+      "label": "delay_5",
+      "fvg_revisit_min_delay_bars": 5,
+      "total_trades": 17,
+      "total_return_pct": 0.3735,
+      "profit_factor": 5.0699,
+      "trade_gain_vs_base": -1,
+      "fvg_delay_filtered_retests": 31,
+      "fvg_entries": 12,
+      "ob_entries": 4,
+      "breaker_entries": 1
+    }
+  ],
+  "base_label": "lite_frontier_base",
+  "base_trades": 18,
+  "base_total_return_pct": 0.4353,
+  "best_non_base_variant": {
+    "label": "delay_1",
+    "fvg_revisit_min_delay_bars": 1,
+    "total_trades": 18,
+    "total_return_pct": 0.4304,
+    "profit_factor": 4.5887,
+    "trade_gain_vs_base": 0,
+    "fvg_delay_filtered_retests": 0,
+    "fvg_entries": 12,
+    "ob_entries": 5,
+    "breaker_entries": 1
+  },
+  "best_positive_density_variant": null,
+  "best_robust_variant": null,
+  "verdict": "LITE_FRONTIER_REVISIT_DELAY_SURVIVOR_BUT_NOT_EXTENSION",
+  "interpretation": "Positive revisit-delay variants survive on the active lite frontier, but none improve it enough to promote."
+}

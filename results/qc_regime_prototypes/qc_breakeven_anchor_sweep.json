@@ -1,0 +1,4095 @@
+{
+  "research_scope": "qc_breakeven_anchor_sweep",
+  "analysis_version": "v1_duration_cap_x_mfe_anchor",
+  "source_file": "QuantConnect results\\2017-2026\\Measured Green Hippopotamus_trades.csv",
+  "duration_caps_min": [
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "mfe_thresholds_dollars": [
+    25,
+    50,
+    75,
+    100,
+    125,
+    150,
+    175,
+    200
+  ],
+  "rows": [
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 25,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 9,
+        "clipping_count": 0,
+        "salvage": 1837.91,
+        "harm": 0,
+        "net": 1837.91
+      },
+      "positive_years": 6,
+      "zero_years": 3,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 130.87,
+          "harm": 0,
+          "net": 130.87
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 403.1,
+          "harm": 0,
+          "net": 403.1
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 701.53,
+          "harm": 0,
+          "net": 701.53
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 121.04,
+          "harm": 0,
+          "net": 121.04
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 295.6,
+          "harm": 0,
+          "net": 295.6
+        }
+      }
+    },
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 50,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 6,
+        "clipping_count": 0,
+        "salvage": 1198.55,
+        "harm": 0,
+        "net": 1198.55
+      },
+      "positive_years": 4,
+      "zero_years": 5,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 403.1,
+          "harm": 0,
+          "net": 403.1
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 488.64,
+          "harm": 0,
+          "net": 488.64
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 121.04,
+          "harm": 0,
+          "net": 121.04
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 75,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 3,
+        "clipping_count": 0,
+        "salvage": 553.42,
+        "harm": 0,
+        "net": 553.42
+      },
+      "positive_years": 3,
+      "zero_years": 6,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 160.34,
+          "harm": 0,
+          "net": 160.34
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 100,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 2,
+        "clipping_count": 0,
+        "salvage": 367.65,
+        "harm": 0,
+        "net": 367.65
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 160.34,
+          "harm": 0,
+          "net": 160.34
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 125,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 2,
+        "clipping_count": 0,
+        "salvage": 367.65,
+        "harm": 0,
+        "net": 367.65
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 160.34,
+          "harm": 0,
+          "net": 160.34
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 150,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 2,
+        "clipping_count": 0,
+        "salvage": 367.65,
+        "harm": 0,
+        "net": 367.65
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 160.34,
+          "harm": 0,
+          "net": 160.34
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 175,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 1,
+        "clipping_count": 0,
+        "salvage": 160.34,
+        "harm": 0,
+        "net": 160.34
+      },
+      "positive_years": 1,
+      "zero_years": 8,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 160.34,
+          "harm": 0,
+          "net": 160.34
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 60,
+      "mfe_threshold_dollars": 200,
+      "count": 29,
+      "impact": {
+        "trades_total": 29,
+        "saving_count": 1,
+        "clipping_count": 0,
+        "salvage": 160.34,
+        "harm": 0,
+        "net": 160.34
+      },
+      "positive_years": 1,
+      "zero_years": 8,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 1,
+          "trades_total": 1,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 160.34,
+          "harm": 0,
+          "net": 160.34
+        },
+        "2021": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2024": {
+          "count": 4,
+          "trades_total": 4,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 2,
+          "trades_total": 2,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 25,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 25,
+        "clipping_count": 0,
+        "salvage": 4172.7,
+        "harm": 0,
+        "net": 4172.7
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 73.59,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 73.59,
+          "harm": 0,
+          "net": 73.59
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 484.41,
+          "harm": 0,
+          "net": 484.41
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 128.7,
+          "harm": 0,
+          "net": 128.7
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 6,
+          "clipping_count": 0,
+          "salvage": 1156.19,
+          "harm": 0,
+          "net": 1156.19
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 353.08,
+          "harm": 0,
+          "net": 353.08
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.93,
+          "harm": 0,
+          "net": 207.93
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 6,
+          "clipping_count": 0,
+          "salvage": 1087.1,
+          "harm": 0,
+          "net": 1087.1
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 386.1,
+          "harm": 0,
+          "net": 386.1
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 295.6,
+          "harm": 0,
+          "net": 295.6
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 50,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 13,
+        "clipping_count": 0,
+        "salvage": 2262.73,
+        "harm": 0,
+        "net": 2262.73
+      },
+      "positive_years": 7,
+      "zero_years": 2,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 73.59,
+          "harm": 0,
+          "net": 73.59
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 179.2,
+          "harm": 0,
+          "net": 179.2
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 719.75,
+          "harm": 0,
+          "net": 719.75
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.93,
+          "harm": 0,
+          "net": 207.93
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 631.92,
+          "harm": 0,
+          "net": 631.92
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 264.57,
+          "harm": 0,
+          "net": 264.57
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 75,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 7,
+        "clipping_count": 0,
+        "salvage": 1204.2,
+        "harm": 0,
+        "net": 1204.2
+      },
+      "positive_years": 6,
+      "zero_years": 3,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 73.59,
+          "harm": 0,
+          "net": 73.59
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 386.07,
+          "harm": 0,
+          "net": 386.07
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.93,
+          "harm": 0,
+          "net": 207.93
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 143.53,
+          "harm": 0,
+          "net": 143.53
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 100,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 3,
+        "clipping_count": 0,
+        "salvage": 593.38,
+        "harm": 0,
+        "net": 593.38
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 386.07,
+          "harm": 0,
+          "net": 386.07
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 125,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 3,
+        "clipping_count": 0,
+        "salvage": 593.38,
+        "harm": 0,
+        "net": 593.38
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 386.07,
+          "harm": 0,
+          "net": 386.07
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 150,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 3,
+        "clipping_count": 0,
+        "salvage": 593.38,
+        "harm": 0,
+        "net": 593.38
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 386.07,
+          "harm": 0,
+          "net": 386.07
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 175,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 2,
+        "clipping_count": 0,
+        "salvage": 386.07,
+        "harm": 0,
+        "net": 386.07
+      },
+      "positive_years": 1,
+      "zero_years": 8,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 386.07,
+          "harm": 0,
+          "net": 386.07
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 120,
+      "mfe_threshold_dollars": 200,
+      "count": 61,
+      "impact": {
+        "trades_total": 61,
+        "saving_count": 1,
+        "clipping_count": 0,
+        "salvage": 160.34,
+        "harm": 0,
+        "net": 160.34
+      },
+      "positive_years": 1,
+      "zero_years": 8,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 6,
+          "trades_total": 6,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 160.34,
+          "harm": 0,
+          "net": 160.34
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2023": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2024": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 3,
+          "trades_total": 3,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 25,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 34,
+        "clipping_count": 0,
+        "salvage": 5202.81,
+        "harm": 0,
+        "net": 5202.81
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 128.7,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 242.18,
+          "harm": 0,
+          "net": 242.18
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 5,
+          "clipping_count": 0,
+          "salvage": 621.98,
+          "harm": 0,
+          "net": 621.98
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 128.7,
+          "harm": 0,
+          "net": 128.7
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 10,
+          "clipping_count": 0,
+          "salvage": 1518.61,
+          "harm": 0,
+          "net": 1518.61
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 353.08,
+          "harm": 0,
+          "net": 353.08
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 569.46,
+          "harm": 0,
+          "net": 569.46
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 6,
+          "clipping_count": 0,
+          "salvage": 1087.1,
+          "harm": 0,
+          "net": 1087.1
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 386.1,
+          "harm": 0,
+          "net": 386.1
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 295.6,
+          "harm": 0,
+          "net": 295.6
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 50,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 20,
+        "clipping_count": 0,
+        "salvage": 3075.59,
+        "harm": 0,
+        "net": 3075.59
+      },
+      "positive_years": 7,
+      "zero_years": 2,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 198.12,
+          "harm": 0,
+          "net": 198.12
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 316.77,
+          "harm": 0,
+          "net": 316.77
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 7,
+          "clipping_count": 0,
+          "salvage": 908.98,
+          "harm": 0,
+          "net": 908.98
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 569.46,
+          "harm": 0,
+          "net": 569.46
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 631.92,
+          "harm": 0,
+          "net": 631.92
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 264.57,
+          "harm": 0,
+          "net": 264.57
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 75,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 11,
+        "clipping_count": 0,
+        "salvage": 1626.95,
+        "harm": 0,
+        "net": 1626.95
+      },
+      "positive_years": 6,
+      "zero_years": 3,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 73.59,
+          "harm": 0,
+          "net": 73.59
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 447.29,
+          "harm": 0,
+          "net": 447.29
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 569.46,
+          "harm": 0,
+          "net": 569.46
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 143.53,
+          "harm": 0,
+          "net": 143.53
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 100,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 6,
+        "clipping_count": 0,
+        "salvage": 980.25,
+        "harm": 0,
+        "net": 980.25
+      },
+      "positive_years": 3,
+      "zero_years": 6,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 361.53,
+          "harm": 0,
+          "net": 361.53
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 125,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 6,
+        "clipping_count": 0,
+        "salvage": 980.25,
+        "harm": 0,
+        "net": 980.25
+      },
+      "positive_years": 3,
+      "zero_years": 6,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 361.53,
+          "harm": 0,
+          "net": 361.53
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 150,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 5,
+        "clipping_count": 0,
+        "salvage": 731.39,
+        "harm": 0,
+        "net": 731.39
+      },
+      "positive_years": 3,
+      "zero_years": 6,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 112.67,
+          "harm": 0,
+          "net": 112.67
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 207.31,
+          "harm": 0,
+          "net": 207.31
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 175,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 4,
+        "clipping_count": 0,
+        "salvage": 524.08,
+        "harm": 0,
+        "net": 524.08
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 112.67,
+          "harm": 0,
+          "net": 112.67
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 200,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 3,
+        "clipping_count": 0,
+        "salvage": 298.35,
+        "harm": 0,
+        "net": 298.35
+      },
+      "positive_years": 2,
+      "zero_years": 7,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 7,
+          "trades_total": 7,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 10,
+          "trades_total": 10,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 9,
+          "trades_total": 9,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 14,
+          "trades_total": 14,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 185.68,
+          "harm": 0,
+          "net": 185.68
+        },
+        "2021": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 8,
+          "trades_total": 8,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 112.67,
+          "harm": 0,
+          "net": 112.67
+        },
+        "2023": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2024": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 5,
+          "trades_total": 5,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 25,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 48,
+        "clipping_count": 7,
+        "salvage": 6907.84,
+        "harm": 239.11,
+        "net": 6668.73
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 229.99,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 5,
+          "clipping_count": 1,
+          "salvage": 350.27,
+          "harm": 10.67,
+          "net": 339.6
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 5,
+          "clipping_count": 1,
+          "salvage": 621.98,
+          "harm": 22.14,
+          "net": 599.84
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 229.99,
+          "harm": 0,
+          "net": 229.99
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 12,
+          "clipping_count": 1,
+          "salvage": 1854.73,
+          "harm": 18.87,
+          "net": 1835.86
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 3,
+          "clipping_count": 1,
+          "salvage": 439.51,
+          "harm": 31.48,
+          "net": 408.03
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 6,
+          "clipping_count": 0,
+          "salvage": 1006.11,
+          "harm": 0,
+          "net": 1006.11
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 8,
+          "clipping_count": 2,
+          "salvage": 1372.53,
+          "harm": 149.13,
+          "net": 1223.4
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 4,
+          "clipping_count": 1,
+          "salvage": 456.27,
+          "harm": 6.82,
+          "net": 449.45
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 576.45,
+          "harm": 0,
+          "net": 576.45
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 50,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 30,
+        "clipping_count": 3,
+        "salvage": 4437.39,
+        "harm": 155.95,
+        "net": 4281.44
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 101.29,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 308.21,
+          "harm": 0,
+          "net": 308.21
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 316.77,
+          "harm": 0,
+          "net": 316.77
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 101.29,
+          "harm": 0,
+          "net": 101.29
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 9,
+          "clipping_count": 0,
+          "salvage": 1245.1,
+          "harm": 0,
+          "net": 1245.1
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 6,
+          "clipping_count": 0,
+          "salvage": 1006.11,
+          "harm": 0,
+          "net": 1006.11
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 4,
+          "clipping_count": 2,
+          "salvage": 811.39,
+          "harm": 149.13,
+          "net": 662.26
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 3,
+          "clipping_count": 1,
+          "salvage": 334.74,
+          "harm": 6.82,
+          "net": 327.92
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 128.01,
+          "harm": 0,
+          "net": 128.01
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 75,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 15,
+        "clipping_count": 2,
+        "salvage": 2191.61,
+        "harm": 149.13,
+        "net": 2042.48
+      },
+      "positive_years": 7,
+      "zero_years": 2,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 73.59,
+          "harm": 0,
+          "net": 73.59
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 447.29,
+          "harm": 0,
+          "net": 447.29
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 185.77,
+          "harm": 0,
+          "net": 185.77
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 6,
+          "clipping_count": 0,
+          "salvage": 1006.11,
+          "harm": 0,
+          "net": 1006.11
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 1,
+          "clipping_count": 2,
+          "salvage": 207.31,
+          "harm": 149.13,
+          "net": 58.18
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 143.53,
+          "harm": 0,
+          "net": 143.53
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 128.01,
+          "harm": 0,
+          "net": 128.01
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 100,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 10,
+        "clipping_count": 1,
+        "salvage": 1544.91,
+        "harm": 77.96,
+        "net": 1466.95
+      },
+      "positive_years": 4,
+      "zero_years": 5,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 5,
+          "clipping_count": 0,
+          "salvage": 798.18,
+          "harm": 0,
+          "net": 798.18
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 1,
+          "clipping_count": 1,
+          "salvage": 207.31,
+          "harm": 77.96,
+          "net": 129.35
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 128.01,
+          "harm": 0,
+          "net": 128.01
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 125,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 8,
+        "clipping_count": 1,
+        "salvage": 1277.93,
+        "harm": 77.96,
+        "net": 1199.97
+      },
+      "positive_years": 3,
+      "zero_years": 6,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 659.21,
+          "harm": 0,
+          "net": 659.21
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 1,
+          "clipping_count": 1,
+          "salvage": 207.31,
+          "harm": 77.96,
+          "net": 129.35
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 150,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 7,
+        "clipping_count": 1,
+        "salvage": 1029.07,
+        "harm": 77.96,
+        "net": 951.11
+      },
+      "positive_years": 3,
+      "zero_years": 6,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 410.35,
+          "harm": 0,
+          "net": 410.35
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 1,
+          "clipping_count": 1,
+          "salvage": 207.31,
+          "harm": 77.96,
+          "net": 129.35
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 175,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 6,
+        "clipping_count": 1,
+        "salvage": 821.76,
+        "harm": 77.96,
+        "net": 743.8
+      },
+      "positive_years": 2,
+      "zero_years": 6,
+      "negative_years": 1,
+      "min_year_net": -77.96,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 410.35,
+          "harm": 0,
+          "net": 410.35
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 1,
+          "salvage": 0,
+          "harm": 77.96,
+          "net": -77.96
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 240,
+      "mfe_threshold_dollars": 200,
+      "count": 128,
+      "impact": {
+        "trades_total": 128,
+        "saving_count": 4,
+        "clipping_count": 1,
+        "salvage": 415.02,
+        "harm": 77.96,
+        "net": 337.06
+      },
+      "positive_years": 2,
+      "zero_years": 6,
+      "negative_years": 1,
+      "min_year_net": -77.96,
+      "year_breakdown": {
+        "2017": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 185.68,
+          "harm": 0,
+          "net": 185.68
+        },
+        "2021": {
+          "count": 13,
+          "trades_total": 13,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 11,
+          "trades_total": 11,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 229.34,
+          "harm": 0,
+          "net": 229.34
+        },
+        "2023": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 0,
+          "clipping_count": 1,
+          "salvage": 0,
+          "harm": 77.96,
+          "net": -77.96
+        },
+        "2024": {
+          "count": 17,
+          "trades_total": 17,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 12,
+          "trades_total": 12,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 25,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 76,
+        "clipping_count": 21,
+        "salvage": 9737.78,
+        "harm": 841.2,
+        "net": 8896.58
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 291.89,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 8,
+          "clipping_count": 2,
+          "salvage": 607.13,
+          "harm": 29.39,
+          "net": 577.74
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 8,
+          "clipping_count": 2,
+          "salvage": 765.2,
+          "harm": 50.31,
+          "net": 714.89
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 6,
+          "clipping_count": 5,
+          "salvage": 536.97,
+          "harm": 245.08,
+          "net": 291.89
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 16,
+          "clipping_count": 1,
+          "salvage": 2520.13,
+          "harm": 18.87,
+          "net": 2501.26
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 5,
+          "clipping_count": 4,
+          "salvage": 617.69,
+          "harm": 133.77,
+          "net": 483.92
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 7,
+          "clipping_count": 1,
+          "salvage": 1231.36,
+          "harm": 135.51,
+          "net": 1095.85
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 12,
+          "clipping_count": 5,
+          "salvage": 1746.17,
+          "harm": 221.45,
+          "net": 1524.72
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 7,
+          "clipping_count": 1,
+          "salvage": 753.75,
+          "harm": 6.82,
+          "net": 746.93
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 7,
+          "clipping_count": 0,
+          "salvage": 959.38,
+          "harm": 0,
+          "net": 959.38
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 50,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 48,
+        "clipping_count": 10,
+        "salvage": 6394.34,
+        "harm": 645.31,
+        "net": 5749.03
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 29.28,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 463.3,
+          "harm": 0,
+          "net": 463.3
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 431.13,
+          "harm": 0,
+          "net": 431.13
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 3,
+          "clipping_count": 2,
+          "salvage": 215.88,
+          "harm": 186.6,
+          "net": 29.28
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 11,
+          "clipping_count": 0,
+          "salvage": 1634.18,
+          "harm": 0,
+          "net": 1634.18
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 3,
+          "clipping_count": 1,
+          "salvage": 363.95,
+          "harm": 94.93,
+          "net": 269.02
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 7,
+          "clipping_count": 1,
+          "salvage": 1231.36,
+          "harm": 135.51,
+          "net": 1095.85
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 8,
+          "clipping_count": 5,
+          "salvage": 1185.03,
+          "harm": 221.45,
+          "net": 963.58
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 4,
+          "clipping_count": 1,
+          "salvage": 453.86,
+          "harm": 6.82,
+          "net": 447.04
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 415.65,
+          "harm": 0,
+          "net": 415.65
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 75,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 28,
+        "clipping_count": 5,
+        "salvage": 3843.51,
+        "harm": 508.34,
+        "net": 3335.17
+      },
+      "positive_years": 8,
+      "zero_years": 0,
+      "negative_years": 1,
+      "min_year_net": -14.18,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 73.59,
+          "harm": 0,
+          "net": 73.59
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 111.84,
+          "harm": 0,
+          "net": 111.84
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 2,
+          "clipping_count": 1,
+          "salvage": 114.59,
+          "harm": 128.77,
+          "net": -14.18
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 6,
+          "clipping_count": 0,
+          "salvage": 836.37,
+          "harm": 0,
+          "net": 836.37
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 3,
+          "clipping_count": 1,
+          "salvage": 363.95,
+          "harm": 94.93,
+          "net": 269.02
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 7,
+          "clipping_count": 1,
+          "salvage": 1231.36,
+          "harm": 135.51,
+          "net": 1095.85
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 4,
+          "clipping_count": 2,
+          "salvage": 564.32,
+          "harm": 149.13,
+          "net": 415.19
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 262.65,
+          "harm": 0,
+          "net": 262.65
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 284.84,
+          "harm": 0,
+          "net": 284.84
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 100,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 21,
+        "clipping_count": 4,
+        "salvage": 3019.51,
+        "harm": 437.17,
+        "net": 2582.34
+      },
+      "positive_years": 6,
+      "zero_years": 2,
+      "negative_years": 1,
+      "min_year_net": -14.18,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 2,
+          "clipping_count": 1,
+          "salvage": 114.59,
+          "harm": 128.77,
+          "net": -14.18
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 5,
+          "clipping_count": 0,
+          "salvage": 800.49,
+          "harm": 0,
+          "net": 800.49
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 1,
+          "clipping_count": 1,
+          "salvage": 112.72,
+          "harm": 94.93,
+          "net": 17.79
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 6,
+          "clipping_count": 1,
+          "salvage": 1023.43,
+          "harm": 135.51,
+          "net": 887.92
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 4,
+          "clipping_count": 1,
+          "salvage": 564.32,
+          "harm": 77.96,
+          "net": 486.36
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 119.12,
+          "harm": 0,
+          "net": 119.12
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 284.84,
+          "harm": 0,
+          "net": 284.84
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 125,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 16,
+        "clipping_count": 3,
+        "salvage": 2226.44,
+        "harm": 342.24,
+        "net": 1884.2
+      },
+      "positive_years": 6,
+      "zero_years": 2,
+      "negative_years": 1,
+      "min_year_net": -100.42,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 1,
+          "clipping_count": 1,
+          "salvage": 28.35,
+          "harm": 128.77,
+          "net": -100.42
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 585.89,
+          "harm": 0,
+          "net": 585.89
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 112.72,
+          "harm": 0,
+          "net": 112.72
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 4,
+          "clipping_count": 1,
+          "salvage": 659.21,
+          "harm": 135.51,
+          "net": 523.7
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 4,
+          "clipping_count": 1,
+          "salvage": 564.32,
+          "harm": 77.96,
+          "net": 486.36
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 119.12,
+          "harm": 0,
+          "net": 119.12
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 156.83,
+          "harm": 0,
+          "net": 156.83
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 150,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 11,
+        "clipping_count": 1,
+        "salvage": 1554.75,
+        "harm": 77.96,
+        "net": 1476.79
+      },
+      "positive_years": 4,
+      "zero_years": 5,
+      "negative_years": 0,
+      "min_year_net": 0,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 4,
+          "clipping_count": 0,
+          "salvage": 585.89,
+          "harm": 0,
+          "net": 585.89
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 410.35,
+          "harm": 0,
+          "net": 410.35
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 3,
+          "clipping_count": 1,
+          "salvage": 401.68,
+          "harm": 77.96,
+          "net": 323.72
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 156.83,
+          "harm": 0,
+          "net": 156.83
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 175,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 8,
+        "clipping_count": 1,
+        "salvage": 1043.34,
+        "harm": 77.96,
+        "net": 965.38
+      },
+      "positive_years": 3,
+      "zero_years": 5,
+      "negative_years": 1,
+      "min_year_net": -13.21,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 411.41,
+          "harm": 0,
+          "net": 411.41
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 3,
+          "clipping_count": 0,
+          "salvage": 410.35,
+          "harm": 0,
+          "net": 410.35
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 1,
+          "clipping_count": 1,
+          "salvage": 64.75,
+          "harm": 77.96,
+          "net": -13.21
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 156.83,
+          "harm": 0,
+          "net": 156.83
+        }
+      }
+    },
+    {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 200,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 6,
+        "clipping_count": 1,
+        "salvage": 636.6,
+        "harm": 77.96,
+        "net": 558.64
+      },
+      "positive_years": 3,
+      "zero_years": 5,
+      "negative_years": 1,
+      "min_year_net": -13.21,
+      "year_breakdown": {
+        "2017": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2018": {
+          "count": 23,
+          "trades_total": 23,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2019": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2020": {
+          "count": 27,
+          "trades_total": 27,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 185.68,
+          "harm": 0,
+          "net": 185.68
+        },
+        "2021": {
+          "count": 21,
+          "trades_total": 21,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2022": {
+          "count": 16,
+          "trades_total": 16,
+          "saving_count": 2,
+          "clipping_count": 0,
+          "salvage": 229.34,
+          "harm": 0,
+          "net": 229.34
+        },
+        "2023": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 1,
+          "clipping_count": 1,
+          "salvage": 64.75,
+          "harm": 77.96,
+          "net": -13.21
+        },
+        "2024": {
+          "count": 26,
+          "trades_total": 26,
+          "saving_count": 0,
+          "clipping_count": 0,
+          "salvage": 0,
+          "harm": 0,
+          "net": 0
+        },
+        "2025": {
+          "count": 19,
+          "trades_total": 19,
+          "saving_count": 1,
+          "clipping_count": 0,
+          "salvage": 156.83,
+          "harm": 0,
+          "net": 156.83
+        }
+      }
+    }
+  ],
+  "candidate_summary": {
+    "best_zero_clip_candidate": {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 25,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 34,
+        "clipping_count": 0,
+        "salvage": 5202.81,
+        "harm": 0,
+        "net": 5202.81
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 128.7
+    },
+    "best_all_year_positive_candidate": {
+      "duration_cap_min": 300,
+      "mfe_threshold_dollars": 25,
+      "count": 205,
+      "impact": {
+        "trades_total": 205,
+        "saving_count": 76,
+        "clipping_count": 21,
+        "salvage": 9737.78,
+        "harm": 841.2,
+        "net": 8896.58
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 291.89
+    },
+    "best_180min_candidate": {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 25,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 34,
+        "clipping_count": 0,
+        "salvage": 5202.81,
+        "harm": 0,
+        "net": 5202.81
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 128.7
+    },
+    "best_180min_zero_clip_candidate": {
+      "duration_cap_min": 180,
+      "mfe_threshold_dollars": 25,
+      "count": 85,
+      "impact": {
+        "trades_total": 85,
+        "saving_count": 34,
+        "clipping_count": 0,
+        "salvage": 5202.81,
+        "harm": 0,
+        "net": 5202.81
+      },
+      "positive_years": 9,
+      "zero_years": 0,
+      "negative_years": 0,
+      "min_year_net": 128.7
+    },
+    "interpretation": "If the <=180 minute lane stays zero-clipping across many anchors, that strengthens the conservative QC-only case. Higher duration caps may still be attractive on net, but clipping must be treated as a real risk."
+  }
+}

@@ -1,0 +1,527 @@
+{
+  "research_scope": "qc_trade_bootstrap_breakeven_upper_bound",
+  "source_file": "QuantConnect results\\2017-2026\\Measured Green Hippopotamus_trades.csv",
+  "assumption": "Qualifying losing trades could be exited at breakeven minus fees after reaching the MFE threshold.",
+  "limitation": "Upper-bound only; does not model winner profit giveback.",
+  "trade_summary": {
+    "trades": 405,
+    "wins": 221,
+    "losses": 184,
+    "net_pnl": 6264.16,
+    "years": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "threshold_results": [
+    {
+      "threshold_mfe_dollars": 0,
+      "qualifying_loss_count": 164,
+      "qualifying_loss_pct_of_all_losses": 89.13,
+      "uplift_upper_bound": 16146.72,
+      "uplift_upper_bound_pct_of_current_net_pnl": 257.76,
+      "avg_qualifying_mfe": 65.92,
+      "avg_qualifying_loss": -100.46,
+      "positive_years": 10,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 19,
+          "uplift_upper_bound": 940.35
+        },
+        "2018": {
+          "qualifying_losses": 19,
+          "uplift_upper_bound": 1799.82
+        },
+        "2019": {
+          "qualifying_losses": 21,
+          "uplift_upper_bound": 1735.2
+        },
+        "2020": {
+          "qualifying_losses": 25,
+          "uplift_upper_bound": 3106.52
+        },
+        "2021": {
+          "qualifying_losses": 17,
+          "uplift_upper_bound": 1351.89
+        },
+        "2022": {
+          "qualifying_losses": 12,
+          "uplift_upper_bound": 1970.88
+        },
+        "2023": {
+          "qualifying_losses": 21,
+          "uplift_upper_bound": 2483.31
+        },
+        "2024": {
+          "qualifying_losses": 17,
+          "uplift_upper_bound": 1507.09
+        },
+        "2025": {
+          "qualifying_losses": 12,
+          "uplift_upper_bound": 1207.1
+        },
+        "2026": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 44.56
+        }
+      },
+      "required_capture_for_500": 3.1,
+      "required_capture_for_1000": 6.19,
+      "bootstrap": {
+        "samples": 10000,
+        "positive_uplift_probability": 100.0,
+        "uplift_p05": 11948.08,
+        "uplift_p50": 16146.72,
+        "uplift_p95": 20293.05,
+        "qualifying_count_p05": 128,
+        "qualifying_count_p50": 165,
+        "qualifying_count_p95": 195
+      }
+    },
+    {
+      "threshold_mfe_dollars": 25,
+      "qualifying_loss_count": 115,
+      "qualifying_loss_pct_of_all_losses": 62.5,
+      "uplift_upper_bound": 12035.88,
+      "uplift_upper_bound_pct_of_current_net_pnl": 192.14,
+      "avg_qualifying_mfe": 87.45,
+      "avg_qualifying_loss": -106.66,
+      "positive_years": 10,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 11,
+          "uplift_upper_bound": 725.58
+        },
+        "2018": {
+          "qualifying_losses": 13,
+          "uplift_upper_bound": 1066.18
+        },
+        "2019": {
+          "qualifying_losses": 11,
+          "uplift_upper_bound": 895.78
+        },
+        "2020": {
+          "qualifying_losses": 24,
+          "uplift_upper_bound": 2969.66
+        },
+        "2021": {
+          "qualifying_losses": 8,
+          "uplift_upper_bound": 724.14
+        },
+        "2022": {
+          "qualifying_losses": 10,
+          "uplift_upper_bound": 1563.05
+        },
+        "2023": {
+          "qualifying_losses": 16,
+          "uplift_upper_bound": 2019.69
+        },
+        "2024": {
+          "qualifying_losses": 12,
+          "uplift_upper_bound": 1029.92
+        },
+        "2025": {
+          "qualifying_losses": 9,
+          "uplift_upper_bound": 997.32
+        },
+        "2026": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 44.56
+        }
+      },
+      "required_capture_for_500": 4.15,
+      "required_capture_for_1000": 8.31,
+      "bootstrap": {
+        "samples": 10000,
+        "positive_uplift_probability": 100.0,
+        "uplift_p05": 8210.56,
+        "uplift_p50": 11911.83,
+        "uplift_p95": 16194.6,
+        "qualifying_count_p05": 86,
+        "qualifying_count_p50": 115,
+        "qualifying_count_p95": 145
+      }
+    },
+    {
+      "threshold_mfe_dollars": 50,
+      "qualifying_loss_count": 73,
+      "qualifying_loss_pct_of_all_losses": 39.67,
+      "uplift_upper_bound": 8008.63,
+      "uplift_upper_bound_pct_of_current_net_pnl": 127.85,
+      "avg_qualifying_mfe": 117.31,
+      "avg_qualifying_loss": -111.71,
+      "positive_years": 10,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 514.76
+        },
+        "2018": {
+          "qualifying_losses": 7,
+          "uplift_upper_bound": 645.31
+        },
+        "2019": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 380.07
+        },
+        "2020": {
+          "qualifying_losses": 16,
+          "uplift_upper_bound": 1942.25
+        },
+        "2021": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 395.19
+        },
+        "2022": {
+          "qualifying_losses": 10,
+          "uplift_upper_bound": 1563.05
+        },
+        "2023": {
+          "qualifying_losses": 10,
+          "uplift_upper_bound": 1420.08
+        },
+        "2024": {
+          "qualifying_losses": 7,
+          "uplift_upper_bound": 649.77
+        },
+        "2025": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 453.59
+        },
+        "2026": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 44.56
+        }
+      },
+      "required_capture_for_500": 6.24,
+      "required_capture_for_1000": 12.49,
+      "bootstrap": {
+        "samples": 10000,
+        "positive_uplift_probability": 100.0,
+        "uplift_p05": 5082.41,
+        "uplift_p50": 7943.07,
+        "uplift_p95": 11199.23,
+        "qualifying_count_p05": 54,
+        "qualifying_count_p50": 72,
+        "qualifying_count_p95": 93
+      }
+    },
+    {
+      "threshold_mfe_dollars": 75,
+      "qualifying_loss_count": 47,
+      "qualifying_loss_pct_of_all_losses": 25.54,
+      "uplift_upper_bound": 5276.24,
+      "uplift_upper_bound_pct_of_current_net_pnl": 84.23,
+      "avg_qualifying_mfe": 148.78,
+      "avg_qualifying_loss": -114.26,
+      "positive_years": 10,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 2,
+          "uplift_upper_bound": 125.05
+        },
+        "2018": {
+          "qualifying_losses": 3,
+          "uplift_upper_bound": 289.11
+        },
+        "2019": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 278.78
+        },
+        "2020": {
+          "qualifying_losses": 10,
+          "uplift_upper_bound": 1068.97
+        },
+        "2021": {
+          "qualifying_losses": 3,
+          "uplift_upper_bound": 363.95
+        },
+        "2022": {
+          "qualifying_losses": 10,
+          "uplift_upper_bound": 1563.05
+        },
+        "2023": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 799.37
+        },
+        "2024": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 458.56
+        },
+        "2025": {
+          "qualifying_losses": 2,
+          "uplift_upper_bound": 284.84
+        },
+        "2026": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 44.56
+        }
+      },
+      "required_capture_for_500": 9.48,
+      "required_capture_for_1000": 18.95,
+      "bootstrap": {
+        "samples": 10000,
+        "positive_uplift_probability": 100.0,
+        "uplift_p05": 3069.72,
+        "uplift_p50": 5175.79,
+        "uplift_p95": 7739.33,
+        "qualifying_count_p05": 32,
+        "qualifying_count_p50": 47,
+        "qualifying_count_p95": 63
+      }
+    },
+    {
+      "threshold_mfe_dollars": 100,
+      "qualifying_loss_count": 35,
+      "qualifying_loss_pct_of_all_losses": 19.02,
+      "uplift_upper_bound": 4104.26,
+      "uplift_upper_bound_pct_of_current_net_pnl": 65.52,
+      "avg_qualifying_mfe": 170.4,
+      "avg_qualifying_loss": -119.26,
+      "positive_years": 10,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 51.46
+        },
+        "2018": {
+          "qualifying_losses": 2,
+          "uplift_upper_bound": 177.27
+        },
+        "2019": {
+          "qualifying_losses": 4,
+          "uplift_upper_bound": 224.63
+        },
+        "2020": {
+          "qualifying_losses": 7,
+          "uplift_upper_bound": 948.97
+        },
+        "2021": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 112.72
+        },
+        "2022": {
+          "qualifying_losses": 9,
+          "uplift_upper_bound": 1355.12
+        },
+        "2023": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 722.62
+        },
+        "2024": {
+          "qualifying_losses": 3,
+          "uplift_upper_bound": 182.07
+        },
+        "2025": {
+          "qualifying_losses": 2,
+          "uplift_upper_bound": 284.84
+        },
+        "2026": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 44.56
+        }
+      },
+      "required_capture_for_500": 12.18,
+      "required_capture_for_1000": 24.36,
+      "bootstrap": {
+        "samples": 10000,
+        "positive_uplift_probability": 100.0,
+        "uplift_p05": 2038.5,
+        "uplift_p50": 4009.27,
+        "uplift_p95": 6411.35,
+        "qualifying_count_p05": 22,
+        "qualifying_count_p50": 35,
+        "qualifying_count_p95": 49
+      }
+    },
+    {
+      "threshold_mfe_dollars": 125,
+      "qualifying_loss_count": 24,
+      "qualifying_loss_pct_of_all_losses": 13.04,
+      "uplift_upper_bound": 2945.14,
+      "uplift_upper_bound_pct_of_current_net_pnl": 47.02,
+      "avg_qualifying_mfe": 196.8,
+      "avg_qualifying_loss": -124.71,
+      "positive_years": 9,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 51.46
+        },
+        "2018": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 106.82
+        },
+        "2019": {
+          "qualifying_losses": 2,
+          "uplift_upper_bound": 89.68
+        },
+        "2020": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 734.37
+        },
+        "2021": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 112.72
+        },
+        "2022": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 851.52
+        },
+        "2023": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 722.62
+        },
+        "2024": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 119.12
+        },
+        "2025": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 156.83
+        }
+      },
+      "required_capture_for_500": 16.98,
+      "required_capture_for_1000": 33.95,
+      "bootstrap": {
+        "samples": 10000,
+        "positive_uplift_probability": 100.0,
+        "uplift_p05": 1438.19,
+        "uplift_p50": 2915.29,
+        "uplift_p95": 4573.72,
+        "qualifying_count_p05": 13,
+        "qualifying_count_p50": 24,
+        "qualifying_count_p95": 36
+      }
+    },
+    {
+      "threshold_mfe_dollars": 150,
+      "qualifying_loss_count": 18,
+      "qualifying_loss_pct_of_all_losses": 9.78,
+      "uplift_upper_bound": 2166.63,
+      "uplift_upper_bound_pct_of_current_net_pnl": 34.59,
+      "avg_qualifying_mfe": 216.57,
+      "avg_qualifying_loss": -122.37,
+      "positive_years": 6,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 51.46
+        },
+        "2019": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 61.33
+        },
+        "2020": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 734.37
+        },
+        "2022": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 602.66
+        },
+        "2023": {
+          "qualifying_losses": 4,
+          "uplift_upper_bound": 559.98
+        },
+        "2025": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 156.83
+        }
+      },
+      "required_capture_for_500": 23.08,
+      "required_capture_for_1000": 46.15,
+      "bootstrap": {
+        "samples": 10000,
+        "positive_uplift_probability": 99.99,
+        "uplift_p05": 795.43,
+        "uplift_p50": 2115.17,
+        "uplift_p95": 3662.31,
+        "qualifying_count_p05": 7,
+        "qualifying_count_p50": 18,
+        "qualifying_count_p95": 30
+      }
+    }
+  ],
+  "anchor_threshold": {
+    "threshold_mfe_dollars": 50,
+    "actual": {
+      "threshold_mfe_dollars": 50,
+      "qualifying_loss_count": 73,
+      "qualifying_loss_pct_of_all_losses": 39.67,
+      "uplift_upper_bound": 8008.63,
+      "uplift_upper_bound_pct_of_current_net_pnl": 127.85,
+      "avg_qualifying_mfe": 117.31,
+      "avg_qualifying_loss": -111.71,
+      "positive_years": 10,
+      "year_breakdown": {
+        "2017": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 514.76
+        },
+        "2018": {
+          "qualifying_losses": 7,
+          "uplift_upper_bound": 645.31
+        },
+        "2019": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 380.07
+        },
+        "2020": {
+          "qualifying_losses": 16,
+          "uplift_upper_bound": 1942.25
+        },
+        "2021": {
+          "qualifying_losses": 5,
+          "uplift_upper_bound": 395.19
+        },
+        "2022": {
+          "qualifying_losses": 10,
+          "uplift_upper_bound": 1563.05
+        },
+        "2023": {
+          "qualifying_losses": 10,
+          "uplift_upper_bound": 1420.08
+        },
+        "2024": {
+          "qualifying_losses": 7,
+          "uplift_upper_bound": 649.77
+        },
+        "2025": {
+          "qualifying_losses": 6,
+          "uplift_upper_bound": 453.59
+        },
+        "2026": {
+          "qualifying_losses": 1,
+          "uplift_upper_bound": 44.56
+        }
+      },
+      "required_capture_for_500": 6.24,
+      "required_capture_for_1000": 12.49
+    },
+    "bootstrap": {
+      "samples": 10000,
+      "positive_uplift_probability": 100.0,
+      "uplift_p05": 5082.41,
+      "uplift_p50": 7943.07,
+      "uplift_p95": 11199.23,
+      "qualifying_count_p05": 54,
+      "qualifying_count_p50": 72,
+      "qualifying_count_p95": 93
+    }
+  },
+  "conclusion": {
+    "breakeven_remains_primary_research_thread": true,
+    "upper_bound_signal_is_stable": true,
+    "launch_ready": false,
+    "note": "The upper-bound salvage pool is robust, but this still does not justify v20 because winner-side harm remains unknown and the local proxy only improved 1/4 folds."
+  }
+}

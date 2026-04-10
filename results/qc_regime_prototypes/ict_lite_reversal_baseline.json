@@ -1,0 +1,273 @@
+{
+  "analysis": "ict_lite_reversal_baseline",
+  "risk_standard": {
+    "reward_risk_gate": ">= 1.5:1",
+    "engine": {
+      "initial_cash": 100000.0,
+      "fees_pct": 0.0005,
+      "position_size_mode": "capital_pct",
+      "fixed_shares": null,
+      "capital_usage_pct": 1.0,
+      "min_shares": 40
+    }
+  },
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "strict_frontier": {
+    "profile": "strict_ict_frontier",
+    "params": {
+      "use_smt_filter": true,
+      "use_premium_discount_filter": true,
+      "use_external_liquidity_filter": true,
+      "use_prev_session_anchor_filter": true,
+      "use_session_array_refinement": true,
+      "trade_sessions": true,
+      "liq_sweep_threshold": 0.0008,
+      "liq_sweep_recovery_bars": 4,
+      "structure_lookback": 12,
+      "fvg_min_gap_pct": 0.0006,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_revisit_min_delay_bars": 3,
+      "displacement_body_min_pct": 0.1
+    },
+    "metrics": {
+      "total_return_pct": 7.7249,
+      "sharpe_ratio": 1.1196,
+      "sortino_ratio": 0.1269,
+      "calmar_ratio": 5.0616,
+      "max_drawdown_pct": -1.5262,
+      "win_rate_pct": 100.0,
+      "total_trades": 8,
+      "profit_factor": 0.0,
+      "avg_trade_pct": 0.9656
+    },
+    "delivery_breakdown": {
+      "fvg_entries": 8,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0
+    },
+    "funnel": {
+      "stages": {
+        "raw_sweep_candidates": 829,
+        "accepted_sweeps": 273,
+        "shift_candidates": 25,
+        "armed_setups": 10,
+        "retest_candidates": 8,
+        "entries": 8
+      },
+      "direction_breakdown": {
+        "bullish_sweep_candidates": 493,
+        "bearish_sweep_candidates": 336,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122,
+        "bullish_shift_candidates": 7,
+        "bearish_shift_candidates": 18,
+        "bullish_armed_setups": 4,
+        "bearish_armed_setups": 6,
+        "bullish_retest_candidates": 2,
+        "bearish_retest_candidates": 6,
+        "long_entries": 2,
+        "short_entries": 6
+      },
+      "conversion_rates_pct": {
+        "sweep_acceptance_rate": 32.93,
+        "accepted_sweep_to_shift_rate": 9.16,
+        "shift_to_armed_rate": 40.0,
+        "armed_to_retest_rate": 80.0,
+        "retest_to_entry_rate": 100.0,
+        "raw_sweep_to_entry_rate": 0.97
+      },
+      "filtered_breakdown": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "amd_filtered_setups": 0,
+        "prev_session_anchor_filtered_setups": 84,
+        "external_liquidity_filtered_sweeps": 47,
+        "smt_filtered_sweeps": 137,
+        "smt_missing_peer_bars": 1,
+        "macro_timing_filtered_sweeps": 0,
+        "kill_zone_filtered_sweeps": 0,
+        "displacement_filtered_shifts": 1,
+        "displacement_range_filtered_shifts": 0,
+        "structure_buffer_filtered_shifts": 0,
+        "session_array_filtered_shifts": 7,
+        "delivery_missing_shifts": 14,
+        "score_filtered_shifts": 0,
+        "fvg_delay_filtered_retests": 3,
+        "fvg_depth_filtered_retests": 7,
+        "fvg_touch_filtered_retests": 0,
+        "fvg_close_filtered_retests": 0,
+        "fvg_wick_filtered_retests": 0,
+        "fvg_body_filtered_retests": 0
+      },
+      "top_filters": [
+        {
+          "label": "premium_discount_filtered_setups",
+          "count": 287
+        },
+        {
+          "label": "smt_filtered_sweeps",
+          "count": 137
+        },
+        {
+          "label": "prev_session_anchor_filtered_setups",
+          "count": 84
+        },
+        {
+          "label": "external_liquidity_filtered_sweeps",
+          "count": 47
+        },
+        {
+          "label": "delivery_missing_shifts",
+          "count": 14
+        },
+        {
+          "label": "session_array_filtered_shifts",
+          "count": 7
+        },
+        {
+          "label": "fvg_depth_filtered_retests",
+          "count": 7
+        },
+        {
+          "label": "fvg_delay_filtered_retests",
+          "count": 3
+        }
+      ]
+    }
+  },
+  "lite_reversal": {
+    "profile": "lite_ict_reversal",
+    "params": {
+      "use_smt_filter": true,
+      "use_premium_discount_filter": false,
+      "use_external_liquidity_filter": false,
+      "use_prev_session_anchor_filter": false,
+      "use_session_array_refinement": false,
+      "trade_sessions": true,
+      "liq_sweep_threshold": 0.0008,
+      "liq_sweep_recovery_bars": 4,
+      "structure_lookback": 12,
+      "fvg_min_gap_pct": 0.0006,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_revisit_min_delay_bars": 3,
+      "displacement_body_min_pct": 0.1
+    },
+    "metrics": {
+      "total_return_pct": 10.6136,
+      "sharpe_ratio": 1.0122,
+      "sortino_ratio": 0.1267,
+      "calmar_ratio": 5.3571,
+      "max_drawdown_pct": -1.9812,
+      "win_rate_pct": 78.5714,
+      "total_trades": 14,
+      "profit_factor": 9.9873,
+      "avg_trade_pct": 0.7581
+    },
+    "delivery_breakdown": {
+      "fvg_entries": 11,
+      "ob_entries": 2,
+      "breaker_entries": 1,
+      "ifvg_entries": 0
+    },
+    "funnel": {
+      "stages": {
+        "raw_sweep_candidates": 811,
+        "accepted_sweeps": 508,
+        "shift_candidates": 31,
+        "armed_setups": 22,
+        "retest_candidates": 15,
+        "entries": 14
+      },
+      "direction_breakdown": {
+        "bullish_sweep_candidates": 481,
+        "bearish_sweep_candidates": 330,
+        "bullish_sweeps": 295,
+        "bearish_sweeps": 213,
+        "bullish_shift_candidates": 10,
+        "bearish_shift_candidates": 21,
+        "bullish_armed_setups": 8,
+        "bearish_armed_setups": 14,
+        "bullish_retest_candidates": 4,
+        "bearish_retest_candidates": 11,
+        "long_entries": 3,
+        "short_entries": 11
+      },
+      "conversion_rates_pct": {
+        "sweep_acceptance_rate": 62.64,
+        "accepted_sweep_to_shift_rate": 6.1,
+        "shift_to_armed_rate": 70.97,
+        "armed_to_retest_rate": 68.18,
+        "retest_to_entry_rate": 93.33,
+        "raw_sweep_to_entry_rate": 1.73
+      },
+      "filtered_breakdown": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 0,
+        "amd_filtered_setups": 0,
+        "prev_session_anchor_filtered_setups": 0,
+        "external_liquidity_filtered_sweeps": 0,
+        "smt_filtered_sweeps": 301,
+        "smt_missing_peer_bars": 2,
+        "macro_timing_filtered_sweeps": 0,
+        "kill_zone_filtered_sweeps": 0,
+        "displacement_filtered_shifts": 1,
+        "displacement_range_filtered_shifts": 0,
+        "structure_buffer_filtered_shifts": 0,
+        "session_array_filtered_shifts": 0,
+        "delivery_missing_shifts": 8,
+        "score_filtered_shifts": 0,
+        "fvg_delay_filtered_retests": 7,
+        "fvg_depth_filtered_retests": 13,
+        "fvg_touch_filtered_retests": 0,
+        "fvg_close_filtered_retests": 0,
+        "fvg_wick_filtered_retests": 0,
+        "fvg_body_filtered_retests": 0
+      },
+      "top_filters": [
+        {
+          "label": "smt_filtered_sweeps",
+          "count": 301
+        },
+        {
+          "label": "fvg_depth_filtered_retests",
+          "count": 13
+        },
+        {
+          "label": "delivery_missing_shifts",
+          "count": 8
+        },
+        {
+          "label": "fvg_delay_filtered_retests",
+          "count": 7
+        },
+        {
+          "label": "smt_missing_peer_bars",
+          "count": 2
+        },
+        {
+          "label": "displacement_filtered_shifts",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "density_comparison": {
+    "strict_trades": 8,
+    "lite_trades": 14,
+    "trade_gain": 6,
+    "trade_gain_multiple": 1.75,
+    "strict_total_return_pct": 7.7249,
+    "lite_total_return_pct": 10.6136,
+    "return_delta_pct": 2.8887,
+    "toward_100_trade_gate": 86
+  },
+  "verdict": "LITE_ICT_REVERSAL_BASELINE_IMPROVES_DENSITY_BUT_STAYS_BELOW_100_TRADES",
+  "interpretation": "The lighter reversal lane materially improves density versus the strict frontier, but it still does not clear the first 100-trade gate."
+}

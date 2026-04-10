@@ -17,10 +17,17 @@ venv/
 *.swo
 .DS_Store
 Thumbs.db
+.pytest_cache/
+test_output.txt
+iteration_logs/
 
 # Results (keep .gitkeep, ignore actual result files)
-
-
-
-
 results/cron.log
+results/backtest_*.json
+results/comparison_*.png
+results/equity_*.html
+results/equity_*.png
+
+# Large local research data
+regularized/QQQ/qqq_1m_regular_et.csv
+regularized/SPY/spy_1m_regular_et.csv

@@ -1,0 +1,106 @@
+{
+  "research_scope": "v26_exit_feasibility_map",
+  "analysis_version": "v1_post_v26_exit_feasibility",
+  "baseline_version": "v26-profit-lock",
+  "branches": [
+    {
+      "branch": "post_lock_stagnation_timeout",
+      "research_scope": "local_orb_v26_stagnation_exit",
+      "analysis_version": "v1_v26_post_lock_stagnation_timeout",
+      "best_positive": {
+        "label": "stagnation_exit_after_60m_keep_0.75x",
+        "stagnation_timeout_min": 60,
+        "stagnation_floor_mult": 0.75,
+        "pnl": 72.4125,
+        "pnl_delta": 6.101,
+        "profit_factor": 3.4264,
+        "win_rate_pct": 73.17,
+        "improved_folds": 1,
+        "positive_test_folds": 4,
+        "saved_losses": 1,
+        "clipped_winners": 2,
+        "net_path_impact": 6.101,
+        "stagnation_exit_count": 6
+      },
+      "best_zero_clip_positive": null,
+      "best_balanced": null,
+      "best_positive_improved_folds": 1,
+      "best_zero_clip_improved_folds": null,
+      "best_local_total_delta": 6.101,
+      "best_zero_clip_delta": null,
+      "verdict": "LOCAL_NEAR_MISS"
+    },
+    {
+      "branch": "post_lock_stall_plus_giveback",
+      "research_scope": "local_orb_v26_stall_giveback_exit",
+      "analysis_version": "v1_v26_post_lock_stall_plus_giveback",
+      "best_positive": {
+        "label": "stall_60m_giveback_0.50x_keep_1.00x",
+        "stall_timeout_min": 60,
+        "giveback_cap_mult": 0.5,
+        "retain_floor_mult": 1.0,
+        "pnl": 69.9746,
+        "pnl_delta": 3.6631,
+        "profit_factor": 3.3447,
+        "win_rate_pct": 73.17,
+        "improved_folds": 0,
+        "positive_test_folds": 4,
+        "saved_losses": 1,
+        "clipped_winners": 3,
+        "net_path_impact": 3.6632,
+        "stall_giveback_exit_count": 6
+      },
+      "best_zero_clip_positive": {
+        "label": "stall_60m_giveback_1.00x_keep_1.00x",
+        "stall_timeout_min": 60,
+        "giveback_cap_mult": 1.0,
+        "retain_floor_mult": 1.0,
+        "pnl": 68.2924,
+        "pnl_delta": 1.9809,
+        "profit_factor": 3.2731,
+        "win_rate_pct": 70.73,
+        "improved_folds": 0,
+        "positive_test_folds": 4,
+        "saved_losses": 0,
+        "clipped_winners": 0,
+        "net_path_impact": 1.981,
+        "stall_giveback_exit_count": 1
+      },
+      "best_balanced": null,
+      "best_positive_improved_folds": 0,
+      "best_zero_clip_improved_folds": 0,
+      "best_local_total_delta": 3.6631,
+      "best_zero_clip_delta": 1.9809,
+      "verdict": "LOCAL_REJECTED"
+    }
+  ],
+  "frontier": {
+    "strongest_local_total_signal": {
+      "branch": "post_lock_stagnation_timeout",
+      "label": "stagnation_exit_after_60m_keep_0.75x",
+      "pnl_delta": 6.101,
+      "improved_folds": 1
+    },
+    "strongest_zero_clip_signal": {
+      "branch": "post_lock_stall_plus_giveback",
+      "label": "stall_60m_giveback_1.00x_keep_1.00x",
+      "pnl_delta": 1.9809,
+      "improved_folds": 0
+    },
+    "strongest_fold_support": {
+      "branch": "post_lock_stagnation_timeout",
+      "best_positive_improved_folds": 1,
+      "best_zero_clip_improved_folds": null
+    }
+  },
+  "structural_conclusion": {
+    "core_observation": "The first post-v26 branch (`pure stagnation-timeout`) remains stronger than the more selective `stall-plus-giveback` refinement, but neither branch improved more than 1/4 walk-forward folds.",
+    "interpretation": "That suggests the remaining late-session washout edge is real but still too subtle for local-only post-lock exit gating. Adding more selectivity reduced clipping, but also reduced the already-thin signal.",
+    "recommended_research_posture": "Do not launch any local-only post-v26 exit candidate yet. If iteration continues, prefer a QC-native evaluator or a genuinely different mechanism instead of more nearby stall/giveback threshold grids.",
+    "do_not_repeat": [
+      "pure post-lock stagnation-timeout thresholds from local-only evidence",
+      "post-lock stall-plus-giveback thresholds from local-only evidence",
+      "another nearby late-session washout threshold grid without stronger evidence"
+    ]
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ote_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "session_array_premium_base": {
+      "params": {
+        "ote_fib_low": 0.618,
+        "ote_fib_high": 0.786,
+        "score_ote_zone": 2.0,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "smt_confirmed_sweeps": 278,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287
+      }
+    },
+    "ote_off_control": {
+      "params": {
+        "ote_fib_low": 0.618,
+        "ote_fib_high": 0.786,
+        "score_ote_zone": 0.0,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "smt_confirmed_sweeps": 278,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287
+      }
+    },
+    "ote_tighter_band": {
+      "params": {
+        "ote_fib_low": 0.66,
+        "ote_fib_high": 0.79,
+        "score_ote_zone": 2.0,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "smt_confirmed_sweeps": 278,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287
+      }
+    },
+    "ote_looser_band": {
+      "params": {
+        "ote_fib_low": 0.55,
+        "ote_fib_high": 0.82,
+        "score_ote_zone": 2.0,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "smt_confirmed_sweeps": 278,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287
+      }
+    },
+    "ote_higher_score": {
+      "params": {
+        "ote_fib_low": 0.618,
+        "ote_fib_high": 0.786,
+        "score_ote_zone": 3.0,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "smt_confirmed_sweeps": 278,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287
+      }
+    },
+    "ote_lower_score": {
+      "params": {
+        "ote_fib_low": 0.618,
+        "ote_fib_high": 0.786,
+        "score_ote_zone": 1.0,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "smt_confirmed_sweeps": 278,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287
+      }
+    },
+    "ote_tighter_higher_score": {
+      "params": {
+        "ote_fib_low": 0.66,
+        "ote_fib_high": 0.79,
+        "score_ote_zone": 3.0,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "smt_confirmed_sweeps": 278,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "session_array_premium_base",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0,
+      "smt_confirmed_sweeps": 278,
+      "session_array_filtered_shifts": 2
+    },
+    {
+      "label": "ote_off_control",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0,
+      "smt_confirmed_sweeps": 278,
+      "session_array_filtered_shifts": 2
+    },
+    {
+      "label": "ote_tighter_band",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0,
+      "smt_confirmed_sweeps": 278,
+      "session_array_filtered_shifts": 2
+    },
+    {
+      "label": "ote_looser_band",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0,
+      "smt_confirmed_sweeps": 278,
+      "session_array_filtered_shifts": 2
+    },
+    {
+      "label": "ote_higher_score",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0,
+      "smt_confirmed_sweeps": 278,
+      "session_array_filtered_shifts": 2
+    },
+    {
+      "label": "ote_lower_score",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0,
+      "smt_confirmed_sweeps": 278,
+      "session_array_filtered_shifts": 2
+    },
+    {
+      "label": "ote_tighter_higher_score",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0,
+      "smt_confirmed_sweeps": 278,
+      "session_array_filtered_shifts": 2
+    }
+  ],
+  "best_variant": {
+    "label": "session_array_premium_base",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_entries": 5,
+    "ob_entries": 0,
+    "breaker_entries": 0,
+    "ifvg_entries": 0,
+    "smt_confirmed_sweeps": 278,
+    "session_array_filtered_shifts": 2
+  },
+  "best_non_base_variant": {
+    "label": "ote_off_control",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_entries": 5,
+    "ob_entries": 0,
+    "breaker_entries": 0,
+    "ifvg_entries": 0,
+    "smt_confirmed_sweeps": 278,
+    "session_array_filtered_shifts": 2
+  },
+  "best_robust_ote_variant": {
+    "label": "ote_off_control",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_entries": 5,
+    "ob_entries": 0,
+    "breaker_entries": 0,
+    "ifvg_entries": 0,
+    "smt_confirmed_sweeps": 278,
+    "session_array_filtered_shifts": 2
+  },
+  "base_label": "session_array_premium_base",
+  "base_trades": 5,
+  "base_total_return_pct": 0.1375,
+  "robust_trade_floor": 3,
+  "verdict": "OTE_CALIBRATION_PLATEAU_ON_SESSION_ARRAY_BASE",
+  "interpretation": "All tested OTE geometry and score variants collapse to the same frontier result, which indicates a local plateau rather than a new edge."
+}

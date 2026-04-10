@@ -1,0 +1,230 @@
+{
+  "research_scope": "local_v18_return_cap_plateau",
+  "analysis_version": "v1_plateau_confirmation",
+  "step_size": 0.0025,
+  "base_result_file": "results/qc_regime_prototypes/local_orb_v18_return_cap.json",
+  "baseline": {
+    "trades": 15,
+    "win_rate_pct": 53.33,
+    "profit_factor": 2.556,
+    "net_pnl": 117.84
+  },
+  "rankings": [
+    {
+      "label": "prev_day_return<=1.25%",
+      "return_cap": 0.0125,
+      "verdict": "LOCAL_RESEARCH_LEADER",
+      "kept_trades": 12,
+      "kept_net_pnl": 145.55,
+      "excluded_net_pnl": -27.71,
+      "delta_vs_baseline_full": 27.71,
+      "walkforward_delta": 27.7,
+      "improved_vs_baseline_folds": 2,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 2,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=1.00%",
+      "return_cap": 0.01,
+      "verdict": "LOCAL_RESEARCH_LEADER",
+      "kept_trades": 10,
+      "kept_net_pnl": 142.97,
+      "excluded_net_pnl": -25.13,
+      "delta_vs_baseline_full": 25.13,
+      "walkforward_delta": 25.13,
+      "improved_vs_baseline_folds": 2,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 2,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=1.75%",
+      "return_cap": 0.0175,
+      "verdict": "LOCAL_PROMISING",
+      "kept_trades": 14,
+      "kept_net_pnl": 139.91,
+      "excluded_net_pnl": -22.08,
+      "delta_vs_baseline_full": 22.07,
+      "walkforward_delta": 22.07,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=2.00%",
+      "return_cap": 0.02,
+      "verdict": "LOCAL_PROMISING",
+      "kept_trades": 14,
+      "kept_net_pnl": 139.91,
+      "excluded_net_pnl": -22.08,
+      "delta_vs_baseline_full": 22.07,
+      "walkforward_delta": 22.07,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=2.50%",
+      "return_cap": 0.025,
+      "verdict": "LOCAL_PROMISING",
+      "kept_trades": 14,
+      "kept_net_pnl": 139.91,
+      "excluded_net_pnl": -22.08,
+      "delta_vs_baseline_full": 22.07,
+      "walkforward_delta": 22.07,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=1.50%",
+      "return_cap": 0.015,
+      "verdict": "LOCAL_PROMISING",
+      "kept_trades": 13,
+      "kept_net_pnl": 125.2,
+      "excluded_net_pnl": -7.36,
+      "delta_vs_baseline_full": 7.36,
+      "walkforward_delta": 7.35,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 2,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=0.75%",
+      "return_cap": 0.0075,
+      "verdict": "LOCAL_WEAK_OR_MIXED",
+      "kept_trades": 6,
+      "kept_net_pnl": 108.27,
+      "excluded_net_pnl": 9.57,
+      "delta_vs_baseline_full": -9.57,
+      "walkforward_delta": -19.61,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 2,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=0.50%",
+      "return_cap": 0.005,
+      "verdict": "LOCAL_WEAK_OR_MIXED",
+      "kept_trades": 5,
+      "kept_net_pnl": 79.74,
+      "excluded_net_pnl": 38.1,
+      "delta_vs_baseline_full": -38.1,
+      "walkforward_delta": -48.14,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 1,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=0.25%",
+      "return_cap": 0.0025,
+      "verdict": "LOCAL_WEAK_OR_MIXED",
+      "kept_trades": 3,
+      "kept_net_pnl": 52.08,
+      "excluded_net_pnl": 65.76,
+      "delta_vs_baseline_full": -65.76,
+      "walkforward_delta": -48.14,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 1,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": false
+    }
+  ],
+  "plateau_summary": {
+    "eligible_caps": [
+      0.01,
+      0.0125
+    ],
+    "best_cap": 0.0125,
+    "best_label": "prev_day_return<=1.25%",
+    "stable_plateau_caps": [
+      0.01,
+      0.0125
+    ],
+    "stable_plateau_range": {
+      "lower": 0.01,
+      "upper": 0.0125
+    },
+    "plateau_label": "STABLE_LOCAL_PLATEAU"
+  },
+  "top_candidates": [
+    {
+      "label": "prev_day_return<=1.25%",
+      "return_cap": 0.0125,
+      "verdict": "LOCAL_RESEARCH_LEADER",
+      "kept_trades": 12,
+      "kept_net_pnl": 145.55,
+      "excluded_net_pnl": -27.71,
+      "delta_vs_baseline_full": 27.71,
+      "walkforward_delta": 27.7,
+      "improved_vs_baseline_folds": 2,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 2,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=1.00%",
+      "return_cap": 0.01,
+      "verdict": "LOCAL_RESEARCH_LEADER",
+      "kept_trades": 10,
+      "kept_net_pnl": 142.97,
+      "excluded_net_pnl": -25.13,
+      "delta_vs_baseline_full": 25.13,
+      "walkforward_delta": 25.13,
+      "improved_vs_baseline_folds": 2,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 2,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=1.75%",
+      "return_cap": 0.0175,
+      "verdict": "LOCAL_PROMISING",
+      "kept_trades": 14,
+      "kept_net_pnl": 139.91,
+      "excluded_net_pnl": -22.08,
+      "delta_vs_baseline_full": 22.07,
+      "walkforward_delta": 22.07,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=2.00%",
+      "return_cap": 0.02,
+      "verdict": "LOCAL_PROMISING",
+      "kept_trades": 14,
+      "kept_net_pnl": 139.91,
+      "excluded_net_pnl": -22.08,
+      "delta_vs_baseline_full": 22.07,
+      "walkforward_delta": 22.07,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    },
+    {
+      "label": "prev_day_return<=2.50%",
+      "return_cap": 0.025,
+      "verdict": "LOCAL_PROMISING",
+      "kept_trades": 14,
+      "kept_net_pnl": 139.91,
+      "excluded_net_pnl": -22.08,
+      "delta_vs_baseline_full": 22.07,
+      "walkforward_delta": 22.07,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 3,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true
+    }
+  ],
+  "interpretation": "This follow-up tests whether the prev-day-return-cap idea is a single-point optimum or a stable local plateau. A stable plateau is stronger evidence than a lone best threshold, but it is still local-only and cannot launch a new QC candidate while accepted baseline QC raw trades remain unavailable."
+}

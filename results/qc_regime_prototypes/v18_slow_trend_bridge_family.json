@@ -1,0 +1,489 @@
+{
+  "research_scope": "v18_slow_trend_bridge_family",
+  "analysis_version": "v2_qc_local_bridge_family_next_session_alignment",
+  "source_qc_trades_file": "Smooth Asparagus Panda_trades.csv",
+  "source_intraday_csv": "qqq_5m.csv",
+  "source_daily_csv": "qqq_1d.csv",
+  "source_walk_forward_json": "walk_forward_results.json",
+  "base_filter": "prev_day_up_and_mom3_positive",
+  "qc_baseline": {
+    "trades": 404,
+    "win_rate_pct": 54.21,
+    "profit_factor": 1.278,
+    "net_pnl": 5502.71,
+    "positive_years": 8,
+    "negative_years": 1,
+    "rolling_6m_positive_pct": 80.6,
+    "rolling_12m_positive_pct": 90.7
+  },
+  "local_baseline": {
+    "trades": 13,
+    "win_rate_pct": 38.46,
+    "profit_factor": 1.466,
+    "net_pnl": 56.69
+  },
+  "candidates": {
+    "mom5_positive": {
+      "qc": {
+        "kept": {
+          "trades": 346,
+          "win_rate_pct": 54.91,
+          "profit_factor": 1.38,
+          "net_pnl": 5952.25,
+          "positive_years": 9,
+          "negative_years": 0,
+          "rolling_6m_positive_pct": 79.6,
+          "rolling_12m_positive_pct": 94.4
+        },
+        "excluded": {
+          "trades": 58,
+          "win_rate_pct": 50.0,
+          "profit_factor": 0.89,
+          "net_pnl": -449.54,
+          "positive_years": 5,
+          "negative_years": 4,
+          "rolling_6m_positive_pct": 50.0,
+          "rolling_12m_positive_pct": 53.7
+        },
+        "delta_vs_baseline_net_pnl": 449.54
+      },
+      "local": {
+        "kept": {
+          "trades": 7,
+          "win_rate_pct": 42.86,
+          "profit_factor": 3.599,
+          "net_pnl": 75.3
+        },
+        "excluded": {
+          "trades": 6,
+          "win_rate_pct": 33.33,
+          "profit_factor": 0.799,
+          "net_pnl": -18.61
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 3,
+          "positive_kept_folds": 1,
+          "excluded_negative_folds": 3,
+          "kept_net_pnl": 22.19,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": 18.62
+        },
+        "delta_vs_baseline_net_pnl": 18.61
+      },
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "local_verdict": "LOCAL_CONFIRMATION",
+      "bridge_verdict": "LOCAL_AHEAD_OF_QC"
+    },
+    "mom7_positive": {
+      "qc": {
+        "kept": {
+          "trades": 340,
+          "win_rate_pct": 54.12,
+          "profit_factor": 1.359,
+          "net_pnl": 5503.74,
+          "positive_years": 9,
+          "negative_years": 0,
+          "rolling_6m_positive_pct": 79.6,
+          "rolling_12m_positive_pct": 91.7
+        },
+        "excluded": {
+          "trades": 64,
+          "win_rate_pct": 54.69,
+          "profit_factor": 1.0,
+          "net_pnl": -1.03,
+          "positive_years": 5,
+          "negative_years": 4,
+          "rolling_6m_positive_pct": 50.0,
+          "rolling_12m_positive_pct": 40.7
+        },
+        "delta_vs_baseline_net_pnl": 1.03
+      },
+      "local": {
+        "kept": {
+          "trades": 6,
+          "win_rate_pct": 33.33,
+          "profit_factor": 0.871,
+          "net_pnl": -10.74
+        },
+        "excluded": {
+          "trades": 7,
+          "win_rate_pct": 42.86,
+          "profit_factor": 2.755,
+          "net_pnl": 67.43
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 1,
+          "positive_kept_folds": 0,
+          "excluded_negative_folds": 1,
+          "kept_net_pnl": -77.45,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": -81.02
+        },
+        "delta_vs_baseline_net_pnl": -67.43
+      },
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "local_verdict": "LOCAL_NEGATIVE",
+      "bridge_verdict": "NO_BRIDGE"
+    },
+    "mom10_positive": {
+      "qc": {
+        "kept": {
+          "trades": 333,
+          "win_rate_pct": 54.95,
+          "profit_factor": 1.274,
+          "net_pnl": 4191.03,
+          "positive_years": 9,
+          "negative_years": 0,
+          "rolling_6m_positive_pct": 74.1,
+          "rolling_12m_positive_pct": 84.3
+        },
+        "excluded": {
+          "trades": 71,
+          "win_rate_pct": 50.7,
+          "profit_factor": 1.292,
+          "net_pnl": 1311.68,
+          "positive_years": 6,
+          "negative_years": 3,
+          "rolling_6m_positive_pct": 56.5,
+          "rolling_12m_positive_pct": 52.8
+        },
+        "delta_vs_baseline_net_pnl": -1311.68
+      },
+      "local": {
+        "kept": {
+          "trades": 6,
+          "win_rate_pct": 16.67,
+          "profit_factor": 1.074,
+          "net_pnl": 4.85
+        },
+        "excluded": {
+          "trades": 7,
+          "win_rate_pct": 57.14,
+          "profit_factor": 1.929,
+          "net_pnl": 51.84
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 2,
+          "positive_kept_folds": 0,
+          "excluded_negative_folds": 2,
+          "kept_net_pnl": -46.48,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": -50.05
+        },
+        "delta_vs_baseline_net_pnl": -51.84
+      },
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "local_verdict": "LOCAL_WEAK_OR_MIXED",
+      "bridge_verdict": "NO_BRIDGE"
+    },
+    "close_above_sma5": {
+      "qc": {
+        "kept": {
+          "trades": 395,
+          "win_rate_pct": 54.43,
+          "profit_factor": 1.301,
+          "net_pnl": 5688.91,
+          "positive_years": 9,
+          "negative_years": 0,
+          "rolling_6m_positive_pct": 82.4,
+          "rolling_12m_positive_pct": 87.0
+        },
+        "excluded": {
+          "trades": 9,
+          "win_rate_pct": 44.44,
+          "profit_factor": 0.79,
+          "net_pnl": -186.2,
+          "positive_years": 2,
+          "negative_years": 5,
+          "rolling_6m_positive_pct": 16.7,
+          "rolling_12m_positive_pct": 24.1
+        },
+        "delta_vs_baseline_net_pnl": 186.2
+      },
+      "local": {
+        "kept": {
+          "trades": 13,
+          "win_rate_pct": 38.46,
+          "profit_factor": 1.466,
+          "net_pnl": 56.69
+        },
+        "excluded": {
+          "trades": 0,
+          "win_rate_pct": 0.0,
+          "profit_factor": 0.0,
+          "net_pnl": 0.0
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 0,
+          "positive_kept_folds": 1,
+          "excluded_negative_folds": 0,
+          "kept_net_pnl": 3.57,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": 0.0
+        },
+        "delta_vs_baseline_net_pnl": 0.0
+      },
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "local_verdict": "LOCAL_WEAK_OR_MIXED",
+      "bridge_verdict": "NO_BRIDGE"
+    },
+    "close_above_sma8": {
+      "qc": {
+        "kept": {
+          "trades": 371,
+          "win_rate_pct": 54.45,
+          "profit_factor": 1.332,
+          "net_pnl": 5673.75,
+          "positive_years": 9,
+          "negative_years": 0,
+          "rolling_6m_positive_pct": 81.5,
+          "rolling_12m_positive_pct": 88.0
+        },
+        "excluded": {
+          "trades": 33,
+          "win_rate_pct": 51.52,
+          "profit_factor": 0.937,
+          "net_pnl": -171.04,
+          "positive_years": 6,
+          "negative_years": 3,
+          "rolling_6m_positive_pct": 44.4,
+          "rolling_12m_positive_pct": 51.9
+        },
+        "delta_vs_baseline_net_pnl": 171.04
+      },
+      "local": {
+        "kept": {
+          "trades": 11,
+          "win_rate_pct": 45.45,
+          "profit_factor": 2.07,
+          "net_pnl": 92.14
+        },
+        "excluded": {
+          "trades": 2,
+          "win_rate_pct": 0.0,
+          "profit_factor": 0.0,
+          "net_pnl": -35.46
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 1,
+          "positive_kept_folds": 2,
+          "excluded_negative_folds": 1,
+          "kept_net_pnl": 39.03,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": 35.46
+        },
+        "delta_vs_baseline_net_pnl": 35.45
+      },
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "local_verdict": "LOCAL_CONFIRMATION",
+      "bridge_verdict": "LOCAL_AHEAD_OF_QC"
+    },
+    "close_above_sma10": {
+      "qc": {
+        "kept": {
+          "trades": 366,
+          "win_rate_pct": 54.1,
+          "profit_factor": 1.305,
+          "net_pnl": 5203.07,
+          "positive_years": 8,
+          "negative_years": 1,
+          "rolling_6m_positive_pct": 75.9,
+          "rolling_12m_positive_pct": 80.6
+        },
+        "excluded": {
+          "trades": 38,
+          "win_rate_pct": 55.26,
+          "profit_factor": 1.111,
+          "net_pnl": 299.64,
+          "positive_years": 6,
+          "negative_years": 3,
+          "rolling_6m_positive_pct": 50.9,
+          "rolling_12m_positive_pct": 56.5
+        },
+        "delta_vs_baseline_net_pnl": -299.64
+      },
+      "local": {
+        "kept": {
+          "trades": 8,
+          "win_rate_pct": 37.5,
+          "profit_factor": 1.732,
+          "net_pnl": 55.3
+        },
+        "excluded": {
+          "trades": 5,
+          "win_rate_pct": 40.0,
+          "profit_factor": 1.03,
+          "net_pnl": 1.39
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 2,
+          "positive_kept_folds": 1,
+          "excluded_negative_folds": 2,
+          "kept_net_pnl": 2.19,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": -1.38
+        },
+        "delta_vs_baseline_net_pnl": -1.39
+      },
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "local_verdict": "LOCAL_WEAK_OR_MIXED",
+      "bridge_verdict": "NO_BRIDGE"
+    },
+    "close_above_sma15": {
+      "qc": {
+        "kept": {
+          "trades": 359,
+          "win_rate_pct": 54.87,
+          "profit_factor": 1.309,
+          "net_pnl": 5017.92,
+          "positive_years": 8,
+          "negative_years": 1,
+          "rolling_6m_positive_pct": 70.4,
+          "rolling_12m_positive_pct": 79.6
+        },
+        "excluded": {
+          "trades": 45,
+          "win_rate_pct": 48.89,
+          "profit_factor": 1.138,
+          "net_pnl": 484.79,
+          "positive_years": 5,
+          "negative_years": 4,
+          "rolling_6m_positive_pct": 52.8,
+          "rolling_12m_positive_pct": 52.8
+        },
+        "delta_vs_baseline_net_pnl": -484.79
+      },
+      "local": {
+        "kept": {
+          "trades": 7,
+          "win_rate_pct": 28.57,
+          "profit_factor": 0.958,
+          "net_pnl": -3.2
+        },
+        "excluded": {
+          "trades": 6,
+          "win_rate_pct": 50.0,
+          "profit_factor": 2.303,
+          "net_pnl": 59.89
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 2,
+          "positive_kept_folds": 0,
+          "excluded_negative_folds": 2,
+          "kept_net_pnl": -66.94,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": -70.51
+        },
+        "delta_vs_baseline_net_pnl": -59.89
+      },
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "local_verdict": "LOCAL_NEGATIVE",
+      "bridge_verdict": "NO_BRIDGE"
+    },
+    "close_above_sma20": {
+      "qc": {
+        "kept": {
+          "trades": 351,
+          "win_rate_pct": 55.56,
+          "profit_factor": 1.349,
+          "net_pnl": 5359.4,
+          "positive_years": 7,
+          "negative_years": 2,
+          "rolling_6m_positive_pct": 77.8,
+          "rolling_12m_positive_pct": 79.6
+        },
+        "excluded": {
+          "trades": 53,
+          "win_rate_pct": 45.28,
+          "profit_factor": 1.032,
+          "net_pnl": 143.31,
+          "positive_years": 4,
+          "negative_years": 5,
+          "rolling_6m_positive_pct": 46.3,
+          "rolling_12m_positive_pct": 36.1
+        },
+        "delta_vs_baseline_net_pnl": -143.31
+      },
+      "local": {
+        "kept": {
+          "trades": 6,
+          "win_rate_pct": 33.33,
+          "profit_factor": 1.311,
+          "net_pnl": 17.15
+        },
+        "excluded": {
+          "trades": 7,
+          "win_rate_pct": 42.86,
+          "profit_factor": 1.596,
+          "net_pnl": 39.54
+        },
+        "walkforward": {
+          "improved_vs_baseline_folds": 3,
+          "positive_kept_folds": 0,
+          "excluded_negative_folds": 3,
+          "kept_net_pnl": -46.59,
+          "baseline_net_pnl": 3.57,
+          "delta_vs_baseline": -50.16
+        },
+        "delta_vs_baseline_net_pnl": -39.54
+      },
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "local_verdict": "LOCAL_WEAK_OR_MIXED",
+      "bridge_verdict": "NO_BRIDGE"
+    }
+  },
+  "candidate_summary": {
+    "best_qc_leader": {
+      "label": "mom5_positive",
+      "qc_kept_net_pnl": 5952.25,
+      "qc_excluded_net_pnl": -449.54,
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "local_verdict": "LOCAL_CONFIRMATION",
+      "bridge_verdict": "LOCAL_AHEAD_OF_QC"
+    },
+    "bridge_confirmed_count": 0,
+    "top_bridge_candidates": [
+      {
+        "label": "mom5_positive",
+        "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+        "local_verdict": "LOCAL_CONFIRMATION",
+        "bridge_verdict": "LOCAL_AHEAD_OF_QC",
+        "qc_kept_net_pnl": 5952.25,
+        "local_walkforward_delta": 18.62
+      },
+      {
+        "label": "close_above_sma5",
+        "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+        "local_verdict": "LOCAL_WEAK_OR_MIXED",
+        "bridge_verdict": "NO_BRIDGE",
+        "qc_kept_net_pnl": 5688.91,
+        "local_walkforward_delta": 0.0
+      },
+      {
+        "label": "close_above_sma8",
+        "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+        "local_verdict": "LOCAL_CONFIRMATION",
+        "bridge_verdict": "LOCAL_AHEAD_OF_QC",
+        "qc_kept_net_pnl": 5673.75,
+        "local_walkforward_delta": 35.46
+      },
+      {
+        "label": "mom7_positive",
+        "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+        "local_verdict": "LOCAL_NEGATIVE",
+        "bridge_verdict": "NO_BRIDGE",
+        "qc_kept_net_pnl": 5503.74,
+        "local_walkforward_delta": -81.02
+      },
+      {
+        "label": "close_above_sma20",
+        "qc_verdict": "QC_WEAK_OR_MIXED",
+        "local_verdict": "LOCAL_WEAK_OR_MIXED",
+        "bridge_verdict": "NO_BRIDGE",
+        "qc_kept_net_pnl": 5359.4,
+        "local_walkforward_delta": -50.16
+      }
+    ],
+    "interpretation": "This bridge scan searches an adjacent slow-trend family on top of v18. A candidate is only launch-ready if accepted QC trades and the local v18 sample both point in the same direction."
+  }
+}

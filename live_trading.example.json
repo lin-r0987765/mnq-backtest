@@ -1,0 +1,40 @@
+{
+  "mode": "paper",
+  "bind_host": "0.0.0.0",
+  "bind_port": 8000,
+  "webhook_path": "/webhook",
+  "shared_secret": "change-this-shared-secret",
+  "default_volume": 10.0,
+  "position_sizing_mode": "risk_pct",
+  "account_equity": 100000.0,
+  "risk_per_trade_pct": 0.0025,
+  "max_notional_pct": 0.06,
+  "contract_multiplier": 1.0,
+  "min_volume": 1.0,
+  "max_volume": 25.0,
+  "volume_step": 1.0,
+  "allow_signal_qty_override": false,
+  "allow_default_fallback": true,
+  "allowed_strategies": ["ORB"],
+  "symbol_map": {
+    "QQQ": "QQQ"
+  },
+  "event_log_path": "iteration_logs/live_webhook_events.jsonl",
+  "paper_log_path": "iteration_logs/live_paper_orders.jsonl",
+  "paper_state_path": "iteration_logs/live_paper_state.json",
+  "risk_state_path": "iteration_logs/live_risk_state.json",
+  "kill_switch_path": "iteration_logs/live_kill_switch.json",
+  "dedupe_window_seconds": 3600,
+  "cooldown_seconds": 300,
+  "max_daily_entries_per_symbol": 3,
+  "max_open_positions_per_symbol": 1,
+  "paper_max_daily_loss": 150.0,
+  "mt5": {
+    "terminal_path": "C:\\Program Files\\MetaTrader 5\\terminal64.exe",
+    "login": 12345678,
+    "password": "YOUR_MT5_PASSWORD",
+    "server": "YOUR_BROKER_SERVER",
+    "deviation": 20,
+    "magic": 33033
+  }
+}

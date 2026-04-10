@@ -1,0 +1,74 @@
+{
+  "analysis": "ict_mtf_topdown_walk_forward",
+  "profile": "mtf_topdown_continuation_regularized_long_only_candidate",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\regularized\\QQQ\\qqq_1m_regular_et.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\regularized\\SPY\\spy_1m_regular_et.csv",
+  "period": "2017-01-26 09:30:00-05:00 -> 2026-04-08 15:59:00-04:00",
+  "peer_fetch_period": null,
+  "data_window": {
+    "start": "2017-01-26 09:30:00-05:00",
+    "end": "2026-04-08 15:59:00-04:00",
+    "trading_days": 2312
+  },
+  "rows_primary": 896546,
+  "rows_peer": 820981,
+  "matched_peer_bars": 820952,
+  "folds": [
+    {
+      "fold": 1,
+      "train": {
+        "total_return_pct": 4.4789,
+        "profit_factor": 5.1234,
+        "win_rate_pct": 61.9048,
+        "total_trades": 21,
+        "max_drawdown_pct": -1.2956
+      },
+      "validation": {
+        "total_return_pct": 2.1465,
+        "profit_factor": 0.0,
+        "win_rate_pct": 100.0,
+        "total_trades": 3,
+        "max_drawdown_pct": -1.7323
+      },
+      "holdout": {
+        "total_return_pct": -0.0678,
+        "profit_factor": 1.2346,
+        "win_rate_pct": 50.0,
+        "total_trades": 4,
+        "max_drawdown_pct": -0.8812
+      }
+    },
+    {
+      "fold": 2,
+      "train": {
+        "total_return_pct": 6.1847,
+        "profit_factor": 6.47,
+        "win_rate_pct": 65.2174,
+        "total_trades": 23,
+        "max_drawdown_pct": -1.7185
+      },
+      "validation": {
+        "total_return_pct": -0.0678,
+        "profit_factor": 1.2346,
+        "win_rate_pct": 50.0,
+        "total_trades": 4,
+        "max_drawdown_pct": -0.8812
+      },
+      "holdout": {
+        "total_return_pct": -1.0933,
+        "profit_factor": 0.0091,
+        "win_rate_pct": 25.0,
+        "total_trades": 4,
+        "max_drawdown_pct": -1.1677
+      }
+    }
+  ],
+  "summary": {
+    "folds": 2,
+    "avg_validation_return_pct": 1.0393,
+    "avg_holdout_return_pct": -0.5806,
+    "positive_holdout_fold_pct": 0.0,
+    "holdout_trade_total": 8
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "analysis": "mtf_topdown_continuation_setup_execution_candidate",
+  "profile": "mtf_topdown_continuation_setup_execution_candidate",
+  "risk_standard": {
+    "reward_risk_gate": ">= 1.5:1",
+    "engine": {
+      "initial_cash": 100000.0,
+      "fees_pct": 0.0005,
+      "position_size_mode": "capital_pct",
+      "capital_usage_pct": 1.0,
+      "min_shares": 40
+    }
+  },
+  "promotion_baselines": {
+    "mtf_prototype": {
+      "total_trades": 40,
+      "total_return_pct": 13.4177,
+      "profit_factor": 3.1879
+    },
+    "active_lite_frontier_standardized": {
+      "total_trades": 18,
+      "total_return_pct": 12.6548
+    }
+  },
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\regularized\\QQQ\\qqq_1m_regular_et.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\regularized\\SPY\\spy_1m_regular_et.csv",
+  "period": "2017-01-26 09:30:00-05:00 -> 2026-04-08 15:59:00-04:00",
+  "peer_fetch_period": null,
+  "data_window": {
+    "start": "2017-01-26 09:30:00-05:00",
+    "end": "2026-04-08 15:59:00-04:00",
+    "trading_days": 2312
+  },
+  "rows_primary": 896546,
+  "rows_peer": 820981,
+  "matched_peer_bars": 820952,
+  "mtf_params": {
+    "mtf_bias_daily_timeframe": "1D",
+    "mtf_bias_4h_timeframe": "4H",
+    "mtf_bias_1h_timeframe": "1H",
+    "mtf_setup_timeframe": "15m",
+    "mtf_confirmation_timeframe": "5m",
+    "mtf_trigger_timeframe": "1m",
+    "mtf_bias_lookback": 12,
+    "mtf_setup_structure_lookback": 8,
+    "mtf_setup_fvg_min_gap_pct": 0.0008,
+    "mtf_setup_displacement_body_min_pct": 0.3,
+    "mtf_confirmation_close_ratio": 0.6,
+    "mtf_confirmation_body_min_pct": 0.35,
+    "mtf_trigger_close_ratio": 0.6,
+    "mtf_trigger_body_min_pct": 0.3,
+    "mtf_trigger_expiry_bars": 15,
+    "mtf_timing_timezone": "America/New_York",
+    "mtf_allowed_entry_weekdays": "",
+    "mtf_allowed_entry_hours": ""
+  },
+  "metrics": {
+    "total_return_pct": -8.7664,
+    "sharpe_ratio": -0.2761,
+    "sortino_ratio": -0.0305,
+    "calmar_ratio": 0.9709,
+    "max_drawdown_pct": -9.0295,
+    "win_rate_pct": 33.3333,
+    "total_trades": 84,
+    "profit_factor": 0.7454,
+    "avg_trade_pct": -0.1044
+  },
+  "metadata": {
+    "mtf_daily_blocked": 792,
+    "mtf_4h_blocked": 972,
+    "mtf_1h_blocked": 592,
+    "mtf_direction_long_allowed": 189,
+    "mtf_direction_short_allowed": 163,
+    "mtf_15m_setups": 352,
+    "mtf_5m_confirms": 160,
+    "mtf_1m_triggers": 84,
+    "mtf_setup_fvg_zones": 199,
+    "mtf_setup_ob_zones": 184,
+    "mtf_setup_missing_zone": 342,
+    "mtf_setup_missing_context": 40159,
+    "mtf_setup_score_filtered": 31,
+    "mtf_setup_expired": 159,
+    "mtf_confirm_expired": 60,
+    "mtf_neutral_1h_high_quality_setups": 0,
+    "mtf_weekday_blocked": 0,
+    "mtf_hour_blocked": 0,
+    "rr_filtered_entries": 0,
+    "long_entries": 48,
+    "short_entries": 36
+  },
+  "canonical_resample_parity": {
+    "reference_available": true,
+    "matched_rows": 179429,
+    "open_max_abs_diff": 0.0,
+    "open_mean_abs_diff": 0.0,
+    "high_max_abs_diff": 0.0,
+    "high_mean_abs_diff": 0.0,
+    "low_max_abs_diff": 0.0,
+    "low_mean_abs_diff": 0.0,
+    "close_max_abs_diff": 0.0,
+    "close_mean_abs_diff": 0.0
+  },
+  "promotion_summary": {
+    "meets_trade_gate": true,
+    "meets_return_gate": false,
+    "meets_profit_factor_gate": false,
+    "beats_active_lite_return": false,
+    "beats_active_lite_trade_count": true
+  }
+}

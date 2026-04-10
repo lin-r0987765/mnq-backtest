@@ -1,0 +1,1550 @@
+{
+  "research_scope": "v18_expanded_factor_scan_iter102",
+  "alignment": "next_session_corrected",
+  "source_trades_file": "Smooth Asparagus Panda_trades.csv",
+  "baseline": {
+    "trades": 404,
+    "win_rate_pct": 54.21,
+    "profit_factor": 1.278,
+    "net_pnl": 5502.71,
+    "positive_years": 8,
+    "negative_years": 1,
+    "rolling_6m_positive_pct": 80.6,
+    "rolling_12m_positive_pct": 90.7
+  },
+  "candidate_count": 20,
+  "candidates": {
+    "mom5_OR_sma8": {
+      "kept": {
+        "trades": 374,
+        "win_rate_pct": 54.55,
+        "profit_factor": 1.367,
+        "net_pnl": 6346.93,
+        "positive_years": 9,
+        "negative_years": 0,
+        "rolling_6m_positive_pct": 80.6,
+        "rolling_12m_positive_pct": 91.7
+      },
+      "excluded": {
+        "trades": 30,
+        "net_pnl": -844.22,
+        "win_rate_pct": 50.0
+      },
+      "delta_vs_baseline_net": 844.22,
+      "qc_verdict": "QC_STRONG",
+      "half_split": {
+        "first_half_net": 1307.87,
+        "second_half_net": 5039.06,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 4,
+          "net_pnl": -177.06,
+          "win_rate_pct": 25.0
+        },
+        "2018": {
+          "trades": 4,
+          "net_pnl": 391.65,
+          "win_rate_pct": 75.0
+        },
+        "2019": {
+          "trades": 1,
+          "net_pnl": 9.67,
+          "win_rate_pct": 100.0
+        },
+        "2020": {
+          "trades": 4,
+          "net_pnl": -205.83,
+          "win_rate_pct": 50.0
+        },
+        "2021": {
+          "trades": 1,
+          "net_pnl": 79.41,
+          "win_rate_pct": 100.0
+        },
+        "2022": {
+          "trades": 5,
+          "net_pnl": -700.15,
+          "win_rate_pct": 20.0
+        },
+        "2023": {
+          "trades": 2,
+          "net_pnl": 265.15,
+          "win_rate_pct": 100.0
+        },
+        "2024": {
+          "trades": 4,
+          "net_pnl": 217.23,
+          "win_rate_pct": 75.0
+        },
+        "2025": {
+          "trades": 5,
+          "net_pnl": -724.29,
+          "win_rate_pct": 20.0
+        }
+      }
+    },
+    "mom5_positive": {
+      "kept": {
+        "trades": 346,
+        "win_rate_pct": 54.91,
+        "profit_factor": 1.38,
+        "net_pnl": 5952.25,
+        "positive_years": 9,
+        "negative_years": 0,
+        "rolling_6m_positive_pct": 79.6,
+        "rolling_12m_positive_pct": 94.4
+      },
+      "excluded": {
+        "trades": 58,
+        "net_pnl": -449.54,
+        "win_rate_pct": 50.0
+      },
+      "delta_vs_baseline_net": 449.54,
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "half_split": {
+        "first_half_net": 1362.67,
+        "second_half_net": 4589.58,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 7,
+          "net_pnl": -149.51,
+          "win_rate_pct": 28.57
+        },
+        "2018": {
+          "trades": 6,
+          "net_pnl": 280.95,
+          "win_rate_pct": 66.67
+        },
+        "2019": {
+          "trades": 1,
+          "net_pnl": 9.67,
+          "win_rate_pct": 100.0
+        },
+        "2020": {
+          "trades": 11,
+          "net_pnl": -177.48,
+          "win_rate_pct": 45.45
+        },
+        "2021": {
+          "trades": 6,
+          "net_pnl": 276.71,
+          "win_rate_pct": 83.33
+        },
+        "2022": {
+          "trades": 8,
+          "net_pnl": -754.77,
+          "win_rate_pct": 25.0
+        },
+        "2023": {
+          "trades": 3,
+          "net_pnl": 117.87,
+          "win_rate_pct": 66.67
+        },
+        "2024": {
+          "trades": 8,
+          "net_pnl": 471.76,
+          "win_rate_pct": 75.0
+        },
+        "2025": {
+          "trades": 8,
+          "net_pnl": -524.74,
+          "win_rate_pct": 25.0
+        }
+      }
+    },
+    "close_above_sma8": {
+      "kept": {
+        "trades": 371,
+        "win_rate_pct": 54.45,
+        "profit_factor": 1.332,
+        "net_pnl": 5673.75,
+        "positive_years": 9,
+        "negative_years": 0,
+        "rolling_6m_positive_pct": 81.5,
+        "rolling_12m_positive_pct": 88.0
+      },
+      "excluded": {
+        "trades": 33,
+        "net_pnl": -171.04,
+        "win_rate_pct": 51.52
+      },
+      "delta_vs_baseline_net": 171.04,
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "half_split": {
+        "first_half_net": 1307.87,
+        "second_half_net": 4365.88,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 4,
+          "net_pnl": -177.06,
+          "win_rate_pct": 25.0
+        },
+        "2018": {
+          "trades": 4,
+          "net_pnl": 391.65,
+          "win_rate_pct": 75.0
+        },
+        "2019": {
+          "trades": 1,
+          "net_pnl": 9.67,
+          "win_rate_pct": 100.0
+        },
+        "2020": {
+          "trades": 4,
+          "net_pnl": -205.83,
+          "win_rate_pct": 50.0
+        },
+        "2021": {
+          "trades": 1,
+          "net_pnl": 79.41,
+          "win_rate_pct": 100.0
+        },
+        "2022": {
+          "trades": 7,
+          "net_pnl": 184.34,
+          "win_rate_pct": 42.86
+        },
+        "2023": {
+          "trades": 3,
+          "net_pnl": 53.84,
+          "win_rate_pct": 66.67
+        },
+        "2024": {
+          "trades": 4,
+          "net_pnl": 217.23,
+          "win_rate_pct": 75.0
+        },
+        "2025": {
+          "trades": 5,
+          "net_pnl": -724.29,
+          "win_rate_pct": 20.0
+        }
+      }
+    },
+    "mom5_AND_sma8": {
+      "kept": {
+        "trades": 343,
+        "win_rate_pct": 54.81,
+        "profit_factor": 1.341,
+        "net_pnl": 5279.07,
+        "positive_years": 9,
+        "negative_years": 0,
+        "rolling_6m_positive_pct": 78.7,
+        "rolling_12m_positive_pct": 92.6
+      },
+      "excluded": {
+        "trades": 61,
+        "net_pnl": 223.64,
+        "win_rate_pct": 50.82
+      },
+      "delta_vs_baseline_net": -223.64,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 1362.67,
+        "second_half_net": 3916.4,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 7,
+          "net_pnl": -149.51,
+          "win_rate_pct": 28.57
+        },
+        "2018": {
+          "trades": 6,
+          "net_pnl": 280.95,
+          "win_rate_pct": 66.67
+        },
+        "2019": {
+          "trades": 1,
+          "net_pnl": 9.67,
+          "win_rate_pct": 100.0
+        },
+        "2020": {
+          "trades": 11,
+          "net_pnl": -177.48,
+          "win_rate_pct": 45.45
+        },
+        "2021": {
+          "trades": 6,
+          "net_pnl": 276.71,
+          "win_rate_pct": 83.33
+        },
+        "2022": {
+          "trades": 10,
+          "net_pnl": 129.72,
+          "win_rate_pct": 40.0
+        },
+        "2023": {
+          "trades": 4,
+          "net_pnl": -93.44,
+          "win_rate_pct": 50.0
+        },
+        "2024": {
+          "trades": 8,
+          "net_pnl": 471.76,
+          "win_rate_pct": 75.0
+        },
+        "2025": {
+          "trades": 8,
+          "net_pnl": -524.74,
+          "win_rate_pct": 25.0
+        }
+      }
+    },
+    "contracting_range": {
+      "kept": {
+        "trades": 243,
+        "win_rate_pct": 56.38,
+        "profit_factor": 1.492,
+        "net_pnl": 5053.66,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 74.1,
+        "rolling_12m_positive_pct": 79.6
+      },
+      "excluded": {
+        "trades": 161,
+        "net_pnl": 449.05,
+        "win_rate_pct": 50.93
+      },
+      "delta_vs_baseline_net": -449.05,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 480.49,
+        "second_half_net": 4573.17,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 17,
+          "net_pnl": -44.99,
+          "win_rate_pct": 47.06
+        },
+        "2018": {
+          "trades": 13,
+          "net_pnl": 321.88,
+          "win_rate_pct": 61.54
+        },
+        "2019": {
+          "trades": 14,
+          "net_pnl": 969.99,
+          "win_rate_pct": 71.43
+        },
+        "2020": {
+          "trades": 20,
+          "net_pnl": -401.07,
+          "win_rate_pct": 45.0
+        },
+        "2021": {
+          "trades": 14,
+          "net_pnl": -81.82,
+          "win_rate_pct": 50.0
+        },
+        "2022": {
+          "trades": 13,
+          "net_pnl": 224.15,
+          "win_rate_pct": 53.85
+        },
+        "2023": {
+          "trades": 26,
+          "net_pnl": -475.3,
+          "win_rate_pct": 46.15
+        },
+        "2024": {
+          "trades": 24,
+          "net_pnl": -115.86,
+          "win_rate_pct": 41.67
+        },
+        "2025": {
+          "trades": 20,
+          "net_pnl": 52.07,
+          "win_rate_pct": 55.0
+        }
+      }
+    },
+    "low_atr5_vs_20": {
+      "kept": {
+        "trades": 249,
+        "win_rate_pct": 55.82,
+        "profit_factor": 1.413,
+        "net_pnl": 4437.48,
+        "positive_years": 9,
+        "negative_years": 0,
+        "rolling_6m_positive_pct": 75.0,
+        "rolling_12m_positive_pct": 88.0
+      },
+      "excluded": {
+        "trades": 155,
+        "net_pnl": 1065.23,
+        "win_rate_pct": 51.61
+      },
+      "delta_vs_baseline_net": -1065.23,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 1157.95,
+        "second_half_net": 3279.53,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 17,
+          "net_pnl": -158.67,
+          "win_rate_pct": 41.18
+        },
+        "2018": {
+          "trades": 13,
+          "net_pnl": 333.16,
+          "win_rate_pct": 61.54
+        },
+        "2019": {
+          "trades": 16,
+          "net_pnl": 518.21,
+          "win_rate_pct": 62.5
+        },
+        "2020": {
+          "trades": 15,
+          "net_pnl": -524.35,
+          "win_rate_pct": 40.0
+        },
+        "2021": {
+          "trades": 14,
+          "net_pnl": -81.82,
+          "win_rate_pct": 50.0
+        },
+        "2022": {
+          "trades": 13,
+          "net_pnl": 665.06,
+          "win_rate_pct": 53.85
+        },
+        "2023": {
+          "trades": 26,
+          "net_pnl": 236.77,
+          "win_rate_pct": 50.0
+        },
+        "2024": {
+          "trades": 23,
+          "net_pnl": 187.24,
+          "win_rate_pct": 52.17
+        },
+        "2025": {
+          "trades": 18,
+          "net_pnl": -110.37,
+          "win_rate_pct": 55.56
+        }
+      }
+    },
+    "declining_volume": {
+      "kept": {
+        "trades": 253,
+        "win_rate_pct": 54.55,
+        "profit_factor": 1.358,
+        "net_pnl": 4154.79,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 69.4,
+        "rolling_12m_positive_pct": 75.9
+      },
+      "excluded": {
+        "trades": 151,
+        "net_pnl": 1347.92,
+        "win_rate_pct": 53.64
+      },
+      "delta_vs_baseline_net": -1347.92,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 872.16,
+        "second_half_net": 3282.63,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 16,
+          "net_pnl": -224.05,
+          "win_rate_pct": 37.5
+        },
+        "2018": {
+          "trades": 14,
+          "net_pnl": 168.01,
+          "win_rate_pct": 57.14
+        },
+        "2019": {
+          "trades": 17,
+          "net_pnl": 918.5,
+          "win_rate_pct": 64.71
+        },
+        "2020": {
+          "trades": 15,
+          "net_pnl": -408.32,
+          "win_rate_pct": 40.0
+        },
+        "2021": {
+          "trades": 11,
+          "net_pnl": -178.62,
+          "win_rate_pct": 45.45
+        },
+        "2022": {
+          "trades": 13,
+          "net_pnl": 259.86,
+          "win_rate_pct": 46.15
+        },
+        "2023": {
+          "trades": 22,
+          "net_pnl": 869.84,
+          "win_rate_pct": 59.09
+        },
+        "2024": {
+          "trades": 19,
+          "net_pnl": -342.74,
+          "win_rate_pct": 47.37
+        },
+        "2025": {
+          "trades": 24,
+          "net_pnl": 285.44,
+          "win_rate_pct": 70.83
+        }
+      }
+    },
+    "vol_below_sma20": {
+      "kept": {
+        "trades": 277,
+        "win_rate_pct": 53.79,
+        "profit_factor": 1.316,
+        "net_pnl": 4104.33,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 75.9,
+        "rolling_12m_positive_pct": 74.1
+      },
+      "excluded": {
+        "trades": 127,
+        "net_pnl": 1398.38,
+        "win_rate_pct": 55.12
+      },
+      "delta_vs_baseline_net": -1398.38,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 1561.41,
+        "second_half_net": 2542.92,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 12,
+          "net_pnl": -284.84,
+          "win_rate_pct": 41.67
+        },
+        "2018": {
+          "trades": 11,
+          "net_pnl": 555.97,
+          "win_rate_pct": 63.64
+        },
+        "2019": {
+          "trades": 17,
+          "net_pnl": 230.83,
+          "win_rate_pct": 58.82
+        },
+        "2020": {
+          "trades": 16,
+          "net_pnl": -737.07,
+          "win_rate_pct": 43.75
+        },
+        "2021": {
+          "trades": 11,
+          "net_pnl": -1.9,
+          "win_rate_pct": 54.55
+        },
+        "2022": {
+          "trades": 11,
+          "net_pnl": 1057.12,
+          "win_rate_pct": 63.64
+        },
+        "2023": {
+          "trades": 23,
+          "net_pnl": 235.75,
+          "win_rate_pct": 52.17
+        },
+        "2024": {
+          "trades": 14,
+          "net_pnl": -226.01,
+          "win_rate_pct": 42.86
+        },
+        "2025": {
+          "trades": 12,
+          "net_pnl": 568.53,
+          "win_rate_pct": 83.33
+        }
+      }
+    },
+    "gap_positive": {
+      "kept": {
+        "trades": 320,
+        "win_rate_pct": 54.37,
+        "profit_factor": 1.229,
+        "net_pnl": 3697.39,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 70.4,
+        "rolling_12m_positive_pct": 77.8
+      },
+      "excluded": {
+        "trades": 84,
+        "net_pnl": 1805.32,
+        "win_rate_pct": 53.57
+      },
+      "delta_vs_baseline_net": -1805.32,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 1703.99,
+        "second_half_net": 1993.4,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 7,
+          "net_pnl": -131.05,
+          "win_rate_pct": 28.57
+        },
+        "2018": {
+          "trades": 9,
+          "net_pnl": -635.94,
+          "win_rate_pct": 33.33
+        },
+        "2019": {
+          "trades": 11,
+          "net_pnl": -204.39,
+          "win_rate_pct": 45.45
+        },
+        "2020": {
+          "trades": 12,
+          "net_pnl": 593.69,
+          "win_rate_pct": 50.0
+        },
+        "2021": {
+          "trades": 7,
+          "net_pnl": -124.37,
+          "win_rate_pct": 42.86
+        },
+        "2022": {
+          "trades": 9,
+          "net_pnl": 650.86,
+          "win_rate_pct": 55.56
+        },
+        "2023": {
+          "trades": 11,
+          "net_pnl": 582.02,
+          "win_rate_pct": 63.64
+        },
+        "2024": {
+          "trades": 13,
+          "net_pnl": 702.53,
+          "win_rate_pct": 69.23
+        },
+        "2025": {
+          "trades": 5,
+          "net_pnl": 371.97,
+          "win_rate_pct": 100.0
+        }
+      }
+    },
+    "dow_mon_thu": {
+      "kept": {
+        "trades": 335,
+        "win_rate_pct": 52.24,
+        "profit_factor": 1.21,
+        "net_pnl": 3572.85,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 76.9,
+        "rolling_12m_positive_pct": 74.1
+      },
+      "excluded": {
+        "trades": 69,
+        "net_pnl": 1929.86,
+        "win_rate_pct": 63.77
+      },
+      "delta_vs_baseline_net": -1929.86,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 1154.48,
+        "second_half_net": 2418.37,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 5,
+          "net_pnl": 13.64,
+          "win_rate_pct": 60.0
+        },
+        "2018": {
+          "trades": 9,
+          "net_pnl": 184.87,
+          "win_rate_pct": 55.56
+        },
+        "2019": {
+          "trades": 11,
+          "net_pnl": 1.84,
+          "win_rate_pct": 54.55
+        },
+        "2020": {
+          "trades": 7,
+          "net_pnl": -28.53,
+          "win_rate_pct": 57.14
+        },
+        "2021": {
+          "trades": 9,
+          "net_pnl": 292.15,
+          "win_rate_pct": 55.56
+        },
+        "2022": {
+          "trades": 6,
+          "net_pnl": 780.28,
+          "win_rate_pct": 83.33
+        },
+        "2023": {
+          "trades": 5,
+          "net_pnl": 495.01,
+          "win_rate_pct": 80.0
+        },
+        "2024": {
+          "trades": 9,
+          "net_pnl": 178.44,
+          "win_rate_pct": 66.67
+        },
+        "2025": {
+          "trades": 8,
+          "net_pnl": 12.16,
+          "win_rate_pct": 75.0
+        }
+      }
+    },
+    "dow_not_friday": {
+      "kept": {
+        "trades": 335,
+        "win_rate_pct": 52.24,
+        "profit_factor": 1.21,
+        "net_pnl": 3572.85,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 76.9,
+        "rolling_12m_positive_pct": 74.1
+      },
+      "excluded": {
+        "trades": 69,
+        "net_pnl": 1929.86,
+        "win_rate_pct": 63.77
+      },
+      "delta_vs_baseline_net": -1929.86,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 1154.48,
+        "second_half_net": 2418.37,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 5,
+          "net_pnl": 13.64,
+          "win_rate_pct": 60.0
+        },
+        "2018": {
+          "trades": 9,
+          "net_pnl": 184.87,
+          "win_rate_pct": 55.56
+        },
+        "2019": {
+          "trades": 11,
+          "net_pnl": 1.84,
+          "win_rate_pct": 54.55
+        },
+        "2020": {
+          "trades": 7,
+          "net_pnl": -28.53,
+          "win_rate_pct": 57.14
+        },
+        "2021": {
+          "trades": 9,
+          "net_pnl": 292.15,
+          "win_rate_pct": 55.56
+        },
+        "2022": {
+          "trades": 6,
+          "net_pnl": 780.28,
+          "win_rate_pct": 83.33
+        },
+        "2023": {
+          "trades": 5,
+          "net_pnl": 495.01,
+          "win_rate_pct": 80.0
+        },
+        "2024": {
+          "trades": 9,
+          "net_pnl": 178.44,
+          "win_rate_pct": 66.67
+        },
+        "2025": {
+          "trades": 8,
+          "net_pnl": 12.16,
+          "win_rate_pct": 75.0
+        }
+      }
+    },
+    "low_rvol20_vs_60": {
+      "kept": {
+        "trades": 225,
+        "win_rate_pct": 57.33,
+        "profit_factor": 1.345,
+        "net_pnl": 3483.55,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 67.6,
+        "rolling_12m_positive_pct": 75.0
+      },
+      "excluded": {
+        "trades": 179,
+        "net_pnl": 2019.16,
+        "win_rate_pct": 50.28
+      },
+      "delta_vs_baseline_net": -2019.16,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 675.58,
+        "second_half_net": 2807.97,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 30,
+          "net_pnl": 139.95,
+          "win_rate_pct": 46.67
+        },
+        "2018": {
+          "trades": 19,
+          "net_pnl": 633.66,
+          "win_rate_pct": 52.63
+        },
+        "2019": {
+          "trades": 15,
+          "net_pnl": 112.75,
+          "win_rate_pct": 46.67
+        },
+        "2020": {
+          "trades": 21,
+          "net_pnl": -235.64,
+          "win_rate_pct": 47.62
+        },
+        "2021": {
+          "trades": 16,
+          "net_pnl": 229.91,
+          "win_rate_pct": 43.75
+        },
+        "2022": {
+          "trades": 21,
+          "net_pnl": 206.19,
+          "win_rate_pct": 42.86
+        },
+        "2023": {
+          "trades": 13,
+          "net_pnl": 449.31,
+          "win_rate_pct": 61.54
+        },
+        "2024": {
+          "trades": 22,
+          "net_pnl": 489.48,
+          "win_rate_pct": 59.09
+        },
+        "2025": {
+          "trades": 22,
+          "net_pnl": -6.45,
+          "win_rate_pct": 54.55
+        }
+      }
+    },
+    "dow_not_monday": {
+      "kept": {
+        "trades": 324,
+        "win_rate_pct": 52.16,
+        "profit_factor": 1.206,
+        "net_pnl": 3329.95,
+        "positive_years": 7,
+        "negative_years": 2,
+        "rolling_6m_positive_pct": 67.6,
+        "rolling_12m_positive_pct": 75.0
+      },
+      "excluded": {
+        "trades": 80,
+        "net_pnl": 2172.76,
+        "win_rate_pct": 62.5
+      },
+      "delta_vs_baseline_net": -2172.76,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 200.75,
+        "second_half_net": 3129.2,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 9,
+          "net_pnl": 153.18,
+          "win_rate_pct": 66.67
+        },
+        "2018": {
+          "trades": 7,
+          "net_pnl": 79.09,
+          "win_rate_pct": 71.43
+        },
+        "2019": {
+          "trades": 10,
+          "net_pnl": 290.36,
+          "win_rate_pct": 60.0
+        },
+        "2020": {
+          "trades": 11,
+          "net_pnl": 602.92,
+          "win_rate_pct": 54.55
+        },
+        "2021": {
+          "trades": 7,
+          "net_pnl": 340.44,
+          "win_rate_pct": 71.43
+        },
+        "2022": {
+          "trades": 5,
+          "net_pnl": 104.7,
+          "win_rate_pct": 40.0
+        },
+        "2023": {
+          "trades": 12,
+          "net_pnl": 205.43,
+          "win_rate_pct": 58.33
+        },
+        "2024": {
+          "trades": 9,
+          "net_pnl": 368.23,
+          "win_rate_pct": 66.67
+        },
+        "2025": {
+          "trades": 10,
+          "net_pnl": 28.41,
+          "win_rate_pct": 70.0
+        }
+      }
+    },
+    "low_rvol10_vs_60": {
+      "kept": {
+        "trades": 254,
+        "win_rate_pct": 55.12,
+        "profit_factor": 1.253,
+        "net_pnl": 3000.58,
+        "positive_years": 6,
+        "negative_years": 3,
+        "rolling_6m_positive_pct": 62.0,
+        "rolling_12m_positive_pct": 66.7
+      },
+      "excluded": {
+        "trades": 150,
+        "net_pnl": 2502.13,
+        "win_rate_pct": 52.67
+      },
+      "delta_vs_baseline_net": -2502.13,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 535.87,
+        "second_half_net": 2464.71,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 24,
+          "net_pnl": -71.65,
+          "win_rate_pct": 41.67
+        },
+        "2018": {
+          "trades": 15,
+          "net_pnl": 559.48,
+          "win_rate_pct": 66.67
+        },
+        "2019": {
+          "trades": 11,
+          "net_pnl": 813.07,
+          "win_rate_pct": 72.73
+        },
+        "2020": {
+          "trades": 19,
+          "net_pnl": -510.47,
+          "win_rate_pct": 42.11
+        },
+        "2021": {
+          "trades": 13,
+          "net_pnl": 258.65,
+          "win_rate_pct": 46.15
+        },
+        "2022": {
+          "trades": 18,
+          "net_pnl": 188.01,
+          "win_rate_pct": 38.89
+        },
+        "2023": {
+          "trades": 13,
+          "net_pnl": 493.76,
+          "win_rate_pct": 61.54
+        },
+        "2024": {
+          "trades": 18,
+          "net_pnl": 806.53,
+          "win_rate_pct": 66.67
+        },
+        "2025": {
+          "trades": 19,
+          "net_pnl": -35.25,
+          "win_rate_pct": 52.63
+        }
+      }
+    },
+    "gap_small": {
+      "kept": {
+        "trades": 238,
+        "win_rate_pct": 52.94,
+        "profit_factor": 1.273,
+        "net_pnl": 2747.9,
+        "positive_years": 6,
+        "negative_years": 3,
+        "rolling_6m_positive_pct": 72.2,
+        "rolling_12m_positive_pct": 64.8
+      },
+      "excluded": {
+        "trades": 166,
+        "net_pnl": 2754.81,
+        "win_rate_pct": 56.02
+      },
+      "delta_vs_baseline_net": -2754.81,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 339.49,
+        "second_half_net": 2408.41,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 7,
+          "net_pnl": -2.06,
+          "win_rate_pct": 42.86
+        },
+        "2018": {
+          "trades": 15,
+          "net_pnl": 654.79,
+          "win_rate_pct": 60.0
+        },
+        "2019": {
+          "trades": 23,
+          "net_pnl": 508.74,
+          "win_rate_pct": 65.22
+        },
+        "2020": {
+          "trades": 28,
+          "net_pnl": -174.66,
+          "win_rate_pct": 53.57
+        },
+        "2021": {
+          "trades": 16,
+          "net_pnl": 495.49,
+          "win_rate_pct": 43.75
+        },
+        "2022": {
+          "trades": 17,
+          "net_pnl": 873.95,
+          "win_rate_pct": 58.82
+        },
+        "2023": {
+          "trades": 19,
+          "net_pnl": 237.59,
+          "win_rate_pct": 57.89
+        },
+        "2024": {
+          "trades": 20,
+          "net_pnl": 7.86,
+          "win_rate_pct": 50.0
+        },
+        "2025": {
+          "trades": 21,
+          "net_pnl": 153.11,
+          "win_rate_pct": 61.9
+        }
+      }
+    },
+    "low_atr10_vs_20": {
+      "kept": {
+        "trades": 228,
+        "win_rate_pct": 54.82,
+        "profit_factor": 1.228,
+        "net_pnl": 2541.24,
+        "positive_years": 5,
+        "negative_years": 4,
+        "rolling_6m_positive_pct": 67.6,
+        "rolling_12m_positive_pct": 63.0
+      },
+      "excluded": {
+        "trades": 176,
+        "net_pnl": 2961.47,
+        "win_rate_pct": 53.41
+      },
+      "delta_vs_baseline_net": -2961.47,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 1505.01,
+        "second_half_net": 1036.23,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 26,
+          "net_pnl": 41.1,
+          "win_rate_pct": 46.15
+        },
+        "2018": {
+          "trades": 17,
+          "net_pnl": 406.46,
+          "win_rate_pct": 52.94
+        },
+        "2019": {
+          "trades": 15,
+          "net_pnl": 300.31,
+          "win_rate_pct": 46.67
+        },
+        "2020": {
+          "trades": 18,
+          "net_pnl": -926.58,
+          "win_rate_pct": 33.33
+        },
+        "2021": {
+          "trades": 20,
+          "net_pnl": 528.22,
+          "win_rate_pct": 55.0
+        },
+        "2022": {
+          "trades": 14,
+          "net_pnl": 724.32,
+          "win_rate_pct": 57.14
+        },
+        "2023": {
+          "trades": 20,
+          "net_pnl": 661.15,
+          "win_rate_pct": 60.0
+        },
+        "2024": {
+          "trades": 25,
+          "net_pnl": 675.95,
+          "win_rate_pct": 60.0
+        },
+        "2025": {
+          "trades": 21,
+          "net_pnl": 550.54,
+          "win_rate_pct": 66.67
+        }
+      }
+    },
+    "gap_negative": {
+      "kept": {
+        "trades": 84,
+        "win_rate_pct": 53.57,
+        "profit_factor": 1.5,
+        "net_pnl": 1805.32,
+        "positive_years": 5,
+        "negative_years": 4,
+        "rolling_6m_positive_pct": 58.3,
+        "rolling_12m_positive_pct": 59.3
+      },
+      "excluded": {
+        "trades": 320,
+        "net_pnl": 3697.39,
+        "win_rate_pct": 54.37
+      },
+      "delta_vs_baseline_net": -3697.39,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": -377.69,
+        "second_half_net": 2183.01,
+        "both_positive": false
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 34,
+          "net_pnl": 25.3,
+          "win_rate_pct": 47.06
+        },
+        "2018": {
+          "trades": 35,
+          "net_pnl": 1097.24,
+          "win_rate_pct": 57.14
+        },
+        "2019": {
+          "trades": 43,
+          "net_pnl": 947.35,
+          "win_rate_pct": 62.79
+        },
+        "2020": {
+          "trades": 42,
+          "net_pnl": -365.9,
+          "win_rate_pct": 50.0
+        },
+        "2021": {
+          "trades": 34,
+          "net_pnl": 640.57,
+          "win_rate_pct": 50.0
+        },
+        "2022": {
+          "trades": 21,
+          "net_pnl": 35.21,
+          "win_rate_pct": 47.62
+        },
+        "2023": {
+          "trades": 34,
+          "net_pnl": -53.83,
+          "win_rate_pct": 47.06
+        },
+        "2024": {
+          "trades": 40,
+          "net_pnl": 786.8,
+          "win_rate_pct": 57.5
+        },
+        "2025": {
+          "trades": 37,
+          "net_pnl": 584.65,
+          "win_rate_pct": 64.86
+        }
+      }
+    },
+    "dow_tue_thu": {
+      "kept": {
+        "trades": 255,
+        "win_rate_pct": 49.02,
+        "profit_factor": 1.104,
+        "net_pnl": 1400.09,
+        "positive_years": 4,
+        "negative_years": 5,
+        "rolling_6m_positive_pct": 57.4,
+        "rolling_12m_positive_pct": 51.9
+      },
+      "excluded": {
+        "trades": 149,
+        "net_pnl": 4102.62,
+        "win_rate_pct": 63.09
+      },
+      "delta_vs_baseline_net": -4102.62,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 28.93,
+        "second_half_net": 1371.16,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 14,
+          "net_pnl": 166.82,
+          "win_rate_pct": 64.29
+        },
+        "2018": {
+          "trades": 16,
+          "net_pnl": 263.96,
+          "win_rate_pct": 62.5
+        },
+        "2019": {
+          "trades": 21,
+          "net_pnl": 292.2,
+          "win_rate_pct": 57.14
+        },
+        "2020": {
+          "trades": 18,
+          "net_pnl": 574.39,
+          "win_rate_pct": 55.56
+        },
+        "2021": {
+          "trades": 16,
+          "net_pnl": 632.59,
+          "win_rate_pct": 62.5
+        },
+        "2022": {
+          "trades": 11,
+          "net_pnl": 884.98,
+          "win_rate_pct": 63.64
+        },
+        "2023": {
+          "trades": 17,
+          "net_pnl": 700.44,
+          "win_rate_pct": 64.71
+        },
+        "2024": {
+          "trades": 18,
+          "net_pnl": 546.67,
+          "win_rate_pct": 66.67
+        },
+        "2025": {
+          "trades": 18,
+          "net_pnl": 40.57,
+          "win_rate_pct": 72.22
+        }
+      }
+    },
+    "vol_above_sma20": {
+      "kept": {
+        "trades": 122,
+        "win_rate_pct": 54.92,
+        "profit_factor": 1.203,
+        "net_pnl": 1340.93,
+        "positive_years": 5,
+        "negative_years": 4,
+        "rolling_6m_positive_pct": 59.3,
+        "rolling_12m_positive_pct": 61.1
+      },
+      "excluded": {
+        "trades": 282,
+        "net_pnl": 4161.78,
+        "win_rate_pct": 53.9
+      },
+      "delta_vs_baseline_net": -4161.78,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": -292.56,
+        "second_half_net": 1633.49,
+        "both_positive": false
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 34,
+          "net_pnl": 236.54,
+          "win_rate_pct": 47.06
+        },
+        "2018": {
+          "trades": 33,
+          "net_pnl": -94.67,
+          "win_rate_pct": 48.48
+        },
+        "2019": {
+          "trades": 37,
+          "net_pnl": 512.13,
+          "win_rate_pct": 59.46
+        },
+        "2020": {
+          "trades": 38,
+          "net_pnl": 964.86,
+          "win_rate_pct": 52.63
+        },
+        "2021": {
+          "trades": 30,
+          "net_pnl": 518.1,
+          "win_rate_pct": 46.67
+        },
+        "2022": {
+          "trades": 19,
+          "net_pnl": -371.05,
+          "win_rate_pct": 42.11
+        },
+        "2023": {
+          "trades": 22,
+          "net_pnl": 292.44,
+          "win_rate_pct": 50.0
+        },
+        "2024": {
+          "trades": 39,
+          "net_pnl": 1715.34,
+          "win_rate_pct": 66.67
+        },
+        "2025": {
+          "trades": 30,
+          "net_pnl": 388.09,
+          "win_rate_pct": 63.33
+        }
+      }
+    },
+    "vol_above_sma50": {
+      "kept": {
+        "trades": 112,
+        "win_rate_pct": 52.68,
+        "profit_factor": 1.107,
+        "net_pnl": 756.31,
+        "positive_years": 6,
+        "negative_years": 3,
+        "rolling_6m_positive_pct": 53.7,
+        "rolling_12m_positive_pct": 55.6
+      },
+      "excluded": {
+        "trades": 292,
+        "net_pnl": 4746.4,
+        "win_rate_pct": 54.79
+      },
+      "delta_vs_baseline_net": -4746.4,
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "half_split": {
+        "first_half_net": 75.74,
+        "second_half_net": 680.57,
+        "both_positive": true
+      },
+      "excluded_yearly": {
+        "2017": {
+          "trades": 36,
+          "net_pnl": 96.22,
+          "win_rate_pct": 44.44
+        },
+        "2018": {
+          "trades": 32,
+          "net_pnl": -355.9,
+          "win_rate_pct": 46.88
+        },
+        "2019": {
+          "trades": 47,
+          "net_pnl": 573.35,
+          "win_rate_pct": 59.57
+        },
+        "2020": {
+          "trades": 42,
+          "net_pnl": 936.89,
+          "win_rate_pct": 52.38
+        },
+        "2021": {
+          "trades": 26,
+          "net_pnl": 251.33,
+          "win_rate_pct": 50.0
+        },
+        "2022": {
+          "trades": 17,
+          "net_pnl": 474.95,
+          "win_rate_pct": 52.94
+        },
+        "2023": {
+          "trades": 25,
+          "net_pnl": 480.07,
+          "win_rate_pct": 52.0
+        },
+        "2024": {
+          "trades": 39,
+          "net_pnl": 1620.71,
+          "win_rate_pct": 64.1
+        },
+        "2025": {
+          "trades": 28,
+          "net_pnl": 668.78,
+          "win_rate_pct": 67.86
+        }
+      }
+    }
+  },
+  "top_candidates": [
+    {
+      "label": "mom5_OR_sma8",
+      "qc_verdict": "QC_STRONG",
+      "kept_trades": 374,
+      "kept_net_pnl": 6346.93,
+      "excluded_net_pnl": -844.22,
+      "delta_vs_baseline": 844.22,
+      "kept_rolling_6m": 80.6,
+      "kept_rolling_12m": 91.7,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "mom5_positive",
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "kept_trades": 346,
+      "kept_net_pnl": 5952.25,
+      "excluded_net_pnl": -449.54,
+      "delta_vs_baseline": 449.54,
+      "kept_rolling_6m": 79.6,
+      "kept_rolling_12m": 94.4,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "close_above_sma8",
+      "qc_verdict": "QC_POSITIVE_BUT_MIXED",
+      "kept_trades": 371,
+      "kept_net_pnl": 5673.75,
+      "excluded_net_pnl": -171.04,
+      "delta_vs_baseline": 171.04,
+      "kept_rolling_6m": 81.5,
+      "kept_rolling_12m": 88.0,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "mom5_AND_sma8",
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "kept_trades": 343,
+      "kept_net_pnl": 5279.07,
+      "excluded_net_pnl": 223.64,
+      "delta_vs_baseline": -223.64,
+      "kept_rolling_6m": 78.7,
+      "kept_rolling_12m": 92.6,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "contracting_range",
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "kept_trades": 243,
+      "kept_net_pnl": 5053.66,
+      "excluded_net_pnl": 449.05,
+      "delta_vs_baseline": -449.05,
+      "kept_rolling_6m": 74.1,
+      "kept_rolling_12m": 79.6,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "low_atr5_vs_20",
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "kept_trades": 249,
+      "kept_net_pnl": 4437.48,
+      "excluded_net_pnl": 1065.23,
+      "delta_vs_baseline": -1065.23,
+      "kept_rolling_6m": 75.0,
+      "kept_rolling_12m": 88.0,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "declining_volume",
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "kept_trades": 253,
+      "kept_net_pnl": 4154.79,
+      "excluded_net_pnl": 1347.92,
+      "delta_vs_baseline": -1347.92,
+      "kept_rolling_6m": 69.4,
+      "kept_rolling_12m": 75.9,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "vol_below_sma20",
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "kept_trades": 277,
+      "kept_net_pnl": 4104.33,
+      "excluded_net_pnl": 1398.38,
+      "delta_vs_baseline": -1398.38,
+      "kept_rolling_6m": 75.9,
+      "kept_rolling_12m": 74.1,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "gap_positive",
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "kept_trades": 320,
+      "kept_net_pnl": 3697.39,
+      "excluded_net_pnl": 1805.32,
+      "delta_vs_baseline": -1805.32,
+      "kept_rolling_6m": 70.4,
+      "kept_rolling_12m": 77.8,
+      "half_split_both_positive": true
+    },
+    {
+      "label": "dow_mon_thu",
+      "qc_verdict": "QC_WEAK_OR_MIXED",
+      "kept_trades": 335,
+      "kept_net_pnl": 3572.85,
+      "excluded_net_pnl": 1929.86,
+      "delta_vs_baseline": -1929.86,
+      "kept_rolling_6m": 76.9,
+      "kept_rolling_12m": 74.1,
+      "half_split_both_positive": true
+    }
+  ]
+}

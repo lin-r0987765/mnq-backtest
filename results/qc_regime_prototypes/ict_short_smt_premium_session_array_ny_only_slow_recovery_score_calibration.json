@@ -1,0 +1,326 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_slow_recovery_score_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "slow_recovery_base": {
+      "params": {
+        "min_score_to_trade": 6.0,
+        "score_fvg": 2.0,
+        "score_ote_zone": 2.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_shifts": 3,
+        "bearish_shifts": 5
+      }
+    },
+    "min_score_5": {
+      "params": {
+        "min_score_to_trade": 5.0,
+        "score_fvg": 2.0,
+        "score_ote_zone": 2.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_shifts": 3,
+        "bearish_shifts": 5
+      }
+    },
+    "min_score_7": {
+      "params": {
+        "min_score_to_trade": 7.0,
+        "score_fvg": 2.0,
+        "score_ote_zone": 2.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_shifts": 3,
+        "bearish_shifts": 5
+      }
+    },
+    "min_score_8": {
+      "params": {
+        "min_score_to_trade": 8.0,
+        "score_fvg": 2.0,
+        "score_ote_zone": 2.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.0011,
+        "sharpe_ratio": 0.0213,
+        "sortino_ratio": 0.0309,
+        "calmar_ratio": 0.0242,
+        "max_drawdown_pct": -0.0453,
+        "win_rate_pct": 100.0,
+        "total_trades": 1,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0011
+      },
+      "metadata": {
+        "fvg_entries": 1,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_shifts": 0,
+        "bearish_shifts": 1
+      }
+    },
+    "min_score_9": {
+      "params": {
+        "min_score_to_trade": 9.0,
+        "score_fvg": 2.0,
+        "score_ote_zone": 2.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.0011,
+        "sharpe_ratio": 0.0213,
+        "sortino_ratio": 0.0309,
+        "calmar_ratio": 0.0242,
+        "max_drawdown_pct": -0.0453,
+        "win_rate_pct": 100.0,
+        "total_trades": 1,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0011
+      },
+      "metadata": {
+        "fvg_entries": 1,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_shifts": 0,
+        "bearish_shifts": 1
+      }
+    },
+    "min_score_5_lower_ote": {
+      "params": {
+        "min_score_to_trade": 5.0,
+        "score_fvg": 2.0,
+        "score_ote_zone": 1.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_shifts": 3,
+        "bearish_shifts": 5
+      }
+    },
+    "min_score_7_higher_fvg": {
+      "params": {
+        "min_score_to_trade": 7.0,
+        "score_fvg": 3.0,
+        "score_ote_zone": 2.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_shifts": 3,
+        "bearish_shifts": 5
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "slow_recovery_base",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "min_score_to_trade": 6.0,
+      "score_fvg": 2.0,
+      "score_ote_zone": 2.0,
+      "fvg_entries": 6
+    },
+    {
+      "label": "min_score_5",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "min_score_to_trade": 5.0,
+      "score_fvg": 2.0,
+      "score_ote_zone": 2.0,
+      "fvg_entries": 6
+    },
+    {
+      "label": "min_score_7",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "min_score_to_trade": 7.0,
+      "score_fvg": 2.0,
+      "score_ote_zone": 2.0,
+      "fvg_entries": 6
+    },
+    {
+      "label": "min_score_5_lower_ote",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "min_score_to_trade": 5.0,
+      "score_fvg": 2.0,
+      "score_ote_zone": 1.0,
+      "fvg_entries": 6
+    },
+    {
+      "label": "min_score_7_higher_fvg",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "min_score_to_trade": 7.0,
+      "score_fvg": 3.0,
+      "score_ote_zone": 2.0,
+      "fvg_entries": 6
+    },
+    {
+      "label": "min_score_8",
+      "total_trades": 1,
+      "total_return_pct": 0.0011,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.16666666666666666,
+      "min_score_to_trade": 8.0,
+      "score_fvg": 2.0,
+      "score_ote_zone": 2.0,
+      "fvg_entries": 1
+    },
+    {
+      "label": "min_score_9",
+      "total_trades": 1,
+      "total_return_pct": 0.0011,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.16666666666666666,
+      "min_score_to_trade": 9.0,
+      "score_fvg": 2.0,
+      "score_ote_zone": 2.0,
+      "fvg_entries": 1
+    }
+  ],
+  "best_variant": {
+    "label": "slow_recovery_base",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "min_score_to_trade": 6.0,
+    "score_fvg": 2.0,
+    "score_ote_zone": 2.0,
+    "fvg_entries": 6
+  },
+  "best_non_base_variant": {
+    "label": "min_score_5",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "min_score_to_trade": 5.0,
+    "score_fvg": 2.0,
+    "score_ote_zone": 2.0,
+    "fvg_entries": 6
+  },
+  "best_robust_score_variant": {
+    "label": "min_score_5",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "min_score_to_trade": 5.0,
+    "score_fvg": 2.0,
+    "score_ote_zone": 2.0,
+    "fvg_entries": 6
+  },
+  "base_label": "slow_recovery_base",
+  "base_trades": 6,
+  "base_total_return_pct": 0.1627,
+  "robust_trade_floor": 4,
+  "verdict": "ROBUST_SCORE_SURVIVOR_BUT_NOT_FRONTIER_ON_SLOW_RECOVERY_BASE",
+  "interpretation": "A score-gating calibration survives on top of the slow-recovery NY-only paired ICT base without collapsing activity, but it does not beat the frontier."
+}

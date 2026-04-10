@@ -1,0 +1,287 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_slow_recovery_structure_fvg_age_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "structure_frontier_base": {
+      "params": {
+        "fvg_max_age": 20,
+        "fvg_min_gap_pct": 0.001,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1826,
+        "sharpe_ratio": 1.9535,
+        "sortino_ratio": 3.0891,
+        "calmar_ratio": 3.38,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0261
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_age_10": {
+      "params": {
+        "fvg_max_age": 10,
+        "fvg_min_gap_pct": 0.001,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1609,
+        "sharpe_ratio": 2.2482,
+        "sortino_ratio": 3.7198,
+        "calmar_ratio": 5.4007,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0322
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_age_15": {
+      "params": {
+        "fvg_max_age": 15,
+        "fvg_min_gap_pct": 0.001,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1815,
+        "sharpe_ratio": 2.3361,
+        "sortino_ratio": 3.8639,
+        "calmar_ratio": 6.0936,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0302
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_age_25": {
+      "params": {
+        "fvg_max_age": 25,
+        "fvg_min_gap_pct": 0.001,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1826,
+        "sharpe_ratio": 1.9535,
+        "sortino_ratio": 3.0891,
+        "calmar_ratio": 3.38,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0261
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_age_30": {
+      "params": {
+        "fvg_max_age": 30,
+        "fvg_min_gap_pct": 0.001,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1826,
+        "sharpe_ratio": 1.9535,
+        "sortino_ratio": 3.0891,
+        "calmar_ratio": 3.38,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0261
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_age_40": {
+      "params": {
+        "fvg_max_age": 40,
+        "fvg_min_gap_pct": 0.001,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1826,
+        "sharpe_ratio": 1.9535,
+        "sortino_ratio": 3.0891,
+        "calmar_ratio": 3.38,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0261
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "structure_frontier_base",
+      "total_trades": 7,
+      "total_return_pct": 0.1826,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_max_age": 20,
+      "fvg_entries": 7,
+      "ob_entries": 0,
+      "ifvg_entries": 0
+    },
+    {
+      "label": "fvg_age_25",
+      "total_trades": 7,
+      "total_return_pct": 0.1826,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_max_age": 25,
+      "fvg_entries": 7,
+      "ob_entries": 0,
+      "ifvg_entries": 0
+    },
+    {
+      "label": "fvg_age_30",
+      "total_trades": 7,
+      "total_return_pct": 0.1826,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_max_age": 30,
+      "fvg_entries": 7,
+      "ob_entries": 0,
+      "ifvg_entries": 0
+    },
+    {
+      "label": "fvg_age_40",
+      "total_trades": 7,
+      "total_return_pct": 0.1826,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_max_age": 40,
+      "fvg_entries": 7,
+      "ob_entries": 0,
+      "ifvg_entries": 0
+    },
+    {
+      "label": "fvg_age_15",
+      "total_trades": 6,
+      "total_return_pct": 0.1815,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.8571428571428571,
+      "fvg_max_age": 15,
+      "fvg_entries": 6,
+      "ob_entries": 0,
+      "ifvg_entries": 0
+    },
+    {
+      "label": "fvg_age_10",
+      "total_trades": 5,
+      "total_return_pct": 0.1609,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.7142857142857143,
+      "fvg_max_age": 10,
+      "fvg_entries": 5,
+      "ob_entries": 0,
+      "ifvg_entries": 0
+    }
+  ],
+  "best_variant": {
+    "label": "structure_frontier_base",
+    "total_trades": 7,
+    "total_return_pct": 0.1826,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_max_age": 20,
+    "fvg_entries": 7,
+    "ob_entries": 0,
+    "ifvg_entries": 0
+  },
+  "best_non_base_variant": {
+    "label": "fvg_age_25",
+    "total_trades": 7,
+    "total_return_pct": 0.1826,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_max_age": 25,
+    "fvg_entries": 7,
+    "ob_entries": 0,
+    "ifvg_entries": 0
+  },
+  "best_robust_fvg_age_variant": {
+    "label": "fvg_age_25",
+    "total_trades": 7,
+    "total_return_pct": 0.1826,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_max_age": 25,
+    "fvg_entries": 7,
+    "ob_entries": 0,
+    "ifvg_entries": 0
+  },
+  "base_label": "structure_frontier_base",
+  "base_trades": 7,
+  "base_total_return_pct": 0.1826,
+  "robust_trade_floor": 4,
+  "verdict": "ROBUST_FVG_AGE_SURVIVOR_BUT_NOT_FRONTIER_ON_STRUCTURE_BASE",
+  "interpretation": "An FVG max-age calibration survives on top of the structure-aware slow-recovery NY-only paired ICT base without collapsing activity, but it does not beat the frontier."
+}

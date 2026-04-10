@@ -1,0 +1,335 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_kill_zone_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "session_array_premium_base": {
+      "params": {
+        "use_kill_zones": false,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "london_kill_start": 3,
+        "london_kill_end": 4,
+        "ny_am_kill_start": 10,
+        "ny_am_kill_end": 11,
+        "ny_pm_kill_start": 14,
+        "ny_pm_kill_end": 15
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "kill_zone_filtered_sweeps": 0,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 278,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "kill_zones_default": {
+      "params": {
+        "use_kill_zones": true,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "london_kill_start": 3,
+        "london_kill_end": 4,
+        "ny_am_kill_start": 10,
+        "ny_am_kill_end": 11,
+        "ny_pm_kill_start": 14,
+        "ny_pm_kill_end": 15
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "kill_zone_filtered_sweeps": 188,
+        "session_array_filtered_shifts": 0,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 96,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "kill_zones_ny_am_only": {
+      "params": {
+        "use_kill_zones": true,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "london_kill_start": 0,
+        "london_kill_end": 0,
+        "ny_am_kill_start": 10,
+        "ny_am_kill_end": 11,
+        "ny_pm_kill_start": 0,
+        "ny_pm_kill_end": 0
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "kill_zone_filtered_sweeps": 211,
+        "session_array_filtered_shifts": 0,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 74,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "kill_zones_ny_only": {
+      "params": {
+        "use_kill_zones": true,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "london_kill_start": 0,
+        "london_kill_end": 0,
+        "ny_am_kill_start": 10,
+        "ny_am_kill_end": 11,
+        "ny_pm_kill_start": 14,
+        "ny_pm_kill_end": 15
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "kill_zone_filtered_sweeps": 188,
+        "session_array_filtered_shifts": 0,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 96,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "kill_zones_broader": {
+      "params": {
+        "use_kill_zones": true,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "london_kill_start": 2,
+        "london_kill_end": 5,
+        "ny_am_kill_start": 9,
+        "ny_am_kill_end": 12,
+        "ny_pm_kill_start": 13,
+        "ny_pm_kill_end": 16
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "kill_zone_filtered_sweeps": 16,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 262,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "kill_zones_shifted": {
+      "params": {
+        "use_kill_zones": true,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "london_kill_start": 4,
+        "london_kill_end": 5,
+        "ny_am_kill_start": 9,
+        "ny_am_kill_end": 10,
+        "ny_pm_kill_start": 13,
+        "ny_pm_kill_end": 14
+      },
+      "metrics": {
+        "total_return_pct": 0.0882,
+        "sharpe_ratio": 2.0107,
+        "sortino_ratio": 3.4876,
+        "calmar_ratio": 3.9215,
+        "max_drawdown_pct": -0.0225,
+        "win_rate_pct": 100.0,
+        "total_trades": 2,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0441
+      },
+      "metadata": {
+        "kill_zone_filtered_sweeps": 170,
+        "session_array_filtered_shifts": 2,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 112,
+        "fvg_entries": 2,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "session_array_premium_base",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "kill_zone_filtered_sweeps": 0,
+      "session_array_filtered_shifts": 2,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278
+    },
+    {
+      "label": "kill_zones_broader",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "kill_zone_filtered_sweeps": 16,
+      "session_array_filtered_shifts": 2,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 262
+    },
+    {
+      "label": "kill_zones_shifted",
+      "total_trades": 2,
+      "total_return_pct": 0.0882,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.4,
+      "kill_zone_filtered_sweeps": 170,
+      "session_array_filtered_shifts": 2,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 112
+    },
+    {
+      "label": "kill_zones_default",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "kill_zone_filtered_sweeps": 188,
+      "session_array_filtered_shifts": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 96
+    },
+    {
+      "label": "kill_zones_ny_am_only",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "kill_zone_filtered_sweeps": 211,
+      "session_array_filtered_shifts": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 74
+    },
+    {
+      "label": "kill_zones_ny_only",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "kill_zone_filtered_sweeps": 188,
+      "session_array_filtered_shifts": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 96
+    }
+  ],
+  "best_variant": {
+    "label": "session_array_premium_base",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "kill_zone_filtered_sweeps": 0,
+    "session_array_filtered_shifts": 2,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 278
+  },
+  "best_non_base_variant": {
+    "label": "kill_zones_broader",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "kill_zone_filtered_sweeps": 16,
+    "session_array_filtered_shifts": 2,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 262
+  },
+  "best_robust_kill_zone_variant": {
+    "label": "kill_zones_broader",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "kill_zone_filtered_sweeps": 16,
+    "session_array_filtered_shifts": 2,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 262
+  },
+  "base_label": "session_array_premium_base",
+  "base_trades": 5,
+  "base_total_return_pct": 0.1375,
+  "robust_trade_floor": 3,
+  "verdict": "ROBUST_KILL_ZONE_SURVIVOR_BUT_NOT_FRONTIER_ON_SESSION_ARRAY_BASE",
+  "interpretation": "A kill-zone calibration survives on top of the short-SMT premium-plus-session-array base without collapsing activity, but it does not beat the frontier."
+}

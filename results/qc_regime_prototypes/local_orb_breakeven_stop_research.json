@@ -1,0 +1,200 @@
+{
+  "hypothesis": "breakeven_stop_trigger",
+  "description": "Once trade MFE reaches breakeven_trigger * ORB_range above entry, floor stop at entry price",
+  "data_source": "qqq_5m.csv",
+  "data_range": "2026-01-07 09:35:00-05:00 to 2026-04-02 15:55:00-04:00",
+  "results": [
+    {
+      "trigger": 0.0,
+      "label": "baseline (no BE)",
+      "metrics": {
+        "trades": 44,
+        "total_pnl": 58.96,
+        "win_rate": 68.2,
+        "pf": 2.576,
+        "sharpe": 0.354,
+        "max_dd_pct": -0.0088,
+        "avg_pnl": 1.34,
+        "stops": 4,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 39
+      },
+      "fold_pnls": [
+        3.089999114990234,
+        1.7543973693847656,
+        7.184512786865234,
+        30.117348205566405
+      ],
+      "positive_folds": 4
+    },
+    {
+      "trigger": 0.25,
+      "label": "BE_trigger=0.25x",
+      "metrics": {
+        "trades": 61,
+        "total_pnl": 48.53,
+        "win_rate": 47.5,
+        "pf": 2.016,
+        "sharpe": 0.248,
+        "max_dd_pct": -0.0089,
+        "avg_pnl": 0.8,
+        "stops": 25,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 35
+      },
+      "fold_pnls": [
+        2.3608549804687495,
+        1.7543973693847656,
+        4.705906127929688,
+        25.88732498168945
+      ],
+      "positive_folds": 4
+    },
+    {
+      "trigger": 0.5,
+      "label": "BE_trigger=0.50x",
+      "metrics": {
+        "trades": 49,
+        "total_pnl": 61.8,
+        "win_rate": 59.2,
+        "pf": 2.739,
+        "sharpe": 0.3628,
+        "max_dd_pct": -0.0075,
+        "avg_pnl": 1.26,
+        "stops": 12,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 36
+      },
+      "fold_pnls": [
+        3.790639282226561,
+        1.7543973693847656,
+        8.585437530517579,
+        31.349954559326168
+      ],
+      "positive_folds": 4
+    },
+    {
+      "trigger": 0.75,
+      "label": "BE_trigger=0.75x",
+      "metrics": {
+        "trades": 48,
+        "total_pnl": 59.35,
+        "win_rate": 60.4,
+        "pf": 2.552,
+        "sharpe": 0.342,
+        "max_dd_pct": -0.0088,
+        "avg_pnl": 1.24,
+        "stops": 11,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 36
+      },
+      "fold_pnls": [
+        3.790639282226561,
+        1.7543973693847656,
+        8.585437530517579,
+        28.903178344726562
+      ],
+      "positive_folds": 4
+    },
+    {
+      "trigger": 1.0,
+      "label": "BE_trigger=1.00x",
+      "metrics": {
+        "trades": 46,
+        "total_pnl": 61.73,
+        "win_rate": 65.2,
+        "pf": 2.721,
+        "sharpe": 0.3669,
+        "max_dd_pct": -0.0088,
+        "avg_pnl": 1.34,
+        "stops": 9,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 36
+      },
+      "fold_pnls": [
+        3.790639282226561,
+        1.7543973693847656,
+        8.585437530517579,
+        30.117348205566405
+      ],
+      "positive_folds": 4
+    },
+    {
+      "trigger": 1.25,
+      "label": "BE_trigger=1.25x",
+      "metrics": {
+        "trades": 45,
+        "total_pnl": 60.48,
+        "win_rate": 66.7,
+        "pf": 2.644,
+        "sharpe": 0.3604,
+        "max_dd_pct": -0.0088,
+        "avg_pnl": 1.34,
+        "stops": 7,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 37
+      },
+      "fold_pnls": [
+        3.790639282226561,
+        1.7543973693847656,
+        7.184512786865234,
+        30.117348205566405
+      ],
+      "positive_folds": 4
+    },
+    {
+      "trigger": 1.5,
+      "label": "BE_trigger=1.50x",
+      "metrics": {
+        "trades": 44,
+        "total_pnl": 60.44,
+        "win_rate": 68.2,
+        "pf": 2.682,
+        "sharpe": 0.3652,
+        "max_dd_pct": -0.0088,
+        "avg_pnl": 1.37,
+        "stops": 6,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 37
+      },
+      "fold_pnls": [
+        3.7553096313476546,
+        1.7543973693847656,
+        7.184512786865234,
+        30.117348205566405
+      ],
+      "positive_folds": 4
+    },
+    {
+      "trigger": 2.0,
+      "label": "BE_trigger=2.00x",
+      "metrics": {
+        "trades": 44,
+        "total_pnl": 58.96,
+        "win_rate": 68.2,
+        "pf": 2.576,
+        "sharpe": 0.354,
+        "max_dd_pct": -0.0088,
+        "avg_pnl": 1.34,
+        "stops": 4,
+        "be_stops": 0,
+        "targets": 1,
+        "eod": 39
+      },
+      "fold_pnls": [
+        3.089999114990234,
+        1.7543973693847656,
+        7.184512786865234,
+        30.117348205566405
+      ],
+      "positive_folds": 4
+    }
+  ]
+}

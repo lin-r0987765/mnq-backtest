@@ -1,0 +1,440 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © ICT Combined Trading System v2.8.0 — ORB + VWAP Reversion
+// 基於 Python 回測系統 iteration #27 的最佳參數移植
+// 適用於 QQQ 5 分鐘線
+
+//@version=6
+strategy("ICT Combined ORB+VWAP v2.8", overlay=true, pyramiding=2,
+         default_qty_type=strategy.fixed, default_qty_value=10,
+         initial_capital=100000, commission_type=strategy.commission.percent,
+         commission_value=0.05, slippage=1,
+         process_orders_on_close=false, calc_on_every_tick=false)
+
+// ═══════════════════════════════════════════════════════════════════
+// 策略選擇器
+// ═══════════════════════════════════════════════════════════════════
+string MODE = input.string("Combined", "策略模式",
+     options=["ORB Only", "VWAP Only", "Combined"], group="策略選擇")
+
+bool enableORB  = (MODE == "ORB Only"  or MODE == "Combined")
+bool enableVWAP = (MODE == "VWAP Only" or MODE == "Combined")
+
+// ═══════════════════════════════════════════════════════════════════
+// ORB 參數
+// ═══════════════════════════════════════════════════════════════════
+int   orbBars          = input.int(4, "ORB K棒數 (×5min=20min)", minval=2, maxval=8, group="ORB 策略")
+float profitRatio      = input.float(3.5, "TP 倍數 (range×ratio)", minval=2.0, maxval=6.0, step=0.5, group="ORB 策略")
+float breakoutConfirm  = input.float(0.03, "突破確認 %", minval=0.0, maxval=0.1, step=0.01, group="ORB 策略") / 100
+float trailingPct      = input.float(1.3, "移動止損 %", minval=0.5, maxval=3.0, step=0.1, group="ORB 策略") / 100
+int   orbCloseBeforeMin= input.int(10, "收盤前平倉(分鐘)", minval=5, maxval=30, group="ORB 策略")
+bool  htfFilter        = input.bool(true, "啟用 1h 結構方向過濾", group="ORB 策略")
+int   htfEmaFast       = input.int(20, "1h EMA 快線", minval=10, maxval=30, group="ORB 策略")
+int   skipShortAfterUp = input.int(2, "連漲N日禁做空", minval=0, maxval=5, group="ORB 策略")
+int   skipLongAfterUp  = input.int(3, "連漲N日禁追多", minval=0, maxval=5, group="ORB 策略")
+float orbMinRangePct   = input.float(0.1, "最小 Range %", minval=0.05, maxval=0.5, step=0.05, group="ORB 策略") / 100
+
+// ═══════════════════════════════════════════════════════════════════
+// VWAP 參數
+// ═══════════════════════════════════════════════════════════════════
+float vwapK            = input.float(1.5, "VWAP Band k", minval=1.0, maxval=3.0, step=0.1, group="VWAP 策略")
+float vwapSlKAdd       = input.float(0.5, "SL 額外 k", minval=0.1, maxval=1.5, step=0.1, group="VWAP 策略")
+int   stdWindow        = input.int(30, "Std 滾動視窗", minval=10, maxval=60, group="VWAP 策略")
+int   rsiPeriod        = input.int(14, "RSI 週期", minval=7, maxval=21, group="VWAP 策略")
+float rsiOS            = input.float(32, "RSI 超賣閾值", minval=25, maxval=40, group="VWAP 策略")
+float rsiOB            = input.float(66, "RSI 超買閾值", minval=60, maxval=75, group="VWAP 策略")
+int   vwapCloseBeforeMin = input.int(15, "收盤前平倉(分鐘)", minval=5, maxval=30, group="VWAP 策略")
+int   vwapEmaFast      = input.int(20, "EMA 快線", minval=10, maxval=30, group="VWAP 策略")
+int   vwapEmaSlow      = input.int(50, "EMA 慢線", minval=20, maxval=60, group="VWAP 策略")
+int   maxTradesPerDay  = input.int(2, "每日最大交易數", minval=1, maxval=5, group="VWAP 策略")
+float volMinMult       = input.float(0.5, "成交量最低倍數", minval=0.1, maxval=1.5, step=0.1, group="VWAP 策略")
+float atrMinPct        = input.float(0.05, "ATR 最低 %", minval=0.01, maxval=0.2, step=0.01, group="VWAP 策略") / 100
+float bbWidthMin       = input.float(0.05, "BB 最小寬度 %", minval=0.01, maxval=0.2, step=0.01, group="VWAP 策略") / 100
+float partialTpTrail   = input.float(0.2, "部分TP Trail %", minval=0.05, maxval=0.5, step=0.05, group="VWAP 策略") / 100
+int   partialTpMaxHold = input.int(32, "部分TP最大持有K棒", minval=10, maxval=50, group="VWAP 策略")
+float lateLongRsiMax   = input.float(30, "晚盤Long RSI上限", minval=20, maxval=35, group="VWAP 策略")
+
+// ═══════════════════════════════════════════════════════════════════
+// 通用：時間與 Session 偵測
+// ═══════════════════════════════════════════════════════════════════
+bool isRegularSession = not na(time(timeframe.period, "0930-1600", "America/New_York"))
+bool sessionStart     = isRegularSession and not isRegularSession[1]
+bool sessionEnd       = not isRegularSession and isRegularSession[1]
+
+// 取得當前 ET 時間（分鐘 since midnight）
+currentHour   = hour(time, "America/New_York")
+currentMinute = minute(time, "America/New_York")
+int minutesSinceMidnight = currentHour * 60 + currentMinute
+
+// 收盤時間 = 16:00 = 960 分鐘
+int orbForceCloseMin  = 960 - orbCloseBeforeMin
+int vwapForceCloseMin = 960 - vwapCloseBeforeMin
+int vwapEntryStartMin = 9 * 60 + 45   // 09:45
+int vwapEntryEndMin   = 15 * 60 + 30  // 15:30
+int lateLongStartMin  = 14 * 60       // 14:00
+
+bool orbForceClose  = minutesSinceMidnight >= orbForceCloseMin and isRegularSession
+bool vwapForceClose = minutesSinceMidnight >= vwapForceCloseMin and isRegularSession
+bool vwapEntryWindow = minutesSinceMidnight >= vwapEntryStartMin and minutesSinceMidnight <= vwapEntryEndMin
+bool isLateLong      = minutesSinceMidnight >= lateLongStartMin
+
+// ═══════════════════════════════════════════════════════════════════
+// ORB：Opening Range 計算
+// ═══════════════════════════════════════════════════════════════════
+// 開盤時間 09:30 = 570 分鐘
+int orbEndMin = 570 + orbBars * 5  // orbBars × 5分鐘
+
+var float orbHigh  = na
+var float orbLow   = na
+var bool  orbReady = false
+var int   orbBarCount = 0
+
+if sessionStart
+    orbHigh     := high
+    orbLow      := low
+    orbReady    := false
+    orbBarCount := 1
+
+if isRegularSession and not orbReady and not sessionStart
+    orbBarCount += 1
+    orbHigh     := math.max(nz(orbHigh, high), high)
+    orbLow      := math.min(nz(orbLow, low), low)
+    if orbBarCount >= orbBars
+        orbReady := true
+
+float orbRangeWidth = orbReady ? orbHigh - orbLow : na
+float orbMidPrice   = orbReady ? (orbHigh + orbLow) / 2 : na
+
+// Range 有效性（> 0.1% 的價格）
+bool orbRangeValid = orbReady and not na(orbRangeWidth) and orbRangeWidth > 0 and
+     (orbMidPrice > 0 ? orbRangeWidth / orbMidPrice >= orbMinRangePct : false)
+
+// 突破水位
+float longEntryLevel  = orbRangeValid ? orbHigh * (1 + breakoutConfirm) : na
+float shortEntryLevel = orbRangeValid ? orbLow  * (1 - breakoutConfirm) : na
+float orbTpLong       = orbRangeValid ? orbHigh + profitRatio * orbRangeWidth : na
+float orbTpShort      = orbRangeValid ? orbLow  - profitRatio * orbRangeWidth : na
+
+// ═══════════════════════════════════════════════════════════════════
+// ORB：1h HTF 結構方向（EMA20 slope）
+// ═══════════════════════════════════════════════════════════════════
+float htfEma = request.security(syminfo.tickerid, "60", ta.ema(close, htfEmaFast), lookahead=barmerge.lookahead_on)
+float htfEmaSlope = htfEma - htfEma[1]
+
+// +1=看多, -1=看空, 0=中性
+int htfBias = htfEmaSlope > 0 ? 1 : htfEmaSlope < 0 ? -1 : 0
+
+// ═══════════════════════════════════════════════════════════════════
+// ORB：連續上漲日計算
+// ═══════════════════════════════════════════════════════════════════
+float dailyOpen  = request.security(syminfo.tickerid, "D", open, lookahead=barmerge.lookahead_on)
+float dailyClose_prev = request.security(syminfo.tickerid, "D", close[1], lookahead=barmerge.lookahead_on)
+float dailyOpen_prev  = request.security(syminfo.tickerid, "D", open[1], lookahead=barmerge.lookahead_on)
+
+var int upDayStreak = 0
+if sessionStart
+    // 檢查昨天是否為上漲日
+    if not na(dailyClose_prev) and not na(dailyOpen_prev) and dailyClose_prev > dailyOpen_prev
+        upDayStreak += 1
+    else
+        upDayStreak := 0
+
+bool allowShortToday = not (skipShortAfterUp > 0 and upDayStreak >= skipShortAfterUp)
+bool allowLongToday  = not (skipLongAfterUp > 0 and upDayStreak >= skipLongAfterUp)
+
+// ═══════════════════════════════════════════════════════════════════
+// ORB：交易狀態管理
+// ═══════════════════════════════════════════════════════════════════
+var bool  orbInLong  = false
+var bool  orbInShort = false
+var float orbBestLong  = 0.0
+var float orbBestShort = 1e18
+var bool  orbTradedToday = false
+
+if sessionStart
+    orbInLong      := false
+    orbInShort     := false
+    orbTradedToday := false
+
+// ORB Entry
+bool orbLongEntry  = false
+bool orbShortEntry = false
+bool orbLongExit   = false
+bool orbShortExit  = false
+
+if enableORB and orbReady and orbRangeValid and isRegularSession and not orbForceClose and minutesSinceMidnight > orbEndMin
+    if not orbInLong and not orbInShort and not orbTradedToday
+        // 做多突破
+        if close > longEntryLevel
+            if allowLongToday and (not htfFilter or htfBias != -1)
+                orbLongEntry   := true
+                orbInLong      := true
+                orbBestLong    := close
+                orbTradedToday := true
+        // 做空突破
+        else if close < shortEntryLevel
+            if allowShortToday and (not htfFilter or htfBias != 1)
+                orbShortEntry  := true
+                orbInShort     := true
+                orbBestShort   := close
+                orbTradedToday := true
+
+// ORB Exit: trailing stop + TP
+if orbInLong
+    orbBestLong := math.max(orbBestLong, close)
+    float trailSL   = orbBestLong * (1 - trailingPct)
+    float effectiveSL = math.max(nz(orbLow, 0), trailSL)
+    if close <= effectiveSL or close >= orbTpLong or orbForceClose
+        orbLongExit := true
+        orbInLong   := false
+
+if orbInShort
+    orbBestShort := math.min(orbBestShort, close)
+    float trailSL   = orbBestShort * (1 + trailingPct)
+    float effectiveSL = math.min(nz(orbHigh, 1e18), trailSL)
+    if close >= effectiveSL or close <= orbTpShort or orbForceClose
+        orbShortExit := true
+        orbInShort   := false
+
+// ═══════════════════════════════════════════════════════════════════
+// VWAP：Session-Anchored VWAP + Std Bands
+// ═══════════════════════════════════════════════════════════════════
+var float cumTpVol = 0.0
+var float cumVol   = 0.0
+
+if sessionStart
+    cumTpVol := 0.0
+    cumVol   := 0.0
+
+float typicalPrice = (high + low + close) / 3
+if isRegularSession
+    cumTpVol += typicalPrice * volume
+    cumVol   += volume
+
+float sessionVwap = cumVol > 0 ? cumTpVol / cumVol : na
+
+// Rolling standard deviation of typical price
+float rollingStd = ta.stdev(typicalPrice, stdWindow)
+
+// VWAP Bands
+float vwapUpper = not na(sessionVwap) and not na(rollingStd) ? sessionVwap + vwapK * rollingStd : na
+float vwapLower = not na(sessionVwap) and not na(rollingStd) ? sessionVwap - vwapK * rollingStd : na
+float vwapSlUpper = not na(sessionVwap) and not na(rollingStd) ? sessionVwap + (vwapK + vwapSlKAdd) * rollingStd : na
+float vwapSlLower = not na(sessionVwap) and not na(rollingStd) ? sessionVwap - (vwapK + vwapSlKAdd) * rollingStd : na
+
+// BB Width
+float bbWidth = not na(sessionVwap) and sessionVwap > 0 and not na(vwapUpper) and not na(vwapLower) ?
+     (vwapUpper - vwapLower) / sessionVwap : 0
+
+// ═══════════════════════════════════════════════════════════════════
+// VWAP：指標計算
+// ═══════════════════════════════════════════════════════════════════
+float rsiValue = ta.rsi(close, rsiPeriod)
+float emaFastVal = ta.ema(close, vwapEmaFast)
+float emaSlowVal = ta.ema(close, vwapEmaSlow)
+
+// EMA Cross 趨勢判斷
+bool isUptrend   = emaFastVal > emaSlowVal
+bool isDowntrend = emaFastVal < emaSlowVal
+
+// 成交量過濾
+float volMA20 = ta.sma(volume, 20)
+bool  volOK   = volume >= volMA20 * volMinMult
+
+// ATR 過濾
+float atrVal  = ta.atr(14)
+bool  atrOK   = close > 0 ? atrVal / close >= atrMinPct : false
+
+// BB Width 過濾
+bool bbWidthOK = bbWidth >= bbWidthMin
+
+// ═══════════════════════════════════════════════════════════════════
+// VWAP：交易狀態管理
+// ═══════════════════════════════════════════════════════════════════
+var bool  vwapInLong     = false
+var bool  vwapInShort    = false
+var int   vwapDailyTrades = 0
+var int   vwapPartialPhase = 0    // 0=無, 1=全持倉, 2=trailing
+var float vwapBestPrice  = 0.0
+var int   vwapBarsHeld   = 0
+
+if sessionStart
+    vwapInLong      := false
+    vwapInShort     := false
+    vwapDailyTrades := 0
+    vwapPartialPhase := 0
+    vwapBarsHeld    := 0
+
+// VWAP Entry/Exit signals
+bool vwapLongEntry  = false
+bool vwapShortEntry = false
+bool vwapLongExit   = false
+bool vwapShortExit  = false
+
+if enableVWAP and isRegularSession and not na(sessionVwap) and not na(rollingStd) and rollingStd > 0 and not na(rsiValue) and bbWidthOK
+    if not vwapForceClose
+        if not vwapInLong and not vwapInShort
+            // Entry conditions
+            if vwapDailyTrades < maxTradesPerDay and vwapEntryWindow and atrOK and volOK
+                // 做多：價格低於下軌 + RSI 超賣 + 非下降趨勢
+                if close < vwapLower and rsiValue < rsiOS
+                    // 晚盤 long 需更深超賣
+                    bool lateLongOK = not isLateLong or rsiValue < lateLongRsiMax
+                    if lateLongOK and not isDowntrend
+                        vwapLongEntry    := true
+                        vwapInLong       := true
+                        vwapDailyTrades  += 1
+                        vwapPartialPhase := 1
+                        vwapBarsHeld     := 0
+                // 做空：價格高於上軌 + RSI 超買 + 非上升趨勢
+                else if close > vwapUpper and rsiValue > rsiOB
+                    if not isUptrend
+                        vwapShortEntry   := true
+                        vwapInShort      := true
+                        vwapDailyTrades  += 1
+                        vwapPartialPhase := 1
+                        vwapBarsHeld     := 0
+        else
+            // Exit logic
+            float slLowerNow = not na(sessionVwap) and not na(rollingStd) ? sessionVwap - (vwapK + vwapSlKAdd) * rollingStd : na
+            float slUpperNow = not na(sessionVwap) and not na(rollingStd) ? sessionVwap + (vwapK + vwapSlKAdd) * rollingStd : na
+
+            if vwapPartialPhase > 0
+                vwapBarsHeld += 1
+
+            if vwapInLong
+                if not na(slLowerNow) and close <= slLowerNow
+                    // 停損
+                    vwapLongExit     := true
+                    vwapInLong       := false
+                    vwapPartialPhase := 0
+                else if vwapPartialPhase == 1 and close >= sessionVwap
+                    // Phase 1→2: 到達 VWAP，開始 trailing
+                    vwapPartialPhase := 2
+                    vwapBestPrice    := close
+                else if vwapPartialPhase == 2
+                    vwapBestPrice := math.max(vwapBestPrice, close)
+                    float trailSL = vwapBestPrice * (1 - partialTpTrail)
+                    if close <= trailSL or vwapBarsHeld >= partialTpMaxHold
+                        vwapLongExit     := true
+                        vwapInLong       := false
+                        vwapPartialPhase := 0
+
+            if vwapInShort
+                if not na(slUpperNow) and close >= slUpperNow
+                    // 停損
+                    vwapShortExit    := true
+                    vwapInShort      := false
+                    vwapPartialPhase := 0
+                else if vwapPartialPhase == 1 and close <= sessionVwap
+                    vwapPartialPhase := 2
+                    vwapBestPrice    := close
+                else if vwapPartialPhase == 2
+                    vwapBestPrice := math.min(vwapBestPrice, close)
+                    float trailSL = vwapBestPrice * (1 + partialTpTrail)
+                    if close >= trailSL or vwapBarsHeld >= partialTpMaxHold
+                        vwapShortExit    := true
+                        vwapInShort      := false
+                        vwapPartialPhase := 0
+
+    // VWAP 強制平倉
+    if vwapForceClose
+        if vwapInLong
+            vwapLongExit     := true
+            vwapInLong       := false
+            vwapPartialPhase := 0
+        if vwapInShort
+            vwapShortExit    := true
+            vwapInShort      := false
+            vwapPartialPhase := 0
+
+// ═══════════════════════════════════════════════════════════════════
+// 下單執行
+// ═══════════════════════════════════════════════════════════════════
+// ORB Orders
+if orbLongEntry
+    strategy.entry("ORB_L", strategy.long, comment="ORB Long")
+if orbShortEntry
+    strategy.entry("ORB_S", strategy.short, comment="ORB Short")
+if orbLongExit
+    strategy.close("ORB_L", comment="ORB Exit L")
+if orbShortExit
+    strategy.close("ORB_S", comment="ORB Exit S")
+
+// VWAP Orders
+if vwapLongEntry
+    strategy.entry("VWAP_L", strategy.long, comment="VWAP Long")
+if vwapShortEntry
+    strategy.entry("VWAP_S", strategy.short, comment="VWAP Short")
+if vwapLongExit
+    strategy.close("VWAP_L", comment="VWAP Exit L")
+if vwapShortExit
+    strategy.close("VWAP_S", comment="VWAP Exit S")
+
+// Session end: close all
+if sessionEnd
+    strategy.close_all(comment="Session End")
+    orbInLong        := false
+    orbInShort       := false
+    vwapInLong       := false
+    vwapInShort      := false
+    vwapPartialPhase := 0
+
+// ═══════════════════════════════════════════════════════════════════
+// 視覺化
+// ═══════════════════════════════════════════════════════════════════
+// ORB Range
+orbHighPlot = plot(orbReady and enableORB ? orbHigh : na, "ORB High", color=color.new(color.green, 60), style=plot.style_stepline)
+orbLowPlot  = plot(orbReady and enableORB ? orbLow : na, "ORB Low", color=color.new(color.red, 60), style=plot.style_stepline)
+fill(orbHighPlot, orbLowPlot, color=color.new(color.gray, 90), title="ORB Range")
+
+// VWAP + Bands
+plot(enableVWAP and isRegularSession ? sessionVwap : na, "VWAP", color=color.orange, linewidth=2)
+vwapUpperPlot = plot(enableVWAP and isRegularSession ? vwapUpper : na, "VWAP Upper", color=color.new(color.red, 50))
+vwapLowerPlot = plot(enableVWAP and isRegularSession ? vwapLower : na, "VWAP Lower", color=color.new(color.green, 50))
+fill(vwapUpperPlot, vwapLowerPlot, color=color.new(color.purple, 92), title="VWAP Bands")
+
+// HTF Bias 背景
+bgcolor(enableORB and htfFilter ?
+     (htfBias == 1 ? color.new(color.green, 95) : htfBias == -1 ? color.new(color.red, 95) : na) : na,
+     title="HTF Bias")
+
+// Entry markers
+plotshape(orbLongEntry,  "ORB Long",  shape.triangleup,   location.belowbar, color.green, size=size.small)
+plotshape(orbShortEntry, "ORB Short", shape.triangledown,  location.abovebar, color.red,   size=size.small)
+plotshape(vwapLongEntry, "VWAP Long", shape.diamond,       location.belowbar, color.lime,  size=size.small)
+plotshape(vwapShortEntry,"VWAP Short",shape.diamond,       location.abovebar, color.fuchsia,size=size.small)
+
+// ═══════════════════════════════════════════════════════════════════
+// 資訊面板
+// ═══════════════════════════════════════════════════════════════════
+var table infoPanel = table.new(position.top_right, 2, 8, bgcolor=color.new(color.black, 80), border_width=1)
+if barstate.islast
+    table.cell(infoPanel, 0, 0, "ICT v2.8", text_color=color.white, text_size=size.small)
+    table.cell(infoPanel, 1, 0, MODE, text_color=color.yellow, text_size=size.small)
+
+    table.cell(infoPanel, 0, 1, "HTF Bias", text_color=color.gray, text_size=size.tiny)
+    table.cell(infoPanel, 1, 1, htfBias == 1 ? "▲ Bull" : htfBias == -1 ? "▼ Bear" : "— Neutral",
+         text_color=htfBias == 1 ? color.green : htfBias == -1 ? color.red : color.gray, text_size=size.tiny)
+
+    table.cell(infoPanel, 0, 2, "ORB Range", text_color=color.gray, text_size=size.tiny)
+    table.cell(infoPanel, 1, 2, orbReady ? str.tostring(orbHigh, "#.##") + " / " + str.tostring(orbLow, "#.##") : "計算中...",
+         text_color=color.white, text_size=size.tiny)
+
+    table.cell(infoPanel, 0, 3, "Up Streak", text_color=color.gray, text_size=size.tiny)
+    table.cell(infoPanel, 1, 3, str.tostring(upDayStreak) + "日", text_color=color.white, text_size=size.tiny)
+
+    table.cell(infoPanel, 0, 4, "VWAP", text_color=color.gray, text_size=size.tiny)
+    table.cell(infoPanel, 1, 4, not na(sessionVwap) ? str.tostring(sessionVwap, "#.##") : "N/A",
+         text_color=color.orange, text_size=size.tiny)
+
+    table.cell(infoPanel, 0, 5, "RSI", text_color=color.gray, text_size=size.tiny)
+    table.cell(infoPanel, 1, 5, str.tostring(rsiValue, "#.#"),
+         text_color=rsiValue < rsiOS ? color.green : rsiValue > rsiOB ? color.red : color.white, text_size=size.tiny)
+
+    table.cell(infoPanel, 0, 6, "VWAP Trades", text_color=color.gray, text_size=size.tiny)
+    table.cell(infoPanel, 1, 6, str.tostring(vwapDailyTrades) + "/" + str.tostring(maxTradesPerDay),
+         text_color=color.white, text_size=size.tiny)
+
+    table.cell(infoPanel, 0, 7, "EMA Trend", text_color=color.gray, text_size=size.tiny)
+    table.cell(infoPanel, 1, 7, isUptrend ? "↑ Up" : isDowntrend ? "↓ Down" : "— Flat",
+         text_color=isUptrend ? color.green : isDowntrend ? color.red : color.gray, text_size=size.tiny)

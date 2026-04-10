@@ -1,0 +1,184 @@
+================================================================================
+QC BASELINE TRADES - RESEARCH HYPOTHESIS SUMMARY
+Strategy: Retrospective Tan Salmon (2017-2026)
+Analyzed Trades: 404 | Win Rate: 54.70% | Total P&L: $6,310.72
+================================================================================
+
+KEY FINDINGS & ACTIONABLE HYPOTHESES
+================================================================================
+
+HYPOTHESIS 1: TIME-OF-DAY CLUSTERING EFFECT
+================================================================================
+Finding: Win rate peaks at end of trading day
+  - Hour 12:00 (Noon-1pm ET): 75.0% win rate (20 trades, PF 2.67)
+  - Hour 11:00 (11am-Noon ET): 57.0% win rate (72 trades, PF 1.43)
+  - Hour 10:00 (10-11am ET): 54.0% win rate (259 trades, PF 1.28)
+  - Hour 9:00 (9-10am ET): 49.0% win rate (53 trades, PF 1.22)
+
+Action: Focus on end-of-morning/noon window. Noon hour has 75% win rate despite
+        only 20 trades. May benefit from hour-specific bias or market microstructure.
+        Consider filtering out early morning trades (before 10am ET).
+
+Statistical Significance: Profit factor improves 45% from worst to best hours.
+
+
+HYPOTHESIS 2: STRONG MONDAY/FRIDAY EFFECTS WITH TUESDAY TRAP
+================================================================================
+Finding: Clear day-of-week seasonality
+  - Friday: 64% win rate, $2,067.86 P&L (69 trades)
+  - Monday: 62% win rate, $2,332.76 P&L (80 trades)
+  - Thursday: 52% win rate, $800.33 P&L (79 trades)
+  - Tuesday: 49% win rate, $40.93 P&L (93 trades) ← WORST DAY
+  - Wednesday: 48% win rate, $1,068.84 P&L (83 trades)
+
+Action: Consider reducing exposure on Tuesday (especially early week)
+        or applying stricter exit rules. Monday/Friday show +30% better
+        performance than mid-week. Investigate: Is this volatility-driven?
+        Mean reversion? Market sentiment patterns?
+
+Statistical Significance: Best 2 days (Mon/Fri) generate 72% of total P&L
+                         despite being 37% of trades.
+
+
+HYPOTHESIS 3: SUMMER BULL BIAS - AVOID WINTER MONTHS
+================================================================================
+Finding: Strong monthly seasonality with summer/spring strength
+  - July: 63% win rate, $1,998.16 P&L (38 trades) ← PEAK
+  - May: 54% win rate, $1,408.83 P&L (39 trades)
+  - April: 50% win rate, $686.53 P&L (32 trades)
+  - January: 54% win rate, $616.73 P&L (35 trades)
+
+  WEAK/NEGATIVE:
+  - February: 46% win rate, -$426.41 P&L (26 trades) ← WORST
+  - March: 48% win rate, -$281.42 P&L (29 trades)
+
+Action: Strategy appears biased toward growth seasons. Consider:
+        - Reduce position size Feb-Mar
+        - Increase position size May-Aug
+        - Investigate Q1 weakness (earnings season? Tax issues?)
+
+Statistical Significance: Top 3 months generate 65% of all profits
+
+
+HYPOTHESIS 4: HOLD DURATION DRIVES PROFITABILITY (CRITICAL)
+================================================================================
+Finding: Duration strongly correlates with outcome (r=0.533)
+  - < 1 hour: 0% win rate, -$3,595.58 P&L ← MONEY LOSER
+  - 1-3 hours: 18% win rate, -$5,494.02 P&L ← CATASTROPHIC
+  - 3-5 hours: 56% win rate, $1,038.22 P&L
+  - 5+ hours: 71% win rate, $14,362.10 P&L ← 71% OF ALL PROFIT
+
+Winner avg duration: 5.06 hours
+Loser avg duration: 3.49 hours (45% shorter)
+
+Action: THIS IS THE BIGGEST FINDING. The strategy makes money by holding.
+        Short-term trades are -$9k losers. Long-term trades are +$14k winners.
+
+        IMMEDIATE ACTIONS:
+        1. Analyze: Why are < 1hr and 1-3hr trades so terrible?
+        2. Force minimum hold? Or better entry filters?
+        3. Winners hold 45% longer - is there a time-based profit target?
+        4. Investigate if 5+ hour trades capture specific patterns
+
+Statistical Significance: Duration explains 28% of P&L variance (r²=0.284)
+                         5+ hour trades contain 227% of total P&L
+
+
+HYPOTHESIS 5: EXIT RULES ARE LEAVING MONEY ON THE TABLE
+================================================================================
+Finding: Massive execution quality issue - many losses should have been wins
+
+89.1% of losing trades (163 of 183) were in profit at some point!
+39.3% of losing trades (72 of 183) had MFE > $50
+
+Analysis:
+  - 72 trades had MFE > $50 but ended as losses (avg loss: -$112.61)
+  - Median missed profit opportunity: $214.49 per loss
+  - Total missed profit from these 72 trades alone: ~$15,400
+  - If converted to wins: Total P&L would be ~$21,700 instead of $6,310
+
+Winner MAE: -$44.55 (small adverse moves before winning)
+Loser MAE: -$129.29 (3x worse drawdowns before giving up)
+
+Action: EXIT RULE REDESIGN NEEDED
+        1. Implement profit target based on MFE distribution
+        2. Current fixed exit time (19:50 ET?) is catching reversals
+        3. Consider trailing stop AFTER achieving 50%+ of MFE potential
+        4. The 39% of trades with >$50 MFE represent a $15k opportunity cost
+
+CRITICAL: This single issue may be worth 3x the current P&L if fixed.
+
+
+HYPOTHESIS 6: LUNCH HOUR REVERSAL PATTERN
+================================================================================
+Finding: Noon hour (12:00 ET) has anomalously high win rate
+  - Noon 12:00: 75% win rate (much higher than adjacent hours)
+  - 11:00: 57% win rate
+  - 10:00: 54% win rate
+
+With only 20 trades, this may be:
+  1. Lunch hour lull effect (lower volume, tighter spreads)
+  2. Mean reversion after morning moves
+  3. Statistical noise (small sample)
+
+Action: Larger dataset analysis needed. If real, this is a micro-window
+        opportunity. Consider: focusing entries on late morning (11-12)?
+
+
+================================================================================
+RANKED OPPORTUNITIES BY ESTIMATED VALUE
+================================================================================
+
+1. FIX EXIT RULES (Est. $15k+ upside)
+   - 72 trades with MFE > $50 that turned into losses
+   - Could nearly 3x total profits if converted to winners
+   - Medium difficulty, high impact
+
+2. DURATION-BASED FILTERING (Est. $5k-8k upside)
+   - Eliminate or fix sub-3-hour trades (losing $9k combined)
+   - Force minimum 3-5 hour holds or improve entry quality
+   - High difficulty, medium-high impact
+
+3. SEASONAL POSITION SIZING (Est. $1-2k)
+   - Reduce Feb-Mar exposure
+   - Increase May-Aug exposure
+   - Low difficulty, medium impact
+
+4. DAY-OF-WEEK FILTERING (Est. $500-1k)
+   - Reduce Tuesday exposure or tighten exits
+   - Increase Monday/Friday position sizes
+   - Low difficulty, low-medium impact
+
+5. TIME-OF-DAY FOCUS (Est. $500-1k)
+   - Focus on 10am-1pm ET window
+   - Avoid pre-10am trades
+   - Low difficulty, low impact
+
+
+================================================================================
+STATISTICAL CONFIDENCE LEVELS
+================================================================================
+
+HIGH CONFIDENCE:
+- Duration effect (r=0.533, 404 trades, strong across all buckets)
+- Day-of-week effect (clear pattern, 62-64% Mon/Fri vs 48-49% mid-week)
+- Exit quality issue (89.1% of losses were profitable at some point)
+
+MEDIUM CONFIDENCE:
+- Monthly seasonality (July peak is clear, but seasonal trends vary by year)
+- Hour 12 peak (small sample n=20, but PF 2.67 is compelling)
+
+LOW CONFIDENCE:
+- Specific hour effects for 9-11 (may vary with DST transitions)
+
+
+================================================================================
+NEXT STEPS FOR VALIDATION
+================================================================================
+
+1. Walk-forward test: Apply fixes to 2025 data only, validate on 2026
+2. Stress test exits: What if we used 75%th percentile of MFE as target?
+3. Analyze duration buckets by direction (Buy vs Sell if applicable)
+4. Check day/month effects control for volatility regime
+5. Investigate correlation with VIX/market regimes
+6. Quantify cost of "fixed exit time" rule - is it causing the MAE problem?

@@ -1,0 +1,78 @@
+{
+  "research_scope": "local_v18_priority_tiebreak",
+  "analysis_version": "v1_target_priority_after_adjacent_scan",
+  "source_scan_json": "local_orb_v18_adjacent_trend_scan.json",
+  "ranked_candidates": [
+    {
+      "label": "mom4_positive",
+      "score": 226.51,
+      "kept_net_pnl": 87.2,
+      "excluded_net_pnl": -30.52,
+      "walkforward_delta_vs_baseline": 30.53,
+      "improved_vs_baseline_folds": 2,
+      "positive_kept_folds": 2,
+      "excluded_negative_folds": 2,
+      "leave_one_month_out_all_positive": true,
+      "leave_one_month_out_min_net_pnl": 23.46,
+      "verdict": "LOCAL_RESEARCH_LEADER"
+    },
+    {
+      "label": "mom5_positive",
+      "score": 182.93,
+      "kept_net_pnl": 75.3,
+      "excluded_net_pnl": -18.61,
+      "walkforward_delta_vs_baseline": 18.62,
+      "improved_vs_baseline_folds": 3,
+      "positive_kept_folds": 1,
+      "excluded_negative_folds": 3,
+      "leave_one_month_out_all_positive": true,
+      "leave_one_month_out_min_net_pnl": 11.56,
+      "verdict": "LOCAL_RESEARCH_LEADER"
+    },
+    {
+      "label": "close_above_sma8",
+      "score": 229.62,
+      "kept_net_pnl": 92.14,
+      "excluded_net_pnl": -35.46,
+      "walkforward_delta_vs_baseline": 35.46,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 2,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true,
+      "leave_one_month_out_min_net_pnl": 18.2,
+      "verdict": "LOCAL_PROMISING"
+    },
+    {
+      "label": "close_above_sma9",
+      "score": 165.23,
+      "kept_net_pnl": 76.7,
+      "excluded_net_pnl": -20.01,
+      "walkforward_delta_vs_baseline": 20.02,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 2,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true,
+      "leave_one_month_out_min_net_pnl": 12.96,
+      "verdict": "LOCAL_PROMISING"
+    },
+    {
+      "label": "close_above_sma7",
+      "score": 151.47,
+      "kept_net_pnl": 74.78,
+      "excluded_net_pnl": -18.09,
+      "walkforward_delta_vs_baseline": 18.09,
+      "improved_vs_baseline_folds": 1,
+      "positive_kept_folds": 2,
+      "excluded_negative_folds": 1,
+      "leave_one_month_out_all_positive": true,
+      "leave_one_month_out_min_net_pnl": 0.84,
+      "verdict": "LOCAL_PROMISING"
+    }
+  ],
+  "priority_summary": {
+    "next_qc_proxy_priority": "mom4_positive",
+    "secondary_priority": "mom5_positive",
+    "tertiary_priority": "close_above_sma8",
+    "interpretation": "This tiebreak is local-only. It exists to order the next QC-proxy targets once accepted baseline raw trades are restored, not to launch a new QC candidate directly."
+  }
+}

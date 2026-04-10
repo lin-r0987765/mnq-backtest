@@ -22,6 +22,8 @@ dependencies = [
 
 [project.scripts]
 run-backtest = "run_backtest:main"
+run-live-trading = "run_live_trading:main"
+run-live-control = "run_live_control:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

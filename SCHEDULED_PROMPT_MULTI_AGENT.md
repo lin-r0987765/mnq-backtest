@@ -1,0 +1,1347 @@
+﻿# ICT Scheduled Prompt
+
+Fixed entry file: `SCHEDULED_PROMPT_MULTI_AGENT.md`
+Current content version: `v204`
+
+Read this file first. Then read `AGENT_HANDOFF.md` before doing any work.
+
+---
+
+## Mission
+
+Operate a dual-track workflow for the project in this repository:
+
+- ORB production lane:
+  - preserve the official QuantConnect baseline
+  - keep QC as the only promotion authority
+- ICT development lane:
+  - build a genuinely different strategy architecture
+  - use the local PDF and repo ICT modules as primary development inputs
+  - do not overwrite the ORB production lane until ICT earns that right
+
+Hard constraints:
+- Do not add VWAP
+- State sync is mandatory every round
+- ORB and ICT are now separate lanes; do not let ICT experiments silently overwrite the ORB baseline
+- Do not revive rejected versions:
+  - `v12-dual-entry`
+  - `v13-regime-reentry`
+  - `v15-peak-hours`
+  - `v16-up5d`
+  - `v19-gap-up-only`
+  - `v20-tight-trail-early`
+  - `v21-mom5-or-sma8`
+  - `v22-mom5-positive`
+  - `v23-wide-trail`
+  - `v24-no-trail`
+- Do not revive disqualified research traps:
+  - `skip_feb_mar`
+  - `prev_day_return_cap`
+  - `mom5_OR_sma8`
+
+Current official baseline:
+- `v26-profit-lock`
+
+Current ICT development baseline:
+- `src/strategies/ict_entry_model.py`
+- `src/data/fetcher.py`
+- `run_backtest.py`
+  - current implemented scope:
+  - liquidity sweep
+  - MSS / displacement proxy
+  - FVG-first entry
+  - OB fallback
+  - breaker fallback
+  - IFVG fallback
+  - external-liquidity gating
+  - SMT divergence gating
+  - AMD / market-maker path gating
+  - macro timing window gating
+  - previous-session anchor gating
+  - session-specific dealing-array refinement
+  - lite-frontier funnel stage instrumentation for the active 18-trade quality branch
+  - qualified pure reversal-FVG balance branch between the sparse quality lane and the denser continuation lane
+  - depth-refined qualified continuation density branch for the 500-trades objective
+  - qualified pure reversal-FVG balance branch as the middle-density alternative
+  - peer-symbol data integration for real SMT backtests
+  - OTE scoring
+  - broad session gating
+  - optional kill-zone specialization
+  - conservative higher-timeframe daily bias
+  - conservative premium / discount context
+  - repo-approved ICT research profile wiring for local runs
+  - paired-profile calibration on real `QQQ + SPY`
+  - paired activation-frontier mapping for zero-trade diagnosis
+  - paired context-filter reintroduction mapping for robust survivor detection
+  - repo-approved paired-survivor-plus-session-array profile wiring
+  - repo-approved paired-survivor-plus-session-array-loose-sweep profile wiring
+  - repo-approved paired-survivor-plus-session-array-loose-sweep-short-smt profile wiring
+  - repo-approved paired-survivor-plus-session-array-loose-sweep-short-smt-premium profile wiring
+  - repo-approved paired-survivor-plus-session-array-loose-sweep-short-smt-premium-ny-only profile wiring
+  - repo-approved paired-survivor-plus-session-array-loose-sweep-short-smt-premium-ny-only-slow-recovery-short-structure profile wiring
+  - CHOCH scoring now wired into the post-sweep structure-shift confirmation layer
+  - displacement body-quality gating now wired into the structure-shift confirmation layer
+  - FVG consequent-encroachment / revisit-depth gating now wired into the FVG-led entry layer
+  - FVG close-back recovery gating now wired into the FVG-led entry layer
+  - FVG rejection-wick gating now wired into the FVG-led entry layer
+  - FVG rejection-body gating now wired into the FVG-led entry layer
+  - structure-shift close-through buffer gating now wired into the post-sweep MSS / CHOCH confirmation layer
+  - FVG revisit-delay gating now wired into the FVG-led entry layer
+  - FVG retest-touch cap gating now wired into the FVG-led entry layer
+  - FVG origin-lag gating now wired into the structure-shift -> FVG handoff layer
+  - FVG origin-body gating now wired into the displacement -> FVG creation layer
+  - FVG origin body-vs-ATR gating now wired into the displacement -> FVG creation layer
+  - FVG origin close-position gating now wired into the displacement -> FVG creation layer
+  - FVG origin opposite-wick gating now wired into the displacement -> FVG creation layer
+  - FVG origin range-vs-ATR gating now wired into the displacement -> FVG creation layer
+  - displacement range-vs-ATR gating now wired into the post-sweep structure-shift confirmation layer
+  - New York trading-day boundary helper now wired into day-end flatten logic
+  - FVG detector now prefers the most recent valid gap in the shift window instead of the oldest one
+  - structure-confirmation scoring no longer double-counts BOS and CHOCH on the same post-sweep reversal event
+  - repo-approved `lite_ict_reversal` baseline wiring for the 500-trades roadmap
+  - repo-approved `lite_ict_reversal_relaxed_smt` frontier wiring for the 500-trades roadmap
+  - repo-approved `lite_ict_reversal_relaxed_smt_looser_sweep` frontier wiring for the 500-trades roadmap
+  - repo-approved `lite_ict_reversal_relaxed_smt_looser_sweep_faster_retest` frontier wiring for the 500-trades roadmap
+  - analyzer-only combined-lane compare for reversal + continuation fusion on the active lite frontier
+  - analyzer-only position-sizing compare for `10 shares`, `40 shares`, and capital-based ICT replay conventions
+  - engine-level fixed-share and capital-based sizing support inside `BacktestEngine`
+  - lite helper backlog item now confirmed complete and removed from the implementation table
+  - ICT-specific walk-forward validation for the active lite frontier
+  - reward:risk candidate-entry gate now wired into the active ICT strategy with analyzer-backed confirmation that the live lite frontier already clears `RR >= 1.5`
+  - context-filter diagnostics now count independently rather than stopping at the first failed `elif`
+  - repo-approved `lite_ict_reversal_quick_density_repair` helper now exists for the four-change 500-trades fast-repair branch
+  - the four-change quick-density-repair branch now has a direct replay result:
+    - `109 trades / -0.9467% / PF 0.4595`
+    - treat it as density-only and rejected for promotion
+  - confirmed swing-high / swing-low structure references now exist as an experimental repair path
+  - the first swing-structure replay improves the rejected quick-density branch, but remains negative and is not promotion-ready
+  - longer recovery windows on top of the swing branch have now been replayed and rejected as the next rescue lever
+  - premium / discount now also supports a soft score-pressure mode on the strict context lane
+  - the roadmap-aligned strict no-SMT premium-soft replay is complete and density-only:
+    - hard base `11 trades / +0.1727% / PF 3.9924`
+    - soft / filter-off branch `12 trades / +0.1241% / PF 2.0954`
+    - do not promote soft premium over the hard strict base
+  - session-array refinement now also supports a soft score-pressure mode on the strict context lane
+  - the roadmap-aligned strict no-SMT session-array-soft replay is complete and density-only:
+    - hard base `11 trades / +0.1727% / PF 3.9924`
+    - soft / filter-off branch `16 trades / +0.1184% / PF 1.9206`
+    - do not promote soft session-array over the hard strict base
+  - prev-session-anchor now also supports a soft score-pressure mode on the strict context lane
+  - the roadmap-aligned strict no-SMT prev-session-soft replay is complete and plateau-only:
+    - hard base `11 trades / +0.1727% / PF 3.9924`
+    - soft / filter-off branch `11 trades / +0.1727% / PF 3.9924`
+    - do not promote soft prev-session-anchor over the hard strict base
+  - same-zone re-entry is now a live strategy capability on armed delivery arrays
+  - the roadmap-aligned active-lite re-entry replay is complete and plateau-only:
+    - base `18 trades / +0.4353% / PF 5.0247`
+    - `max_reentries_per_setup = 1 / 2` both preserve the exact same realized result
+    - `reentry_stop_rearms = 2`, but `reentry_entries = 0`, so do not promote re-entry over the current active lite frontier
+  - continuation-style newer-FVG refreshes are now a live strategy capability on armed delivery arrays
+  - the roadmap-aligned active-lite continuation replay is complete and density-only:
+    - base `18 trades / +0.4353% / PF 5.0247`
+    - continuation on `22 trades / +0.3363% / PF 3.0037`
+    - `continuation_zone_refreshes = 24` and `continuation_entries = 10`, so the capability is real, but do not promote it over the current active lite frontier
+  - higher-timeframe daily bias now supports both `statistical` and `structure` modes on the active lite frontier
+  - the roadmap-aligned active-lite daily-bias replay is complete and survivor-only:
+    - base `18 trades / +0.4353% / PF 5.0247`
+    - statistical `5 trades / +0.2074% / PF 12.1773`
+    - structure threshold `1 -> 9 trades / +0.1826% / PF 5.5052`
+    - structure threshold `2 -> 0 trades`, so do not promote daily bias over the current active lite frontier
+  - active-lite pending-capacity replay is now explicitly re-confirmed as plateau-only on the promoted frontier:
+    - base `18 trades / +0.4353% / PF 5.0247`
+    - pending capacity `2 / 3 / 4` all preserve the same realized result
+    - `sweep_blocked_by_existing_pending` still collapses from `122` to `7 / 0 / 0`, so keep the capability but remove it from live roadmap work
+  - active-lite score-system repair is now complete on the promoted frontier:
+    - geometry-aware quality bonuses for sweep depth, displacement strength, and FVG gap are now live
+    - `quality_score_10` still preserves `18 trades / +0.4353% / PF 5.0247`
+    - but `score_filtered_shifts = 7`, so the score stack is finally meaningful even though it does not promote a new frontier
+  - active-lite swing-structure replay is now complete on the promoted frontier:
+    - rolling base remains `18 trades / +0.4353% / PF 5.0247`
+  - `swing_threshold = 2` becomes the clean density-only branch at `22 trades / +0.3397% / PF 2.7580`
+  - `swing_threshold = 3` becomes the thinner survivor at `14 trades / +0.3817% / PF 5.4217`
+  - keep rolling structure as the promoted base and do not keep swing structure as a live roadmap bug
+  - active-lite dual-speed recovery replay is now complete on the promoted frontier:
+    - fast-only standardized base remains `18 trades / +13.8395% / PF 6.3079`
+    - `dual_speed_6 -> 28 trades / +10.2286% / PF 2.9682`
+    - `dual_speed_8 -> 34 trades / +9.2985% / PF 2.4896`
+    - `dual_speed_12 -> 45 trades / +10.0200% / PF 2.2037`
+    - keep fast-only recovery as the promoted base and do not keep longer recovery windows as a live roadmap bug
+  - active-lite structure-lookback replay is now complete on the promoted frontier:
+    - promoted base remains `structure_12 -> 18 trades / +0.4353% / PF 5.0247`
+    - `structure_8 -> 24 trades / +0.3928% / PF 3.4265`
+    - `structure_10 -> 20 trades / +0.4065% / PF 3.8671`
+    - `structure_16 -> 17 trades / +0.4498% / PF 6.1051`
+    - keep `structure_12` as the promoted base and do not keep the older rolling-structure backlog rows live
+  - active-lite sweep-threshold recalibration now confirms the promoted `0.0006` base is still the cleanest tradeoff on top of the tighter FVG-gap helper
+  - active-lite structure-lookback recalibration now confirms the promoted `12` base is still the cleanest tradeoff on top of the tighter FVG-gap helper
+  - active-lite session-range recalibration now confirms the promoted `NY-only` base is still the cleanest tradeoff on top of the tighter FVG-gap helper
+  - true multi-pending setup state management now allows multiple simultaneous same-direction pending ICT setups
+  - active-lite pending-capacity recalibration now confirms that higher same-direction setup capacity changes lifecycle counts but leaves the promoted lite frontier unchanged
+  - the 500-trades implementation table is now backlog-clean and should be read as a status document unless new rows are added later
+  - the 500-trades implementation table now explicitly says not to reopen completed work unless a new roadmap row is added
+  - the 500-trades implementation table no longer carries a completed-history section and should be treated as live-status-only context
+  - the 500-trades implementation table now identifies itself as a status snapshot rather than an implementation queue
+  - the 500-trades status file now only carries current status, current benchmarks, and key references
+  - the 500-trades status file has now been retired entirely and should not be recreated unless a new live roadmap is intentionally opened
+
+Active candidate awaiting QC rerun:
+- none
+
+Research-only QC evaluator awaiting rerun:
+- none
+
+Repo QC files currently contain:
+- `v26-profit-lock`
+
+Latest workspace bundle:
+- `Geeky Fluorescent Yellow Alligator` (`v26-orb-trail-qc-evaluator`, analyzed and rejected / no launch)
+
+Latest accepted strategy rerun:
+- `Square Blue Termite` (`v26-profit-lock`)
+
+Local research reference lane:
+- `alpaca/normalized/qqq_5m_alpaca.csv`
+- `alpaca/normalized/qqq_1d_alpaca.csv`
+- `alpaca/normalized/spy_5m_alpaca.csv`
+- `alpaca/normalized/spy_1d_alpaca.csv`
+- actual local Alpaca span is `2020-07-27 -> 2026-04-07`
+- use Alpaca as the preferred local research dataset when a script supports custom intraday/daily CSV input
+- approved secondary research platform:
+  - `blueshift/`
+  - `BLUESHIFT_RESEARCH_WORKFLOW.md`
+  - use Blueshift for multi-file research prototypes and evaluator scaffolds
+- QuantConnect promotion rules remain unchanged: official promotion still uses the 10-year QC workflow only
+- primary ICT development sources:
+  - `C:\Users\LIN\Desktop\progamming\python\claude\mnq-backtest\ict\ICT 交易策略詳解與教學.pdf`
+  - `ICT_RESEARCH.md`
+  - `ICT_DEVELOPMENT_WORKFLOW.md`
+- current paired ICT frontier remains aligned to that PDF and is:
+  - `short-SMT + premium / discount + session-array refinement + NY-only core + liq_sweep_recovery_bars=4 + structure_lookback=12 + liq_sweep_threshold=0.0008 + swing_threshold=3 + fvg_min_gap_pct=0.0006 + fvg_revisit_depth_ratio=0.5 + fvg_revisit_min_delay_bars=3 + displacement_body_min_pct=0.10 + fvg_max_age=20`
+- latest ICT round conclusion:
+  - the strict ICT frontier remains the benchmark lane at `8 trades / +0.2119% / PF Infinity`
+  - the first lite reversal baseline is now standardized to the table trading spec:
+    - `14 trades / +10.6136% / PF 9.9873`
+    - engine replay:
+      - `capital_pct`
+      - `100% capital usage`
+      - `min 40 shares`
+      - `RR >= 1.5:1`
+  - the first robust lite SMT extension remains:
+    - `smt_threshold = 0.0015`
+    - `16 trades / +0.2902% / PF 4.6325`
+  - the first robust lite geometry extension is now:
+    - `liq_sweep_threshold = 0.0006`
+    - `18 trades / +0.3229% / PF 4.3357`
+  - the first robust lite retest extension is now:
+    - `fvg_revisit_min_delay_bars = 2`
+    - `18 trades / +0.3529% / PF 4.6792`
+  - the next lite frontier FVG-gap round is now complete:
+    - `fvg_min_gap_pct = 0.0010`
+    - `18 trades / +0.4353% / PF 5.0247`
+    - direct replay against the promoted `0.0010` base now confirms `0.0003 / 0.0005` are density-only and `0.0012` is the thinner survivor
+    - do not reopen looser FVG gaps as a live promotion lever unless the frontier changes materially
+  - the direct lite frontier revisit-depth recalibration is now complete:
+    - active base stays `fvg_revisit_depth_ratio = 0.5`
+    - `0.00 -> 20 trades / +0.3496% / PF 3.3842`
+    - `0.25 -> 18 trades / +0.4085% / PF 4.7221`
+    - verdict: `LITE_FRONTIER_REVISIT_DEPTH_DENSITY_EXTENSION_ONLY`
+    - do not reopen shallower revisit depth as a live promotion lever unless the frontier changes materially
+  - the direct lite frontier revisit-delay recalibration is now complete:
+    - active base stays `fvg_revisit_min_delay_bars = 2`
+    - `delay_1 -> 18 trades / +0.4304% / PF 4.5887`
+    - `delay_3 -> 18 trades / +0.4092% / PF 4.6924`
+    - verdict: `LITE_FRONTIER_REVISIT_DELAY_SURVIVOR_BUT_NOT_EXTENSION`
+    - do not reopen immediate or slower revisit delay as a live promotion lever unless the frontier changes materially
+  - roadmap backlog hygiene has now removed stale P1 / P2 / BUG-B / BUG-C rows that already have shipped analyzer-backed support
+  - do not reopen soft-filter modes, independent filter counting, re-entry, continuation, structural daily bias, or score-quality repair as if they were missing roadmap work
+  - the 500-trades roadmap now has no live backlog rows remaining
+  - do not treat the roadmap as a queue again unless a genuinely new hypothesis row is added
+  - the old `Phase 1 / 2 / 3` shell has now also been removed from that roadmap
+  - treat the 500-trades file as historical diagnosis only, not as an executable checklist
+  - the direct lite frontier sweep-threshold recalibration is now complete:
+    - active base stays `liq_sweep_threshold = 0.0006`
+    - `0.0003 -> 38 trades / +0.3231% / PF 1.7261`
+    - verdict: `LITE_FRONTIER_SWEEP_DENSITY_EXTENSION_ONLY`
+    - `P1 / liq_sweep_threshold` has been removed from the implementation table
+  - the direct lite frontier structure-lookback recalibration is now complete:
+    - active base stays `structure_lookback = 12`
+    - `structure_8 -> 24 trades / +0.3928% / PF 3.4265`
+    - verdict: `LITE_SHIFT_DENSITY_EXTENSION_ONLY`
+    - `P1 / structure_lookback` has been removed from the implementation table
+  - the direct lite frontier session-range recalibration is now complete:
+    - active base stays `NY-only`
+    - `ny_14_21 -> 19 trades / +0.4219% / PF 4.5237`
+    - verdict: `LITE_SESSION_DENSITY_EXTENSION_ONLY`
+    - `P3 / session 範圍` has been removed from the implementation table
+  - the ICT-specific walk-forward is now complete:
+    - `67` folds with `train=60 / validation=20 / holdout=20 / step=20`
+    - `avg_holdout_return_pct = +0.0053%`
+    - `positive_holdout_fold_pct = 16.4179%`
+    - verdict: `ICT_WALK_FORWARD_MIXED_BUT_POSITIVE`
+  - the reward:risk gate round is now complete:
+    - active lite frontier remains `18 trades / +0.3529% / PF 4.6792`
+    - `RR off` exactly matches the same result
+    - `tp_rr_1p0_gate_1p5_control` falls to `0 trades` with `rr_filtered_entries = 108`
+    - verdict: `RR_GATE_IMPLEMENTED_AND_PLATEAUED_ON_LITE_FRONTIER`
+  - the engine-level sizing round is now complete:
+    - `research_fixed_10 = +0.3816%`
+    - `fixed_40_shares = +1.5359%`
+    - `capital_50pct_min40 = +6.1746%`
+    - `capital_100pct_min40 = +12.6548%`
+    - verdict: `POSITION_SIZING_IMPACT_CONFIRMED`
+  - the lite-helper backlog cleanup round is now complete:
+    - `build_ict_lite_reversal_profile_params(...)` already satisfies the original T06 contract
+    - corresponding regression coverage already exists in `test_ict_profile_builders.py`
+    - `T06` has been removed from the implementation table
+  - the lite baseline replay backlog round is now complete:
+    - `analyze_ict_lite_reversal_baseline.py` now replays under the fixed trading spec from the implementation table
+    - `T07` has been removed from the implementation table
+  - the strict baseline summary backlog round is now complete:
+    - `analyze_ict_strict_baseline_summary.py` now materializes the strict benchmark block as JSON
+    - standardized replay:
+      - `8 trades / +7.7249% / PF 0.0`
+      - `fvg_entries = 8`
+      - `accepted_sweeps = 273`
+    - `T01` has been removed from the implementation table
+  - roadmap backlog hygiene is now applied to stale completed rows:
+    - `Phase 7` walk-forward validation is already implemented through `run_ict_walk_forward.py`
+    - `T00` baseline replay is already covered by the strict frontier replay artifacts
+    - `T02` metadata funnel counters are already live in `ict_entry_model.py`
+    - `T03` frontier funnel analysis is already live in `analyze_ict_frontier_funnel.py`
+    - those rows were removed from the old 500-trades roadmap before that file was retired
+  - the roadmap's promotion-decision artifact now exists:
+    - [ICT_PROMOTION_MEMO.md](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/ICT_PROMOTION_MEMO.md)
+    - verdict: `DO_NOT_PROMOTE_YET`
+    - strict benchmark remains sparse
+    - active lite frontier remains the right research branch but still far below the density gates
+    - combined-lane fusion stays rejected
+    - `Phase 8` has been removed from the implementation table
+  - the stale top-level roadmap rows for `Phase 0` through `Phase 5` are now also removed from the implementation table:
+    - strict baseline replay, funnel, lite baseline, geometry round1, retest round2, and session-density work are all already shipped
+    - the table should now be read as a live backlog rather than a duplicated archive of completed phases
+  - the stale `P2 / fvg_revisit_min_delay_bars` priority row and the shipped lite-analyzer inventory rows are now also removed:
+    - the active lite frontier is already promoted on `fvg_revisit_min_delay_bars = 2`
+    - lite baseline / geometry / retest / session-density analyzers are already shipped artifacts, not future backlog
+  - `delay_0` and `delay_1` are also positive survivors at:
+    - `18 trades / +0.3433% / PF 4.2505`
+  - `depth_0p00` is only a density control:
+    - `20 trades / +0.1989% / PF 2.6385`
+  - the first lite session-density round is now complete:
+    - best density-only variant: `ny_14_21`
+    - `19 trades / +0.3395% / PF 4.2127`
+  - broader session variants can add one trade, but none beat the active lite frontier return
+  - the first lite setup-density round is now complete:
+    - best density-only variant: `fvg_max_age = 60`
+    - `20 trades / +0.3324% / PF 4.1996`
+  - moderate setup-age variants `30 / 40` also survive as density controls:
+    - `19 trades / +0.3335% / PF 4.2256`
+  - longer setup life can add trades, but none beat the active lite frontier return
+  - the first continuation-lane compare is now complete:
+    - continuation proxy result: `1465 trades / -6.3814% / PF 0.6524`
+    - trade delta vs active lite reversal frontier: `+1447`
+  - the explicit continuation proxy is rejected:
+    - it massively increases density, but the quality collapse is too large to justify promotion
+  - keep the active lite reversal frontier unchanged and do not promote the current continuation proxy
+  - post-repair `FVG origin body-vs-ATR` recalibration now confirms `0.50` preserves the same `7 trades / +0.1968% / PF Infinity`, while `0.75+` weakens the lane
+  - post-repair `FVG origin lag` recalibration now fully plateaus: `0 / 1 / 2 / 3 / 4 / 5` all replay the same `7 trades / +0.1968% / PF Infinity`
+  - post-repair `displacement range-vs-ATR` recalibration now confirms `0.50 / 0.75` preserve the same `7 trades / +0.1968% / PF Infinity`, while `1.00+` weakens the lane
+  - post-repair `displacement body quality` recalibration now confirms `0.10 / 0.20` improves the lane from `7 trades / +0.1968% / PF Infinity` to `8 trades / +0.2119% / PF Infinity`
+  - repo frontier helper is now upgraded to include `displacement_body_min_pct = 0.10`, so future paired ICT calibration must treat `+0.2119% / PF Infinity` as the current corrected frontier reference
+  - post-repair `structure-shift close-buffer` recalibration now confirms `0.05 / 0.10` preserve the exact same `8 trades / +0.2119% / PF Infinity`, while `0.15+` weakens the lane
+  - post-repair `FVG retest touch-cap` recalibration now confirms only `fvg_touch_cap_5` preserves the exact same `8 trades / +0.2119% / PF Infinity`, while tighter caps progressively weaken the lane
+  - post-repair `FVG revisit-delay` recalibration now reconfirms `fvg_revisit_min_delay_bars = 3` as the best robust delay at `8 trades / +0.2119% / PF Infinity`, while `1 / 2` and `4+` are weaker
+  - strict frontier funnel instrumentation is now live and shows the biggest density losses occur pre-arm:
+    - `829` raw sweeps -> `273` accepted sweeps -> `25` shift candidates -> `10` armed setups -> `8` entries
+    - top blockers are `premium/discount`, `SMT`, `previous-session anchor`, and `external liquidity`
+  - next 500-trades roadmap step should be a `lite_ict_reversal` baseline that strips those heavy context blockers while preserving sweep -> MSS/CHOCH -> displacement -> FVG
+  - treat older `+0.2057%` frontier snapshots as pre-repair history only
+
+ICT development rule:
+- every ICT round must update prompt / handoff / briefing / metrics / config / iteration log, not just the strategy code
+- every ICT round should add exactly one new deterministic concept at a time
+- preferred ICT feature order is:
+  - kill zones and macro timing
+  - higher-timeframe daily bias
+  - premium / discount context
+  - breaker blocks
+  - inversion FVG
+  - internal vs external liquidity
+  - SMT divergence
+  - AMD / market-maker model path logic
+  - macro timing windows beyond base kill zones
+  - previous-session liquidity map / dealing-range anchors
+  - session-specific dealing-array refinement
+  - peer-symbol data integration for real SMT backtests
+  - repo-approved ICT research profile wiring so `--include-ict` no longer runs a hollow baseline
+
+---
+
+## Mandatory State Sync
+
+Every iteration is incomplete until the state files are updated consistently.
+
+Required rule:
+- Do not stop after only changing strategy code, running research, or analyzing a QC bundle.
+- After every meaningful round, update the state files so the next agent can continue without re-deriving context.
+
+You must update these files whenever the round produces any new evidence, rejection, launch, promotion, sync, or strategic conclusion:
+- `SCHEDULED_PROMPT_MULTI_AGENT.md`
+- `AGENT_HANDOFF.md`
+- `CLAUDE_BRIEFING.md`
+- `metrics.json`
+- `config.py`
+- `iteration_logs/iteration_<N>_*.txt`
+
+When to update:
+- strategy code changed
+- QC bundle analyzed
+- local research verdict changed
+- new branch launched or rejected
+- cross-agent conclusion arrived and repo state was behind it
+- baseline / candidate / evaluator status changed
+- guardrails changed
+- next-step recommendation changed
+
+Minimum standard:
+- `SCHEDULED_PROMPT_MULTI_AGENT.md` must reflect the newest official baseline, latest bundle, closed branches, and next-step method
+- `AGENT_HANDOFF.md` must reflect the newest operational state for the next agent
+- `CLAUDE_BRIEFING.md` must reflect the newest high-level narrative
+- `metrics.json` must reflect the newest machine-readable status
+- `config.py` must increment `VERSION` and `ITERATION`
+- an iteration log file must be added for the round
+
+If the round concludes ?o new candidate??
+- still update the state files
+- explicitly record why
+
+If another agent already advanced the research frontier:
+- sync the repo state to that newer conclusion before starting a fresh branch
+- do not leave prompt / handoff / metrics lagging behind the newest accepted conclusion
+
+---
+
+## Current Reality
+
+- Official baseline is now `v26-profit-lock`; this is the new production reference.
+- Another agent already exhausted nine post-`v26` ORB-side mechanisms across exit, entry-quality, and sizing axes.
+- Working conclusion:
+  - `v26-profit-lock` appears at or near the structural optimum for the current ORB framework
+  - further upside likely requires a fundamentally different trade structure, not more ORB mechanism layering
+- ICT is now the approved revolutionary-strategy lane for this repo.
+- Local ICT source document recovered from:
+  - `C:\Users\LIN\Desktop\progamming\python\claude\mnq-backtest\ict\ICT 交易策略詳解與教學.pdf`
+- The PDF reinforces these repo priorities:
+  - daily bias first
+  - liquidity hunt then MSS with displacement
+  - FVG / OB delivery arrays
+  - kill zones and macro windows
+  - later-stage breaker / IFVG / SMT / AMD concepts
+- ICT workflow is now tracked in:
+  - `ICT_DEVELOPMENT_WORKFLOW.md`
+- Implemented ICT upgrades now include:
+  - optional kill-zone specialization inside `src/strategies/ict_entry_model.py`
+  - conservative higher-timeframe daily bias filter inside `src/strategies/ict_entry_model.py`
+  - conservative premium / discount context filter inside `src/strategies/ict_entry_model.py`
+  - breaker block fallback inside `src/strategies/ict_entry_model.py`
+  - IFVG fallback inside `src/strategies/ict_entry_model.py`
+  - external-liquidity gating inside `src/strategies/ict_entry_model.py`
+  - SMT divergence gating inside `src/strategies/ict_entry_model.py`
+  - AMD / market-maker path gating inside `src/strategies/ict_entry_model.py`
+  - macro timing window gating inside `src/strategies/ict_entry_model.py`
+  - previous-session anchor gating inside `src/strategies/ict_entry_model.py`
+  - session-specific dealing-array refinement inside `src/strategies/ict_entry_model.py`
+  - real peer-symbol data integration in `src/data/fetcher.py` and `run_backtest.py`
+  - strict SMT validation so enabling SMT without `PeerHigh` / `PeerLow` no longer silently degenerates
+- repo-approved ICT research profile wiring via `build_ict_research_profile_params(...)`
+- repo-approved paired-survivor profile wiring via `build_ict_paired_survivor_profile_params(...)`
+- repo-approved paired-survivor-plus-session-array profile wiring via `build_ict_paired_survivor_plus_session_array_params(...)`
+- repo-approved paired-survivor-plus-session-array-loose-sweep profile wiring via `build_ict_paired_survivor_plus_session_array_loose_sweep_params(...)`
+  - first real peer-integrated smoke test on short local `QQQ + SPY` produced `0 trades`
+  - broader Alpaca paired-data calibration now shows the lane is not structurally dead:
+    - full stack still `0 trades`
+    - `context_relaxed_bundle` now produces `7 trades`, `+0.1088%`, `profit_factor 1.9155`
+  - broader paired context-filter reintroduction now shows the first robust survivors:
+    - `reintro_prev_session_anchor` keeps `7 trades`, `+0.1088%`, `profit_factor 1.9155`
+    - `reintro_external_liquidity` keeps `7 trades`, `+0.1088%`, `profit_factor 1.9155`
+    - `reintro_premium_discount` stays positive but thinner at `5 trades`, `+0.0444%`
+    - `reintro_session_array` stays positive but thinner at `4 trades`, `+0.0503%`
+    - `reintro_amd` collapses the lane back to `0 trades`
+    - the heavier `reintro_context_core` and `reintro_timing_bundle` also collapse to `0 trades`
+  - the next task is no longer generic context-filter reintroduction
+  - the first survivor-bundle pairwise calibration is now complete
+  - `session-array refinement` is the first robust extension on top of the survivor base
+  - the first robust geometry extension is `liq_sweep_threshold = 0.0008`
+  - the first robust SMT extension is `smt_lookback = 10`
+  - the first robust heavier-context survivor on top of that base is `premium / discount`
+  - the `survivor + session-array + loose-sweep + short-SMT + premium/discount` base remains the paired ICT frontier
+  - the first robust structure extension on top of the stronger slow-recovery `NY-only` frontier is now confirmed:
+    - `structure_12` and `structure_16` both improve the frontier to `7 trades / +0.1826% / PF Infinity`
+    - the repo-approved tie-break helper should use `structure_lookback = 12`
+  - calibrated `structure_shift_close_buffer_ratio` on top of that stronger CE-extended structure frontier now shows survivor-only behavior:
+    - `0.05`, `0.10`, and `0.15` preserve the same `7 trades / +0.2042% / PF Infinity`
+    - `0.20+` thins and weakens the lane
+    - do not prioritize nearby close-buffer retries until the frontier changes materially
+  - calibrated `fvg_revisit_min_delay_bars` on top of that stronger CE-extended structure frontier now shows the next robust extension:
+    - `fvg_revisit_min_delay_bars = 3` improves the lane to `7 trades / +0.2057% / PF Infinity`
+    - `2` preserves the old base
+    - `4+` weakens the lane
+    - the repo-approved paired ICT frontier should now include `fvg_revisit_min_delay_bars = 3`
+  - calibrated `displacement range / ATR` on top of the stronger delayed-revisit CE-extended structure frontier now shows survivor-only behavior:
+    - `displacement_range_atr_mult = 0.50` and `0.75` preserve the exact same `7 trades / +0.2057% / PF Infinity`
+    - `1.00+` progressively thins and weakens the lane
+    - do not prioritize nearby displacement-range retries until the frontier changes materially
+  - calibrated `fvg_max_retest_touches` on top of that stronger delayed-revisit frontier now shows survivor-only behavior:
+    - `5` preserves the exact same `7 trades / +0.2057% / PF Infinity`
+    - tighter caps progressively thin and weaken the lane
+    - do not prioritize nearby touch-cap retries until the frontier changes materially
+  - `macro timing` can survive only as a secondary optional branch and does not beat the premium base
+  - calibrated `daily bias` now also fully collapses the premium-enabled short-SMT lane, even after shorter lookback and softer-threshold retests
+  - calibrated `previous-session anchor` on/off and tolerance retests now also show a plateau:
+    - every tested variant preserves the same `5 trades / +0.1375% / PF Infinity`
+    - even `anchor_off_control` matches the frontier result
+    - so nearby previous-session-anchor retries are not a priority frontier
+  - calibrated `premium / discount` lookback and neutral-band retests now also show a plateau:
+    - every robust tested variant preserves the same `5 trades / +0.1375% / PF Infinity`
+    - even `premium_off_control` matches the frontier result
+    - so nearby premium/discount retries are not a priority frontier
+  - calibrated `session-array refinement` against a premium-only control now confirms it is still a meaningful robust extension:
+    - turning session-array off degrades the lane to `6 trades / +0.1226% / PF 19.5545`
+    - default session-array and broader window variants restore `5 trades / +0.1375% / PF Infinity`
+    - shifted-later windows fall back to the weaker control result
+  - recalibrated `macro timing` on top of the stronger `short-SMT + premium + session-array` frontier:
+    - best survivor is still only `macro_early_shifted`
+    - result is `3 trades / +0.0493% / PF Infinity`
+    - this preserves some quality but remains well below the frontier
+  - calibrated `delivery-array composition / scoring` on top of the stronger `short-SMT + premium + session-array` frontier:
+    - every tested variant preserved the exact same `5 trades / +0.1375% / PF Infinity`
+    - every realized entry remained `FVG-only`
+    - verdict:
+      - `DELIVERY_COMPOSITION_PLATEAU_ON_SESSION_ARRAY_BASE`
+    - so nearby delivery-array score or family retries are not a priority frontier
+  - calibrated `OTE geometry / score` on top of the stronger `short-SMT + premium + session-array` frontier:
+    - every tested variant preserved the exact same `5 trades / +0.1375% / PF Infinity`
+    - even `ote_off_control` matched the frontier result
+    - verdict:
+      - `OTE_CALIBRATION_PLATEAU_ON_SESSION_ARRAY_BASE`
+    - so nearby OTE geometry or score retries are not a priority frontier
+  - calibrated `FVG geometry / freshness` on top of the stronger `short-SMT + premium + session-array` frontier:
+    - `fvg_tighter_gap`, `fvg_looser_gap`, `fvg_longer_age`, and `fvg_looser_and_longer` all preserved the exact same `5 trades / +0.1375% / PF Infinity`
+    - `fvg_shorter_age` and `fvg_tighter_and_shorter` stayed positive but weakened to `4 trades / +0.1364% / PF Infinity`
+    - verdict:
+      - `ROBUST_FVG_SURVIVOR_BUT_NOT_FRONTIER_ON_SESSION_ARRAY_BASE`
+    - so nearby FVG geometry or freshness retries are not a priority frontier either
+  - calibrated `SMT threshold geometry` on top of the stronger `short-SMT + premium + session-array` frontier:
+    - `smt_looser_0p0012`, `smt_looser_0p0015`, and `smt_looser_0p0012_shorter_sweep` all preserved the exact same `5 trades / +0.1375% / PF Infinity`
+    - tighter variants weakened to `4 trades / +0.0993% / PF Infinity`
+    - `smt_off_control` increased trade count to `7`, but quality dropped to `+0.0818% / PF 2.4215`
+    - verdict:
+      - `ROBUST_SMT_THRESHOLD_SURVIVOR_BUT_NOT_FRONTIER_ON_SESSION_ARRAY_BASE`
+    - so nearby SMT-threshold retries are not a priority frontier either
+  - recalibrated `kill zones` on top of the stronger `short-SMT + premium + session-array` frontier:
+    - `kill_zones_broader` preserved the exact same `5 trades / +0.1375% / PF Infinity`
+    - `kill_zones_shifted` stayed positive but thinned to `2 trades / +0.0882% / PF Infinity`
+    - `kill_zones_default`, `kill_zones_ny_am_only`, and `kill_zones_ny_only` all collapsed to `0 trades`
+    - verdict:
+      - `ROBUST_KILL_ZONE_SURVIVOR_BUT_NOT_FRONTIER_ON_SESSION_ARRAY_BASE`
+    - so nearby kill-zone retries are not a priority frontier either
+  - calibrated `broad session gating` on top of the stronger `short-SMT + premium + session-array` frontier:
+    - `ny_only_core` improved the frontier to `5 trades / +0.1420% / PF Infinity`
+    - `trade_sessions_off_control`, `broader_sessions`, and `narrower_london_ny_overlap` all preserved or matched the old frontier but did not beat `ny_only_core`
+    - `london_only_core` stayed positive but thin at `1 trade / +0.0596% / PF Infinity`
+    - verdict:
+      - `ROBUST_SESSION_GATE_EXTENSION_IDENTIFIED_ON_SESSION_ARRAY_BASE`
+    - the paired ICT frontier is now allowed to move one step forward to a `NY-only core` session gate
+  - calibrated `kill zones` now also survive only as a secondary optional branch:
+    - default windows collapse to `0 trades`
+    - broader windows preserve the premium-base result but do not beat it
+  - calibrated `AMD` now also survives only as a thin optional branch:
+    - default and most calibrated variants collapse to `0 trades`
+    - best relaxed variant stays positive but too thin to qualify as robust
+  - calibrated `external liquidity` geometry now shows a stable plateau:
+    - multiple lookback / tolerance variants preserve the same frontier result
+    - no variant beats the premium-enabled short-SMT base
+  - the next task is to reintroduce heavier context one filter at a time beyond that stronger stack, but without prioritizing `macro timing`, `daily bias`, `kill zones`, `AMD`, nearby `external liquidity` geometry tweaks, nearby `previous-session anchor` retries, nearby `premium / discount` retries, nearby `delivery-array` score / family retries, nearby `OTE` geometry / score retries, nearby `FVG` geometry / freshness retries, or nearby `SMT-threshold` / `kill-zone` retries as the new frontier
+  - these are feature implementations, not yet an ICT promotion event
+
+## ICT Development Process
+
+When the round is an ICT round, follow this order:
+
+1. Read source context first:
+   - `C:\Users\LIN\Desktop\progamming\python\claude\mnq-backtest\ict\ICT 交易策略詳解與教學.pdf`
+   - `ICT_RESEARCH.md`
+   - `ICT_DEVELOPMENT_WORKFLOW.md`
+2. Keep the current deterministic baseline visible:
+   - `src/strategies/ict_entry_model.py`
+   - `test_ict_strategy.py`
+3. Implement only one new ICT concept per round.
+4. Convert the concept into explicit mechanical rules before coding.
+5. Add or extend synthetic unit tests in the same round.
+6. Treat local / Alpaca / Blueshift as research lanes only.
+7. If SMT is part of the round, require real peer-symbol data plumbing; do not accept synthetic-only SMT as "implemented".
+8. When checking local ICT behavior, prefer the repo-approved research profile rather than the bare defaults.
+9. Do not let an ICT research round overwrite:
+   - `lean/QQQ_ORB_DeepBacktest/QQQ_ORB_WebIDE.py`
+   - `lean/QQQ_ORB_DeepBacktest/main.py`
+   unless an explicit promotion decision is made later.
+10. Mandatory documentation sync still applies:
+   - update prompt
+   - update handoff
+   - update briefing
+   - update metrics
+   - update config
+   - add iteration log
+
+Current ICT feature priority:
+- `kill-zone specialization` implemented
+- `higher-timeframe daily bias` implemented
+- `premium / discount context` implemented
+- `breaker blocks` implemented
+- `IFVG` implemented
+- `internal vs external liquidity` implemented
+- `SMT divergence` implemented
+- `AMD / market-maker path logic` implemented
+- `macro timing windows beyond base kill zones` implemented
+- `previous-session liquidity map / dealing-range anchors` implemented
+- `session-specific dealing-array refinement` implemented
+- `peer-symbol data integration for real SMT backtests` implemented
+- next: `single-filter reintroduction beyond the current short-SMT + premium + session-array frontier, with macro timing and kill zones secondary, AMD thin-only, daily bias explicitly deprioritized, and nearby external-liquidity / previous-session-anchor / premium-discount retries considered plateaued`
+- Blueshift research lane is now committed in repo:
+  - `blueshift/blueshift_library/orb_v26_runtime.py`
+  - `blueshift/v26_profit_lock_blueshift.py`
+  - `blueshift/v26_orb_reentry_evaluator_blueshift.py`
+  - `BLUESHIFT_RESEARCH_WORKFLOW.md`
+  - interpretation:
+    - Blueshift is now approved for research and prototype iteration
+    - QuantConnect remains the only promotion authority
+- Normalized Alpaca local reference lane is now available:
+  - `alpaca/normalized/qqq_5m_alpaca.csv`
+  - `110817` bars
+  - `2020-07-27 13:30:00+00:00 -> 2026-04-07 13:40:00+00:00`
+  - this should be preferred over the old `qqq_5m.csv` when the research script supports custom local CSV input
+- First Alpaca-backed baseline reference run:
+  - `results/qc_regime_prototypes/alpaca_v26_reference_analysis.json`
+  - `1044 trades`
+  - local total pnl `+111.0817`
+  - profit factor `1.1039`
+  - positive years `3/7`
+  - time folds `2 positive / 2 negative`
+  - interpretation:
+    - Alpaca materially improves local evidence depth
+    - Alpaca does not replace QC promotion
+- First Alpaca-backed post-`v26` branch recheck:
+  - `results/qc_regime_prototypes/alpaca_v26_exit_recheck_summary.json`
+  - `stagnation_exit` remains `LOCAL_NEAR_MISS`
+    - best Alpaca variant: `stagnation_exit_after_120m_keep_0.25x`
+    - delta `+5.0563`
+    - walk-forward support `1/4`
+  - `stall_giveback_exit` remains `LOCAL_NEAR_MISS`
+    - best Alpaca variant: `stall_60m_giveback_0.75x_keep_1.00x`
+    - delta `+6.2755`
+    - walk-forward support `0/4`
+  - `fast_failure_abort` softens from `LOCAL_REJECTED` to weak `LOCAL_NEAR_MISS`
+    - best Alpaca variant: `fast_failure_after_60m_progress_lt_0.25x_loss_gt_1.25x`
+    - delta `+3.0477`
+    - walk-forward support `0/4`
+  - `low_progress_timeout` softens from `LOCAL_REJECTED` to weak `LOCAL_NEAR_MISS`
+    - best Alpaca variant: `low_progress_after_300m_mfe_lt_1.00x_pnl_le_0.50x`
+    - delta `+3.1867`
+    - walk-forward support `1/4`
+  - verdict:
+    - do not launch `v27` from Alpaca local evidence alone
+- New Alpaca-backed structural ORB re-entry branch:
+  - `results/qc_regime_prototypes/local_orb_v26_orb_reentry_exit_alpaca.json`
+  - best variant:
+    - `orb_reentry_after_1.000x_depth_0.25x_confirm_1bar`
+  - full-sample Alpaca pnl delta `+16.6986`
+  - profit factor `1.1214`
+  - improved time folds `4/4`
+  - improved years `7/7`
+  - clipped winners `0`
+  - saved losses `23`
+  - verdict:
+    - local evidence was strong enough to justify a QC proxy
+    - do not launch `v27` from Alpaca local evidence alone
+- Completed ORB re-entry QC proxy:
+  - bundle:
+    - `Retrospective Red Orange Whale`
+  - version:
+    - `v26-orb-reentry-qc-evaluator`
+  - metrics:
+    - `405 trades`
+    - `810 orders`
+    - `Net Profit 6.267%`
+    - `Sharpe -3.177`
+    - `Win Rate 55.0%`
+    - `Drawdown 1.100%`
+    - rolling `6m` positive Sharpe `84.0%`
+    - rolling `12m` positive Sharpe `95.7%`
+    - `positive years 9`
+  - postmortem:
+    - `results/qc_regime_prototypes/qc_orb_reentry_postmortem.json`
+    - `orb_reentry_exit_count = 12`
+    - ORB re-entry exit bucket realized pnl `-$757.67`
+    - ORB re-entry exits were negative in every active year they appeared
+  - verdict:
+    - analyzer-only QC signal is mixed, not launch-ready
+    - keep `v26-profit-lock` as the official baseline
+    - do not launch `v27` from `Retrospective Red Orange Whale`
+- Profit-lock-gated ORB re-entry refinement:
+  - `results/qc_regime_prototypes/local_orb_v26_orb_reentry_profitlock_gated_alpaca.json`
+  - mechanism:
+    - only allow structural ORB re-entry after persistent profit lock is already active
+    - optionally wait `0/1/2` extra bars after profit-lock activation
+  - result:
+    - every tested variant produced `0` ORB re-entry exits on Alpaca
+    - every tested variant had `pnl delta = +0.0000`
+    - verdict:
+      - `ALPACA_LOCAL_REJECTED`
+  - interpretation:
+    - the structural ORB re-entry branch appears to derive all of its effect from pre-profit-lock behavior
+    - profit-lock gating does not rescue the mixed QC signal
+    - do not build a Blueshift evaluator or QC proxy for this refinement
+- ORB hold ratchet equivalence check:
+  - `results/qc_regime_prototypes/local_orb_v26_orb_hold_ratchet_alpaca.json`
+  - mechanism:
+    - once the trade has achieved enough progress, promote a structural stop floor near the ORB breakout hold zone
+    - this was intended to be a different protection mechanism from raw ORB re-entry
+  - best variant:
+    - `orb_hold_ratchet_after_1.000x_floorOffset_0.25x_after_0bar`
+  - Alpaca result:
+    - full-sample pnl delta `+16.6986`
+    - improved time folds `4/4`
+    - improved years `7/7`
+    - clipped winners `0`
+    - hold-ratchet exits `32`
+  - equivalence diagnosis:
+    - strongest ORB hold ratchet result matches the prior structural ORB re-entry branch on:
+      - `pnl_delta`
+      - `improved_time_folds`
+      - `improved_years`
+      - `saved_losses`
+      - `clipped_winners`
+  - verdict:
+    - `ALPACA_EQUIVALENT_TO_PRIOR_ORB_REENTRY`
+    - do not build a Blueshift evaluator
+    - do not open a second QC proxy from this branch
+    - treat this as an equivalent reformulation of the already-analyzed ORB re-entry branch, not as a genuinely new post-`v26` mechanism
+- Structural ORB pullback-reclaim entry:
+  - `results/qc_regime_prototypes/local_orb_v26_pullback_reclaim_entry_alpaca.json`
+  - mechanism:
+    - no immediate breakout entry
+    - wait for breakout, pullback toward the ORB boundary, then reclaim confirmation before entry
+  - result:
+    - every tested variant stayed negative versus baseline
+    - best least-bad variant:
+      - `pullback_reclaim_after_0.500x_depth_0.10x_confirm_2bar`
+      - pnl delta `-115.96`
+      - improved time folds `2/4`
+      - improved years `4/7`
+  - verdict:
+    - `ALPACA_LOCAL_REJECTED`
+  - interpretation:
+    - even a structurally different ORB entry architecture failed on Alpaca
+    - this strengthens the conclusion that `v26-profit-lock` is near the structural optimum of the current ORB framework
+- Structural failed-breakout reversal entry:
+  - `results/qc_regime_prototypes/local_orb_v26_failed_breakout_reversal_alpaca.json`
+  - mechanism:
+    - no breakout-continuation entry
+    - wait for an initial breakout beyond the ORB boundary
+    - require that breakout to fail back inside the ORB
+    - confirm failure for `1/2` bars
+    - then enter in the opposite direction
+  - result:
+    - every tested variant stayed negative versus baseline
+    - best least-bad variant:
+      - `failed_reversal_after_0.750x_depth_0.10x_confirm_2bar`
+      - pnl delta `-156.77`
+      - improved time folds `1/4`
+      - improved years `4/7`
+      - common trades `0`
+  - verdict:
+    - `ALPACA_LOCAL_REJECTED`
+  - interpretation:
+    - even a structurally different ORB fakeout / reversal architecture failed materially on Alpaca
+    - this further strengthens the conclusion that `v26-profit-lock` is near the structural optimum of the current ORB framework
+- Opening regime classifier:
+  - `results/qc_regime_prototypes/local_orb_v26_opening_regime_classifier_alpaca.json`
+  - mechanism:
+    - do not enter on the first breakout
+    - classify the first breakout as continuation or failure inside a short decision window
+    - if continuation confirms, enter with the breakout
+    - if failure confirms, enter the opposite direction
+    - otherwise skip the session
+  - result:
+    - best variant:
+      - `opening_classifier_cont_0.250x_fail_0.10x_confirm_1bar_window_3bar`
+      - pnl delta `+4.07`
+      - improved time folds `2/4`
+      - improved years `4/7`
+      - continuation entries `975`
+      - reversal entries `3`
+  - verdict:
+    - `ALPACA_LOCAL_NEAR_MISS`
+  - interpretation:
+    - this is the first structurally different post-v26 branch to stay positive on Alpaca
+    - but it is still not launch-ready
+    - the best variant behaves mostly like delayed continuation, not a truly balanced dual-mode classifier
+    - do not QC-proxy or launch it yet
+- Latest accepted rerun: `Square Blue Termite`
+  - `405 trades`
+  - `810 orders`
+  - `Net Profit 5.924%`
+  - `Sharpe -3.192`
+  - `Win Rate 56.0%`
+  - `Drawdown 1.100%`
+  - rolling `6m` positive Sharpe `86.0%`
+  - rolling `12m` positive Sharpe `96.8%`
+  - `positive years 9`
+- Previous accepted baseline: `Sleepy Red Cormorant`
+  - `Net Profit 5.639%`
+  - `Sharpe -3.203`
+  - `Drawdown 1.100%`
+  - rolling `6m` positive Sharpe `83.0%`
+  - rolling `12m` positive Sharpe `95.7%`
+  - `positive years 8`
+- Promotion verdict:
+  - `v25` passed
+  - trade count unchanged
+  - `same_bar_eod_reentry_count = 0`
+  - official baseline upgraded from `v18` to `v25`
+- First post-`v25` exit-side probe:
+  - `local_orb_v25_profit_lock.json`
+  - best local full-sample variant was positive, but only improved `1/4` walk-forward folds
+  - do not launch naive persistent profit-lock thresholds from local-only evidence
+- Second post-`v25` exit-side probe:
+  - `local_orb_v25_peak_giveback.json`
+  - late-stage peak-giveback guards failed even more cleanly
+  - no variant improved more than `0/4` walk-forward folds
+  - do not launch naive late peak-giveback caps from local-only evidence
+- Third post-`v25` exit-side probe:
+  - `local_orb_v25_partial_scaleout.json`
+  - partial scale-out improved full-sample local PnL a bit, but still only `1/4` walk-forward folds
+  - do not launch naive local-only partial scale-out thresholds
+- First post-`v26` exit-side probe:
+  - `local_orb_v26_stagnation_exit.json`
+  - accepted QC `v26` trades still show `57` washouts under `MFE >= $75 and final PnL < $25`
+  - `38` of those washouts lasted at least `240` minutes, and `25` still ended as `ORB EOD Flatten`
+  - best local variant was `stagnation_exit_after_60m_keep_0.75x`
+  - local full-sample delta was `+6.1010`, but walk-forward support remained only `1/4`
+  - no zero-clip positive variant exists yet
+  - do not launch local-only stagnation-timeout exits without stronger evidence
+- Second post-`v26` exit-side probe:
+  - `local_orb_v26_stall_giveback_exit.json`
+  - this more selective refinement required both stall age and giveback from peak after profit lock
+  - best local variant was `stall_60m_giveback_0.50x_keep_1.00x`
+  - local full-sample delta was only `+3.6631`, with walk-forward support `0/4`
+  - the strongest zero-clip variant was `stall_60m_giveback_1.00x_keep_1.00x`, but delta was only `+1.9809` and folds stayed `0/4`
+  - do not launch local-only stall-plus-giveback exits without stronger evidence
+- Post-`v26` exit feasibility consolidation:
+  - `v26_exit_feasibility_map.json`
+  - `pure stagnation-timeout` remains stronger than the more selective `stall-plus-giveback` refinement
+  - but neither branch improved more than `1/4` walk-forward folds
+  - do not keep re-testing nearby late-session washout threshold grids from local-only evidence
+- Third post-`v26` exit-side probe:
+  - `local_orb_v26_fast_failure_abort.json`
+  - accepted QC `v26` trades show `58` quick losers within `120` minutes
+  - `33` of those quick losers had `MFE < $25`, and `45` had `MFE < $50`
+  - this made `fast-failure abort` a materially new branch versus the late-session washout family
+  - however every positive-looking grid point disappeared under full-sample comparison
+  - best fold support only reached `2/4`, but only on a still-negative variant
+  - no positive full-sample variant exists
+  - classify the entire `fast-failure abort` branch as `LOCAL_REJECTED`
+- Fourth post-`v26` exit-side probe:
+  - `local_orb_v26_low_progress_timeout.json`
+  - accepted QC `v26` trades show `83` long-duration low-progress trades under `duration >= 180 minutes and MFE < $50`
+  - `67` of those still fall into the stricter late subset `duration >= 240 minutes and final PnL < $50`
+  - this made `low-progress timeout / scratch exit` a materially new branch versus both late-session washout exits and early fast-failure aborts
+  - however every tested grid point stayed negative on full-sample comparison
+  - least-negative variant was `low_progress_after_180m_mfe_lt_0.25x_pnl_le_0.25x`, but it was still `-1.0288` with only `1/4` folds improved
+  - classify the entire `low-progress timeout` branch as `LOCAL_REJECTED`
+- Diagnostic weakness-map round:
+  - `v26_weakness_map.json`
+  - accepted `v26` QC trades are now classified into formal fault archetypes
+  - largest realized drag:
+    - `quick_failure_loss`
+    - `45 trades`
+    - `-$6822.09`
+  - largest opportunity-loss bucket:
+    - `late_washout`
+    - `38 trades`
+    - opportunity gap `+$4936.20`
+  - highest-priority unresolved bucket:
+    - `hard_stop_loss`
+    - `36 trades`
+    - `-$5147.26`
+    - mean `MFE = 79.32`
+  - do not launch from the weakness map alone
+  - use it to select the next genuinely new mechanism
+- Fifth post-`v26` exit-side probe:
+  - `local_orb_v26_mid_trade_ratchet.json`
+  - targeted the `hard_stop_loss` archetype (`45` trades, `-$5397`, mean `MFE = $76`)
+  - mechanism: after unrealized move reaches `0.625 x entry_price x TRAILING_PCT`, lock a floor stop at `entry + 0.50 x entry_price x TRAILING_PCT`
+  - this fills the protection gap between BE activation and profit-lock trigger
+  - denominated in trailing-distance units, not ORB-range units
+  - `168` variants tested, `141` positive full-sample
+  - best `4/4` walk-forward variant: `trigger=0.625x, level=0.50x` ??delta `+2738.04`, `4/4` folds, `0` clipping
+  - best `3/4` variant by delta: `trigger=0.50x, level=0.40x` ??delta `+4123.36`, `3/4` folds
+  - `91` variants with `>= 3/4` folds and positive delta
+  - proxy limitation: trade-level proxy cannot detect mid-trade floor crossings; true clipping cost may be underestimated
+  - this is the first post-`v25` exit mechanism to achieve `4/4` walk-forward folds
+  - QC-native evaluator created: `QQQ_V26_MidRatchet_ProxyAnalyzer_WebIDE.py`
+  - evaluator uses `trigger=0.625x, level=0.50x` (best `4/4` variant)
+  - evaluator file is now trimmed to `30359` bytes and fits under the common Web IDE save limit
+  - real QC backtest arrived as `Hyper Active Yellow Green Termite`
+  - result:
+    - `Net Profit 5.924% -> 6.432%`
+    - `Sharpe -3.192 -> -3.225`
+    - `Drawdown 1.100% -> 1.300%`
+    - rolling `6m 86.0% -> 86.0%`
+    - rolling `12m 96.8% -> 87.2%`
+  - branch verdict:
+    - closed
+    - do not launch `v27-mid-ratchet`
+- Sixth post-`v26` exit-side probe:
+  - `local_orb_v26_adaptive_trail_alpaca.json`
+  - targeted the `late_washout` archetype (`38` trades, `-$2792`, opportunity gap `$4936`)
+  - mechanism: after profit-lock activates (MFE >= 1.50x ORB range), linearly tighten the trailing stop from 1.3% toward a narrower target percentage
+  - this was structurally different from all prior exits: dynamically narrowing the trail rather than setting floors, thresholds, or timeouts
+  - `48` variants tested, `0` positive full-sample
+  - every variant clipped more winners than it saved losers
+  - best variant `adaptive_trail_delay2_target0.006_step8`: delta `-0.94`, `2/4` folds, `17` saved vs `21` clipped
+  - classify the entire `adaptive trail tightening` branch as `ALPACA_LOCAL_REJECTED`
+- Seventh post-`v26` exit-side probe:
+  - `local_orb_v26_orb_trail_alpaca.json`
+  - targeted structural inconsistency: every v26 stop is ORB-range-denominated except the trailing stop
+  - mechanism: replace `trail = best_price * (1 - 0.013)` with `trail = best_price - K * orb_range`
+  - `6` variants tested (K = 1.5, 2.0, 2.5, 3.0, 3.5, 4.0), `5` positive full-sample
+  - best variant `orb_trail_2.0x`: delta `+8.7417`, `3/4` folds, `5/7` years, `48` saved, `15` clipped
+  - this is the first post-v26 exit mechanism to reach `3/4` walk-forward folds on Alpaca
+  - verdict: `READY_FOR_QC_PROXY`
+  - QC evaluator result (`Geeky Fluorescent Yellow Alligator`):
+    - net profit: `5.36%` vs baseline `6.27%` ??**worse by 0.91%**
+    - drawdown: `1.40%` vs baseline `1.10%` ??**worse**
+    - win rate: `56.5%` vs baseline `55%` ??marginal improvement
+    - PF: `1.3195` vs baseline comparable
+    - same trade count (405), version-matched, no reentry issues
+    - verdict: `QC_REJECTED` ??the Alpaca-local signal did not survive on 10-year QC bar data
+  - the ORB-range trail clips profitable runners differently on QC minute-resolution data
+  - caution confirmed: mid-trade ratchet also failed this same step
+  - do not launch v27 from this branch
+
+### Branch 8: non-exit-side exploration
+
+- ORB range quality gate (`analyze_local_orb_v26_orb_range_gate.py`):
+  - `results/qc_regime_prototypes/local_orb_v26_orb_range_quality_gate_alpaca.json`
+  - hypothesis: skip entries when ORB range / price < threshold (narrow ORB = noise)
+  - 6 variants tested (0.2% to 0.7%)
+  - result: ALL negative deltas
+  - skipped-losses/skipped-wins ratio ~1:1 across all thresholds
+  - ORB range width does NOT predict quick failure
+  - verdict: `ALPACA_LOCAL_REJECTED`
+
+- Risk-normalized position sizing (`analyze_local_orb_v26_risk_normalized_sizing.py`):
+  - `results/qc_regime_prototypes/local_orb_v26_risk_normalized_sizing_alpaca.json`
+  - hypothesis: size inversely proportional to ORB range for constant dollar risk
+  - 6 variants tested (target risk 0.3% to 0.8%)
+  - all variants show positive delta BUT:
+    - PF unchanged (1.4027 baseline vs 1.4054 best)
+    - win rate unchanged (50.8%)
+    - average allocation increased from 25% to ~35% (the cap)
+    - the entire improvement is a leverage artifact, not structural
+  - verdict: `ALPACA_LOCAL_REJECTED` (leverage artifact, not genuine improvement)
+
+- Day-of-week diagnostic (from sizing script):
+  - Mon: 90 trades, +$1602, WR=53.3%
+  - Tue: 94 trades, +$779, WR=50.0%
+  - Wed: 103 trades, +$1834, WR=48.5%
+  - Thu: 82 trades, +$1269, WR=51.2%
+  - Fri: 90 trades, +$3080, WR=51.1%
+  - all weekdays profitable, no clear DOW-skip candidate
+- Feasibility consolidation:
+  - `v25_exit_feasibility_map.json`
+  - current bottleneck is no longer "not enough threshold grids"
+  - current bottleneck is "remaining residual edge too subtle for the short local path sample"
+- Method change now implemented:
+  - separate QC-native evaluator exists for the strongest remaining post-`v25` branch
+  - file:
+    - `lean/QQQ_ORB_DeepBacktest/QQQ_V25_ProfitLock_ProxyAnalyzer_WebIDE.py`
+  - evaluator lane:
+    - trigger `1.50 x ORB range`
+    - persistent lock `0.25 x ORB range`
+  - keep baseline file untouched while evaluating it
+- Evaluator result:
+  - `Alert Sky Blue Gaur`
+  - healthy real QC rerun
+  - materially stronger than accepted `v25`
+  - but version is analyzer-only, so do not promote directly
+- Repeated analyzer rerun:
+  - `Adaptable Red Orange Panda`
+  - same analyzer-only version and same quality band
+  - confirms the signal, but does not replace the need for a version-matched `v26` rerun
+- Version-matched promotion result:
+  - `Square Blue Termite` is a healthy real `v26-profit-lock` rerun
+  - it beat accepted `v25` on net profit, sharpe, win rate, rolling 6m, rolling 12m, and positive years
+  - official baseline is now upgraded from `v25` to `v26`
+
+---
+
+## Strategic Conclusion
+
+### Entry-Filter Research Is Concluded
+
+**Eighteen orthogonal entry-filter families have been tested (126+ candidates).**
+All 18 families failed to produce a launch-ready candidate that simultaneously
+improves QC net PnL and maintains rolling stability.
+
+Root cause:
+- low annual trade count
+- entry filters remove trades
+- rolling coverage drops
+- `12m` stability fails
+
+Do not spend more rounds on new entry-filter families.
+
+### Exit Branches Already Closed
+
+Real-QC rejected:
+- `v23-wide-trail`
+- `v24-no-trail`
+
+Locally rejected:
+- the tested `late-session time-decay trailing stop` grid
+
+Historically disqualified:
+- `v20-tight-trail-early`
+
+### Conservative Time-Gated Breakeven Is No Longer Research-Only
+
+This branch has now completed the full path:
+- local path-level support
+- QC proxy support
+- real QuantConnect rerun support
+
+Result:
+- `v25-timegated-be` was the intermediate promoted baseline before `v26-profit-lock`
+
+Mechanism:
+- keep the baseline `1.3%` trailing stop
+- activate breakeven only after unrealized move reaches `1.25 x ORB range`
+- keep breakeven active only during the first `180` minutes after entry
+- after the gate expires, revert to the normal trailing-stop regime
+
+---
+
+## Historical Research Record
+
+Entry-filter sources (historical record only; do not relaunch):
+- `results/qc_regime_prototypes/v18_calmness_bridge_family.json`
+- `results/qc_regime_prototypes/v18_displacement_bridge_family.json`
+- `results/qc_regime_prototypes/v18_volume_bridge_family.json`
+- `results/qc_regime_prototypes/v18_gap_context_bridge_family.json`
+- `results/qc_regime_prototypes/v18_sequence_state_bridge_family.json`
+- `results/qc_regime_prototypes/v18_range_location_bridge_family.json`
+- `results/qc_regime_prototypes/v18_weekly_context_bridge_family.json`
+- `results/qc_regime_prototypes/v18_intraday_entry_state_bridge_family.json`
+- `results/qc_regime_prototypes/v18_intraday_reference_level_bridge_family.json`
+- `results/qc_regime_prototypes/v18_intraday_entry_phase_bridge_family.json`
+- `results/qc_regime_prototypes/v18_intraday_execution_zone_bridge_family.json`
+- `results/qc_regime_prototypes/v18_intraday_velocity_bridge_family.json`
+- `results/qc_regime_prototypes/v18_intraday_gap_followthrough_bridge_family.json`
+- `results/qc_regime_prototypes/v18_intraday_delay_regime_bridge_family.json`
+- `results/qc_regime_prototypes/v18_trade_autocorrelation_bridge_family.json`
+- `results/qc_regime_prototypes/v18_day_of_week_bridge_family.json`
+- `results/qc_regime_prototypes/v18_trade_spacing_bridge_family.json`
+- `results/qc_regime_prototypes/v18_month_of_year_bridge_family.json`
+- `results/qc_regime_prototypes/v18_research_frontier_map.json`
+
+Exit-side sources:
+- `results/qc_regime_prototypes/alpaca_v26_reference_analysis.json`
+- `results/qc_regime_prototypes/alpaca_v26_exit_recheck_summary.json`
+- `results/qc_regime_prototypes/local_orb_v26_orb_reentry_exit_alpaca.json`
+- `results/qc_regime_prototypes/v18_exit_diagnostic.json`
+- `results/qc_regime_prototypes/v18_exit_parameter_sweep.json`
+- `results/qc_regime_prototypes/local_orb_time_decay_trail.json`
+- `results/qc_regime_prototypes/v18_exit_frontier_map.json`
+- `results/qc_regime_prototypes/local_orb_v25_profit_lock.json`
+- `results/qc_regime_prototypes/local_orb_v25_peak_giveback.json`
+- `results/qc_regime_prototypes/local_orb_v25_partial_scaleout.json`
+- `results/qc_regime_prototypes/v25_exit_feasibility_map.json`
+- `results/qc_regime_prototypes/local_orb_v26_stagnation_exit.json`
+- `results/qc_regime_prototypes/local_orb_v26_stall_giveback_exit.json`
+- `results/qc_regime_prototypes/v26_exit_feasibility_map.json`
+- `results/qc_regime_prototypes/local_orb_v26_fast_failure_abort.json`
+- `results/qc_regime_prototypes/local_orb_v26_low_progress_timeout.json`
+- `results/qc_regime_prototypes/v26_weakness_map.json`
+- `results/qc_regime_prototypes/local_orb_v26_mid_trade_ratchet.json`
+- `results/qc_regime_prototypes/qc_breakeven_anchor_sweep.json`
+- `results/qc_regime_prototypes/qc_breakeven_tradeoff.json`
+- `results/qc_regime_prototypes/qc_breakeven_bootstrap.json`
+- `results/qc_regime_prototypes/local_orb_v26_adaptive_trail_alpaca.json`
+- `results/qc_regime_prototypes/local_orb_v26_orb_trail_alpaca.json`
+
+---
+
+## What To Do Next
+
+If a new QuantConnect bundle exists:
+- analyze it first
+- if it is stale, wrong-version, or analyzer-only, classify it and do not promote
+- analyzer-only bundles may still justify launching a new official candidate if they clearly beat the accepted baseline
+
+If no new QuantConnect bundle exists:
+- remain in `RESEARCH`
+- keep accepted baseline in state files on `v26-profit-lock`
+- keep repo QC files on `v26-profit-lock`
+- use Alpaca normalized local data as the preferred local reference lane whenever the script supports custom CSV input:
+  - `alpaca/normalized/qqq_5m_alpaca.csv`
+  - `alpaca/normalized/qqq_1d_alpaca.csv`
+- do not relaunch rejected `v23` or `v24`
+- do not revive `v20-tight-trail-early`
+- do not reopen entry-filter families
+- do not launch from `local_orb_v25_profit_lock.json` without stronger evidence
+- do not launch from `local_orb_v25_peak_giveback.json`
+- do not launch from `local_orb_v25_partial_scaleout.json`
+- do not launch from `local_orb_v26_stagnation_exit.json` without stronger evidence
+- do not launch from `local_orb_v26_stall_giveback_exit.json` without stronger evidence
+- do not launch from `local_orb_v26_fast_failure_abort.json`
+- do not launch from `local_orb_v26_low_progress_timeout.json`
+- do not launch from the Alpaca local recheck alone:
+  - `results/qc_regime_prototypes/local_orb_v26_stagnation_exit_alpaca.json`
+  - `results/qc_regime_prototypes/local_orb_v26_stall_giveback_exit_alpaca.json`
+  - `results/qc_regime_prototypes/local_orb_v26_fast_failure_abort_alpaca.json`
+  - `results/qc_regime_prototypes/local_orb_v26_low_progress_timeout_alpaca.json`
+  - `results/qc_regime_prototypes/alpaca_v26_exit_recheck_summary.json`
+- do not launch directly from `results/qc_regime_prototypes/local_orb_v26_orb_reentry_exit_alpaca.json`
+- do not launch from `results/qc_regime_prototypes/local_orb_v26_orb_hold_ratchet_alpaca.json`
+- do not launch from `results/qc_regime_prototypes/local_orb_v26_pullback_reclaim_entry_alpaca.json`
+- do not launch from `results/qc_regime_prototypes/local_orb_v26_failed_breakout_reversal_alpaca.json`
+- do not launch from `results/qc_regime_prototypes/local_orb_v26_opening_regime_classifier_alpaca.json`
+- do not launch from `v26_weakness_map.json` alone
+- do not launch from `local_orb_v26_mid_trade_ratchet.json`
+- do not launch from `local_orb_v26_adaptive_trail_alpaca.json`
+- only continue if the next hypothesis is materially new relative to:
+  - entry filters
+  - wider / removed trail
+  - the tested time-decay trail grid
+  - the already-promoted time-gated breakeven branch
+  - naive post-lock stagnation-timeout exits
+  - post-lock stall-plus-giveback exits
+  - early fast-failure abort exits
+  - late low-progress timeout / scratch exits
+  - simple mid-trade protection ratchets
+  - adaptive post-profit-lock trail tightening
+  - ORB-range-denominated trailing stop
+  - ORB range quality gate (narrow ORB skip)
+  - risk-normalized position sizing (leverage artifact)
+  - structural breakout-pullback-reclaim entry variants
+  - structural failed-breakout reversal entry variants
+  - opening-regime classifiers that mostly collapse into delayed continuation
+
+Preferred next-step method:
+- current preferred next step is:
+  - keep repo QC files on `v26-profit-lock`
+  - do not launch `v27` from `Retrospective Red Orange Whale`
+  - if the next hypothesis benefits from multi-file structure or exceeds QC Web IDE comfort limits:
+    - prototype it first in the Blueshift lane
+    - use:
+      - `blueshift/v26_profit_lock_blueshift.py`
+      - `blueshift/v26_orb_reentry_evaluator_blueshift.py`
+      - `blueshift/blueshift_library/orb_v26_runtime.py`
+  - if no newer QC bundle appears, use the branch-specific postmortem:
+    - `analyze_qc_orb_reentry_postmortem.py`
+    - `results/qc_regime_prototypes/qc_orb_reentry_postmortem.json`
+  - only reopen the structural ORB re-entry branch if new branch-specific evidence appears
+  - for ICT, use `context_relaxed_bundle` as the activity reference rather than as the desired final stack
+  - preserve the new paired ICT frontier:
+    - `short-SMT`
+    - `premium / discount`
+    - `session-array refinement`
+    - `NY-only core session gate`
+    - `liq_sweep_recovery_bars = 4`
+    - `structure_lookback = 12`
+  - treat nearby `liquidity-pool lookback` retests on the stronger structure-aware frontier as survivor-only:
+    - `30`, `40`, `60`, `80`, and `100` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+  - treat nearby `order-block body quality` retests on the stronger structure-aware frontier as survivor-only:
+    - `0.20`, `0.25`, `0.35`, `0.40`, and `0.50` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `ob_entries` remain `0` across all variants
+  - treat nearby `order-block lookback` retests on the stronger structure-aware frontier as survivor-only:
+    - `8`, `12`, `20`, `24`, and `30` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `ob_entries` remain `0` across all variants
+  - treat nearby `OTE geometry / score` retries on the stronger structure-aware frontier as plateaued:
+    - turning OTE off, tightening or loosening the OTE fib band, and moving `score_ote_zone` up or down all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+  - treat nearby `breaker-block lookback` retries on the stronger structure-aware frontier as plateaued:
+    - `8`, `12`, `20`, `24`, and `30` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `breaker_entries` remain `0` across all variants
+  - treat nearby `IFVG lookback` retries on the stronger structure-aware frontier as plateaued:
+    - `8`, `12`, `24`, `30`, and `40` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `ifvg_entries` remain `0` across all variants
+  - treat nearby `liquidity-sweep threshold` retries on the stronger structure-aware frontier as survivor-only:
+    - `0.0006` and `0.0007` preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - tighter thresholds from `0.0009` upward clearly weaken the lane
+  - treat nearby `swing-threshold` retries on the stronger structure-aware frontier as plateaued:
+    - `2`, `4`, `5`, and `6` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+  - treat nearby `FVG max-age` retries on the stronger structure-aware frontier as survivor-only:
+    - `25`, `30`, and `40` preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - shorter ages `15` and `10` clearly weaken the lane
+  - treat `macro timing` on the `NY-only` frontier as a robust secondary branch only:
+    - `macro_early_shifted = 3 trades / +0.0493% / PF Infinity`
+  - do not reset the next calibration pass back to the fully relaxed bundle
+  - do not re-add `AMD` until a survivor-bundle calibration pass proves it can coexist with activity
+
+Next immediate step:
+- nine distinct post-v26 mechanisms have now been tested (7 exit-side + 2 non-exit-side)
+- ALL rejected on either local Alpaca or QC bar data
+- exit-side, entry-quality, and sizing axes are exhausted
+- the v26-profit-lock baseline appears to be at or near the structural optimum for this ORB strategy framework
+- any future improvement likely requires a fundamentally different trade structure (not parameter tuning or mechanism layering)
+- preserve v26-profit-lock as the official baseline
+- for the ICT lane specifically:
+  - keep using the broader Alpaca `QQQ + SPY` paired sample
+  - preserve the current paired ICT frontier:
+    - `short-SMT`
+    - `premium / discount`
+    - `session-array refinement`
+    - `NY-only core session gate`
+    - `liq_sweep_recovery_bars = 4`
+    - `structure_lookback = 12`
+    - `fvg_min_gap_pct = 0.0006`
+    - `fvg_revisit_depth_ratio = 0.5`
+  - treat nearby `liquidity-pool lookback` retests on the stronger structure-aware frontier as survivor-only
+  - treat nearby `order-block body quality` retests on the stronger structure-aware frontier as survivor-only
+  - treat `macro timing` on the stronger frontier only as a secondary optional branch, not a promotion target
+  - treat nearby SMT lookback retests on the slow-recovery NY-only frontier as robust survivors only, not promotion targets
+  - session-array window geometry on top of the slow-recovery NY-only frontier is now complete and confirms survivor-only behavior:
+    - `broader_imbalance`, `broader_structural`, and `dual_broader` preserve the exact same `6 trades / +0.1627% / PF Infinity` result as the base
+    - `session_array_off_control` and `shifted_later` weaken the lane to `8 trades / +0.1233% / PF 7.2221`
+    - do not prioritize nearby session-array window retries as the next frontier
+  - score / confluence-threshold calibration on top of the slow-recovery NY-only frontier is now complete and confirms survivor-only behavior:
+    - `min_score_5`, `min_score_7`, `min_score_5_lower_ote`, and `min_score_7_higher_fvg` preserve the exact same `6 trades / +0.1627% / PF Infinity` result as the base
+    - `min_score_8` and `min_score_9` thin the lane to `1 trade / +0.0011% / PF Infinity`
+    - do not prioritize nearby score-threshold retries as the next frontier
+  - sweep reclaim-strength calibration on top of the slow-recovery NY-only frontier is now complete and confirms survivor-only behavior:
+    - `reclaim_0p05` preserves the exact same `6 trades / +0.1627% / PF Infinity` result as the base
+    - `reclaim_0p10` and `reclaim_0p15` thin the lane to `5 trades / +0.1616% / PF Infinity`
+    - `reclaim_0p20` through `reclaim_0p30` thin it further to `4 trades / +0.1409% / PF Infinity`
+    - do not prioritize nearby reclaim-strength retries as the next frontier
+  - structure-lookback calibration on top of the slow-recovery NY-only frontier is now complete and confirms the next robust extension:
+    - `structure_12` and `structure_16` both improve the lane from `6 trades / +0.1627% / PF Infinity` to `7 trades / +0.1826% / PF Infinity`
+    - `structure_24` stays positive but weaker at `5 trades / +0.1517% / PF Infinity`
+    - `structure_28` and `structure_32` thin the lane further
+    - use `structure_lookback = 12` as the repo-approved tie-break helper over co-winner `16`
+    - do not prioritize nearby structure-lookback retries unless the frontier changes materially
+  - liquidity-pool lookback calibration on top of the stronger structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `liq_pool_lookback_30`, `40`, `60`, `80`, and `100` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - do not prioritize nearby liquidity-pool lookback retries unless the frontier changes materially
+  - order-block body-quality calibration on top of the stronger structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `ob_body_0p20`, `0p25`, `0p35`, `0p40`, and `0p50` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `ob_entries` remain `0` across all variants
+    - do not prioritize nearby order-block body-quality retries unless the frontier changes materially
+  - order-block lookback calibration on top of the stronger structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `ob_lookback_8`, `12`, `20`, `24`, and `30` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `ob_entries` remain `0` across all variants
+    - do not prioritize nearby order-block lookback retries unless the frontier changes materially
+  - OTE geometry / score calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `ote_off_control`, `ote_tighter_band`, `ote_looser_band`, `ote_higher_score`, `ote_lower_score`, and `ote_tighter_higher_score` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - do not prioritize nearby OTE geometry or score retries unless the frontier changes materially
+  - breaker-block lookback calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `breaker_lookback_8`, `12`, `20`, `24`, and `30` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `breaker_entries` remain `0` across all variants
+    - do not prioritize nearby breaker-block lookback retries unless the frontier changes materially
+  - IFVG lookback calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `ifvg_lookback_8`, `12`, `24`, `30`, and `40` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `ifvg_entries` remain `0` across all variants
+    - do not prioritize nearby IFVG-lookback retries unless the frontier changes materially
+  - liquidity-sweep threshold calibration on top of the stronger structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `sweep_threshold_0p0006` and `0p0007` preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `0p0009`, `0p0010`, and `0p0012` progressively weaken the lane
+    - do not prioritize nearby sweep-threshold retries unless the frontier changes materially
+  - swing-threshold calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `swing_threshold_2`, `4`, `5`, and `6` all preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - do not prioritize nearby swing-threshold retries unless the frontier changes materially
+  - FVG max-age calibration on top of the stronger structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `fvg_age_25`, `30`, and `40` preserve the exact same `7 trades / +0.1826% / PF Infinity`
+    - `fvg_age_15` and `10` thin and weaken the lane
+    - do not prioritize nearby FVG-age retries unless the frontier changes materially
+  - FVG min-gap calibration on top of the stronger structure-aware frontier is now complete and confirms the next robust extension:
+    - `fvg_gap_0p0006` improves the lane from `7 trades / +0.1826% / PF Infinity` to `7 trades / +0.1831% / PF Infinity`
+    - `fvg_gap_0p0008` preserves the old base
+    - `fvg_gap_0p0012`, `0p0015`, and `0p0020` weaken the lane
+    - use `fvg_min_gap_pct = 0.0006` as the repo-approved FVG geometry on this frontier
+    - do not prioritize nearby FVG-gap retries unless the frontier changes materially
+  - FVG revisit-depth / consequent-encroachment calibration on top of the stronger structure-aware frontier is now complete and confirms the next robust extension:
+    - `fvg_revisit_depth_0p50` improves the lane from `7 trades / +0.1831% / PF Infinity` to `7 trades / +0.2042% / PF Infinity`
+    - `fvg_revisit_depth_0p25` stays positive but weaker
+    - `fvg_revisit_depth_0p75` and `1p00` thin and weaken the lane
+    - use `fvg_revisit_depth_ratio = 0.5` as the repo-approved PDF-aligned consequent-encroachment geometry on this frontier
+    - do not prioritize nearby FVG revisit-depth retries unless the frontier changes materially
+  - FVG close-back recovery calibration on top of the stronger structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `fvg_close_recovery_0p25` stays positive but weaker than the current frontier
+    - `0p50+` progressively thins and weakens the lane
+    - use `fvg_rejection_close_ratio = 0.0` as the repo-approved base on this frontier
+    - do not prioritize nearby FVG close-recovery retries unless the frontier changes materially
+  - FVG rejection-wick calibration on top of the stronger CE-extended structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `fvg_rejection_wick_0p10` stays robust but weaker than the current frontier at `7 trades / +0.1930% / PF 152.7443`
+    - `0p20+` progressively thins and weakens the lane
+    - use `fvg_rejection_wick_ratio = 0.0` as the repo-approved base on this frontier
+    - do not prioritize nearby FVG rejection-wick retries unless the frontier changes materially
+  - FVG rejection-body calibration on top of the stronger CE-extended structure-aware frontier is now complete and confirms survivor-only behavior:
+    - `fvg_rejection_body_0p10` stays robust but weaker than the current frontier at `7 trades / +0.1905% / PF Infinity`
+    - `0p20+` progressively thins and weakens the lane
+    - use `fvg_rejection_body_min_pct = 0.0` as the repo-approved base on this frontier
+    - do not prioritize nearby FVG rejection-body retries unless the frontier changes materially
+  - take-profit RR calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `3.0`, `3.5`, `4.5`, `5.0`, and `6.0` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - do not prioritize nearby RR retries unless the frontier changes materially
+  - stop-loss ATR calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `1.5`, `1.75`, `2.25`, `2.5`, and `3.0` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - do not prioritize nearby stop-loss ATR retries unless the frontier changes materially
+  - ATR-period calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `10`, `12`, `16`, `18`, and `20` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - do not prioritize nearby ATR-period retries unless the frontier changes materially
+  - liquidity-sweep lookback calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `30`, `40`, `60`, `70`, and `90` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - do not prioritize nearby liquidity-sweep lookback retries unless the frontier changes materially
+  - BOS-score calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `1`, `3`, `4`, `5`, and `6` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - do not prioritize nearby BOS-score retries unless the frontier changes materially
+  - liquidity-sweep score calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `2`, `4`, `5`, `6`, and `7` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - do not prioritize nearby liquidity-sweep score retries unless the frontier changes materially
+  - FVG-score calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `1`, `3`, `4`, `5`, and `6` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - do not prioritize nearby FVG-score retries unless the frontier changes materially
+  - CHOCH-score calibration on top of the stronger structure-aware frontier is now complete and confirms plateau behavior:
+    - `0`, `1`, `2`, `4`, `5`, and `6` all preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - this round also closes the implementation gap where `SCORE_CHOCH` existed in config but was not wired into strategy scoring
+    - do not prioritize nearby CHOCH-score retries unless the frontier changes materially
+  - displacement-body calibration on top of the stronger structure-aware frontier is now complete and confirms a robust survivor but not a new frontier:
+    - `0.10` and `0.20` preserve the exact same `7 trades / +0.1831% / PF Infinity`
+    - `0.30+` progressively weakens the lane
+    - do not prioritize nearby displacement-body retries unless the frontier changes materially
+  - next test a genuinely different single calibration face on top of the new slow-recovery NY-only structure frontier rather than revisiting nearby macro, SMT-lookback, kill-zone, FVG, FVG-age, FVG-gap, FVG score, CHOCH score, displacement body quality, RR, stop-loss ATR, ATR period, liquidity-sweep lookback, BOS score, liquidity-sweep score, SMT-threshold, delivery, session-array-window, score-threshold, reclaim-strength, structure-lookback, liquidity-pool lookback, order-block body-quality, order-block lookback, OTE, breaker-lookback, IFVG-lookback, nearby sweep-threshold retries, or nearby swing-threshold retries
+
+If you cannot produce a materially new hypothesis:
+- preserve the new baseline
+- update state files only if new evidence arrived
+- do not force another candidate launch
+
+---
+
+## Promotion Gate
+
+A future candidate may replace `v26-profit-lock` only if all are true:
+- exact version match in logs
+- symbol is `QQQ` and security type is `equity`
+- `same_bar_eod_reentry_count = 0`
+- net profit and overall quality are not worse than `v26` in any material way
+- rolling `6m` / `12m` stability is acceptable
+- positive years must not decrease
+- no stale-result or wrong-version ambiguity exists
+
+If version is wrong, stale, rejected, or analyzer-only:
+- classify it
+- update state files
+- do not promote
+
+

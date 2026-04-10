@@ -1,0 +1,26 @@
+Launching analysis for 24dbaa35f53937bf80282a54f61899d2 with LEAN Engine v2.5.0.0.17649
+2017-04-03 00:00:00 QQQ v26 orb-trail evaluator init | version=v26-orb-trail-qc-evaluator | cutoff=exchange-hours-aware | security_type=equity | regime_filter=True | regime_mode=prev_day_up_and_mom3_positive | baseline_reference=v26-profit-lock | research_only=1 | regime_shorts=False | max_entries_per_session=1 | entry_start_hour_utc=0 | entry_end_hour_utc=17 | sizing=dynamic(25%) | symbol=QQQ | orb_bars=4 | profit_ratio=3.5 | trail_orb_mult=2.0 | breakeven_trigger_mult=1.25 | breakeven_active_minutes=180 | profit_lock_trigger_mult=1.5 | profit_lock_level_mult=0.25
+2017-03-14 00:00:00 Algorithm starting warm up...
+2017-04-03 09:31:00 Algorithm finished warming up.
+2017-07-03 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2017-07-03 | market_close=2017-07-03 13:00:00 | entry_cutoff=2017-07-03 12:50:00
+2017-11-24 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2017-11-24 | market_close=2017-11-24 13:00:00 | entry_cutoff=2017-11-24 12:50:00
+2018-07-03 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2018-07-03 | market_close=2018-07-03 13:00:00 | entry_cutoff=2018-07-03 12:50:00
+2018-11-23 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2018-11-23 | market_close=2018-11-23 13:00:00 | entry_cutoff=2018-11-23 12:50:00
+2018-12-24 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2018-12-24 | market_close=2018-12-24 13:00:00 | entry_cutoff=2018-12-24 12:50:00
+2019-07-03 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2019-07-03 | market_close=2019-07-03 13:00:00 | entry_cutoff=2019-07-03 12:50:00
+2019-11-29 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2019-11-29 | market_close=2019-11-29 13:00:00 | entry_cutoff=2019-11-29 12:50:00
+2019-12-24 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2019-12-24 | market_close=2019-12-24 13:00:00 | entry_cutoff=2019-12-24 12:50:00
+2020-11-27 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2020-11-27 | market_close=2020-11-27 13:00:00 | entry_cutoff=2020-11-27 12:50:00
+2020-12-24 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2020-12-24 | market_close=2020-12-24 13:00:00 | entry_cutoff=2020-12-24 12:50:00
+2021-11-26 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2021-11-26 | market_close=2021-11-26 13:00:00 | entry_cutoff=2021-11-26 12:50:00
+2022-11-25 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2022-11-25 | market_close=2022-11-25 13:00:00 | entry_cutoff=2022-11-25 12:50:00
+2023-07-03 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2023-07-03 | market_close=2023-07-03 13:00:00 | entry_cutoff=2023-07-03 12:50:00
+2023-11-24 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2023-11-24 | market_close=2023-11-24 13:00:00 | entry_cutoff=2023-11-24 12:50:00
+2024-07-03 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2024-07-03 | market_close=2024-07-03 13:00:00 | entry_cutoff=2024-07-03 12:50:00
+2024-11-29 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2024-11-29 | market_close=2024-11-29 13:00:00 | entry_cutoff=2024-11-29 12:50:00
+2024-12-24 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2024-12-24 | market_close=2024-12-24 13:00:00 | entry_cutoff=2024-12-24 12:50:00
+2025-07-03 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2025-07-03 | market_close=2025-07-03 13:00:00 | entry_cutoff=2025-07-03 12:50:00
+2025-11-28 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2025-11-28 | market_close=2025-11-28 13:00:00 | entry_cutoff=2025-11-28 12:50:00
+2025-12-24 09:35:00 QQQ ORB WebIDE half-day detected | version=v26-orb-trail-qc-evaluator | session_date=2025-12-24 | market_close=2025-12-24 13:00:00 | entry_cutoff=2025-12-24 12:50:00
+2026-01-07 16:00:00 QQQ v26 orb-trail evaluator summary | version=v26-orb-trail-qc-evaluator | entries=405 | exits=405 | total_shares=41349 | avg_qty=102.1 | baseline_reference=v26-profit-lock | up_day_streak=1 | half_days=20 | regime_pass_days=946 | regime_block_days=1257 | regime_history_shortage_days=0 | reentry_blocked=52 | max_entries_per_session=1 | breakeven_activations=74 | breakeven_stop_exits=1 | breakeven_gate_expired=316 | profit_lock_trigger_mult=1.5 | profit_lock_level_mult=0.25 | profit_lock_activations=85 | profit_lock_stop_exits=13 | trail_orb_mult=2.0 | orb_trail_stop_exits=102
+Algorithm Id:(24dbaa35f53937bf80282a54f61899d2) completed in 39.77 seconds at 44k data points per second. Processing total of 1,758,595 data points.

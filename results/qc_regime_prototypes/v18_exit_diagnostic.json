@@ -1,0 +1,121 @@
+{
+  "research_scope": "v18_exit_diagnostic",
+  "source_bundle": "Alert Asparagus Panda",
+  "total_trades": 405,
+  "exit_class_stats": {
+    "winner_exit": {
+      "count": 110,
+      "total_pnl": -16023.52,
+      "avg_pnl": -145.67,
+      "median_pnl": -136.8,
+      "avg_return_pct": 0.5668,
+      "median_return_pct": 0.532,
+      "avg_holding_min": 141.4,
+      "median_holding_min": 112.5,
+      "win_rate": 0.0
+    },
+    "eod_flatten": {
+      "count": 278,
+      "total_pnl": 18407.93,
+      "avg_pnl": 66.22,
+      "median_pnl": 56.77,
+      "avg_return_pct": -0.2692,
+      "median_return_pct": -0.2322,
+      "avg_holding_min": 313.9,
+      "median_holding_min": 330.0,
+      "win_rate": 72.7
+    },
+    "loser_exit": {
+      "count": 17,
+      "total_pnl": 3069.74,
+      "avg_pnl": 180.57,
+      "median_pnl": 159.77,
+      "avg_return_pct": -0.7218,
+      "median_return_pct": -0.6477,
+      "avg_holding_min": 174.7,
+      "median_holding_min": 170.0,
+      "win_rate": 100.0
+    }
+  },
+  "win_loss_analysis": {
+    "total_trades": 405,
+    "winners": 219,
+    "losers": 186,
+    "win_rate_pct": 54.1,
+    "avg_winner_pnl": 115.46,
+    "avg_loser_pnl": -106.63,
+    "avg_winner_return_pct": -0.4639,
+    "avg_loser_return_pct": 0.413,
+    "avg_winner_holding_min": 303.6,
+    "avg_loser_holding_min": 211.2,
+    "total_winner_pnl": 25286.77,
+    "total_loser_pnl": -19832.62,
+    "profit_factor": 1.275
+  },
+  "return_distribution": {
+    "p5": -0.9448,
+    "p10": -0.7658,
+    "p25": -0.3807,
+    "p50": -0.0592,
+    "p75": 0.3703,
+    "p90": 0.6285,
+    "p95": 0.734,
+    "mean": -0.0612,
+    "std": 0.5496,
+    "min": -1.9823,
+    "max": 1.2806
+  },
+  "holding_time_distribution": {
+    "p5": 56.0,
+    "p25": 215.0,
+    "p50": 300.0,
+    "p75": 340.0,
+    "p95": 355.0,
+    "mean": 261.2,
+    "max": 355.0
+  },
+  "return_bucket_counts": {
+    "-10.0_to_-2.0": 0,
+    "-2.0_to_-1.0": 17,
+    "-1.0_to_-0.5": 65,
+    "-0.5_to_0.0": 140,
+    "0.0_to_0.5": 113,
+    "0.5_to_1.0": 65,
+    "1.0_to_2.0": 5,
+    "2.0_to_5.0": 0,
+    "5.0_to_10.0": 0
+  },
+  "exit_hour_counts": {
+    "10": 14,
+    "11": 33,
+    "12": 26,
+    "13": 16,
+    "14": 21,
+    "15": 295
+  },
+  "exit_hour_pnl": {
+    "10": -2464.92,
+    "11": -4710.19,
+    "12": -1670.83,
+    "13": -295.42,
+    "14": -2025.43,
+    "15": 16620.94
+  },
+  "direction_stats": {
+    "long_trades": 0,
+    "short_trades": 405,
+    "long_total_pnl": 0,
+    "short_total_pnl": 5454.15,
+    "long_win_rate": 0,
+    "short_win_rate": 54.1
+  },
+  "inefficiency_indicators": {
+    "small_winners_lt_0p3pct": 219,
+    "small_winners_pct_of_all_winners": 100.0,
+    "long_hold_losers_gt_2h": 128,
+    "long_hold_losers_avg_pnl": -82.93,
+    "eod_flatten_count": 278,
+    "eod_flatten_pct": 68.6
+  },
+  "interpretation": "Total 405 trades analyzed. Win rate: 54.1%. Profit factor: 1.275. Average winner: $115.46 (-0.464%). Average loser: $-106.63 (0.413%). EOD flatten rate: 68.6%. Small winners (<0.3%): 219 (100.0% of winners). Long-hold losers (>2h): 128."
+}

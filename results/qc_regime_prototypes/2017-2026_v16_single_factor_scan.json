@@ -1,0 +1,141 @@
+{
+  "source_bundle": "Measured Blue Coyote",
+  "source_version": "v16-up5d",
+  "note": "Exploratory single-factor scan on the latest valid real backtest bundle only. Hyper Active Red Monkey raw trades are not present in the workspace, so this is not enough for direct promotion or immediate implementation.",
+  "baseline": {
+    "trades": 148,
+    "win_rate_pct": 51.35,
+    "profit_factor": 1.09,
+    "net_pnl": 573.96,
+    "rolling_6m_positive_pct": 50.9,
+    "rolling_12m_positive_pct": 51.9
+  },
+  "candidates": {
+    "prev_day_up": {
+      "trades": 124,
+      "win_rate_pct": 61.29,
+      "profit_factor": 1.811,
+      "net_pnl": 3120.67,
+      "first_half_net": 1103.13,
+      "second_half_net": 2017.54,
+      "rolling_6m_positive_pct": 75.9,
+      "rolling_12m_positive_pct": 84.3,
+      "excluded_trades": 24,
+      "excluded_net_pnl": -2546.71
+    },
+    "mom3_positive": {
+      "trades": 139,
+      "win_rate_pct": 53.96,
+      "profit_factor": 1.281,
+      "net_pnl": 1524.12,
+      "first_half_net": 292.26,
+      "second_half_net": 1231.86,
+      "rolling_6m_positive_pct": 57.4,
+      "rolling_12m_positive_pct": 67.6,
+      "excluded_trades": 9,
+      "excluded_net_pnl": -950.16
+    },
+    "close_above_sma10": {
+      "trades": 145,
+      "win_rate_pct": 52.41,
+      "profit_factor": 1.166,
+      "net_pnl": 993.93,
+      "first_half_net": -169.54,
+      "second_half_net": 1163.47,
+      "rolling_6m_positive_pct": 56.5,
+      "rolling_12m_positive_pct": 57.4,
+      "excluded_trades": 3,
+      "excluded_net_pnl": -419.97
+    },
+    "close_above_sma20": {
+      "trades": 145,
+      "win_rate_pct": 52.41,
+      "profit_factor": 1.169,
+      "net_pnl": 1007.17,
+      "first_half_net": -169.54,
+      "second_half_net": 1176.71,
+      "rolling_6m_positive_pct": 55.6,
+      "rolling_12m_positive_pct": 56.5,
+      "excluded_trades": 3,
+      "excluded_net_pnl": -433.21
+    },
+    "close_above_ema20": {
+      "trades": 145,
+      "win_rate_pct": 52.41,
+      "profit_factor": 1.169,
+      "net_pnl": 1007.17,
+      "first_half_net": -169.54,
+      "second_half_net": 1176.71,
+      "rolling_6m_positive_pct": 55.6,
+      "rolling_12m_positive_pct": 56.5,
+      "excluded_trades": 3,
+      "excluded_net_pnl": -433.21
+    },
+    "mom10_positive": {
+      "trades": 141,
+      "win_rate_pct": 52.48,
+      "profit_factor": 1.192,
+      "net_pnl": 1106.99,
+      "first_half_net": -37.76,
+      "second_half_net": 1144.75,
+      "rolling_6m_positive_pct": 53.7,
+      "rolling_12m_positive_pct": 56.5,
+      "excluded_trades": 7,
+      "excluded_net_pnl": -533.03
+    },
+    "vol20_below_median": {
+      "trades": 117,
+      "win_rate_pct": 52.99,
+      "profit_factor": 1.106,
+      "net_pnl": 522.93,
+      "first_half_net": -274.64,
+      "second_half_net": 797.57,
+      "rolling_6m_positive_pct": 56.5,
+      "rolling_12m_positive_pct": 56.5,
+      "excluded_trades": 31,
+      "excluded_net_pnl": 51.03
+    },
+    "close_above_ema50": {
+      "trades": 147,
+      "win_rate_pct": 51.7,
+      "profit_factor": 1.103,
+      "net_pnl": 652.52,
+      "first_half_net": -296.04,
+      "second_half_net": 948.56,
+      "rolling_6m_positive_pct": 50.9,
+      "rolling_12m_positive_pct": 51.9,
+      "excluded_trades": 1,
+      "excluded_net_pnl": -78.56
+    },
+    "mom20_positive": {
+      "trades": 147,
+      "win_rate_pct": 51.7,
+      "profit_factor": 1.103,
+      "net_pnl": 652.52,
+      "first_half_net": -296.04,
+      "second_half_net": 948.56,
+      "rolling_6m_positive_pct": 50.9,
+      "rolling_12m_positive_pct": 51.9,
+      "excluded_trades": 1,
+      "excluded_net_pnl": -78.56
+    },
+    "gap_abs_below_median": {
+      "trades": 145,
+      "win_rate_pct": 51.03,
+      "profit_factor": 1.026,
+      "net_pnl": 166.77,
+      "first_half_net": -256.6,
+      "second_half_net": 423.37,
+      "rolling_6m_positive_pct": 45.4,
+      "rolling_12m_positive_pct": 38.0,
+      "excluded_trades": 3,
+      "excluded_net_pnl": 407.19
+    }
+  },
+  "best_exploratory_candidate": {
+    "name": "prev_day_up",
+    "rule": "only trade when previous daily return is positive",
+    "why": "Strongest improvement on current real bundle with positive first/second half net and large negative excluded PnL.",
+    "status": "research_only_not_implemented"
+  }
+}

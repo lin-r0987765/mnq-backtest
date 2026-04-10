@@ -1,0 +1,301 @@
+{
+  "analysis": "ict_short_smt_premium_daily_bias_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "premium_base": {
+      "params": {
+        "use_daily_bias_filter": false,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "daily_bias_lookback": 3,
+        "daily_bias_bull_threshold": 0.6,
+        "daily_bias_bear_threshold": 0.4
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "macro_timing_filtered_sweeps": 0,
+        "smt_confirmed_sweeps": 278,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "daily_bias_default": {
+      "params": {
+        "use_daily_bias_filter": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "daily_bias_lookback": 3,
+        "daily_bias_bull_threshold": 0.6,
+        "daily_bias_bear_threshold": 0.4
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 571,
+        "premium_discount_filtered_setups": 185,
+        "macro_timing_filtered_sweeps": 0,
+        "smt_confirmed_sweeps": 35,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "daily_bias_short_lookback_2": {
+      "params": {
+        "use_daily_bias_filter": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "daily_bias_lookback": 2,
+        "daily_bias_bull_threshold": 0.6,
+        "daily_bias_bear_threshold": 0.4
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 568,
+        "premium_discount_filtered_setups": 175,
+        "macro_timing_filtered_sweeps": 0,
+        "smt_confirmed_sweeps": 38,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "daily_bias_longer_lookback_5": {
+      "params": {
+        "use_daily_bias_filter": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "daily_bias_lookback": 5,
+        "daily_bias_bull_threshold": 0.6,
+        "daily_bias_bear_threshold": 0.4
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 599,
+        "premium_discount_filtered_setups": 187,
+        "macro_timing_filtered_sweeps": 0,
+        "smt_confirmed_sweeps": 29,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "daily_bias_softer_thresholds": {
+      "params": {
+        "use_daily_bias_filter": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "daily_bias_lookback": 3,
+        "daily_bias_bull_threshold": 0.55,
+        "daily_bias_bear_threshold": 0.45
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 564,
+        "premium_discount_filtered_setups": 188,
+        "macro_timing_filtered_sweeps": 0,
+        "smt_confirmed_sweeps": 37,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "daily_bias_short_and_soft": {
+      "params": {
+        "use_daily_bias_filter": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "daily_bias_lookback": 2,
+        "daily_bias_bull_threshold": 0.55,
+        "daily_bias_bear_threshold": 0.45
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 549,
+        "premium_discount_filtered_setups": 183,
+        "macro_timing_filtered_sweeps": 0,
+        "smt_confirmed_sweeps": 41,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "premium_base",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278,
+      "macro_timing_filtered_sweeps": 0
+    },
+    {
+      "label": "daily_bias_default",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "daily_bias_filtered_setups": 571,
+      "premium_discount_filtered_setups": 185,
+      "smt_confirmed_sweeps": 35,
+      "macro_timing_filtered_sweeps": 0
+    },
+    {
+      "label": "daily_bias_short_lookback_2",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "daily_bias_filtered_setups": 568,
+      "premium_discount_filtered_setups": 175,
+      "smt_confirmed_sweeps": 38,
+      "macro_timing_filtered_sweeps": 0
+    },
+    {
+      "label": "daily_bias_longer_lookback_5",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "daily_bias_filtered_setups": 599,
+      "premium_discount_filtered_setups": 187,
+      "smt_confirmed_sweeps": 29,
+      "macro_timing_filtered_sweeps": 0
+    },
+    {
+      "label": "daily_bias_softer_thresholds",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "daily_bias_filtered_setups": 564,
+      "premium_discount_filtered_setups": 188,
+      "smt_confirmed_sweeps": 37,
+      "macro_timing_filtered_sweeps": 0
+    },
+    {
+      "label": "daily_bias_short_and_soft",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "daily_bias_filtered_setups": 549,
+      "premium_discount_filtered_setups": 183,
+      "smt_confirmed_sweeps": 41,
+      "macro_timing_filtered_sweeps": 0
+    }
+  ],
+  "best_variant": {
+    "label": "premium_base",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "daily_bias_filtered_setups": 0,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 278,
+    "macro_timing_filtered_sweeps": 0
+  },
+  "best_non_base_variant": {
+    "label": "daily_bias_default",
+    "total_trades": 0,
+    "total_return_pct": 0.0,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 0.0,
+    "daily_bias_filtered_setups": 571,
+    "premium_discount_filtered_setups": 185,
+    "smt_confirmed_sweeps": 35,
+    "macro_timing_filtered_sweeps": 0
+  },
+  "best_robust_daily_bias_variant": null,
+  "base_label": "premium_base",
+  "base_trades": 5,
+  "base_total_return_pct": 0.1375,
+  "robust_trade_floor": 3,
+  "verdict": "PREMIUM_BASE_REMAINS_DAILY_BIAS_FRONTIER",
+  "interpretation": "The short-SMT premium paired ICT base remains the strongest robust profile. Daily bias still acts as an over-restrictive narrative filter rather than a robust extension."
+}

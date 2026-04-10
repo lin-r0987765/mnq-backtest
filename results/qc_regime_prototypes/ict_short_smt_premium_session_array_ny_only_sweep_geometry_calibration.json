@@ -1,0 +1,364 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_sweep_geometry_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "ny_only_base": {
+      "params": {
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "liq_sweep_lookback": 50,
+        "liq_sweep_recovery_bars": 3
+      },
+      "metrics": {
+        "total_return_pct": 0.142,
+        "sharpe_ratio": 1.6855,
+        "sortino_ratio": 2.6402,
+        "calmar_ratio": 2.6293,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0284
+      },
+      "metadata": {
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 278,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "sweep_shorter_lookback_35": {
+      "params": {
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "liq_sweep_lookback": 35,
+        "liq_sweep_recovery_bars": 3
+      },
+      "metrics": {
+        "total_return_pct": 0.142,
+        "sharpe_ratio": 1.6855,
+        "sortino_ratio": 2.6402,
+        "calmar_ratio": 2.6293,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0284
+      },
+      "metadata": {
+        "premium_discount_filtered_setups": 363,
+        "smt_confirmed_sweeps": 279,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "sweep_longer_lookback_70": {
+      "params": {
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "liq_sweep_lookback": 70,
+        "liq_sweep_recovery_bars": 3
+      },
+      "metrics": {
+        "total_return_pct": 0.142,
+        "sharpe_ratio": 1.6855,
+        "sortino_ratio": 2.6402,
+        "calmar_ratio": 2.6293,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0284
+      },
+      "metadata": {
+        "premium_discount_filtered_setups": 206,
+        "smt_confirmed_sweeps": 275,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "sweep_faster_recovery_2": {
+      "params": {
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "liq_sweep_lookback": 50,
+        "liq_sweep_recovery_bars": 2
+      },
+      "metrics": {
+        "total_return_pct": 0.132,
+        "sharpe_ratio": 1.7143,
+        "sortino_ratio": 2.7093,
+        "calmar_ratio": 2.6865,
+        "max_drawdown_pct": -0.0491,
+        "win_rate_pct": 100.0,
+        "total_trades": 4,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.033
+      },
+      "metadata": {
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 280,
+        "fvg_entries": 4,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "sweep_slower_recovery_4": {
+      "params": {
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "liq_sweep_lookback": 50,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 273,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "sweep_shorter_and_faster": {
+      "params": {
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "liq_sweep_lookback": 35,
+        "liq_sweep_recovery_bars": 2
+      },
+      "metrics": {
+        "total_return_pct": 0.132,
+        "sharpe_ratio": 1.7143,
+        "sortino_ratio": 2.7093,
+        "calmar_ratio": 2.6865,
+        "max_drawdown_pct": -0.0491,
+        "win_rate_pct": 100.0,
+        "total_trades": 4,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.033
+      },
+      "metadata": {
+        "premium_discount_filtered_setups": 363,
+        "smt_confirmed_sweeps": 281,
+        "fvg_entries": 4,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "sweep_longer_and_slower": {
+      "params": {
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "use_session_array_refinement": true,
+        "use_premium_discount_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "liq_sweep_lookback": 70,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "premium_discount_filtered_setups": 206,
+        "smt_confirmed_sweeps": 270,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "sweep_slower_recovery_4",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.2,
+      "liq_sweep_lookback": 50,
+      "liq_sweep_recovery_bars": 4,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 273,
+      "fvg_entries": 6
+    },
+    {
+      "label": "sweep_longer_and_slower",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.2,
+      "liq_sweep_lookback": 70,
+      "liq_sweep_recovery_bars": 4,
+      "premium_discount_filtered_setups": 206,
+      "smt_confirmed_sweeps": 270,
+      "fvg_entries": 6
+    },
+    {
+      "label": "ny_only_base",
+      "total_trades": 5,
+      "total_return_pct": 0.142,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "liq_sweep_lookback": 50,
+      "liq_sweep_recovery_bars": 3,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278,
+      "fvg_entries": 5
+    },
+    {
+      "label": "sweep_shorter_lookback_35",
+      "total_trades": 5,
+      "total_return_pct": 0.142,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "liq_sweep_lookback": 35,
+      "liq_sweep_recovery_bars": 3,
+      "premium_discount_filtered_setups": 363,
+      "smt_confirmed_sweeps": 279,
+      "fvg_entries": 5
+    },
+    {
+      "label": "sweep_longer_lookback_70",
+      "total_trades": 5,
+      "total_return_pct": 0.142,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "liq_sweep_lookback": 70,
+      "liq_sweep_recovery_bars": 3,
+      "premium_discount_filtered_setups": 206,
+      "smt_confirmed_sweeps": 275,
+      "fvg_entries": 5
+    },
+    {
+      "label": "sweep_faster_recovery_2",
+      "total_trades": 4,
+      "total_return_pct": 0.132,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.8,
+      "liq_sweep_lookback": 50,
+      "liq_sweep_recovery_bars": 2,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 280,
+      "fvg_entries": 4
+    },
+    {
+      "label": "sweep_shorter_and_faster",
+      "total_trades": 4,
+      "total_return_pct": 0.132,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.8,
+      "liq_sweep_lookback": 35,
+      "liq_sweep_recovery_bars": 2,
+      "premium_discount_filtered_setups": 363,
+      "smt_confirmed_sweeps": 281,
+      "fvg_entries": 4
+    }
+  ],
+  "best_variant": {
+    "label": "sweep_slower_recovery_4",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.2,
+    "liq_sweep_lookback": 50,
+    "liq_sweep_recovery_bars": 4,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 273,
+    "fvg_entries": 6
+  },
+  "best_non_base_variant": {
+    "label": "sweep_slower_recovery_4",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.2,
+    "liq_sweep_lookback": 50,
+    "liq_sweep_recovery_bars": 4,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 273,
+    "fvg_entries": 6
+  },
+  "best_robust_sweep_variant": {
+    "label": "sweep_slower_recovery_4",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.2,
+    "liq_sweep_lookback": 50,
+    "liq_sweep_recovery_bars": 4,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 273,
+    "fvg_entries": 6
+  },
+  "base_label": "ny_only_base",
+  "base_trades": 5,
+  "base_total_return_pct": 0.142,
+  "robust_trade_floor": 3,
+  "verdict": "ROBUST_SWEEP_GEOMETRY_EXTENSION_IDENTIFIED_ON_NY_ONLY_BASE",
+  "interpretation": "At least one sweep-geometry calibration improves the NY-only short-SMT premium-plus-session-array base while preserving most of its activity."
+}

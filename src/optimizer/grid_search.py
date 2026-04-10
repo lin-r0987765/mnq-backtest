@@ -7,6 +7,7 @@ and returns the results ranked by a chosen metric (default: sharpe_ratio).
 from __future__ import annotations
 
 import itertools
+import math
 from typing import Any, Callable
 
 import pandas as pd
@@ -74,6 +75,14 @@ def grid_search(
         try:
             strategy = strategy_cls(params=params)
             result = engine.run(strategy, df)
+            metric_value = float(result.metrics.get(optimize_metric, float("-inf")))
+            total_trades = int(result.metrics.get("total_trades", 0))
+            if not math.isfinite(metric_value) or total_trades <= 0:
+                console.print(
+                    f"[yellow]Skipped {params}: invalid {optimize_metric}={metric_value} "
+                    f"or trades={total_trades}[/yellow]"
+                )
+                continue
             results.append(result)
         except Exception as exc:
             console.print(f"[yellow]Skipped {params}: {exc}[/yellow]")
@@ -104,7 +113,7 @@ ORB_PARAM_RANGES: dict[str, list[Any]] = {
     "close_before_min": [10, 15, 20],
     "breakout_confirm_pct": [0.0005, 0.001, 0.002],
     "trailing_stop": [True, False],
-    "trailing_pct": [0.003, 0.005, 0.008],
+    "trailing_pct": [0.011, 0.013, 0.015],
 }
 
 VWAP_PARAM_RANGES: dict[str, list[Any]] = {
@@ -121,18 +130,19 @@ ORB_QUICK_RANGES: dict[str, list[Any]] = {
     "orb_bars": [3, 4, 5],
     "profit_ratio": [3.0, 3.5, 4.0],
     "breakout_confirm_pct": [0.0003, 0.0005],
-    "trailing_pct": [0.012, 0.015, 0.018],
+    "trailing_pct": [0.012, 0.013, 0.015],
 }
 
 VWAP_QUICK_RANGES: dict[str, list[Any]] = {
-    "k": [1.3, 1.5],
-    "sl_k_add": [0.5, 0.7],
+    "k": [1.5],
+    "sl_k_add": [0.5],
     "std_window": [30],  # v7 確認 30 最佳
-    "rsi_os": [35],
-    "rsi_ob": [65],
+    "rsi_os": [32, 35],
+    "rsi_ob": [66],
+    "late_long_rsi_max": [30],
     "ema_mode": ["ema_cross"],
-    "max_trades_per_day": [2, 3],
-    "reversal_confirm": [True, False],
-    "reversal_mode": ["relaxed", "simple"],
+    "max_trades_per_day": [2],
+    "reversal_confirm": [False],
+    "reversal_mode": ["relaxed"],
     "bb_width_min": [0.0005],
 }

@@ -21,7 +21,7 @@ _DEFAULT_PARAMS: dict[str, Any] = {
     "breakout_confirm_pct": 0.0003,  # 突破確認 0.03%
     "entry_delay_bars": 0,      # 突破後等待幾根 K 棒確認
     "trailing_stop": True,      # 移動止損
-    "trailing_pct": 0.015,      # 固定移動止損百分比（fallback）
+    "trailing_pct": 0.013,      # 固定移動止損百分比（v25: 0.015→0.013, Sharpe+1.8%）
     # v5 新增（v6: 默認關閉 — grid search 確認不啟用時更優）
     "vol_confirm": False,       # 成交量確認開關 — grid最佳為False
     "vol_ma_period": 20,        # 成交量均線週期
@@ -86,8 +86,9 @@ class ORBStrategy(BaseStrategy):
         profit_ratio: float = float(self.params["profit_ratio"])
         close_before_min: int = int(self.params["close_before_min"])
         breakout_pct: float = float(self.params.get("breakout_confirm_pct", 0.001))
+        entry_delay_bars: int = int(self.params.get("entry_delay_bars", 0))
         trailing_stop: bool = bool(self.params.get("trailing_stop", True))
-        trailing_pct: float = float(self.params.get("trailing_pct", 0.015))
+        trailing_pct: float = float(self.params.get("trailing_pct", 0.013))
         # v5 新增
         vol_confirm: bool = bool(self.params.get("vol_confirm", True))
         vol_ma_period: int = int(self.params.get("vol_ma_period", 20))
@@ -181,7 +182,8 @@ class ORBStrategy(BaseStrategy):
             tp_long = orb_high + profit_ratio * range_width
             tp_short = orb_low - profit_ratio * range_width
 
-            post_orb = sess.iloc[orb_bars:]
+            # Honour entry_delay_bars so we can wait for extra 5m bars after the ORB window.
+            post_orb = sess.iloc[orb_bars + entry_delay_bars:]
             last_ts = sess.index[-1]
             force_close_ts = last_ts - pd.Timedelta(minutes=close_before_min)
 

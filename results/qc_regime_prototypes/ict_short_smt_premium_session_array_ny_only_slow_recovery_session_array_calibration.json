@@ -1,0 +1,428 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_slow_recovery_session_array_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "slow_recovery_base": {
+      "params": {
+        "use_session_array_refinement": true,
+        "imbalance_array_windows": [
+          [
+            3,
+            0,
+            4,
+            30
+          ],
+          [
+            9,
+            30,
+            10,
+            30
+          ]
+        ],
+        "structural_array_windows": [
+          [
+            10,
+            30,
+            11,
+            30
+          ],
+          [
+            13,
+            0,
+            14,
+            30
+          ]
+        ],
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "session_array_filtered_shifts": 4,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "session_array_off_control": {
+      "params": {
+        "use_session_array_refinement": false,
+        "imbalance_array_windows": [
+          [
+            3,
+            0,
+            4,
+            30
+          ],
+          [
+            9,
+            30,
+            10,
+            30
+          ]
+        ],
+        "structural_array_windows": [
+          [
+            10,
+            30,
+            11,
+            30
+          ],
+          [
+            13,
+            0,
+            14,
+            30
+          ]
+        ],
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1233,
+        "sharpe_ratio": 1.1359,
+        "sortino_ratio": 1.6741,
+        "calmar_ratio": 1.282,
+        "max_drawdown_pct": -0.0962,
+        "win_rate_pct": 75.0,
+        "total_trades": 8,
+        "profit_factor": 7.2221,
+        "avg_trade_pct": 0.0154
+      },
+      "metadata": {
+        "session_array_filtered_shifts": 0,
+        "fvg_entries": 6,
+        "ob_entries": 2,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "broader_imbalance": {
+      "params": {
+        "use_session_array_refinement": true,
+        "imbalance_array_windows": [
+          [
+            3,
+            0,
+            5,
+            0
+          ],
+          [
+            9,
+            30,
+            11,
+            0
+          ]
+        ],
+        "structural_array_windows": [
+          [
+            10,
+            30,
+            11,
+            30
+          ],
+          [
+            13,
+            0,
+            14,
+            30
+          ]
+        ],
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "session_array_filtered_shifts": 4,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "broader_structural": {
+      "params": {
+        "use_session_array_refinement": true,
+        "imbalance_array_windows": [
+          [
+            3,
+            0,
+            4,
+            30
+          ],
+          [
+            9,
+            30,
+            10,
+            30
+          ]
+        ],
+        "structural_array_windows": [
+          [
+            10,
+            15,
+            12,
+            0
+          ],
+          [
+            12,
+            45,
+            15,
+            0
+          ]
+        ],
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "session_array_filtered_shifts": 5,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "dual_broader": {
+      "params": {
+        "use_session_array_refinement": true,
+        "imbalance_array_windows": [
+          [
+            3,
+            0,
+            5,
+            0
+          ],
+          [
+            9,
+            30,
+            11,
+            0
+          ]
+        ],
+        "structural_array_windows": [
+          [
+            10,
+            15,
+            12,
+            0
+          ],
+          [
+            12,
+            45,
+            15,
+            0
+          ]
+        ],
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "session_array_filtered_shifts": 5,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "shifted_later": {
+      "params": {
+        "use_session_array_refinement": true,
+        "imbalance_array_windows": [
+          [
+            3,
+            30,
+            5,
+            0
+          ],
+          [
+            10,
+            0,
+            11,
+            0
+          ]
+        ],
+        "structural_array_windows": [
+          [
+            11,
+            0,
+            12,
+            0
+          ],
+          [
+            13,
+            30,
+            15,
+            0
+          ]
+        ],
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1233,
+        "sharpe_ratio": 1.1359,
+        "sortino_ratio": 1.6741,
+        "calmar_ratio": 1.282,
+        "max_drawdown_pct": -0.0962,
+        "win_rate_pct": 75.0,
+        "total_trades": 8,
+        "profit_factor": 7.2221,
+        "avg_trade_pct": 0.0154
+      },
+      "metadata": {
+        "session_array_filtered_shifts": 1,
+        "fvg_entries": 6,
+        "ob_entries": 2,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "slow_recovery_base",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "use_session_array_refinement": true,
+      "session_array_filtered_shifts": 4,
+      "fvg_entries": 6
+    },
+    {
+      "label": "broader_imbalance",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "use_session_array_refinement": true,
+      "session_array_filtered_shifts": 4,
+      "fvg_entries": 6
+    },
+    {
+      "label": "broader_structural",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "use_session_array_refinement": true,
+      "session_array_filtered_shifts": 5,
+      "fvg_entries": 6
+    },
+    {
+      "label": "dual_broader",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "use_session_array_refinement": true,
+      "session_array_filtered_shifts": 5,
+      "fvg_entries": 6
+    },
+    {
+      "label": "session_array_off_control",
+      "total_trades": 8,
+      "total_return_pct": 0.1233,
+      "profit_factor": 7.2221,
+      "trade_retention_vs_base": 1.3333333333333333,
+      "use_session_array_refinement": false,
+      "session_array_filtered_shifts": 0,
+      "fvg_entries": 6
+    },
+    {
+      "label": "shifted_later",
+      "total_trades": 8,
+      "total_return_pct": 0.1233,
+      "profit_factor": 7.2221,
+      "trade_retention_vs_base": 1.3333333333333333,
+      "use_session_array_refinement": true,
+      "session_array_filtered_shifts": 1,
+      "fvg_entries": 6
+    }
+  ],
+  "best_variant": {
+    "label": "slow_recovery_base",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "use_session_array_refinement": true,
+    "session_array_filtered_shifts": 4,
+    "fvg_entries": 6
+  },
+  "best_non_base_variant": {
+    "label": "broader_imbalance",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "use_session_array_refinement": true,
+    "session_array_filtered_shifts": 4,
+    "fvg_entries": 6
+  },
+  "best_robust_session_array_variant": {
+    "label": "broader_imbalance",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "use_session_array_refinement": true,
+    "session_array_filtered_shifts": 4,
+    "fvg_entries": 6
+  },
+  "base_label": "slow_recovery_base",
+  "base_trades": 6,
+  "base_total_return_pct": 0.1627,
+  "robust_trade_floor": 4,
+  "verdict": "ROBUST_SESSION_ARRAY_SURVIVOR_BUT_NOT_FRONTIER_ON_SLOW_RECOVERY_BASE",
+  "interpretation": "A session-array calibration survives on top of the slow-recovery NY-only paired ICT base without collapsing activity, but it does not beat the frontier."
+}

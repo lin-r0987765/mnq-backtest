@@ -1,0 +1,514 @@
+{
+  "research_scope": "v26_weakness_map",
+  "analysis_version": "v1_v26_weakness_map",
+  "baseline_version": "v26-profit-lock",
+  "accepted_reference_bundle": "Square Blue Termite",
+  "data": {
+    "trades_file": "QuantConnect results\\2017-2026\\Square Blue Termite_trades.csv",
+    "orders_file": "QuantConnect results\\2017-2026\\Square Blue Termite_orders.csv",
+    "trades": 405,
+    "orders": 810,
+    "start": "2017-04-05T14:30:00+00:00",
+    "end": "2026-01-07T20:50:00+00:00"
+  },
+  "method": "Classify accepted v26 QC trades into mutually exclusive archetypes so post-v26 iteration can target real bottlenecks instead of blindly scanning more nearby thresholds.",
+  "category_order": [
+    "quick_failure_loss",
+    "hard_stop_loss",
+    "low_progress_drift",
+    "late_washout",
+    "small_flat_positive",
+    "healthy_capture",
+    "other"
+  ],
+  "category_stats": [
+    {
+      "category": "quick_failure_loss",
+      "definition": "P&L <= 0, duration <= 120 minutes, and MFE < $50. Represents breakouts that fail quickly without developing enough progress.",
+      "theme": "early failed breakout",
+      "research_status": "already partially explored via fast-failure abort and still rejected locally",
+      "next_step_posture": "deprioritize nearby early-abort grids unless the mechanism is materially different",
+      "count": 45,
+      "share_of_trades_pct": 11.11,
+      "net_pnl": -6822.09,
+      "mean_pnl": -151.6,
+      "median_pnl": -136.74,
+      "mean_mfe": 13.32,
+      "mean_mae": -156.32,
+      "mean_drawdown": 169.63,
+      "mean_duration_min": 63.44,
+      "negative_drag": 6822.09,
+      "negative_drag_share_pct": 36.07,
+      "opportunity_gap_total": 599.22,
+      "opportunity_gap_per_trade": 13.32,
+      "top_exit_tags": {
+        "ORB Long Stop ": 45
+      },
+      "year_counts": {
+        "2017": 2,
+        "2018": 8,
+        "2019": 6,
+        "2020": 4,
+        "2021": 7,
+        "2022": 4,
+        "2023": 7,
+        "2024": 5,
+        "2025": 2
+      },
+      "worst_examples": [
+        {
+          "entry_time": "2022-05-16T14:30:00+00:00",
+          "exit_time": "2022-05-16T15:00:00+00:00",
+          "pnl": -323.68,
+          "mfe": 0.0,
+          "duration_min": 30.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2025-04-23T14:35:00+00:00",
+          "exit_time": "2025-04-23T15:30:00+00:00",
+          "pnl": -297.6,
+          "mfe": 34.0,
+          "duration_min": 55.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2018-04-06T13:55:00+00:00",
+          "exit_time": "2018-04-06T15:05:00+00:00",
+          "pnl": -287.77,
+          "mfe": 0.0,
+          "duration_min": 70.0,
+          "exit_tag": "ORB Long Stop "
+        }
+      ]
+    },
+    {
+      "category": "hard_stop_loss",
+      "definition": "P&L <= 0 and exit tag contains Stop, excluding the earlier more-specific categories. Represents trades that made some progress but still reverted into a stop-based loss.",
+      "theme": "moderate progress reversal before durable protection",
+      "research_status": "still underexplored after v26",
+      "next_step_posture": "highest-priority unresolved weakness; if iteration continues, prefer a new mid-trade protection ratchet between BE activation and full profit-lock activation",
+      "count": 36,
+      "share_of_trades_pct": 8.89,
+      "net_pnl": -5147.26,
+      "mean_pnl": -142.98,
+      "median_pnl": -137.05,
+      "mean_mfe": 79.32,
+      "mean_mae": -151.81,
+      "mean_drawdown": 226.11,
+      "mean_duration_min": 145.14,
+      "negative_drag": 5147.26,
+      "negative_drag_share_pct": 27.21,
+      "opportunity_gap_total": 2855.37,
+      "opportunity_gap_per_trade": 79.32,
+      "top_exit_tags": {
+        "ORB Long Stop ": 34,
+        "ORB Long Profit Lock Stop ": 1,
+        "ORB Long BE Stop ": 1
+      },
+      "year_counts": {
+        "2017": 4,
+        "2018": 2,
+        "2019": 3,
+        "2020": 8,
+        "2021": 2,
+        "2022": 5,
+        "2023": 4,
+        "2024": 5,
+        "2025": 3
+      },
+      "worst_examples": [
+        {
+          "entry_time": "2023-01-10T15:15:00+00:00",
+          "exit_time": "2023-01-10T15:45:00+00:00",
+          "pnl": -286.31,
+          "mfe": 60.28,
+          "duration_min": 30.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2022-10-19T14:20:00+00:00",
+          "exit_time": "2022-10-19T16:50:00+00:00",
+          "pnl": -250.86,
+          "mfe": 133.42,
+          "duration_min": 150.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2020-10-26T13:55:00+00:00",
+          "exit_time": "2020-10-26T14:55:00+00:00",
+          "pnl": -244.76,
+          "mfe": 50.73,
+          "duration_min": 60.0,
+          "exit_tag": "ORB Long Stop "
+        }
+      ]
+    },
+    {
+      "category": "low_progress_drift",
+      "definition": "duration >= 180 minutes, MFE < $50, and final P&L < $50. Represents long-duration dead trades that never build enough edge.",
+      "theme": "long-duration dead trade / drift",
+      "research_status": "explicitly tested via low-progress timeout and rejected locally",
+      "next_step_posture": "do not reopen nearby late low-progress timeout thresholds",
+      "count": 83,
+      "share_of_trades_pct": 20.49,
+      "net_pnl": -3370.04,
+      "mean_pnl": -40.6,
+      "median_pnl": -26.4,
+      "mean_mfe": 28.93,
+      "mean_mae": -84.79,
+      "mean_drawdown": 108.27,
+      "mean_duration_min": 290.84,
+      "negative_drag": 3801.03,
+      "negative_drag_share_pct": 20.1,
+      "opportunity_gap_total": 1970.3,
+      "opportunity_gap_per_trade": 23.74,
+      "top_exit_tags": {
+        "ORB EOD Flatten ": 70,
+        "ORB Long Stop ": 13
+      },
+      "year_counts": {
+        "2017": 19,
+        "2018": 10,
+        "2019": 12,
+        "2020": 9,
+        "2021": 12,
+        "2023": 5,
+        "2024": 8,
+        "2025": 8
+      },
+      "worst_examples": [
+        {
+          "entry_time": "2020-08-04T14:10:00+00:00",
+          "exit_time": "2020-08-04T18:35:00+00:00",
+          "pnl": -193.97,
+          "mfe": 0.0,
+          "duration_min": 265.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2019-02-01T15:15:00+00:00",
+          "exit_time": "2019-02-01T19:20:00+00:00",
+          "pnl": -184.6,
+          "mfe": 34.24,
+          "duration_min": 245.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2023-01-24T14:55:00+00:00",
+          "exit_time": "2023-01-24T20:50:00+00:00",
+          "pnl": -162.46,
+          "mfe": 0.0,
+          "duration_min": 355.0,
+          "exit_tag": "ORB EOD Flatten "
+        }
+      ]
+    },
+    {
+      "category": "late_washout",
+      "definition": "duration >= 240 minutes, MFE >= $75, and final P&L < $25. Represents trades that had meaningful progress but gave it back late.",
+      "theme": "late-session giveback / EOD deterioration",
+      "research_status": "partially improved by v26 but nearby local washout refinements already rejected",
+      "next_step_posture": "do not keep scanning nearby stall / giveback grids without a materially new structure",
+      "count": 38,
+      "share_of_trades_pct": 9.38,
+      "net_pnl": -2792.27,
+      "mean_pnl": -73.48,
+      "median_pnl": -62.38,
+      "mean_mfe": 132.61,
+      "mean_mae": -115.25,
+      "mean_drawdown": 238.32,
+      "mean_duration_min": 311.97,
+      "negative_drag": 2895.14,
+      "negative_drag_share_pct": 15.31,
+      "opportunity_gap_total": 4936.2,
+      "opportunity_gap_per_trade": 129.9,
+      "top_exit_tags": {
+        "ORB EOD Flatten ": 25,
+        "ORB Long Stop ": 11,
+        "ORB Long Profit Lock Stop ": 2
+      },
+      "year_counts": {
+        "2017": 1,
+        "2018": 3,
+        "2019": 7,
+        "2020": 6,
+        "2021": 2,
+        "2022": 5,
+        "2023": 4,
+        "2024": 5,
+        "2025": 4,
+        "2026": 1
+      },
+      "worst_examples": [
+        {
+          "entry_time": "2022-12-14T15:00:00+00:00",
+          "exit_time": "2022-12-14T19:05:00+00:00",
+          "pnl": -227.25,
+          "mfe": 118.03,
+          "duration_min": 245.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2020-07-07T14:15:00+00:00",
+          "exit_time": "2020-07-07T19:10:00+00:00",
+          "pnl": -216.6,
+          "mfe": 106.35,
+          "duration_min": 295.0,
+          "exit_tag": "ORB Long Stop "
+        },
+        {
+          "entry_time": "2020-04-20T14:30:00+00:00",
+          "exit_time": "2020-04-20T19:20:00+00:00",
+          "pnl": -176.48,
+          "mfe": 150.59,
+          "duration_min": 290.0,
+          "exit_tag": "ORB Long Stop "
+        }
+      ]
+    },
+    {
+      "category": "small_flat_positive",
+      "definition": "0 < P&L < $50 and duration >= 240 minutes. Represents tiny retained winners after a long hold.",
+      "theme": "under-monetized late winners",
+      "research_status": "monitor only",
+      "next_step_posture": "only revisit if a new mechanism can improve retention without clipping healthy captures",
+      "count": 22,
+      "share_of_trades_pct": 5.43,
+      "net_pnl": 661.84,
+      "mean_pnl": 30.08,
+      "median_pnl": 35.41,
+      "mean_mfe": 84.23,
+      "mean_mae": -55.19,
+      "mean_drawdown": 107.41,
+      "mean_duration_min": 323.18,
+      "negative_drag": -0.0,
+      "negative_drag_share_pct": -0.0,
+      "opportunity_gap_total": 1191.33,
+      "opportunity_gap_per_trade": 54.15,
+      "top_exit_tags": {
+        "ORB EOD Flatten ": 22
+      },
+      "year_counts": {
+        "2017": 1,
+        "2018": 1,
+        "2019": 3,
+        "2020": 2,
+        "2023": 5,
+        "2024": 5,
+        "2025": 5
+      },
+      "worst_examples": [
+        {
+          "entry_time": "2024-09-24T15:50:00+00:00",
+          "exit_time": "2024-09-24T19:50:00+00:00",
+          "pnl": 4.82,
+          "mfe": 57.86,
+          "duration_min": 240.0,
+          "exit_tag": "ORB EOD Flatten "
+        },
+        {
+          "entry_time": "2019-02-26T15:05:00+00:00",
+          "exit_time": "2019-02-26T20:50:00+00:00",
+          "pnl": 5.76,
+          "mfe": 63.41,
+          "duration_min": 345.0,
+          "exit_tag": "ORB EOD Flatten "
+        },
+        {
+          "entry_time": "2023-05-11T15:35:00+00:00",
+          "exit_time": "2023-05-11T19:50:00+00:00",
+          "pnl": 6.21,
+          "mfe": 50.45,
+          "duration_min": 255.0,
+          "exit_tag": "ORB EOD Flatten "
+        }
+      ]
+    },
+    {
+      "category": "healthy_capture",
+      "definition": "P&L >= $100 or exit tag contains TP. Represents trades where the system captured a meaningful winner.",
+      "theme": "working state",
+      "research_status": "preserve",
+      "next_step_posture": "do not damage this bucket when testing future mechanisms",
+      "count": 98,
+      "share_of_trades_pct": 24.2,
+      "net_pnl": 19415.65,
+      "mean_pnl": 198.12,
+      "median_pnl": 176.56,
+      "mean_mfe": 227.65,
+      "mean_mae": -42.01,
+      "mean_drawdown": 103.74,
+      "mean_duration_min": 306.99,
+      "negative_drag": -0.0,
+      "negative_drag_share_pct": -0.0,
+      "opportunity_gap_total": 2894.31,
+      "opportunity_gap_per_trade": 29.53,
+      "top_exit_tags": {
+        "ORB EOD Flatten ": 87,
+        "ORB Long TP ": 11
+      },
+      "year_counts": {
+        "2017": 5,
+        "2018": 10,
+        "2019": 10,
+        "2020": 14,
+        "2021": 10,
+        "2022": 13,
+        "2023": 11,
+        "2024": 17,
+        "2025": 8
+      },
+      "worst_examples": [
+        {
+          "entry_time": "2020-10-09T14:05:00+00:00",
+          "exit_time": "2020-10-09T19:50:00+00:00",
+          "pnl": 101.47,
+          "mfe": 132.62,
+          "duration_min": 345.0,
+          "exit_tag": "ORB EOD Flatten "
+        },
+        {
+          "entry_time": "2022-02-09T16:05:00+00:00",
+          "exit_time": "2022-02-09T20:50:00+00:00",
+          "pnl": 103.03,
+          "mfe": 121.0,
+          "duration_min": 285.0,
+          "exit_tag": "ORB EOD Flatten "
+        },
+        {
+          "entry_time": "2024-06-11T15:05:00+00:00",
+          "exit_time": "2024-06-11T19:50:00+00:00",
+          "pnl": 104.14,
+          "mfe": 145.13,
+          "duration_min": 285.0,
+          "exit_tag": "ORB EOD Flatten "
+        }
+      ]
+    },
+    {
+      "category": "other",
+      "definition": "Residual mixed bucket that does not meet any of the above definitions.",
+      "theme": "mixed residual state",
+      "research_status": "secondary priority",
+      "next_step_posture": "leave for later unless a clearer archetype emerges",
+      "count": 83,
+      "share_of_trades_pct": 20.49,
+      "net_pnl": 4788.45,
+      "mean_pnl": 57.69,
+      "median_pnl": 68.74,
+      "mean_mfe": 114.64,
+      "mean_mae": -45.71,
+      "mean_drawdown": 105.42,
+      "mean_duration_min": 284.22,
+      "negative_drag": 249.41,
+      "negative_drag_share_pct": 1.32,
+      "opportunity_gap_total": 4477.4,
+      "opportunity_gap_per_trade": 53.94,
+      "top_exit_tags": {
+        "ORB EOD Flatten ": 76,
+        "ORB Long Profit Lock Stop ": 7
+      },
+      "year_counts": {
+        "2017": 9,
+        "2018": 10,
+        "2019": 13,
+        "2020": 11,
+        "2021": 8,
+        "2022": 3,
+        "2023": 9,
+        "2024": 8,
+        "2025": 12
+      },
+      "worst_examples": [
+        {
+          "entry_time": "2020-11-05T14:55:00+00:00",
+          "exit_time": "2020-11-05T20:50:00+00:00",
+          "pnl": -78.35,
+          "mfe": 59.41,
+          "duration_min": 355.0,
+          "exit_tag": "ORB EOD Flatten "
+        },
+        {
+          "entry_time": "2018-09-27T14:05:00+00:00",
+          "exit_time": "2018-09-27T19:50:00+00:00",
+          "pnl": -38.91,
+          "mfe": 56.35,
+          "duration_min": 345.0,
+          "exit_tag": "ORB EOD Flatten "
+        },
+        {
+          "entry_time": "2020-11-27T15:15:00+00:00",
+          "exit_time": "2020-11-27T17:50:00+00:00",
+          "pnl": -37.88,
+          "mfe": 84.17,
+          "duration_min": 155.0,
+          "exit_tag": "ORB EOD Flatten "
+        }
+      ]
+    }
+  ],
+  "frontier": {
+    "largest_realized_drag": {
+      "category": "quick_failure_loss",
+      "net_negative_drag": 6822.09,
+      "negative_drag_share_pct": 36.07
+    },
+    "largest_opportunity_gap": {
+      "category": "late_washout",
+      "opportunity_gap_total": 4936.2,
+      "opportunity_gap_per_trade": 129.9
+    },
+    "highest_count_non_capture": {
+      "category": "low_progress_drift",
+      "count": 83,
+      "share_of_trades_pct": 20.49
+    }
+  },
+  "priority_board": [
+    {
+      "priority": 1,
+      "category": "hard_stop_loss",
+      "why_now": "This is the largest underexplored unresolved drag bucket after v26. It still loses meaningful money, average MFE is non-trivial, and most exits are stop-based.",
+      "suggested_mechanism_direction": "Test a mid-trade protection ratchet that activates after modest progress, earlier than the current 1.50x profit-lock trigger but later than the BE gate.",
+      "evidence": {
+        "count": 36,
+        "net_pnl": -5147.26,
+        "mean_mfe": 79.32,
+        "opportunity_gap_total": 2855.37
+      }
+    },
+    {
+      "priority": 2,
+      "category": "late_washout",
+      "why_now": "Still a large opportunity-loss bucket, but nearby late-session refinement families have already been tested and rejected locally.",
+      "suggested_mechanism_direction": "Only revisit if the next mechanism is structurally different from stagnation-timeout, stall-plus-giveback, and low-progress timeout.",
+      "evidence": {
+        "count": 38,
+        "net_pnl": -2792.27,
+        "opportunity_gap_total": 4936.2
+      }
+    },
+    {
+      "priority": 3,
+      "category": "quick_failure_loss",
+      "why_now": "Largest realized drag by dollars, but the fast-failure branch already failed under local evidence.",
+      "suggested_mechanism_direction": "Deprioritize nearby early-abort thresholds unless a materially different entry-quality or microstructure-aware mechanism appears.",
+      "evidence": {
+        "count": 45,
+        "net_pnl": -6822.09,
+        "negative_drag_share_pct": 36.07
+      }
+    }
+  ],
+  "structural_conclusion": {
+    "main_findings": [
+      "The largest realized drag bucket is quick_failure_loss, but that branch was already pressure-tested via fast-failure abort and failed locally.",
+      "The most actionable unresolved bucket is hard_stop_loss: meaningful count, meaningful dollar drag, and non-trivial average MFE before stop-out.",
+      "Late-session giveback remains real, but nearby late-session refinement branches have already been explored and rejected from local-only evidence.",
+      "Low-progress drift is a real archetype but is now a closed research branch rather than an open frontier."
+    ],
+    "next_step_rule": "Do not launch a new QC candidate from this map alone. Use it to choose the next genuinely new mechanism family.",
+    "preferred_next_mechanism": "Prefer a mid-trade protection ratchet for moderate-progress stop-outs, rather than more late-session washout thresholds or more low-progress scratch exits."
+  }
+}

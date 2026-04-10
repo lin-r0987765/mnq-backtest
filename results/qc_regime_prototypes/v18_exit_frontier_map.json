@@ -1,0 +1,115 @@
+{
+  "research_scope": "v18_exit_frontier_map",
+  "analysis_version": "v1_timegated_breakeven_frontier_consolidation",
+  "baseline_version": "v18-prev-day-mom3",
+  "accepted_baseline_raw_trades_available": true,
+  "accepted_baseline_raw_trades_found": [
+    "Measured Green Hippopotamus_trades.csv"
+  ],
+  "branches": [
+    {
+      "branch": "conservative_timegated_breakeven",
+      "status": "READY_FOR_QC_CANDIDATE",
+      "why_it_is_live": "Only unbanned exit-side path with positive local path-level evidence and historical QC-only zero-clipping support.",
+      "recommended_local_proxy": {
+        "label": "BE=1.25x_gate=180min",
+        "pnl_delta": 0.6653,
+        "improved_folds": 1,
+        "clipped_winners": 0,
+        "saved_losses": 1
+      },
+      "historical_qc_support": {
+        "lane": "<=180min + MFE>$25",
+        "net_upper_bound": 5202.81,
+        "saved_losses": 34,
+        "clipped_winners": 0,
+        "positive_years": 9,
+        "negative_years": 0
+      },
+      "historical_qc_tradeoff_support": {
+        "threshold_mfe_dollars": 50,
+        "net_upper_bound_after_harm": 5554.17,
+        "positive_net_years": 10,
+        "bootstrap_p05": 3102.71
+      }
+    },
+    {
+      "branch": "stress_timegated_breakeven",
+      "status": "STRESS_TEST_ONLY_NOT_LIVE",
+      "why_it_is_not_live": "Higher local uplift exists, but clipping reappears and safety is weaker than the conservative 180-minute lane.",
+      "recommended_local_proxy": {
+        "label": "BE=1.00x_gate=240min",
+        "pnl_delta": 1.7741,
+        "improved_folds": 2,
+        "clipped_winners": 1,
+        "saved_losses": 3
+      },
+      "historical_qc_support": {
+        "lane": "<=240min + MFE>$25",
+        "net_upper_bound": 6668.73,
+        "saved_losses": 48,
+        "clipped_winners": 7
+      }
+    },
+    {
+      "branch": "plain_breakeven_without_time_gate",
+      "status": "WEAKER_THAN_TIMEGATED",
+      "why_it_is_not_frontier": "Positive locally, but weaker than the gated version and lacks the same clean duration-based clipping control.",
+      "best_local_variant": {
+        "label": "BE=1.00x",
+        "pnl_delta": 1.6492,
+        "be_stop_exits": 6,
+        "improved_folds": 1
+      }
+    },
+    {
+      "branch": "late_session_time_decay_trail",
+      "status": "REJECTED_LOCAL_ONLY",
+      "why_it_is_dead": "Already tested as a genuinely new exit mechanism, but no positive full-sample candidate was found.",
+      "best_local_variant": {
+        "label": "decayStart=180_step=30_delta=0.002_floor=0.006",
+        "pnl_delta": -1.6298,
+        "clipped_winners": 2,
+        "improved_folds": 1
+      }
+    },
+    {
+      "branch": "early_tight_trail",
+      "status": "DISQUALIFIED_HISTORICAL_BRANCH",
+      "why_it_is_not_actionable": "Historically strong in both local and QC proxy research, but explicitly banned because it was already launched as v20-tight-trail-early.",
+      "historical_local_strength": {
+        "label": "tightTrail=0.7%_gate=180min",
+        "pnl_delta": 6.3218,
+        "clipped_winners": 0
+      },
+      "historical_qc_strength": {
+        "incremental_delta": 2501.15,
+        "clipped_winners": 0,
+        "positive_years": 8
+      }
+    },
+    {
+      "branch": "wide_or_removed_trail",
+      "status": "REJECTED_REAL_QC",
+      "why_it_is_dead": "Both v23-wide-trail and v24-no-trail failed real QuantConnect promotion."
+    }
+  ],
+  "frontier_summary": {
+    "only_viable_unbanned_path": "conservative_timegated_breakeven",
+    "recommended_local_proxy": "BE=1.25x_gate=180min",
+    "recommended_qc_proxy_lane": "<=180min + MFE>$25",
+    "hard_blocker": null,
+    "next_real_iteration_method": [
+      "Use the restored accepted v18 rerun bundle to rerun QC-proxy validation.",
+      "Because the refreshed QC-proxy result still aligns with the historical zero-clipping lane, launch the next QC candidate from BE=1.25x_gate=180min.",
+      "Wait for the real QuantConnect rerun and promote only if it clears the full promotion gate."
+    ],
+    "stop_doing": [
+      "Do not open new entry-filter families.",
+      "Do not relaunch v23-wide-trail or v24-no-trail.",
+      "Do not relaunch from the tested local_orb_time_decay_trail grid.",
+      "Do not revive v20-tight-trail-early.",
+      "Do not spend more rounds on random new mechanisms until the conservative time-gated breakeven lane is resolved."
+    ]
+  }
+}

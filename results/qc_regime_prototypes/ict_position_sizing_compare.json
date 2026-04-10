@@ -1,0 +1,146 @@
+{
+  "analysis": "ict_position_sizing_compare",
+  "profile": "lite_ict_reversal_relaxed_smt_looser_sweep_faster_retest_frontier",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "risk_standard": {
+    "initial_cash_usd": 100000,
+    "minimum_order_shares": 40,
+    "reward_risk_floor": 1.5
+  },
+  "variants": {
+    "research_fixed_10": {
+      "metrics": {
+        "total_return_pct": 0.3816,
+        "sharpe_ratio": 0.9991,
+        "sortino_ratio": 0.1382,
+        "calmar_ratio": 4.0788,
+        "max_drawdown_pct": -0.0936,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.4911,
+        "avg_trade_pct": 0.0212
+      },
+      "shares_summary": {
+        "min_shares": 10,
+        "max_shares": 10,
+        "avg_shares": 10.0,
+        "entry_count": 18
+      },
+      "engine": {
+        "position_size_mode": "fixed",
+        "fixed_shares": 10,
+        "capital_usage_pct": 1.0,
+        "min_shares": 0
+      }
+    },
+    "fixed_40_shares": {
+      "metrics": {
+        "total_return_pct": 1.5359,
+        "sharpe_ratio": 1.0071,
+        "sortino_ratio": 0.1395,
+        "calmar_ratio": 4.166,
+        "max_drawdown_pct": -0.3687,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.5555,
+        "avg_trade_pct": 0.0853
+      },
+      "shares_summary": {
+        "min_shares": 40,
+        "max_shares": 40,
+        "avg_shares": 40.0,
+        "entry_count": 18
+      },
+      "engine": {
+        "position_size_mode": "fixed",
+        "fixed_shares": 40,
+        "capital_usage_pct": 1.0,
+        "min_shares": 0
+      }
+    },
+    "capital_50pct_min40": {
+      "metrics": {
+        "total_return_pct": 6.1746,
+        "sharpe_ratio": 1.1037,
+        "sortino_ratio": 0.1546,
+        "calmar_ratio": 6.1981,
+        "max_drawdown_pct": -0.9962,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.9878,
+        "avg_trade_pct": 0.343
+      },
+      "shares_summary": {
+        "min_shares": 85,
+        "max_shares": 200,
+        "avg_shares": 153.8333,
+        "entry_count": 18
+      },
+      "engine": {
+        "position_size_mode": "capital_pct",
+        "fixed_shares": null,
+        "capital_usage_pct": 0.5,
+        "min_shares": 40
+      }
+    },
+    "capital_100pct_min40": {
+      "metrics": {
+        "total_return_pct": 12.6548,
+        "sharpe_ratio": 1.1051,
+        "sortino_ratio": 0.1549,
+        "calmar_ratio": 6.3965,
+        "max_drawdown_pct": -1.9784,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.8559,
+        "avg_trade_pct": 0.703
+      },
+      "shares_summary": {
+        "min_shares": 181,
+        "max_shares": 426,
+        "avg_shares": 318.7222,
+        "entry_count": 18
+      },
+      "engine": {
+        "position_size_mode": "capital_pct",
+        "fixed_shares": null,
+        "capital_usage_pct": 1.0,
+        "min_shares": 40
+      }
+    }
+  },
+  "ranking": [
+    {
+      "label": "capital_100pct_min40",
+      "total_return_pct": 12.6548,
+      "profit_factor": 5.8559,
+      "total_trades": 18
+    },
+    {
+      "label": "capital_50pct_min40",
+      "total_return_pct": 6.1746,
+      "profit_factor": 5.9878,
+      "total_trades": 18
+    },
+    {
+      "label": "fixed_40_shares",
+      "total_return_pct": 1.5359,
+      "profit_factor": 5.5555,
+      "total_trades": 18
+    },
+    {
+      "label": "research_fixed_10",
+      "total_return_pct": 0.3816,
+      "profit_factor": 5.4911,
+      "total_trades": 18
+    }
+  ],
+  "verdict": "POSITION_SIZING_IMPACT_CONFIRMED",
+  "interpretation": "Larger sizing standards materially change the measured return on the active lite frontier, so sizing must be treated as a first-class research dimension rather than a neutral presentation layer."
+}

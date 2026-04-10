@@ -1,0 +1,197 @@
+{
+  "hypothesis": "breakeven_stop_max1entry",
+  "results": [
+    {
+      "trigger": 0.0,
+      "label": "baseline",
+      "metrics": {
+        "trades": 41,
+        "pnl": 63.42,
+        "wr": 70.7,
+        "pf": 2.926,
+        "sharpe": 0.4042,
+        "avg": 1.55,
+        "stops": 4,
+        "be": 0,
+        "tgt": 1,
+        "eod": 36
+      },
+      "fold_pnls": [
+        3.09,
+        1.75,
+        7.18,
+        33.02
+      ],
+      "pos_folds": 4,
+      "imp_folds": 0
+    },
+    {
+      "trigger": 0.25,
+      "label": "BE=0.25x",
+      "metrics": {
+        "trades": 41,
+        "pnl": 49.53,
+        "wr": 51.2,
+        "pf": 2.682,
+        "sharpe": 0.3501,
+        "avg": 1.21,
+        "stops": 17,
+        "be": 0,
+        "tgt": 1,
+        "eod": 23
+      },
+      "fold_pnls": [
+        7.89,
+        1.75,
+        6.28,
+        23.12
+      ],
+      "pos_folds": 4,
+      "imp_folds": 1
+    },
+    {
+      "trigger": 0.5,
+      "label": "BE=0.50x",
+      "metrics": {
+        "trades": 41,
+        "pnl": 61.25,
+        "wr": 61.0,
+        "pf": 3.044,
+        "sharpe": 0.4105,
+        "avg": 1.49,
+        "stops": 12,
+        "be": 0,
+        "tgt": 1,
+        "eod": 28
+      },
+      "fold_pnls": [
+        2.81,
+        1.75,
+        8.03,
+        30.06
+      ],
+      "pos_folds": 4,
+      "imp_folds": 1
+    },
+    {
+      "trigger": 0.75,
+      "label": "BE=0.75x",
+      "metrics": {
+        "trades": 41,
+        "pnl": 63.02,
+        "wr": 63.4,
+        "pf": 2.909,
+        "sharpe": 0.4047,
+        "avg": 1.54,
+        "stops": 11,
+        "be": 0,
+        "tgt": 1,
+        "eod": 29
+      },
+      "fold_pnls": [
+        2.81,
+        1.75,
+        8.03,
+        31.83
+      ],
+      "pos_folds": 4,
+      "imp_folds": 1
+    },
+    {
+      "trigger": 1.0,
+      "label": "BE=1.00x",
+      "metrics": {
+        "trades": 41,
+        "pnl": 65.07,
+        "wr": 65.9,
+        "pf": 3.101,
+        "sharpe": 0.4212,
+        "avg": 1.59,
+        "stops": 9,
+        "be": 0,
+        "tgt": 1,
+        "eod": 31
+      },
+      "fold_pnls": [
+        2.81,
+        1.75,
+        8.03,
+        33.02
+      ],
+      "pos_folds": 4,
+      "imp_folds": 1
+    },
+    {
+      "trigger": 1.25,
+      "label": "BE=1.25x",
+      "metrics": {
+        "trades": 41,
+        "pnl": 63.96,
+        "wr": 68.3,
+        "pf": 2.98,
+        "sharpe": 0.4092,
+        "avg": 1.56,
+        "stops": 7,
+        "be": 0,
+        "tgt": 1,
+        "eod": 33
+      },
+      "fold_pnls": [
+        2.81,
+        1.75,
+        7.18,
+        33.02
+      ],
+      "pos_folds": 4,
+      "imp_folds": 0
+    },
+    {
+      "trigger": 1.5,
+      "label": "BE=1.50x",
+      "metrics": {
+        "trades": 41,
+        "pnl": 64.91,
+        "wr": 70.7,
+        "pf": 3.064,
+        "sharpe": 0.4166,
+        "avg": 1.58,
+        "stops": 6,
+        "be": 0,
+        "tgt": 1,
+        "eod": 34
+      },
+      "fold_pnls": [
+        3.76,
+        1.75,
+        7.18,
+        33.02
+      ],
+      "pos_folds": 4,
+      "imp_folds": 1
+    },
+    {
+      "trigger": 2.0,
+      "label": "BE=2.00x",
+      "metrics": {
+        "trades": 41,
+        "pnl": 63.42,
+        "wr": 70.7,
+        "pf": 2.926,
+        "sharpe": 0.4042,
+        "avg": 1.55,
+        "stops": 4,
+        "be": 0,
+        "tgt": 1,
+        "eod": 36
+      },
+      "fold_pnls": [
+        3.09,
+        1.75,
+        7.18,
+        33.02
+      ],
+      "pos_folds": 4,
+      "imp_folds": 0
+    }
+  ]
+}

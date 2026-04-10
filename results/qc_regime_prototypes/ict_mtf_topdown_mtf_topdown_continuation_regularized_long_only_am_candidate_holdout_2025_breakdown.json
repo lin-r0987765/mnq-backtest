@@ -1,0 +1,120 @@
+{
+  "analysis": "ict_mtf_topdown_holdout_breakdown",
+  "profile": "mtf_topdown_continuation_regularized_long_only_am_candidate",
+  "holdout_year": 2025,
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\regularized\\QQQ\\qqq_1m_regular_et.csv",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\regularized\\SPY\\spy_1m_regular_et.csv",
+  "data_window": {
+    "start": "2025-01-02 09:30:00-05:00",
+    "end": "2025-12-31 15:58:00-05:00",
+    "trading_days": 250
+  },
+  "rows_primary": 96902,
+  "rows_peer_matched": 96899,
+  "metrics": {
+    "total_return_pct": -0.3161,
+    "sharpe_ratio": -0.233,
+    "sortino_ratio": -0.0231,
+    "calmar_ratio": 0.4496,
+    "max_drawdown_pct": -0.7031,
+    "win_rate_pct": 50.0,
+    "total_trades": 2,
+    "profit_factor": 0.0364,
+    "avg_trade_pct": -0.158
+  },
+  "trade_count": 2,
+  "by_entry_hour_et": [
+    {
+      "entry_hour_et": "11.0",
+      "trades": 1,
+      "pnl_sum": 0.8243,
+      "avg_pnl": 0.8243,
+      "win_rate_pct": 100.0,
+      "avg_bars_held": 274.0
+    },
+    {
+      "entry_hour_et": "10.0",
+      "trades": 1,
+      "pnl_sum": -22.6709,
+      "avg_pnl": -22.6709,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 291.0
+    }
+  ],
+  "by_entry_weekday_et": [
+    {
+      "entry_weekday_et": "Monday",
+      "trades": 1,
+      "pnl_sum": 0.8243,
+      "avg_pnl": 0.8243,
+      "win_rate_pct": 100.0,
+      "avg_bars_held": 274.0
+    },
+    {
+      "entry_weekday_et": "Wednesday",
+      "trades": 1,
+      "pnl_sum": -22.6709,
+      "avg_pnl": -22.6709,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 291.0
+    }
+  ],
+  "by_entry_month": [
+    {
+      "entry_month": "2025-12",
+      "trades": 1,
+      "pnl_sum": 0.8243,
+      "avg_pnl": 0.8243,
+      "win_rate_pct": 100.0,
+      "avg_bars_held": 274.0
+    },
+    {
+      "entry_month": "2025-07",
+      "trades": 1,
+      "pnl_sum": -22.6709,
+      "avg_pnl": -22.6709,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 291.0
+    }
+  ],
+  "top_winners": [
+    {
+      "side": "long",
+      "entry_time": "2025-12-01T11:25:00-05:00",
+      "exit_time": "2025-12-01T15:59:00-05:00",
+      "entry_hour_et": 11,
+      "entry_weekday_et": "Monday",
+      "pnl": 0.8243,
+      "bars_held": 274.0
+    },
+    {
+      "side": "long",
+      "entry_time": "2025-07-30T10:06:00-04:00",
+      "exit_time": "2025-07-30T14:57:00-04:00",
+      "entry_hour_et": 10,
+      "entry_weekday_et": "Wednesday",
+      "pnl": -22.6709,
+      "bars_held": 291.0
+    }
+  ],
+  "top_losers": [
+    {
+      "side": "long",
+      "entry_time": "2025-07-30T10:06:00-04:00",
+      "exit_time": "2025-07-30T14:57:00-04:00",
+      "entry_hour_et": 10,
+      "entry_weekday_et": "Wednesday",
+      "pnl": -22.6709,
+      "bars_held": 291.0
+    },
+    {
+      "side": "long",
+      "entry_time": "2025-12-01T11:25:00-05:00",
+      "exit_time": "2025-12-01T15:59:00-05:00",
+      "entry_hour_et": 11,
+      "entry_weekday_et": "Monday",
+      "pnl": 0.8243,
+      "bars_held": 274.0
+    }
+  ]
+}

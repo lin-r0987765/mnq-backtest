@@ -1,0 +1,62 @@
+{
+  "analysis": "ict_continuation_lane_compare",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "active_lite_reversal_frontier": {
+    "metrics": {
+      "total_return_pct": 0.3529,
+      "sharpe_ratio": 2.1338,
+      "sortino_ratio": 3.4169,
+      "calmar_ratio": 3.6906,
+      "max_drawdown_pct": -0.0956,
+      "win_rate_pct": 72.2222,
+      "total_trades": 18,
+      "profit_factor": 4.6792,
+      "avg_trade_pct": 0.0196
+    },
+    "metadata": {
+      "fvg_entries": 13,
+      "ob_entries": 4,
+      "breaker_entries": 1,
+      "bullish_sweeps": 622,
+      "bearish_sweeps": 414,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22
+    }
+  },
+  "continuation_proxy_lane": {
+    "metrics": {
+      "total_return_pct": -6.3814,
+      "sharpe_ratio": -7.0401,
+      "sortino_ratio": -9.5634,
+      "calmar_ratio": 0.9993,
+      "max_drawdown_pct": -6.3857,
+      "win_rate_pct": 33.3106,
+      "total_trades": 1465,
+      "profit_factor": 0.6524,
+      "avg_trade_pct": -0.0044
+    },
+    "metadata": {
+      "bullish_continuation_candidates": 3238,
+      "bearish_continuation_candidates": 2586,
+      "bullish_continuation_setups": 1703,
+      "bearish_continuation_setups": 1479,
+      "bullish_retest_candidates": 1002,
+      "bearish_retest_candidates": 860,
+      "fvg_delay_filtered_retests": 527,
+      "fvg_depth_filtered_retests": 2703,
+      "fvg_entries": 1465,
+      "long_entries": 792,
+      "short_entries": 673
+    }
+  },
+  "trade_delta_vs_reversal": 1447,
+  "return_delta_vs_reversal_pct": -6.7343,
+  "verdict": "CONTINUATION_LANE_REJECTED",
+  "interpretation": "The continuation proxy does not currently justify a promotion-ready branch versus the active lite reversal frontier."
+}

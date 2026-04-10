@@ -1,0 +1,314 @@
+{
+  "analysis": "ict_mtf_topdown_calibration",
+  "profile": "mtf_topdown_continuation_execution_candidate",
+  "study": "setup",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_1m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_1m_alpaca.csv",
+  "period": "2020-07-27 09:32:00-04:00 -> 2026-04-08 15:59:00-04:00",
+  "peer_fetch_period": null,
+  "data_window": {
+    "start": "2020-07-27 09:32:00-04:00",
+    "end": "2026-04-08 15:59:00-04:00",
+    "trading_days": 1431
+  },
+  "rows_primary": 508107,
+  "rows_peer": 545463,
+  "matched_peer_bars": 500503,
+  "variants": {
+    "baseline": {
+      "label": "baseline",
+      "overrides": {},
+      "metrics": {
+        "total_return_pct": 7.3798,
+        "sharpe_ratio": 0.3622,
+        "sortino_ratio": 0.0463,
+        "calmar_ratio": 4.5671,
+        "max_drawdown_pct": -1.6159,
+        "win_rate_pct": 59.6154,
+        "total_trades": 52,
+        "profit_factor": 2.6817,
+        "avg_trade_pct": 0.1419
+      },
+      "metadata": {
+        "mtf_daily_blocked": 543,
+        "mtf_4h_blocked": 663,
+        "mtf_1h_blocked": 336,
+        "mtf_15m_setups": 253,
+        "mtf_5m_confirms": 107,
+        "mtf_1m_triggers": 52,
+        "mtf_setup_missing_zone": 174,
+        "mtf_setup_score_filtered": 13,
+        "mtf_setup_expired": 98,
+        "mtf_confirm_expired": 45,
+        "rr_filtered_entries": 0,
+        "long_entries": 29,
+        "short_entries": 23
+      }
+    },
+    "setup_lookback_6": {
+      "label": "setup_lookback_6",
+      "overrides": {
+        "mtf_setup_structure_lookback": 6
+      },
+      "metrics": {
+        "total_return_pct": 6.2497,
+        "sharpe_ratio": 0.3538,
+        "sortino_ratio": 0.0426,
+        "calmar_ratio": 3.1215,
+        "max_drawdown_pct": -2.0021,
+        "win_rate_pct": 54.717,
+        "total_trades": 53,
+        "profit_factor": 2.254,
+        "avg_trade_pct": 0.1179
+      },
+      "metadata": {
+        "mtf_daily_blocked": 549,
+        "mtf_4h_blocked": 617,
+        "mtf_1h_blocked": 293,
+        "mtf_15m_setups": 234,
+        "mtf_5m_confirms": 99,
+        "mtf_1m_triggers": 53,
+        "mtf_setup_missing_zone": 204,
+        "mtf_setup_score_filtered": 16,
+        "mtf_setup_expired": 101,
+        "mtf_confirm_expired": 33,
+        "rr_filtered_entries": 0,
+        "long_entries": 28,
+        "short_entries": 25
+      }
+    },
+    "setup_lookback_12": {
+      "label": "setup_lookback_12",
+      "overrides": {
+        "mtf_setup_structure_lookback": 12
+      },
+      "metrics": {
+        "total_return_pct": -2.1836,
+        "sharpe_ratio": -0.1258,
+        "sortino_ratio": -0.0138,
+        "calmar_ratio": 0.6928,
+        "max_drawdown_pct": -3.1519,
+        "win_rate_pct": 46.9388,
+        "total_trades": 49,
+        "profit_factor": 1.0263,
+        "avg_trade_pct": -0.0446
+      },
+      "metadata": {
+        "mtf_daily_blocked": 571,
+        "mtf_4h_blocked": 663,
+        "mtf_1h_blocked": 400,
+        "mtf_15m_setups": 262,
+        "mtf_5m_confirms": 103,
+        "mtf_1m_triggers": 49,
+        "mtf_setup_missing_zone": 140,
+        "mtf_setup_score_filtered": 16,
+        "mtf_setup_expired": 108,
+        "mtf_confirm_expired": 44,
+        "rr_filtered_entries": 0,
+        "long_entries": 32,
+        "short_entries": 17
+      }
+    },
+    "setup_gap_0004": {
+      "label": "setup_gap_0004",
+      "overrides": {
+        "mtf_setup_fvg_min_gap_pct": 0.0004
+      },
+      "metrics": {
+        "total_return_pct": 6.2098,
+        "sharpe_ratio": 0.3081,
+        "sortino_ratio": 0.0388,
+        "calmar_ratio": 3.2751,
+        "max_drawdown_pct": -1.8961,
+        "win_rate_pct": 58.4906,
+        "total_trades": 53,
+        "profit_factor": 2.4361,
+        "avg_trade_pct": 0.1172
+      },
+      "metadata": {
+        "mtf_daily_blocked": 543,
+        "mtf_4h_blocked": 663,
+        "mtf_1h_blocked": 336,
+        "mtf_15m_setups": 257,
+        "mtf_5m_confirms": 106,
+        "mtf_1m_triggers": 53,
+        "mtf_setup_missing_zone": 169,
+        "mtf_setup_score_filtered": 14,
+        "mtf_setup_expired": 104,
+        "mtf_confirm_expired": 42,
+        "rr_filtered_entries": 0,
+        "long_entries": 30,
+        "short_entries": 23
+      }
+    },
+    "setup_gap_0008": {
+      "label": "setup_gap_0008",
+      "overrides": {
+        "mtf_setup_fvg_min_gap_pct": 0.0008
+      },
+      "metrics": {
+        "total_return_pct": 7.7524,
+        "sharpe_ratio": 0.3792,
+        "sortino_ratio": 0.0495,
+        "calmar_ratio": 4.9518,
+        "max_drawdown_pct": -1.5656,
+        "win_rate_pct": 62.7451,
+        "total_trades": 51,
+        "profit_factor": 2.793,
+        "avg_trade_pct": 0.152
+      },
+      "metadata": {
+        "mtf_daily_blocked": 543,
+        "mtf_4h_blocked": 663,
+        "mtf_1h_blocked": 336,
+        "mtf_15m_setups": 242,
+        "mtf_5m_confirms": 104,
+        "mtf_1m_triggers": 51,
+        "mtf_setup_missing_zone": 182,
+        "mtf_setup_score_filtered": 16,
+        "mtf_setup_expired": 94,
+        "mtf_confirm_expired": 43,
+        "rr_filtered_entries": 0,
+        "long_entries": 29,
+        "short_entries": 22
+      }
+    },
+    "setup_body_030": {
+      "label": "setup_body_030",
+      "overrides": {
+        "mtf_setup_displacement_body_min_pct": 0.3
+      },
+      "metrics": {
+        "total_return_pct": 8.4234,
+        "sharpe_ratio": 0.3934,
+        "sortino_ratio": 0.0542,
+        "calmar_ratio": 5.213,
+        "max_drawdown_pct": -1.6159,
+        "win_rate_pct": 60.7143,
+        "total_trades": 56,
+        "profit_factor": 2.8193,
+        "avg_trade_pct": 0.1504
+      },
+      "metadata": {
+        "mtf_daily_blocked": 571,
+        "mtf_4h_blocked": 693,
+        "mtf_1h_blocked": 347,
+        "mtf_15m_setups": 265,
+        "mtf_5m_confirms": 113,
+        "mtf_1m_triggers": 56,
+        "mtf_setup_missing_zone": 182,
+        "mtf_setup_score_filtered": 8,
+        "mtf_setup_expired": 98,
+        "mtf_confirm_expired": 46,
+        "rr_filtered_entries": 0,
+        "long_entries": 30,
+        "short_entries": 26
+      }
+    },
+    "setup_body_040": {
+      "label": "setup_body_040",
+      "overrides": {
+        "mtf_setup_displacement_body_min_pct": 0.4
+      },
+      "metrics": {
+        "total_return_pct": 6.7191,
+        "sharpe_ratio": 0.3357,
+        "sortino_ratio": 0.0411,
+        "calmar_ratio": 3.5558,
+        "max_drawdown_pct": -1.8896,
+        "win_rate_pct": 59.1837,
+        "total_trades": 49,
+        "profit_factor": 2.6756,
+        "avg_trade_pct": 0.1371
+      },
+      "metadata": {
+        "mtf_daily_blocked": 522,
+        "mtf_4h_blocked": 636,
+        "mtf_1h_blocked": 321,
+        "mtf_15m_setups": 232,
+        "mtf_5m_confirms": 95,
+        "mtf_1m_triggers": 49,
+        "mtf_setup_missing_zone": 164,
+        "mtf_setup_score_filtered": 19,
+        "mtf_setup_expired": 95,
+        "mtf_confirm_expired": 37,
+        "rr_filtered_entries": 0,
+        "long_entries": 27,
+        "short_entries": 22
+      }
+    }
+  },
+  "ranking": [
+    {
+      "label": "setup_body_030",
+      "total_trades": 56,
+      "total_return_pct": 8.4234,
+      "profit_factor": 2.8193,
+      "win_rate_pct": 60.7143,
+      "mtf_15m_setups": 265,
+      "mtf_5m_confirms": 113,
+      "mtf_1m_triggers": 56
+    },
+    {
+      "label": "setup_gap_0008",
+      "total_trades": 51,
+      "total_return_pct": 7.7524,
+      "profit_factor": 2.793,
+      "win_rate_pct": 62.7451,
+      "mtf_15m_setups": 242,
+      "mtf_5m_confirms": 104,
+      "mtf_1m_triggers": 51
+    },
+    {
+      "label": "baseline",
+      "total_trades": 52,
+      "total_return_pct": 7.3798,
+      "profit_factor": 2.6817,
+      "win_rate_pct": 59.6154,
+      "mtf_15m_setups": 253,
+      "mtf_5m_confirms": 107,
+      "mtf_1m_triggers": 52
+    },
+    {
+      "label": "setup_body_040",
+      "total_trades": 49,
+      "total_return_pct": 6.7191,
+      "profit_factor": 2.6756,
+      "win_rate_pct": 59.1837,
+      "mtf_15m_setups": 232,
+      "mtf_5m_confirms": 95,
+      "mtf_1m_triggers": 49
+    },
+    {
+      "label": "setup_lookback_6",
+      "total_trades": 53,
+      "total_return_pct": 6.2497,
+      "profit_factor": 2.254,
+      "win_rate_pct": 54.717,
+      "mtf_15m_setups": 234,
+      "mtf_5m_confirms": 99,
+      "mtf_1m_triggers": 53
+    },
+    {
+      "label": "setup_gap_0004",
+      "total_trades": 53,
+      "total_return_pct": 6.2098,
+      "profit_factor": 2.4361,
+      "win_rate_pct": 58.4906,
+      "mtf_15m_setups": 257,
+      "mtf_5m_confirms": 106,
+      "mtf_1m_triggers": 53
+    },
+    {
+      "label": "setup_lookback_12",
+      "total_trades": 49,
+      "total_return_pct": -2.1836,
+      "profit_factor": 1.0263,
+      "win_rate_pct": 46.9388,
+      "mtf_15m_setups": 262,
+      "mtf_5m_confirms": 103,
+      "mtf_1m_triggers": 49
+    }
+  ]
+}

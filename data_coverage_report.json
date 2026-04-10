@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-04-04T17:47:39.815902+00:00",
+  "target_years_default": 8.0,
+  "files": {
+    "qqq_5m.csv": {
+      "file": "qqq_5m.csv",
+      "interval": "5m",
+      "path": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\qqq_5m.csv",
+      "exists": true,
+      "rows": 4556,
+      "start_utc": "2026-01-07T14:35:00+00:00",
+      "end_utc": "2026-04-02T19:55:00+00:00",
+      "span_days": 85.222,
+      "span_years": 0.233,
+      "target_years": 8.0,
+      "meets_target": false,
+      "recommended_provider": "polygon",
+      "notes": "5m 長歷史建議改用可提供多年分鐘級資料的 provider。"
+    },
+    "qqq_1h.csv": {
+      "file": "qqq_1h.csv",
+      "interval": "1h",
+      "path": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\qqq_1h.csv",
+      "exists": true,
+      "rows": 5068,
+      "start_utc": "2023-05-05T14:30:00+00:00",
+      "end_utc": "2026-04-02T19:30:00+00:00",
+      "span_days": 1063.208,
+      "span_years": 2.911,
+      "target_years": 8.0,
+      "meets_target": false,
+      "recommended_provider": "polygon",
+      "notes": "1h 歷史可和 5m 一起由同一 provider 回補。"
+    },
+    "qqq_1d.csv": {
+      "file": "qqq_1d.csv",
+      "interval": "1d",
+      "path": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\qqq_1d.csv",
+      "exists": true,
+      "rows": 2262,
+      "start_utc": "2017-04-04T00:00:00+00:00",
+      "end_utc": "2026-04-02T00:00:00+00:00",
+      "span_days": 3285.0,
+      "span_years": 8.994,
+      "target_years": 8.0,
+      "meets_target": true,
+      "recommended_provider": "yfinance",
+      "notes": "日線通常可先用免費來源補足。"
+    }
+  },
+  "all_targets_met": false,
+  "missing_targets": [
+    "qqq_5m.csv",
+    "qqq_1h.csv"
+  ]
+}

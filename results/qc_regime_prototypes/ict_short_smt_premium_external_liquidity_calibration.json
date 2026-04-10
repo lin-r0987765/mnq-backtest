@@ -1,0 +1,364 @@
+{
+  "analysis": "ict_short_smt_premium_external_liquidity_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "premium_base": {
+      "params": {
+        "use_external_liquidity_filter": true,
+        "external_liquidity_lookback": 80,
+        "external_liquidity_tolerance": 0.001,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "use_premium_discount_filter": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "external_liquidity_filtered_sweeps": 47,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 278,
+        "bullish_sweeps": 155,
+        "bearish_sweeps": 123,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "external_default": {
+      "params": {
+        "use_external_liquidity_filter": true,
+        "external_liquidity_lookback": 80,
+        "external_liquidity_tolerance": 0.001,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "use_premium_discount_filter": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "external_liquidity_filtered_sweeps": 47,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 278,
+        "bullish_sweeps": 155,
+        "bearish_sweeps": 123,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "external_shorter_lookback_60": {
+      "params": {
+        "use_external_liquidity_filter": true,
+        "external_liquidity_lookback": 60,
+        "external_liquidity_tolerance": 0.001,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "use_premium_discount_filter": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "external_liquidity_filtered_sweeps": 19,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 297,
+        "bullish_sweeps": 167,
+        "bearish_sweeps": 130,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "external_longer_lookback_100": {
+      "params": {
+        "use_external_liquidity_filter": true,
+        "external_liquidity_lookback": 100,
+        "external_liquidity_tolerance": 0.001,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "use_premium_discount_filter": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "external_liquidity_filtered_sweeps": 54,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 275,
+        "bullish_sweeps": 154,
+        "bearish_sweeps": 121,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "external_tighter_tolerance_0p0008": {
+      "params": {
+        "use_external_liquidity_filter": true,
+        "external_liquidity_lookback": 80,
+        "external_liquidity_tolerance": 0.0008,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "use_premium_discount_filter": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "external_liquidity_filtered_sweeps": 47,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 278,
+        "bullish_sweeps": 155,
+        "bearish_sweeps": 123,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "external_looser_tolerance_0p0015": {
+      "params": {
+        "use_external_liquidity_filter": true,
+        "external_liquidity_lookback": 80,
+        "external_liquidity_tolerance": 0.0015,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "use_premium_discount_filter": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "external_liquidity_filtered_sweeps": 46,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 279,
+        "bullish_sweeps": 155,
+        "bearish_sweeps": 124,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "external_shorter_and_looser": {
+      "params": {
+        "use_external_liquidity_filter": true,
+        "external_liquidity_lookback": 60,
+        "external_liquidity_tolerance": 0.0015,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "use_premium_discount_filter": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "external_liquidity_filtered_sweeps": 16,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 299,
+        "bullish_sweeps": 169,
+        "bearish_sweeps": 130,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "premium_base",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "external_liquidity_filtered_sweeps": 47,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278,
+      "bullish_sweeps": 155,
+      "bearish_sweeps": 123
+    },
+    {
+      "label": "external_default",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "external_liquidity_filtered_sweeps": 47,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278,
+      "bullish_sweeps": 155,
+      "bearish_sweeps": 123
+    },
+    {
+      "label": "external_shorter_lookback_60",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "external_liquidity_filtered_sweeps": 19,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 297,
+      "bullish_sweeps": 167,
+      "bearish_sweeps": 130
+    },
+    {
+      "label": "external_longer_lookback_100",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "external_liquidity_filtered_sweeps": 54,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 275,
+      "bullish_sweeps": 154,
+      "bearish_sweeps": 121
+    },
+    {
+      "label": "external_tighter_tolerance_0p0008",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "external_liquidity_filtered_sweeps": 47,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278,
+      "bullish_sweeps": 155,
+      "bearish_sweeps": 123
+    },
+    {
+      "label": "external_looser_tolerance_0p0015",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "external_liquidity_filtered_sweeps": 46,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 279,
+      "bullish_sweeps": 155,
+      "bearish_sweeps": 124
+    },
+    {
+      "label": "external_shorter_and_looser",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "external_liquidity_filtered_sweeps": 16,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 299,
+      "bullish_sweeps": 169,
+      "bearish_sweeps": 130
+    }
+  ],
+  "best_variant": {
+    "label": "premium_base",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "external_liquidity_filtered_sweeps": 47,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 278,
+    "bullish_sweeps": 155,
+    "bearish_sweeps": 123
+  },
+  "best_non_base_variant": {
+    "label": "external_default",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "external_liquidity_filtered_sweeps": 47,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 278,
+    "bullish_sweeps": 155,
+    "bearish_sweeps": 123
+  },
+  "best_robust_external_variant": {
+    "label": "external_default",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "external_liquidity_filtered_sweeps": 47,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 278,
+    "bullish_sweeps": 155,
+    "bearish_sweeps": 123
+  },
+  "base_label": "premium_base",
+  "base_trades": 5,
+  "base_total_return_pct": 0.1375,
+  "robust_trade_floor": 3,
+  "verdict": "ROBUST_EXTERNAL_LIQUIDITY_SURVIVOR_BUT_NOT_FRONTIER",
+  "interpretation": "An external-liquidity geometry tweak survives on top of the short-SMT premium base without collapsing activity, but it does not beat the base itself. The next step should keep premium as the frontier and treat the tweak as a secondary optional branch."
+}

@@ -1,0 +1,227 @@
+{
+  "analysis": "ict_lite_reversal_balance_branch",
+  "profile": "qualified_reversal_balance_compare",
+  "risk_standard": {
+    "initial_cash_usd": 100000,
+    "capital_usage_pct": 1.0,
+    "minimum_order_shares": 40,
+    "reward_risk_floor": 1.5
+  },
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "active_lite_quality_base": {
+      "label": "active_lite_quality_base",
+      "params": {
+        "structure_lookback": 12,
+        "liq_sweep_threshold": 0.0006,
+        "slow_recovery_enabled": false,
+        "slow_recovery_bars": 0,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_revisit_min_delay_bars": 2,
+        "take_profit_rr": 4.0,
+        "enable_continuation_entry": false,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 13.8395,
+        "sharpe_ratio": 1.1819,
+        "sortino_ratio": 0.1714,
+        "calmar_ratio": 7.0073,
+        "max_drawdown_pct": -1.975,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 6.3079,
+        "avg_trade_pct": 0.7689
+      },
+      "metadata": {
+        "continuation_entries": 0,
+        "continuation_zone_refreshes": 0,
+        "slow_recovery_entries": 0,
+        "fast_recovery_entries": 18,
+        "fvg_delay_filtered_retests": 5,
+        "fvg_depth_filtered_retests": 22,
+        "bullish_entries": 0,
+        "bearish_entries": 0
+      }
+    },
+    "qualified_reversal_balance": {
+      "label": "qualified_reversal_balance",
+      "params": {
+        "structure_lookback": 12,
+        "liq_sweep_threshold": 0.0006,
+        "slow_recovery_enabled": true,
+        "slow_recovery_bars": 12,
+        "fvg_min_gap_pct": 0.0003,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_revisit_min_delay_bars": 4,
+        "take_profit_rr": 3.0,
+        "enable_continuation_entry": false,
+        "smt_threshold": 0.001
+      },
+      "metrics": {
+        "total_return_pct": 13.4177,
+        "sharpe_ratio": 1.0865,
+        "sortino_ratio": 0.2159,
+        "calmar_ratio": 5.9863,
+        "max_drawdown_pct": -2.2414,
+        "win_rate_pct": 60.0,
+        "total_trades": 40,
+        "profit_factor": 3.1879,
+        "avg_trade_pct": 0.3354
+      },
+      "metadata": {
+        "continuation_entries": 0,
+        "continuation_zone_refreshes": 0,
+        "slow_recovery_entries": 24,
+        "fast_recovery_entries": 16,
+        "fvg_delay_filtered_retests": 50,
+        "fvg_depth_filtered_retests": 31,
+        "bullish_entries": 0,
+        "bearish_entries": 0
+      }
+    },
+    "qualified_continuation_density": {
+      "label": "qualified_continuation_density",
+      "params": {
+        "structure_lookback": 8,
+        "liq_sweep_threshold": 0.0006,
+        "slow_recovery_enabled": true,
+        "slow_recovery_bars": 12,
+        "fvg_min_gap_pct": 0.0003,
+        "fvg_revisit_depth_ratio": 0.5,
+        "fvg_revisit_min_delay_bars": 4,
+        "take_profit_rr": 3.0,
+        "enable_continuation_entry": true,
+        "smt_threshold": 0.0013
+      },
+      "metrics": {
+        "total_return_pct": 11.8319,
+        "sharpe_ratio": 0.5883,
+        "sortino_ratio": 0.1576,
+        "calmar_ratio": 2.2209,
+        "max_drawdown_pct": -5.3275,
+        "win_rate_pct": 46.2366,
+        "total_trades": 93,
+        "profit_factor": 1.8131,
+        "avg_trade_pct": 0.1272
+      },
+      "metadata": {
+        "continuation_entries": 62,
+        "continuation_zone_refreshes": 162,
+        "slow_recovery_entries": 58,
+        "fast_recovery_entries": 35,
+        "fvg_delay_filtered_retests": 252,
+        "fvg_depth_filtered_retests": 41,
+        "bullish_entries": 0,
+        "bearish_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "active_lite_quality_base",
+      "total_trades": 18,
+      "total_return_pct": 13.8395,
+      "profit_factor": 6.3079,
+      "win_rate_pct": 72.2222,
+      "structure_lookback": 12,
+      "slow_recovery_bars": 0,
+      "fvg_min_gap_pct": 0.001,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_revisit_min_delay_bars": 2,
+      "take_profit_rr": 4.0,
+      "enable_continuation_entry": false,
+      "continuation_entries": 0,
+      "slow_recovery_entries": 0
+    },
+    {
+      "label": "qualified_reversal_balance",
+      "total_trades": 40,
+      "total_return_pct": 13.4177,
+      "profit_factor": 3.1879,
+      "win_rate_pct": 60.0,
+      "structure_lookback": 12,
+      "slow_recovery_bars": 12,
+      "fvg_min_gap_pct": 0.0003,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_revisit_min_delay_bars": 4,
+      "take_profit_rr": 3.0,
+      "enable_continuation_entry": false,
+      "continuation_entries": 0,
+      "slow_recovery_entries": 24
+    },
+    {
+      "label": "qualified_continuation_density",
+      "total_trades": 93,
+      "total_return_pct": 11.8319,
+      "profit_factor": 1.8131,
+      "win_rate_pct": 46.2366,
+      "structure_lookback": 8,
+      "slow_recovery_bars": 12,
+      "fvg_min_gap_pct": 0.0003,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_revisit_min_delay_bars": 4,
+      "take_profit_rr": 3.0,
+      "enable_continuation_entry": true,
+      "continuation_entries": 62,
+      "slow_recovery_entries": 58
+    }
+  ],
+  "quality_base": {
+    "label": "active_lite_quality_base",
+    "total_trades": 18,
+    "total_return_pct": 13.8395,
+    "profit_factor": 6.3079,
+    "win_rate_pct": 72.2222,
+    "structure_lookback": 12,
+    "slow_recovery_bars": 0,
+    "fvg_min_gap_pct": 0.001,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_revisit_min_delay_bars": 2,
+    "take_profit_rr": 4.0,
+    "enable_continuation_entry": false,
+    "continuation_entries": 0,
+    "slow_recovery_entries": 0
+  },
+  "qualified_reversal_balance": {
+    "label": "qualified_reversal_balance",
+    "total_trades": 40,
+    "total_return_pct": 13.4177,
+    "profit_factor": 3.1879,
+    "win_rate_pct": 60.0,
+    "structure_lookback": 12,
+    "slow_recovery_bars": 12,
+    "fvg_min_gap_pct": 0.0003,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_revisit_min_delay_bars": 4,
+    "take_profit_rr": 3.0,
+    "enable_continuation_entry": false,
+    "continuation_entries": 0,
+    "slow_recovery_entries": 24
+  },
+  "qualified_continuation_density": {
+    "label": "qualified_continuation_density",
+    "total_trades": 93,
+    "total_return_pct": 11.8319,
+    "profit_factor": 1.8131,
+    "win_rate_pct": 46.2366,
+    "structure_lookback": 8,
+    "slow_recovery_bars": 12,
+    "fvg_min_gap_pct": 0.0003,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_revisit_min_delay_bars": 4,
+    "take_profit_rr": 3.0,
+    "enable_continuation_entry": true,
+    "continuation_entries": 62,
+    "slow_recovery_entries": 58
+  },
+  "verdict": "QUALIFIED_REVERSAL_BALANCE_BRANCH_IDENTIFIED",
+  "interpretation": "A pure reversal-FVG branch materially improves trade count over the sparse quality lane while keeping much stronger return quality than the denser continuation lane."
+}

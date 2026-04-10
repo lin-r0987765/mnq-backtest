@@ -1,0 +1,365 @@
+{
+  "analysis": "ict_short_smt_premium_macro_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "premium_base": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_macro_timing_windows": false,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "macro_windows": [
+          [
+            9,
+            50,
+            10,
+            10
+          ],
+          [
+            10,
+            50,
+            11,
+            10
+          ]
+        ]
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "macro_timing_filtered_sweeps": 0,
+        "smt_confirmed_sweeps": 278,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "macro_default": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_macro_timing_windows": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "macro_windows": [
+          [
+            9,
+            50,
+            10,
+            10
+          ],
+          [
+            10,
+            50,
+            11,
+            10
+          ]
+        ]
+      },
+      "metrics": {
+        "total_return_pct": 0.0382,
+        "sharpe_ratio": 1.0514,
+        "sortino_ratio": 1.7779,
+        "calmar_ratio": 2.0995,
+        "max_drawdown_pct": -0.0182,
+        "win_rate_pct": 100.0,
+        "total_trades": 1,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0382
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "macro_timing_filtered_sweeps": 208,
+        "smt_confirmed_sweeps": 75,
+        "fvg_entries": 1,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "macro_first_window_only": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_macro_timing_windows": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "macro_windows": [
+          [
+            9,
+            50,
+            10,
+            10
+          ]
+        ]
+      },
+      "metrics": {
+        "total_return_pct": 0.0382,
+        "sharpe_ratio": 1.0514,
+        "sortino_ratio": 1.7779,
+        "calmar_ratio": 2.0995,
+        "max_drawdown_pct": -0.0182,
+        "win_rate_pct": 100.0,
+        "total_trades": 1,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0382
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "macro_timing_filtered_sweeps": 224,
+        "smt_confirmed_sweeps": 60,
+        "fvg_entries": 1,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "macro_second_window_only": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_macro_timing_windows": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "macro_windows": [
+          [
+            10,
+            50,
+            11,
+            10
+          ]
+        ]
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "macro_timing_filtered_sweeps": 270,
+        "smt_confirmed_sweeps": 15,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "macro_broader_windows": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_macro_timing_windows": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "macro_windows": [
+          [
+            9,
+            45,
+            10,
+            15
+          ],
+          [
+            10,
+            45,
+            11,
+            15
+          ]
+        ]
+      },
+      "metrics": {
+        "total_return_pct": 0.0482,
+        "sharpe_ratio": 0.9663,
+        "sortino_ratio": 1.5394,
+        "calmar_ratio": 1.6187,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 2,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0241
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "macro_timing_filtered_sweeps": 190,
+        "smt_confirmed_sweeps": 92,
+        "fvg_entries": 2,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "macro_early_shifted": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_macro_timing_windows": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "macro_windows": [
+          [
+            9,
+            40,
+            10,
+            0
+          ],
+          [
+            10,
+            40,
+            11,
+            0
+          ]
+        ]
+      },
+      "metrics": {
+        "total_return_pct": 0.0493,
+        "sharpe_ratio": 0.6848,
+        "sortino_ratio": 1.0359,
+        "calmar_ratio": 0.9127,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 3,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0164
+      },
+      "metadata": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "macro_timing_filtered_sweeps": 214,
+        "smt_confirmed_sweeps": 68,
+        "fvg_entries": 3,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "premium_base",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "macro_timing_filtered_sweeps": 0,
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278
+    },
+    {
+      "label": "macro_early_shifted",
+      "total_trades": 3,
+      "total_return_pct": 0.0493,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.6,
+      "macro_timing_filtered_sweeps": 214,
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 68
+    },
+    {
+      "label": "macro_broader_windows",
+      "total_trades": 2,
+      "total_return_pct": 0.0482,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.4,
+      "macro_timing_filtered_sweeps": 190,
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 92
+    },
+    {
+      "label": "macro_default",
+      "total_trades": 1,
+      "total_return_pct": 0.0382,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.2,
+      "macro_timing_filtered_sweeps": 208,
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 75
+    },
+    {
+      "label": "macro_first_window_only",
+      "total_trades": 1,
+      "total_return_pct": 0.0382,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.2,
+      "macro_timing_filtered_sweeps": 224,
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 60
+    },
+    {
+      "label": "macro_second_window_only",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "macro_timing_filtered_sweeps": 270,
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 15
+    }
+  ],
+  "best_variant": {
+    "label": "premium_base",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "macro_timing_filtered_sweeps": 0,
+    "daily_bias_filtered_setups": 0,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 278
+  },
+  "best_non_base_variant": {
+    "label": "macro_early_shifted",
+    "total_trades": 3,
+    "total_return_pct": 0.0493,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 0.6,
+    "macro_timing_filtered_sweeps": 214,
+    "daily_bias_filtered_setups": 0,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 68
+  },
+  "best_robust_macro_variant": {
+    "label": "macro_early_shifted",
+    "total_trades": 3,
+    "total_return_pct": 0.0493,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 0.6,
+    "macro_timing_filtered_sweeps": 214,
+    "daily_bias_filtered_setups": 0,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 68
+  },
+  "base_label": "premium_base",
+  "base_trades": 5,
+  "base_total_return_pct": 0.1375,
+  "robust_trade_floor": 3,
+  "verdict": "ROBUST_MACRO_SURVIVOR_BUT_NOT_FRONTIER",
+  "interpretation": "A macro timing calibration survives on top of the short-SMT premium base without collapsing activity, but it does not beat the base itself. The next step should keep premium as the frontier and treat macro timing as a secondary optional branch."
+}

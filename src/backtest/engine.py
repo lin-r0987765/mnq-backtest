@@ -47,6 +47,17 @@ class BacktestEngine:
         Round-trip commission as fraction of notional (default 0.0005 = 0.05%).
     size : float
         Number of contracts / shares per trade (default 1).
+    position_size_mode : str
+        `fixed` or `capital_pct`. Fixed uses a constant share count. Capital mode
+        sizes each entry from current cash and a capital-usage fraction.
+    fixed_shares : int | None
+        Optional explicit fixed share count. When omitted, the legacy `size`
+        parameter remains the fixed-size fallback.
+    capital_usage_pct : float
+        Fraction of available cash to allocate when `position_size_mode =
+        capital_pct`.
+    min_shares : int
+        Minimum order size enforced in capital-based sizing mode.
     """
 
     def __init__(
@@ -54,10 +65,18 @@ class BacktestEngine:
         initial_cash: float = 100_000.0,
         fees_pct: float = 0.0005,
         size: float = 1.0,
+        position_size_mode: str = "fixed",
+        fixed_shares: int | None = None,
+        capital_usage_pct: float = 1.0,
+        min_shares: int = 0,
     ):
         self.initial_cash = initial_cash
         self.fees_pct = fees_pct
         self.size = size
+        self.position_size_mode = str(position_size_mode)
+        self.fixed_shares = fixed_shares
+        self.capital_usage_pct = float(capital_usage_pct)
+        self.min_shares = int(min_shares)
 
     # ------------------------------------------------------------------
     def run(self, strategy: BaseStrategy, df: pd.DataFrame) -> BacktestResult:
@@ -66,10 +85,34 @@ class BacktestEngine:
         """
         signals: StrategyResult = strategy.generate_signals(df)
 
-        if _HAS_VBT:
+        if _HAS_VBT and self._can_use_vectorbt():
             return self._run_vbt(strategy, df, signals)
         else:
             return self._run_manual(strategy, df, signals)
+
+    def _can_use_vectorbt(self) -> bool:
+        return (
+            self.position_size_mode == "fixed"
+            and self.fixed_shares is None
+            and self.min_shares <= 0
+            and abs(self.capital_usage_pct - 1.0) < 1e-12
+        )
+
+    def _resolve_trade_size(self, cash: float, price: float) -> float:
+        if price <= 0:
+            return 0.0
+        if self.position_size_mode == "capital_pct":
+            max_affordable = int(np.floor(cash / price))
+            target_shares = int(np.floor((cash * self.capital_usage_pct) / price))
+            if max_affordable <= 0:
+                return 0.0
+            if self.min_shares > 0 and max_affordable < self.min_shares:
+                return 0.0
+            resolved = max(target_shares, self.min_shares) if self.min_shares > 0 else target_shares
+            return float(min(max_affordable, resolved))
+        if self.fixed_shares is not None:
+            return float(max(int(self.fixed_shares), 0))
+        return float(self.size)
 
     # ------------------------------------------------------------------
     # vectorbt path
@@ -199,6 +242,11 @@ class BacktestEngine:
         cash = self.initial_cash
         position = 0.0   # +size = long, −size = short
         entry_price = 0.0
+        entry_time: pd.Timestamp | None = None
+        entry_index: int | None = None
+        entry_fee_paid = 0.0
+        entry_stop = np.nan
+        entry_target = np.nan
         equity = np.full(n, self.initial_cash)
 
         el = signals.entries_long.values.astype(bool)
@@ -212,7 +260,7 @@ class BacktestEngine:
 
         for i in range(n):
             price = close[i]
-            fee = price * self.size * self.fees_pct
+            timestamp = pd.Timestamp(df.index[i])
 
             # Check stops first
             if position > 0:
@@ -224,10 +272,34 @@ class BacktestEngine:
                 elif xl[i]:
                     triggered = True
                 if triggered:
-                    pnl = (price - entry_price) * self.size - fee
+                    exit_fee = price * abs(position) * self.fees_pct
+                    pnl = (price - entry_price) * position - exit_fee
                     cash += pnl
-                    trades.append({"side": "long", "entry": entry_price, "exit": price, "pnl": pnl})
+                    trades.append(
+                        {
+                            "side": "long",
+                            "entry": entry_price,
+                            "exit": price,
+                            "pnl": pnl,
+                            "shares": float(position),
+                            "entry_time": str(entry_time) if entry_time is not None else None,
+                            "exit_time": str(timestamp),
+                            "entry_index": entry_index,
+                            "exit_index": i,
+                            "bars_held": (i - entry_index) if entry_index is not None else None,
+                            "entry_fee": float(entry_fee_paid),
+                            "exit_fee": float(exit_fee),
+                            "total_fee": float(entry_fee_paid + exit_fee),
+                            "entry_stop": None if np.isnan(entry_stop) else float(entry_stop),
+                            "entry_target": None if np.isnan(entry_target) else float(entry_target),
+                        }
+                    )
                     position = 0.0
+                    entry_time = None
+                    entry_index = None
+                    entry_fee_paid = 0.0
+                    entry_stop = np.nan
+                    entry_target = np.nan
 
             elif position < 0:
                 triggered = False
@@ -238,21 +310,63 @@ class BacktestEngine:
                 elif xs[i]:
                     triggered = True
                 if triggered:
-                    pnl = (entry_price - price) * self.size - fee
+                    exit_fee = price * abs(position) * self.fees_pct
+                    pnl = (entry_price - price) * abs(position) - exit_fee
                     cash += pnl
-                    trades.append({"side": "short", "entry": entry_price, "exit": price, "pnl": pnl})
+                    trades.append(
+                        {
+                            "side": "short",
+                            "entry": entry_price,
+                            "exit": price,
+                            "pnl": pnl,
+                            "shares": float(abs(position)),
+                            "entry_time": str(entry_time) if entry_time is not None else None,
+                            "exit_time": str(timestamp),
+                            "entry_index": entry_index,
+                            "exit_index": i,
+                            "bars_held": (i - entry_index) if entry_index is not None else None,
+                            "entry_fee": float(entry_fee_paid),
+                            "exit_fee": float(exit_fee),
+                            "total_fee": float(entry_fee_paid + exit_fee),
+                            "entry_stop": None if np.isnan(entry_stop) else float(entry_stop),
+                            "entry_target": None if np.isnan(entry_target) else float(entry_target),
+                        }
+                    )
                     position = 0.0
+                    entry_time = None
+                    entry_index = None
+                    entry_fee_paid = 0.0
+                    entry_stop = np.nan
+                    entry_target = np.nan
 
             # New entries
             if position == 0:
                 if el[i]:
+                    resolved_size = self._resolve_trade_size(cash, price)
+                    if resolved_size <= 0:
+                        equity[i] = cash
+                        continue
                     entry_price = price
-                    position = self.size
-                    cash -= fee
+                    position = resolved_size
+                    entry_time = timestamp
+                    entry_index = i
+                    entry_fee_paid = price * resolved_size * self.fees_pct
+                    entry_stop = sl[i]
+                    entry_target = tp[i]
+                    cash -= entry_fee_paid
                 elif es[i]:
+                    resolved_size = self._resolve_trade_size(cash, price)
+                    if resolved_size <= 0:
+                        equity[i] = cash
+                        continue
                     entry_price = price
-                    position = -self.size
-                    cash -= fee
+                    position = -resolved_size
+                    entry_time = timestamp
+                    entry_index = i
+                    entry_fee_paid = price * resolved_size * self.fees_pct
+                    entry_stop = sl[i]
+                    entry_target = tp[i]
+                    cash -= entry_fee_paid
 
             # Mark-to-market equity
             if position > 0:
@@ -261,6 +375,41 @@ class BacktestEngine:
                 equity[i] = cash + abs(position) * (entry_price - price)
             else:
                 equity[i] = cash
+
+        if position != 0.0 and n > 0:
+            final_price = close[-1]
+            final_timestamp = pd.Timestamp(df.index[-1])
+            exit_fee = final_price * abs(position) * self.fees_pct
+            if position > 0:
+                pnl = (final_price - entry_price) * position - exit_fee
+                side = "long"
+                shares = float(position)
+            else:
+                pnl = (entry_price - final_price) * abs(position) - exit_fee
+                side = "short"
+                shares = float(abs(position))
+            cash += pnl
+            trades.append(
+                {
+                    "side": side,
+                    "entry": entry_price,
+                    "exit": final_price,
+                    "pnl": pnl,
+                    "shares": shares,
+                    "entry_time": str(entry_time) if entry_time is not None else None,
+                    "exit_time": str(final_timestamp),
+                    "entry_index": entry_index,
+                    "exit_index": n - 1,
+                    "bars_held": (n - 1 - entry_index) if entry_index is not None else None,
+                    "entry_fee": float(entry_fee_paid),
+                    "exit_fee": float(exit_fee),
+                    "total_fee": float(entry_fee_paid + exit_fee),
+                    "entry_stop": None if np.isnan(entry_stop) else float(entry_stop),
+                    "entry_target": None if np.isnan(entry_target) else float(entry_target),
+                }
+            )
+            equity[-1] = cash
+            position = 0.0
 
         equity_series = pd.Series(equity, index=df.index)
         metrics = _compute_metrics(equity_series, trades)

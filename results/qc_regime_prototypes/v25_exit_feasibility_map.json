@@ -1,0 +1,152 @@
+{
+  "research_scope": "v25_exit_feasibility_map",
+  "analysis_version": "v1_post_v25_exit_feasibility",
+  "baseline_version": "v25-timegated-be",
+  "branches": [
+    {
+      "branch": "persistent_profit_lock",
+      "research_scope": "local_orb_v25_profit_lock",
+      "analysis_version": "v1_v25_profit_lock_persistent_after_gate",
+      "best_positive": {
+        "label": "profit_lock=1.00x_after_1.50x",
+        "profit_lock_trigger": 1.5,
+        "profit_lock_level": 1.0,
+        "pnl": 69.9741,
+        "pnl_delta": 5.8873,
+        "profit_factor": 3.3473,
+        "win_rate_pct": 75.61,
+        "improved_folds": 1,
+        "positive_test_folds": 4,
+        "saved_losses": 2,
+        "clipped_winners": 2,
+        "net_path_impact": 5.8872,
+        "profit_lock_stop_exits": 5,
+        "profit_lock_activated_count": 10
+      },
+      "best_zero_clip_positive": {
+        "label": "profit_lock=0.25x_after_1.50x",
+        "profit_lock_trigger": 1.5,
+        "profit_lock_level": 0.25,
+        "pnl": 66.3115,
+        "pnl_delta": 2.2247,
+        "profit_factor": 3.2071,
+        "win_rate_pct": 70.73,
+        "improved_folds": 1,
+        "positive_test_folds": 4,
+        "saved_losses": 2,
+        "clipped_winners": 0,
+        "net_path_impact": 2.2246,
+        "profit_lock_stop_exits": 2,
+        "profit_lock_activated_count": 10
+      },
+      "best_balanced": null,
+      "best_positive_improved_folds": 1,
+      "best_zero_clip_improved_folds": 1,
+      "best_local_total_delta": 5.8873,
+      "best_zero_clip_delta": 2.2247,
+      "verdict": "LOCAL_NEAR_MISS"
+    },
+    {
+      "branch": "late_peak_giveback",
+      "research_scope": "local_orb_v25_peak_giveback",
+      "analysis_version": "v1_v25_late_peak_giveback_guard",
+      "best_positive": {
+        "label": "peak_cap=1.00x_after_1.50x_from_240m",
+        "giveback_start_min": 240,
+        "peak_trigger_mult": 1.5,
+        "giveback_cap_mult": 1.0,
+        "pnl": 67.1635,
+        "pnl_delta": 3.0767,
+        "profit_factor": 3.1989,
+        "win_rate_pct": 73.17,
+        "improved_folds": 0,
+        "positive_test_folds": 4,
+        "saved_losses": 1,
+        "clipped_winners": 2,
+        "net_path_impact": 3.0767,
+        "peak_giveback_stop_exits": 4,
+        "peak_guard_armed_count": 10
+      },
+      "best_zero_clip_positive": {
+        "label": "peak_cap=1.00x_after_2.00x_from_180m",
+        "giveback_start_min": 180,
+        "peak_trigger_mult": 2.0,
+        "giveback_cap_mult": 1.0,
+        "pnl": 66.0678,
+        "pnl_delta": 1.981,
+        "profit_factor": 3.0474,
+        "win_rate_pct": 70.73,
+        "improved_folds": 0,
+        "positive_test_folds": 4,
+        "saved_losses": 0,
+        "clipped_winners": 0,
+        "net_path_impact": 1.981,
+        "peak_giveback_stop_exits": 1,
+        "peak_guard_armed_count": 5
+      },
+      "best_balanced": null,
+      "best_positive_improved_folds": 0,
+      "best_zero_clip_improved_folds": 0,
+      "best_local_total_delta": 3.0767,
+      "best_zero_clip_delta": 1.981,
+      "verdict": "LOCAL_REJECTED"
+    },
+    {
+      "branch": "partial_scaleout",
+      "research_scope": "local_orb_v25_partial_scaleout",
+      "analysis_version": "v1_v25_single_scaleout",
+      "best_positive": {
+        "label": "scaleout_0.50_at_1.50x",
+        "scaleout_trigger": 1.5,
+        "scaleout_fraction": 0.5,
+        "pnl": 65.7199,
+        "pnl_delta": 1.6331,
+        "profit_factor": 3.2046,
+        "win_rate_pct": 75.61,
+        "improved_folds": 1,
+        "positive_test_folds": 4,
+        "saved_losses": 2,
+        "clipped_winners": 7,
+        "net_path_impact": 1.633,
+        "scaleout_activated_count": 14
+      },
+      "best_zero_clip_positive": null,
+      "best_balanced": null,
+      "best_positive_improved_folds": 1,
+      "best_zero_clip_improved_folds": null,
+      "best_local_total_delta": 1.6331,
+      "best_zero_clip_delta": null,
+      "verdict": "LOCAL_NEAR_MISS"
+    }
+  ],
+  "frontier": {
+    "strongest_local_total_signal": {
+      "branch": "persistent_profit_lock",
+      "label": "profit_lock=1.00x_after_1.50x",
+      "pnl_delta": 5.8873,
+      "improved_folds": 1
+    },
+    "strongest_zero_clip_signal": {
+      "branch": "persistent_profit_lock",
+      "label": "profit_lock=0.25x_after_1.50x",
+      "pnl_delta": 2.2247,
+      "improved_folds": 1
+    },
+    "strongest_fold_support": {
+      "branch": "persistent_profit_lock",
+      "best_positive_improved_folds": 1,
+      "best_zero_clip_improved_folds": 1
+    }
+  },
+  "structural_conclusion": {
+    "local_proxy_trade_count": 41,
+    "core_observation": "Post-v25 exit branches can still produce small full-sample uplifts locally, but none of the first three materially new branches improved even 2/4 walk-forward folds.",
+    "interpretation": "The bottleneck now looks less like 'we have not tried enough threshold grids' and more like 'the remaining residual edge is too subtle for the current short local path sample'.",
+    "recommended_research_posture": "Do not launch any local-only post-v25 exit candidate yet. If iteration continues, either gather stronger path-level evidence or build a QC-native evaluator for the next materially new branch.",
+    "do_not_repeat": [
+      "naive persistent profit-lock thresholds",
+      "naive late peak-giveback caps",
+      "another local-only threshold grid with the same evidence weakness"
+    ]
+  }
+}

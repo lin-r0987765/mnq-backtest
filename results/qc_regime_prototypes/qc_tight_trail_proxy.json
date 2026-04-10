@@ -1,0 +1,405 @@
+{
+  "research_scope": "qc_tight_trail_proxy",
+  "analysis_version": "v1_incremental_proxy_vs_1p3_trail",
+  "source_file": "QuantConnect results\\2017-2026\\Energetic Brown Alpaca_trades.csv",
+  "baseline_trail_pct": 0.013,
+  "tight_trails": [
+    0.007,
+    0.008,
+    0.01
+  ],
+  "time_gates": [
+    120,
+    180,
+    240
+  ],
+  "rows": [
+    {
+      "tight_trail_pct": 0.007,
+      "time_gate_min": 120,
+      "incremental_delta": 1968.73,
+      "saved_losses": 28,
+      "clipped_winners": 0,
+      "improved_other": 0,
+      "affected_trades": 29,
+      "positive_years": 7,
+      "negative_years": 0,
+      "min_year_delta": 0.0,
+      "year_deltas": {
+        "2017": 0.0,
+        "2018": 192.98,
+        "2019": 0.0,
+        "2020": 569.2,
+        "2021": 159.81,
+        "2022": 384.17,
+        "2023": 407.95,
+        "2024": 99.92,
+        "2025": 154.7
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 325.2,
+          "p25": 326.18,
+          "p50": 328.53,
+          "p75": 330.77,
+          "p90": 333.43
+        },
+        "tight_pct": {
+          "p10": 175.11,
+          "p25": 175.64,
+          "p50": 176.9,
+          "p75": 178.11,
+          "p90": 179.54
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.007,
+      "time_gate_min": 180,
+      "incremental_delta": 2501.15,
+      "saved_losses": 35,
+      "clipped_winners": 0,
+      "improved_other": 0,
+      "affected_trades": 36,
+      "positive_years": 8,
+      "negative_years": 0,
+      "min_year_delta": 0.0,
+      "year_deltas": {
+        "2017": 11.1,
+        "2018": 209.68,
+        "2019": 0.0,
+        "2020": 769.18,
+        "2021": 159.81,
+        "2022": 688.82,
+        "2023": 407.95,
+        "2024": 99.92,
+        "2025": 154.7
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 324.77,
+          "p25": 326.03,
+          "p50": 328.46,
+          "p75": 330.99,
+          "p90": 335.19
+        },
+        "tight_pct": {
+          "p10": 174.87,
+          "p25": 175.55,
+          "p50": 176.87,
+          "p75": 178.22,
+          "p90": 180.49
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.007,
+      "time_gate_min": 240,
+      "incremental_delta": 2937.56,
+      "saved_losses": 44,
+      "clipped_winners": 2,
+      "improved_other": 0,
+      "affected_trades": 47,
+      "positive_years": 8,
+      "negative_years": 0,
+      "min_year_delta": 0.0,
+      "year_deltas": {
+        "2017": 17.71,
+        "2018": 34.53,
+        "2019": 0.0,
+        "2020": 864.12,
+        "2021": 159.81,
+        "2022": 1079.96,
+        "2023": 429.94,
+        "2024": 99.92,
+        "2025": 251.59
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 324.46,
+          "p25": 325.84,
+          "p50": 328.51,
+          "p75": 331.23,
+          "p90": 335.35
+        },
+        "tight_pct": {
+          "p10": 174.71,
+          "p25": 175.45,
+          "p50": 176.89,
+          "p75": 178.35,
+          "p90": 180.58
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.008,
+      "time_gate_min": 120,
+      "incremental_delta": 1355.99,
+      "saved_losses": 19,
+      "clipped_winners": 0,
+      "improved_other": 0,
+      "affected_trades": 21,
+      "positive_years": 7,
+      "negative_years": 0,
+      "min_year_delta": 0.0,
+      "year_deltas": {
+        "2017": 0.0,
+        "2018": 123.19,
+        "2019": 0.0,
+        "2020": 458.49,
+        "2021": 73.87,
+        "2022": 259.17,
+        "2023": 269.9,
+        "2024": 42.47,
+        "2025": 128.92
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 325.2,
+          "p25": 326.18,
+          "p50": 328.53,
+          "p75": 330.77,
+          "p90": 333.43
+        },
+        "tight_pct": {
+          "p10": 200.12,
+          "p25": 200.73,
+          "p50": 202.17,
+          "p75": 203.55,
+          "p90": 205.18
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.008,
+      "time_gate_min": 180,
+      "incremental_delta": 1739.62,
+      "saved_losses": 23,
+      "clipped_winners": 0,
+      "improved_other": 0,
+      "affected_trades": 26,
+      "positive_years": 7,
+      "negative_years": 0,
+      "min_year_delta": 0.0,
+      "year_deltas": {
+        "2017": 0.0,
+        "2018": 114.99,
+        "2019": 0.0,
+        "2020": 596.44,
+        "2021": 73.87,
+        "2022": 513.04,
+        "2023": 269.9,
+        "2024": 42.47,
+        "2025": 128.92
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 324.77,
+          "p25": 326.03,
+          "p50": 328.46,
+          "p75": 330.99,
+          "p90": 335.19
+        },
+        "tight_pct": {
+          "p10": 199.86,
+          "p25": 200.63,
+          "p50": 202.13,
+          "p75": 203.68,
+          "p90": 206.27
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.008,
+      "time_gate_min": 240,
+      "incremental_delta": 1931.8,
+      "saved_losses": 29,
+      "clipped_winners": 2,
+      "improved_other": 0,
+      "affected_trades": 34,
+      "positive_years": 6,
+      "negative_years": 1,
+      "min_year_delta": -85.19,
+      "year_deltas": {
+        "2017": 0.0,
+        "2018": -85.19,
+        "2019": 0.0,
+        "2020": 654.87,
+        "2021": 73.87,
+        "2022": 827.73,
+        "2023": 240.99,
+        "2024": 42.47,
+        "2025": 177.06
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 324.46,
+          "p25": 325.84,
+          "p50": 328.51,
+          "p75": 331.23,
+          "p90": 335.35
+        },
+        "tight_pct": {
+          "p10": 199.67,
+          "p25": 200.52,
+          "p50": 202.16,
+          "p75": 203.83,
+          "p90": 206.37
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.01,
+      "time_gate_min": 120,
+      "incremental_delta": 653.14,
+      "saved_losses": 11,
+      "clipped_winners": 0,
+      "improved_other": 0,
+      "affected_trades": 11,
+      "positive_years": 6,
+      "negative_years": 0,
+      "min_year_delta": 0.0,
+      "year_deltas": {
+        "2017": 0.0,
+        "2018": 36.91,
+        "2019": 0.0,
+        "2020": 256.58,
+        "2021": 21.14,
+        "2022": 108.59,
+        "2023": 152.58,
+        "2024": 0.0,
+        "2025": 77.35
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 325.2,
+          "p25": 326.18,
+          "p50": 328.53,
+          "p75": 330.77,
+          "p90": 333.43
+        },
+        "tight_pct": {
+          "p10": 250.15,
+          "p25": 250.91,
+          "p50": 252.72,
+          "p75": 254.44,
+          "p90": 256.48
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.01,
+      "time_gate_min": 180,
+      "incremental_delta": 880.63,
+      "saved_losses": 14,
+      "clipped_winners": 0,
+      "improved_other": 0,
+      "affected_trades": 14,
+      "positive_years": 6,
+      "negative_years": 0,
+      "min_year_delta": 0.0,
+      "year_deltas": {
+        "2017": 0.0,
+        "2018": 36.91,
+        "2019": 0.0,
+        "2020": 331.74,
+        "2021": 21.14,
+        "2022": 260.91,
+        "2023": 152.58,
+        "2024": 0.0,
+        "2025": 77.35
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 324.77,
+          "p25": 326.03,
+          "p50": 328.46,
+          "p75": 330.99,
+          "p90": 335.19
+        },
+        "tight_pct": {
+          "p10": 249.82,
+          "p25": 250.79,
+          "p50": 252.67,
+          "p75": 254.61,
+          "p90": 257.84
+        }
+      }
+    },
+    {
+      "tight_trail_pct": 0.01,
+      "time_gate_min": 240,
+      "incremental_delta": 800.32,
+      "saved_losses": 18,
+      "clipped_winners": 1,
+      "improved_other": 0,
+      "affected_trades": 19,
+      "positive_years": 5,
+      "negative_years": 1,
+      "min_year_delta": -213.31,
+      "year_deltas": {
+        "2017": 0.0,
+        "2018": -213.31,
+        "2019": 0.0,
+        "2020": 339.85,
+        "2021": 21.14,
+        "2022": 422.71,
+        "2023": 152.58,
+        "2024": 0.0,
+        "2025": 77.35
+      },
+      "threshold_distribution_dollars": {
+        "baseline_1p3_pct": {
+          "p10": 324.46,
+          "p25": 325.84,
+          "p50": 328.51,
+          "p75": 331.23,
+          "p90": 335.35
+        },
+        "tight_pct": {
+          "p10": 249.58,
+          "p25": 250.65,
+          "p50": 252.7,
+          "p75": 254.79,
+          "p90": 257.96
+        }
+      }
+    }
+  ],
+  "candidate_summary": {
+    "best_overall": {
+      "tight_trail_pct": 0.007,
+      "time_gate_min": 180,
+      "incremental_delta": 2501.15,
+      "saved_losses": 35,
+      "clipped_winners": 0,
+      "affected_trades": 36,
+      "positive_years": 8,
+      "negative_years": 0,
+      "min_year_delta": 0.0
+    },
+    "best_180min_candidate": {
+      "tight_trail_pct": 0.007,
+      "time_gate_min": 180,
+      "incremental_delta": 2501.15,
+      "saved_losses": 35,
+      "clipped_winners": 0,
+      "affected_trades": 36,
+      "positive_years": 8,
+      "negative_years": 0,
+      "min_year_delta": 0.0
+    },
+    "best_zero_clip_positive": {
+      "tight_trail_pct": 0.007,
+      "time_gate_min": 180,
+      "incremental_delta": 2501.15,
+      "saved_losses": 35,
+      "clipped_winners": 0,
+      "affected_trades": 36,
+      "positive_years": 8,
+      "negative_years": 0,
+      "min_year_delta": 0.0
+    },
+    "interpretation": "This is a trade-level proxy for replacing the baseline 1.3% trailing stop with a tighter early trailing stop. If the same 0.7%_180min lane that won locally also wins here with zero clipping, the tight-trail thread becomes materially stronger."
+  }
+}

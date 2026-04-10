@@ -1,0 +1,230 @@
+{
+  "analysis": "ict_lite_pending_capacity",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "lite_frontier_base": {
+      "params": {
+        "max_pending_setups_per_direction": 1,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4353,
+        "sharpe_ratio": 2.4866,
+        "sortino_ratio": 3.992,
+        "calmar_ratio": 4.5516,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.0247,
+        "avg_trade_pct": 0.0242
+      },
+      "metadata": {
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_retest_candidates": 7,
+        "bearish_retest_candidates": 13,
+        "sweep_blocked_by_existing_pending": 122,
+        "sweep_expired_before_shift": 1000,
+        "armed_setup_expired_before_retest": 18
+      }
+    },
+    "pending_cap_2": {
+      "params": {
+        "max_pending_setups_per_direction": 2,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4353,
+        "sharpe_ratio": 2.4866,
+        "sortino_ratio": 3.992,
+        "calmar_ratio": 4.5516,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.0247,
+        "avg_trade_pct": 0.0242
+      },
+      "metadata": {
+        "bullish_sweeps": 697,
+        "bearish_sweeps": 449,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_retest_candidates": 7,
+        "bearish_retest_candidates": 13,
+        "sweep_blocked_by_existing_pending": 7,
+        "sweep_expired_before_shift": 1110,
+        "armed_setup_expired_before_retest": 18
+      }
+    },
+    "pending_cap_3": {
+      "params": {
+        "max_pending_setups_per_direction": 3,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4353,
+        "sharpe_ratio": 2.4866,
+        "sortino_ratio": 3.992,
+        "calmar_ratio": 4.5516,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.0247,
+        "avg_trade_pct": 0.0242
+      },
+      "metadata": {
+        "bullish_sweeps": 701,
+        "bearish_sweeps": 451,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_retest_candidates": 7,
+        "bearish_retest_candidates": 13,
+        "sweep_blocked_by_existing_pending": 0,
+        "sweep_expired_before_shift": 1116,
+        "armed_setup_expired_before_retest": 18
+      }
+    },
+    "pending_cap_4": {
+      "params": {
+        "max_pending_setups_per_direction": 4,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4353,
+        "sharpe_ratio": 2.4866,
+        "sortino_ratio": 3.992,
+        "calmar_ratio": 4.5516,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.0247,
+        "avg_trade_pct": 0.0242
+      },
+      "metadata": {
+        "bullish_sweeps": 701,
+        "bearish_sweeps": 451,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_retest_candidates": 7,
+        "bearish_retest_candidates": 13,
+        "sweep_blocked_by_existing_pending": 0,
+        "sweep_expired_before_shift": 1116,
+        "armed_setup_expired_before_retest": 18
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "lite_frontier_base",
+      "max_pending_setups_per_direction": 1,
+      "total_trades": 18,
+      "total_return_pct": 0.4353,
+      "profit_factor": 5.0247,
+      "trade_gain_vs_base": 0,
+      "bullish_sweeps": 622,
+      "bearish_sweeps": 414,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22,
+      "bullish_retest_candidates": 7,
+      "bearish_retest_candidates": 13,
+      "sweep_blocked_by_existing_pending": 122,
+      "sweep_expired_before_shift": 1000,
+      "armed_setup_expired_before_retest": 18
+    },
+    {
+      "label": "pending_cap_2",
+      "max_pending_setups_per_direction": 2,
+      "total_trades": 18,
+      "total_return_pct": 0.4353,
+      "profit_factor": 5.0247,
+      "trade_gain_vs_base": 0,
+      "bullish_sweeps": 697,
+      "bearish_sweeps": 449,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22,
+      "bullish_retest_candidates": 7,
+      "bearish_retest_candidates": 13,
+      "sweep_blocked_by_existing_pending": 7,
+      "sweep_expired_before_shift": 1110,
+      "armed_setup_expired_before_retest": 18
+    },
+    {
+      "label": "pending_cap_3",
+      "max_pending_setups_per_direction": 3,
+      "total_trades": 18,
+      "total_return_pct": 0.4353,
+      "profit_factor": 5.0247,
+      "trade_gain_vs_base": 0,
+      "bullish_sweeps": 701,
+      "bearish_sweeps": 451,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22,
+      "bullish_retest_candidates": 7,
+      "bearish_retest_candidates": 13,
+      "sweep_blocked_by_existing_pending": 0,
+      "sweep_expired_before_shift": 1116,
+      "armed_setup_expired_before_retest": 18
+    },
+    {
+      "label": "pending_cap_4",
+      "max_pending_setups_per_direction": 4,
+      "total_trades": 18,
+      "total_return_pct": 0.4353,
+      "profit_factor": 5.0247,
+      "trade_gain_vs_base": 0,
+      "bullish_sweeps": 701,
+      "bearish_sweeps": 451,
+      "bullish_shifts": 14,
+      "bearish_shifts": 22,
+      "bullish_retest_candidates": 7,
+      "bearish_retest_candidates": 13,
+      "sweep_blocked_by_existing_pending": 0,
+      "sweep_expired_before_shift": 1116,
+      "armed_setup_expired_before_retest": 18
+    }
+  ],
+  "base_label": "lite_frontier_base",
+  "base_trades": 18,
+  "base_total_return_pct": 0.4353,
+  "best_non_base_variant": {
+    "label": "pending_cap_2",
+    "max_pending_setups_per_direction": 2,
+    "total_trades": 18,
+    "total_return_pct": 0.4353,
+    "profit_factor": 5.0247,
+    "trade_gain_vs_base": 0,
+    "bullish_sweeps": 697,
+    "bearish_sweeps": 449,
+    "bullish_shifts": 14,
+    "bearish_shifts": 22,
+    "bullish_retest_candidates": 7,
+    "bearish_retest_candidates": 13,
+    "sweep_blocked_by_existing_pending": 7,
+    "sweep_expired_before_shift": 1110,
+    "armed_setup_expired_before_retest": 18
+  },
+  "best_positive_density_variant": null,
+  "best_robust_variant": null,
+  "verdict": "LITE_PENDING_CAPACITY_PLATEAU_ON_ACTIVE_FRONTIER",
+  "interpretation": "Higher pending-capacity variants change setup lifecycle counts, but not the active lite frontier's realized trades or returns."
+}

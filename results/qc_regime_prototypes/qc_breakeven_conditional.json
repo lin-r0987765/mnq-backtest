@@ -1,0 +1,358 @@
+{
+  "research_scope": "qc_breakeven_conditional_analysis",
+  "source_file": "QuantConnect results\\2017-2026\\Energetic Brown Alpaca_trades.csv",
+  "anchor_mfe_threshold": 50,
+  "overall_baseline": {
+    "trades_total": 404,
+    "saving_count": 72,
+    "clipping_count": 42,
+    "salvage": 7964.07,
+    "harm": 2454.46,
+    "net": 5509.61
+  },
+  "duration_conditional": {
+    "<=60min": {
+      "count": 29,
+      "be_impact": {
+        "trades_total": 29,
+        "saving_count": 6,
+        "clipping_count": 0,
+        "salvage": 1198.55,
+        "harm": 0,
+        "net": 1198.55
+      }
+    },
+    ">60min": {
+      "count": 375,
+      "be_impact": {
+        "trades_total": 375,
+        "saving_count": 66,
+        "clipping_count": 42,
+        "salvage": 6765.52,
+        "harm": 2454.46,
+        "net": 4311.06
+      }
+    },
+    "<=120min": {
+      "count": 61,
+      "be_impact": {
+        "trades_total": 61,
+        "saving_count": 13,
+        "clipping_count": 0,
+        "salvage": 2262.73,
+        "harm": 0,
+        "net": 2262.73
+      }
+    },
+    ">120min": {
+      "count": 343,
+      "be_impact": {
+        "trades_total": 343,
+        "saving_count": 59,
+        "clipping_count": 42,
+        "salvage": 5701.34,
+        "harm": 2454.46,
+        "net": 3246.88
+      }
+    },
+    "<=180min": {
+      "count": 85,
+      "be_impact": {
+        "trades_total": 85,
+        "saving_count": 20,
+        "clipping_count": 0,
+        "salvage": 3075.59,
+        "harm": 0,
+        "net": 3075.59
+      }
+    },
+    ">180min": {
+      "count": 319,
+      "be_impact": {
+        "trades_total": 319,
+        "saving_count": 52,
+        "clipping_count": 42,
+        "salvage": 4888.48,
+        "harm": 2454.46,
+        "net": 2434.02
+      }
+    },
+    "<=240min": {
+      "count": 128,
+      "be_impact": {
+        "trades_total": 128,
+        "saving_count": 30,
+        "clipping_count": 3,
+        "salvage": 4437.39,
+        "harm": 155.95,
+        "net": 4281.44
+      }
+    },
+    ">240min": {
+      "count": 276,
+      "be_impact": {
+        "trades_total": 276,
+        "saving_count": 42,
+        "clipping_count": 39,
+        "salvage": 3526.68,
+        "harm": 2298.51,
+        "net": 1228.17
+      }
+    },
+    "<=300min": {
+      "count": 205,
+      "be_impact": {
+        "trades_total": 205,
+        "saving_count": 48,
+        "clipping_count": 10,
+        "salvage": 6394.34,
+        "harm": 645.31,
+        "net": 5749.03
+      }
+    },
+    ">300min": {
+      "count": 199,
+      "be_impact": {
+        "trades_total": 199,
+        "saving_count": 24,
+        "clipping_count": 32,
+        "salvage": 1569.73,
+        "harm": 1809.15,
+        "net": -239.42
+      }
+    }
+  },
+  "entry_hour_conditional": {
+    "early_<16UTC": {
+      "count": 360,
+      "be_impact": {
+        "trades_total": 360,
+        "saving_count": 69,
+        "clipping_count": 39,
+        "salvage": 7593.73,
+        "harm": 2172.93,
+        "net": 5420.8
+      }
+    },
+    "late_>=16UTC": {
+      "count": 44,
+      "be_impact": {
+        "trades_total": 44,
+        "saving_count": 3,
+        "clipping_count": 3,
+        "salvage": 370.34,
+        "harm": 281.53,
+        "net": 88.81
+      }
+    }
+  },
+  "hourly_breakdown": {
+    "hour_13": {
+      "count": 31,
+      "be_impact": {
+        "trades_total": 31,
+        "saving_count": 7,
+        "clipping_count": 1,
+        "salvage": 1030.71,
+        "harm": 50.2,
+        "net": 980.51
+      }
+    },
+    "hour_14": {
+      "count": 200,
+      "be_impact": {
+        "trades_total": 200,
+        "saving_count": 38,
+        "clipping_count": 22,
+        "salvage": 4473.55,
+        "harm": 1133.53,
+        "net": 3340.02
+      }
+    },
+    "hour_15": {
+      "count": 129,
+      "be_impact": {
+        "trades_total": 129,
+        "saving_count": 24,
+        "clipping_count": 16,
+        "salvage": 2089.47,
+        "harm": 989.2,
+        "net": 1100.27
+      }
+    },
+    "hour_16": {
+      "count": 44,
+      "be_impact": {
+        "trades_total": 44,
+        "saving_count": 3,
+        "clipping_count": 3,
+        "salvage": 370.34,
+        "harm": 281.53,
+        "net": 88.81
+      }
+    }
+  },
+  "direction_conditional": {
+    "long": {
+      "count": 404,
+      "be_impact": {
+        "trades_total": 404,
+        "saving_count": 72,
+        "clipping_count": 42,
+        "salvage": 7964.07,
+        "harm": 2454.46,
+        "net": 5509.61
+      }
+    },
+    "short": {
+      "count": 0,
+      "be_impact": {
+        "trades_total": 0,
+        "saving_count": 0,
+        "clipping_count": 0,
+        "salvage": 0,
+        "harm": 0,
+        "net": 0
+      }
+    }
+  },
+  "mfe_mae_asymmetry": {
+    "strong_directional_mfe>2mae": {
+      "count": 0,
+      "be_impact": {
+        "trades_total": 0,
+        "saving_count": 0,
+        "clipping_count": 0,
+        "salvage": 0,
+        "harm": 0,
+        "net": 0
+      }
+    },
+    "weak_directional": {
+      "count": 404,
+      "be_impact": {
+        "trades_total": 404,
+        "saving_count": 72,
+        "clipping_count": 42,
+        "salvage": 7964.07,
+        "harm": 2454.46,
+        "net": 5509.61
+      }
+    }
+  },
+  "year_stability": {
+    "2017": {
+      "count": 41,
+      "be_impact": {
+        "trades_total": 41,
+        "saving_count": 5,
+        "clipping_count": 0,
+        "salvage": 514.76,
+        "harm": 0,
+        "net": 514.76
+      }
+    },
+    "2018": {
+      "count": 44,
+      "be_impact": {
+        "trades_total": 44,
+        "saving_count": 7,
+        "clipping_count": 5,
+        "salvage": 645.31,
+        "harm": 374.92,
+        "net": 270.39
+      }
+    },
+    "2019": {
+      "count": 54,
+      "be_impact": {
+        "trades_total": 54,
+        "saving_count": 6,
+        "clipping_count": 8,
+        "salvage": 380.07,
+        "harm": 345.81,
+        "net": 34.26
+      }
+    },
+    "2020": {
+      "count": 54,
+      "be_impact": {
+        "trades_total": 54,
+        "saving_count": 16,
+        "clipping_count": 4,
+        "salvage": 1942.25,
+        "harm": 259.31,
+        "net": 1682.94
+      }
+    },
+    "2021": {
+      "count": 41,
+      "be_impact": {
+        "trades_total": 41,
+        "saving_count": 5,
+        "clipping_count": 3,
+        "salvage": 395.19,
+        "harm": 243.99,
+        "net": 151.2
+      }
+    },
+    "2022": {
+      "count": 30,
+      "be_impact": {
+        "trades_total": 30,
+        "saving_count": 10,
+        "clipping_count": 4,
+        "salvage": 1563.05,
+        "harm": 559.75,
+        "net": 1003.3
+      }
+    },
+    "2023": {
+      "count": 45,
+      "be_impact": {
+        "trades_total": 45,
+        "saving_count": 10,
+        "clipping_count": 8,
+        "salvage": 1420.08,
+        "harm": 412.29,
+        "net": 1007.79
+      }
+    },
+    "2024": {
+      "count": 53,
+      "be_impact": {
+        "trades_total": 53,
+        "saving_count": 7,
+        "clipping_count": 5,
+        "salvage": 649.77,
+        "harm": 155.69,
+        "net": 494.08
+      }
+    },
+    "2025": {
+      "count": 42,
+      "be_impact": {
+        "trades_total": 42,
+        "saving_count": 6,
+        "clipping_count": 5,
+        "salvage": 453.59,
+        "harm": 102.7,
+        "net": 350.89
+      }
+    }
+  },
+  "mfe_distribution": {
+    "p10": 15.35,
+    "p25": 35.43,
+    "p50": 84.17,
+    "p75": 156.12,
+    "p90": 232.45
+  },
+  "duration_distribution": {
+    "p10": 80.0,
+    "p25": 215.0,
+    "p50": 300.0,
+    "p75": 340.0,
+    "p90": 350.0
+  }
+}

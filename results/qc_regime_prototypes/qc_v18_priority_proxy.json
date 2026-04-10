@@ -1,0 +1,316 @@
+{
+  "research_scope": "qc_v18_priority_proxy",
+  "analysis_version": "v1_restored_baseline_priority_proxy",
+  "source_bundle": "Formal Sky Blue Gaur",
+  "source_trades_csv": "Formal Sky Blue Gaur_trades.csv",
+  "source_daily_csv": "qqq_1d.csv",
+  "baseline": {
+    "trades": 404,
+    "win_rate_pct": 54.21,
+    "profit_factor": 1.278,
+    "net_pnl": 5502.71,
+    "avg_trade_pnl": 13.62,
+    "positive_years": 8,
+    "negative_years": 1,
+    "year_net_pnl": {
+      "2017": -105.75,
+      "2018": 461.3,
+      "2019": 742.96,
+      "2020": 227.79,
+      "2021": 516.2,
+      "2022": 686.07,
+      "2023": 528.19,
+      "2024": 1489.33,
+      "2025": 956.62
+    },
+    "rolling_6m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 80.6,
+      "median_sharpe": 0.711,
+      "median_net_profit_pct": 0.265,
+      "median_profit_factor": 1.286
+    },
+    "rolling_12m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 90.7,
+      "median_sharpe": 0.598,
+      "median_net_profit_pct": 0.476,
+      "median_profit_factor": 1.243
+    }
+  },
+  "candidates": {
+    "mom4_positive": {
+      "label": "mom4_positive",
+      "priority_rank_before_qc_proxy": 1,
+      "kept": {
+        "trades": 357,
+        "win_rate_pct": 55.46,
+        "profit_factor": 1.353,
+        "net_pnl": 5811.15,
+        "avg_trade_pnl": 16.28,
+        "positive_years": 8,
+        "negative_years": 1,
+        "year_net_pnl": {
+          "2017": 254.76,
+          "2018": -26.1,
+          "2019": 723.64,
+          "2020": 608.18,
+          "2021": 130.55,
+          "2022": 17.23,
+          "2023": 893.57,
+          "2024": 1619.66,
+          "2025": 1589.66
+        },
+        "rolling_6m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 82.4,
+          "median_sharpe": 0.924,
+          "median_net_profit_pct": 0.326,
+          "median_profit_factor": 1.425
+        },
+        "rolling_12m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 82.4,
+          "median_sharpe": 0.725,
+          "median_net_profit_pct": 0.583,
+          "median_profit_factor": 1.31
+        }
+      },
+      "excluded": {
+        "trades": 47,
+        "win_rate_pct": 44.68,
+        "profit_factor": 0.907,
+        "net_pnl": -308.44,
+        "avg_trade_pnl": -6.56,
+        "positive_years": 4,
+        "negative_years": 5,
+        "year_net_pnl": {
+          "2017": -360.51,
+          "2018": 487.4,
+          "2019": 19.32,
+          "2020": -380.39,
+          "2021": 385.65,
+          "2022": 668.84,
+          "2023": -365.38,
+          "2024": -130.33,
+          "2025": -633.04
+        },
+        "rolling_6m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 38.9,
+          "median_sharpe": -0.783,
+          "median_net_profit_pct": -0.077,
+          "median_profit_factor": 0.223
+        },
+        "rolling_12m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 39.8,
+          "median_sharpe": -0.493,
+          "median_net_profit_pct": -0.145,
+          "median_profit_factor": 0.526
+        }
+      },
+      "local_context": {
+        "verdict": "LOCAL_RESEARCH_LEADER",
+        "kept_net_pnl": 87.2,
+        "excluded_net_pnl": -30.52,
+        "walkforward_delta_vs_baseline": 30.53,
+        "improved_vs_baseline_folds": 2,
+        "leave_one_month_out_all_positive": true
+      },
+      "delta_vs_baseline_net_pnl": 308.44,
+      "delta_vs_baseline_6m_positive_pct": 1.8,
+      "delta_vs_baseline_12m_positive_pct": -8.3,
+      "delta_vs_baseline_positive_years": 0,
+      "qc_verdict": "QC_PROXY_PROMISING",
+      "combined_verdict": "RESEARCH_CONTINUE"
+    },
+    "mom5_positive": {
+      "label": "mom5_positive",
+      "priority_rank_before_qc_proxy": 2,
+      "kept": {
+        "trades": 346,
+        "win_rate_pct": 54.91,
+        "profit_factor": 1.38,
+        "net_pnl": 5952.25,
+        "avg_trade_pnl": 17.2,
+        "positive_years": 9,
+        "negative_years": 0,
+        "year_net_pnl": {
+          "2017": 43.76,
+          "2018": 180.35,
+          "2019": 733.29,
+          "2020": 405.27,
+          "2021": 239.49,
+          "2022": 1440.84,
+          "2023": 410.32,
+          "2024": 1017.57,
+          "2025": 1481.36
+        },
+        "rolling_6m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 79.6,
+          "median_sharpe": 0.746,
+          "median_net_profit_pct": 0.271,
+          "median_profit_factor": 1.331
+        },
+        "rolling_12m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 94.4,
+          "median_sharpe": 0.67,
+          "median_net_profit_pct": 0.507,
+          "median_profit_factor": 1.296
+        }
+      },
+      "excluded": {
+        "trades": 58,
+        "win_rate_pct": 50.0,
+        "profit_factor": 0.89,
+        "net_pnl": -449.54,
+        "avg_trade_pnl": -7.75,
+        "positive_years": 5,
+        "negative_years": 4,
+        "year_net_pnl": {
+          "2017": -149.51,
+          "2018": 280.95,
+          "2019": 9.67,
+          "2020": -177.48,
+          "2021": 276.71,
+          "2022": -754.77,
+          "2023": 117.87,
+          "2024": 471.76,
+          "2025": -524.74
+        },
+        "rolling_6m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 50.0,
+          "median_sharpe": 0.022,
+          "median_net_profit_pct": 0.005,
+          "median_profit_factor": 0.658
+        },
+        "rolling_12m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 53.7,
+          "median_sharpe": 0.169,
+          "median_net_profit_pct": 0.01,
+          "median_profit_factor": 0.833
+        }
+      },
+      "local_context": {
+        "verdict": "LOCAL_RESEARCH_LEADER",
+        "kept_net_pnl": 75.3,
+        "excluded_net_pnl": -18.61,
+        "walkforward_delta_vs_baseline": 18.62,
+        "improved_vs_baseline_folds": 3,
+        "leave_one_month_out_all_positive": true
+      },
+      "delta_vs_baseline_net_pnl": 449.54,
+      "delta_vs_baseline_6m_positive_pct": -1.0,
+      "delta_vs_baseline_12m_positive_pct": 3.7,
+      "delta_vs_baseline_positive_years": 1,
+      "qc_verdict": "QC_PROXY_FRONT_RUNNER",
+      "combined_verdict": "READY_FOR_QC_CANDIDATE"
+    },
+    "close_above_sma8": {
+      "label": "close_above_sma8",
+      "priority_rank_before_qc_proxy": 3,
+      "kept": {
+        "trades": 371,
+        "win_rate_pct": 54.45,
+        "profit_factor": 1.332,
+        "net_pnl": 5673.75,
+        "avg_trade_pnl": 15.29,
+        "positive_years": 9,
+        "negative_years": 0,
+        "year_net_pnl": {
+          "2017": 71.31,
+          "2018": 69.65,
+          "2019": 733.29,
+          "2020": 433.62,
+          "2021": 436.79,
+          "2022": 501.73,
+          "2023": 474.35,
+          "2024": 1272.1,
+          "2025": 1680.91
+        },
+        "rolling_6m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 81.5,
+          "median_sharpe": 0.772,
+          "median_net_profit_pct": 0.287,
+          "median_profit_factor": 1.307
+        },
+        "rolling_12m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 88.0,
+          "median_sharpe": 0.6,
+          "median_net_profit_pct": 0.473,
+          "median_profit_factor": 1.272
+        }
+      },
+      "excluded": {
+        "trades": 33,
+        "win_rate_pct": 51.52,
+        "profit_factor": 0.937,
+        "net_pnl": -171.04,
+        "avg_trade_pnl": -5.18,
+        "positive_years": 6,
+        "negative_years": 3,
+        "year_net_pnl": {
+          "2017": -177.06,
+          "2018": 391.65,
+          "2019": 9.67,
+          "2020": -205.83,
+          "2021": 79.41,
+          "2022": 184.34,
+          "2023": 53.84,
+          "2024": 217.23,
+          "2025": -724.29
+        },
+        "rolling_6m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 44.4,
+          "median_sharpe": 0.0,
+          "median_net_profit_pct": 0.0,
+          "median_profit_factor": 0.059
+        },
+        "rolling_12m": {
+          "window_count": 108,
+          "positive_sharpe_pct": 51.9,
+          "median_sharpe": 0.127,
+          "median_net_profit_pct": 0.01,
+          "median_profit_factor": 0.692
+        }
+      },
+      "local_context": {
+        "verdict": "LOCAL_PROMISING",
+        "kept_net_pnl": 92.14,
+        "excluded_net_pnl": -35.46,
+        "walkforward_delta_vs_baseline": 35.46,
+        "improved_vs_baseline_folds": 1,
+        "leave_one_month_out_all_positive": true
+      },
+      "delta_vs_baseline_net_pnl": 171.04,
+      "delta_vs_baseline_6m_positive_pct": 0.9,
+      "delta_vs_baseline_12m_positive_pct": -2.7,
+      "delta_vs_baseline_positive_years": 1,
+      "qc_verdict": "QC_PROXY_PROMISING",
+      "combined_verdict": "RESEARCH_CONTINUE"
+    }
+  },
+  "candidate_summary": {
+    "best_overall": {
+      "label": "mom5_positive",
+      "priority_rank_before_qc_proxy": 2,
+      "kept_net_pnl": 5952.25,
+      "excluded_net_pnl": -449.54,
+      "delta_vs_baseline_net_pnl": 449.54,
+      "rolling_6m_positive_pct": 79.6,
+      "rolling_12m_positive_pct": 94.4,
+      "positive_years": 9,
+      "qc_verdict": "QC_PROXY_FRONT_RUNNER",
+      "combined_verdict": "READY_FOR_QC_CANDIDATE"
+    },
+    "interpretation": "This QC proxy pass uses restored accepted baseline trades and next-session daily alignment. It is the required bridge between local-only ranking and any new live QC candidate launch."
+  }
+}

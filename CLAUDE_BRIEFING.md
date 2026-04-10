@@ -1,94 +1,150 @@
-# CLAUDE_BRIEFING.md — ICT 交易系統狀態摘要
+﻿# CLAUDE_BRIEFING.md
 
-## 基本資訊
-- **迭代次數**: 24（分析型，無參數變更）
-- **最後更新**: 2026-04-05 00:27 UTC+8
-- **資料**: QQQ 5m, 4556 根 K 棒 (2026-01-07 ~ 2026-04-02)
-- **Buy & Hold**: -5.03%
-- **Engine Size**: 10
+## Snapshot
 
-## 最新績效指標
+- Iteration: `320`
+- Time: `2026-04-09 UTC+8`
+- Version: `3.50.233`
+- Engine: `ORB production + ICT development`
+- Mode: `RESEARCH`
+- Theme: `qualified continuation density depth refinement: keep 93 trades while improving return and PF again.`
 
-### ORB v18 (未變動)
-| 指標 | 值 | 備註 |
-|------|-----|------|
-| Return | +0.586% | 持平 |
-| Win Rate | 69.8% | 持平 |
-| Sharpe | 9.606 | 持平 |
-| Max DD | -0.142% | 持平 |
-| Trades | 43 | 持平 |
-| Profit Factor | 2.586 | 持平 |
-| Alpha vs B&H | +5.62% | 持平 |
+## What Changed This Round
 
-**最佳參數**: `orb_bars=4`, `profit_ratio=3.5`, `breakout_confirm_pct=0.0003`, `trailing_pct=1.5%`, `close_before_min=10`, `htf_filter=True`, `htf_mode=slope`, `htf_ema_fast=20`, `htf_ema_slow=30`, `skip_short_after_up_days=2`, `skip_long_after_up_days=3`
+- Refined the qualified continuation density helper by tightening the revisit depth from `0.5` to `0.35`
+- Replayed the high-density lane and improved it from `93 trades / +11.8319% / PF 1.8131` to `93 trades / +11.9309% / PF 1.8204`
+- Kept the `40 trades / +13.4177% / PF 3.1879` pure reversal branch as the middle-density reference
+- Synced the repo state forward to iteration 320
 
-### VWAP v22 (未變動)
-| 指標 | 值 | 備註 |
-|------|-----|------|
-| Return | +0.199% | 持平 |
-| Win Rate | 60.0% | 持平 |
-| Sharpe | 11.347 | 持平 |
-| Max DD | -0.035% | 持平 |
-| Trades | 10 | 持平 |
-| Profit Factor | 6.929 | 持平 |
-| Alpha vs B&H | +5.23% | 持平 |
+## Key Insight
 
-**最佳參數**: `k=1.5`, `sl_k_add=0.5`, `std_window=30`, `rsi_os=32`, `rsi_ob=66`, `max_trades_per_day=2`, `ema_trend_filter=True`, `ema_mode=ema_cross`, `dynamic_tp=True`, `tp_bonus_pct=0.2`, `bb_width_min=0.0005`, `entry_start_time=09:45`, `partial_tp=True`, `partial_tp_trail_pct=0.002`, `partial_tp_max_hold=32`, `sideways_ema_gap=0.0`, `vol_norm_mode=rolling`
+The strategic framing is unchanged: ORB is still the production baseline, while ICT is the approved path for a more radical architecture. The new insight this round is that the high-density lane can still be improved without loosening its trade count: revisit-depth refinement now lifts the `93-trade` branch to `+11.9309% / PF 1.8204`, while the `40-trade` pure reversal branch remains the cleaner middle-density alternative.
 
-## 雙策略組合分析 (size=10)
-| 配置 | Return | Sharpe | Sortino | MaxDD |
-|------|--------|--------|---------|-------|
-| ORB 50% / VWAP 50% | +0.393% | 5.292 | 5.792 | -0.071% |
-| ORB 60% / VWAP 40% | +0.432% | 4.978 | 5.412 | -0.086% |
-| **Active Reuse 80%** | **+0.636%** | **5.603** | **6.034** | -0.112% |
-| ATR Adaptive abs `t=0.017` | +0.476% | 5.221 | 5.353 | -0.100% |
+## Current Status
 
-## Out-of-Sample 驗證 (size=10, IS=40d, OOS=20d)
-| 策略 | IS Sharpe | OOS Sharpe | IS WR | OOS WR |
-|------|-----------|------------|-------|--------|
-| ORB | 5.674 | **14.607** | 68.0% | 70.6% |
-| VWAP | 11.728 | **10.585** | 50.0% | 75.0% |
-| Combined 50/50 | — | **7.358** | — | — |
-| **Active Reuse 80%** | — | **7.845** | — | — |
-| ATR Adaptive abs | — | **6.816** | — | — |
+Accepted baseline now is:
+- `v26-profit-lock`
 
-## Walk-Forward 驗證
-**配置**: 訓練窗口=20天, 測試窗口=10天, 步進=10天, 4 折
+Latest accepted rerun:
+- `Square Blue Termite`
 
-### VWAP Walk-Forward
-| Fold | 測試期間 | Return | Sharpe | WR | Trades | B&H |
-|------|---------|--------|--------|-----|--------|-----|
-| 1 | 02/05~02/19 | +0.015% | 2.306 | 50.0% | 2 | +0.378% |
-| 2 | 02/20~03/05 | +0.000% | 0.000 | 0.0% | 0 | +1.106% |
-| 3 | 03/06~03/19 | -0.012% | -2.751 | 0.0% | 1 | -1.310% |
-| 4 | 03/20~04/02 | +0.049% | 5.196 | 75.0% | 4 | -0.699% |
-| **平均** | — | **+0.013%** | **1.188** | **31.2%** | 7 | — |
+There is currently no active ORB candidate.
 
-### Combined Walk-Forward
-| Fold | ORB Sh | VWAP Sh | Combo Sh | Combo Ret | B&H |
-|------|--------|---------|----------|-----------|-----|
-| 1 | 0.132 | 2.306 | 1.536 | +0.035% | +0.378% |
-| 2 | 2.719 | 0.000 | 3.102 | +0.043% | +1.106% |
-| 3 | 1.811 | -2.751 | 2.008 | +0.041% | -1.310% |
-| 4 | 11.671 | 5.196 | 13.847 | +0.318% | -0.699% |
-| **平均** | **4.083** | **1.188** | **5.123** | **+0.109%** | — |
+There is currently no pending QC evaluator rerun.
 
-### 關鍵發現
-- WF 評級維持 **A（優秀）**，所有核心指標不變。
-- 第 24 輪測試 ORB `breakout_confirm=0.0004`，全樣本/OOS 改善但 WF fold 1 Sharpe 轉負（0.132→-0.065），回滾。
-- VWAP fold 2 零交易已確認為「正確的保守行為」。深度 bar-by-bar 追蹤顯示所有信號被 EMA filter 或 vol filter 合理阻擋，放開後全面惡化。
+Current ICT development baseline is:
+- `src/strategies/ict_entry_model.py`
 
-## 本次修改記錄 (迭代 #24 — 分析型)
-1. 深度 bar-by-bar 分析 VWAP fold 2 (02/20~03/05) 零交易的根因。
-2. 測試 ORB `breakout_confirm_pct=0.0004`（全樣本 Sh 9.606→9.676, WR 69.8→71.4%），因 WF fold 1 降級回滾。
-3. 測試 VWAP `vol_norm_mode=tod`, `vol_min_mult=0.3/0.2`, `vol_filter=False`, `ema_trend_filter=False`，全面惡化，確認現有 filter 組合為最優。
-4. 記錄完整失敗方向和 fold 2 診斷摘要至 AGENT_HANDOFF.md。
+Preferred local research lane remains:
+- [qqq_5m_alpaca.csv](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/alpaca/normalized/qqq_5m_alpaca.csv)
+- [qqq_1d_alpaca.csv](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/alpaca/normalized/qqq_1d_alpaca.csv)
+- [spy_5m_alpaca.csv](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/alpaca/normalized/spy_5m_alpaca.csv)
+- [spy_1d_alpaca.csv](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/alpaca/normalized/spy_1d_alpaca.csv)
 
-## 已知問題與下次方向
-1. **VWAP fold 2 已確認為「無機會」regime** — 不再嘗試修補，降優先級。
-2. **策略接近最佳化極限** — 所有常規參數方向已探索殆盡，Sharpe > 9/11。
-3. **下一輪建議方向**:
-   - 新增第三個互補策略（如 momentum 或 mean-reversion on higher timeframe）
-   - 擴大數據範圍（更多歷史數據或多標的）
-   - 改進組合層（如動態 rebalance、Kelly criterion sizing）
-   - VIX/realized vol 自適應 regime switching
+Preferred multi-file research lane still includes:
+- [v26_profit_lock_blueshift.py](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/blueshift/v26_profit_lock_blueshift.py)
+- [v26_orb_reentry_evaluator_blueshift.py](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/blueshift/v26_orb_reentry_evaluator_blueshift.py)
+- [orb_v26_runtime.py](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/blueshift/blueshift_library/orb_v26_runtime.py)
+
+QC promotion remains on the existing 10-year QuantConnect workflow only.
+ICT does not replace that rule.
+
+## User Next Step
+
+If iteration continues without a newer QC bundle, the repo should stay on:
+- [QQQ_ORB_WebIDE.py](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/lean/QQQ_ORB_DeepBacktest/QQQ_ORB_WebIDE.py)
+
+Do not launch directly from:
+- [Retrospective Red Orange Whale_logs.txt](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/QuantConnect%20results/2017-2026/Retrospective%20Red%20Orange%20Whale_logs.txt)
+- [Geeky Fluorescent Yellow Alligator.json](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/QuantConnect%20results/2017-2026/Geeky%20Fluorescent%20Yellow%20Alligator.json)
+
+The next correct step is:
+- keep repo baseline on [QQQ_ORB_WebIDE.py](C:/Users/LIN/Desktop/progamming/python/claude/mnq-backtest/lean/QQQ_ORB_DeepBacktest/QQQ_ORB_WebIDE.py)
+- stop spending the main iteration budget on nearby ORB mechanism layering
+- continue the ICT lane one deterministic feature at a time
+- keep the active lite frontier fixed at `18 trades / +0.4353% / PF 5.0247` as the clean quality reference
+- treat the new pure reversal-FVG balanced branch as the middle-density reference:
+  - `40 trades / +13.4177% / PF 3.1879`
+- keep the qualified continuation density branch as the high-density reference:
+  - `93 trades / +11.9309% / PF 1.8204`
+- treat the rolling quick-density branch as completed and rejected for promotion:
+  - `109 trades / -0.9467% / PF 0.4595`
+- treat the first swing-structure repair replay as partially restorative but still not promotion-ready:
+  - `swing_threshold = 2 -> 47 trades / -0.4325% / PF 0.4141`
+  - `swing_threshold = 3 -> 20 trades / -0.0865% / PF 0.6166`
+  - `swing_threshold = 4 -> 7 trades / -0.0375% / PF 0.4731`
+- treat longer recovery on top of the swing branch as rejected for now:
+  - `swing_3_recovery_15 -> 20 trades / -0.0865% / PF 0.6166`
+  - `swing_3_recovery_20 -> 25 trades / -0.1052% / PF 0.6016`
+  - `swing_3_recovery_30 -> 29 trades / -0.1321% / PF 0.5678`
+  - `swing_3_dual_12_30 -> 29 trades / -0.1321% / PF 0.5678`
+- keep prioritizing swing-based architecture work before returning to nearby rolling-structure parameter sweeps
+- treat context-filter counts as independent diagnostics now:
+  - the same rejected sweep can increment daily-bias, premium/discount, and other filter counters together
+- treat the lite baseline replay as standardized infrastructure now:
+  - `strict = 8 trades / +7.7249%`
+  - `lite = 14 trades / +10.6136%`
+  - `T07` has been removed from the implementation table
+- treat the strict baseline summary as standardized infrastructure now:
+  - `8 trades / +7.7249% / PF 0.0`
+  - `fvg_entries = 8`
+  - `accepted_sweeps = 273`
+  - `T01` has been removed from the implementation table
+- treat stale roadmap rows for `Phase 7`, `T00`, `T02`, and `T03` as cleaned backlog rather than active work
+- treat position-sizing compare as completed and remove it from the implementation table backlog
+- prioritize the lite-funnel choke points before opening any new continuation lane
+- treat the combined reversal + continuation lane as completed and rejected, and remove it from the implementation table backlog
+- treat `structure_8` as a density-only candidate and not a promoted helper
+- treat mild SMT relaxations (`0.0018 / 0.0020`) as plateau survivors and not as promoted helpers
+- treat revisit-depth recalibration as completed and remove it from the implementation table backlog
+- treat displacement-body recalibration as completed and remove it from the implementation table backlog
+- keep `kill-zone specialization`, `higher-timeframe daily bias`, `premium / discount context`, `breaker fallback`, `IFVG fallback`, `external-liquidity gating`, `SMT divergence gating`, `AMD / market-maker path gating`, `macro timing window gating`, `previous-session anchor gating`, and `session-specific dealing-array refinement` as implemented features, not yet ICT promotion events
+- prioritize the next ICT calibration steps in this order:
+  - preserve the robust survivor base:
+    - `previous-session anchor`
+    - `external liquidity`
+  - preserve the first robust extension:
+    - `session-array refinement`
+  - preserve the first robust geometry extension:
+    - `liq_sweep_threshold = 0.0008`
+  - preserve the slow-recovery extension on the stronger `NY-only` frontier:
+    - `liq_sweep_recovery_bars = 4`
+  - preserve the first robust structure extension on that stronger frontier:
+    - `structure_lookback = 12`
+  - preserve the latest robust FVG-geometry extension on that stronger frontier:
+    - `fvg_min_gap_pct = 0.0006`
+  - preserve the latest robust consequent-encroachment extension on that stronger frontier:
+    - `fvg_revisit_depth_ratio = 0.5`
+  - treat nearby CHOCH-score retries on the structure-aware frontier as plateaued
+  - treat nearby displacement-body retries on the structure-aware frontier as survivor-only
+  - treat nearby order-block lookback retests on the structure-aware frontier as survivor-only
+  - treat nearby OTE geometry and score retries on the structure-aware frontier as plateaued
+  - treat nearby breaker-block lookback retries on the structure-aware frontier as plateaued
+  - treat nearby IFVG lookback retries on the structure-aware frontier as plateaued
+  - treat nearby liquidity-sweep threshold retries on the structure-aware frontier as survivor-only
+  - treat nearby swing-threshold retries on the structure-aware frontier as plateaued
+  - treat nearby FVG max-age retries on the structure-aware frontier as survivor-only
+  - treat nearby FVG-gap retries on the structure-aware frontier as non-priority:
+    - `0.0008` preserves the old base
+    - `0.0012+` weakens the lane
+  - treat nearby order-block body-quality retests on the structure-aware frontier as survivor-only
+  - treat nearby liquidity-pool lookback retests on the structure-aware frontier as survivor-only
+  - treat nearby reclaim-strength retests on the slow-recovery `NY-only` frontier as survivor-only
+  - treat nearby score-threshold retests on the slow-recovery `NY-only` frontier as survivor-only
+  - preserve the first robust SMT extension:
+    - `smt_lookback = 10`
+  - preserve the first robust heavier-context survivor:
+    - `premium / discount`
+  - treat `macro timing` only as a secondary optional branch:
+    - `macro_early_shifted`
+  - treat `kill zones` only as a secondary optional branch:
+    - `kill_zones_broader`
+  - treat `AMD` only as a thin optional branch:
+    - `amd_short_and_soft`
+  - treat nearby external-liquidity geometry as plateaued
+  - treat nearby previous-session-anchor retries as plateaued
+  - treat nearby premium/discount retries as plateaued
+  - treat nearby session-array window retries on the slow-recovery `NY-only` frontier as survivor-only
+  - keep session-array refinement as part of the validated frontier
+  - treat `daily bias` as explicitly rejected on this premium-enabled base
+  - on

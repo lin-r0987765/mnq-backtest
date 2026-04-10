@@ -1,0 +1,65 @@
+{
+  "baseline_all": {
+    "trades": 405,
+    "win_rate_pct": 53.83,
+    "profit_factor": 1.287,
+    "net_pnl": 5639.43,
+    "avg_trade_pnl": 13.925,
+    "rolling_6m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 82.4,
+      "median_sharpe": 0.708,
+      "median_net_profit_pct": 0.25,
+      "median_profit_factor": 1.293
+    },
+    "rolling_12m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 91.7,
+      "median_sharpe": 0.607,
+      "median_net_profit_pct": 0.497,
+      "median_profit_factor": 1.247
+    }
+  },
+  "long_up_trendstrength_lowgap": {
+    "trades": 98,
+    "win_rate_pct": 58.16,
+    "profit_factor": 1.549,
+    "net_pnl": 1946.12,
+    "avg_trade_pnl": 19.858,
+    "rolling_6m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 59.3,
+      "median_sharpe": 0.285,
+      "median_net_profit_pct": 0.03,
+      "median_profit_factor": 1.156
+    },
+    "rolling_12m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 75.9,
+      "median_sharpe": 0.492,
+      "median_net_profit_pct": 0.126,
+      "median_profit_factor": 1.404
+    }
+  },
+  "long_up_trendstrength_up5d": {
+    "trades": 186,
+    "win_rate_pct": 58.06,
+    "profit_factor": 1.39,
+    "net_pnl": 2966.45,
+    "avg_trade_pnl": 15.949,
+    "rolling_6m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 66.7,
+      "median_sharpe": 0.463,
+      "median_net_profit_pct": 0.087,
+      "median_profit_factor": 1.246
+    },
+    "rolling_12m": {
+      "window_count": 108,
+      "positive_sharpe_pct": 72.2,
+      "median_sharpe": 0.662,
+      "median_net_profit_pct": 0.316,
+      "median_profit_factor": 1.384
+    }
+  }
+}

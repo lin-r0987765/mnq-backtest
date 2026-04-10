@@ -1,0 +1,223 @@
+{
+  "analysis": "ict_lite_frontier_displacement",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "lite_frontier_base": {
+      "params": {
+        "displacement_body_min_pct": 0.1,
+        "fvg_revisit_min_delay_bars": 2,
+        "fvg_revisit_depth_ratio": 0.5,
+        "liq_sweep_threshold": 0.0006
+      },
+      "metrics": {
+        "total_return_pct": 0.3529,
+        "sharpe_ratio": 2.1338,
+        "sortino_ratio": 3.4169,
+        "calmar_ratio": 3.6906,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 4.6792,
+        "avg_trade_pct": 0.0196
+      },
+      "metadata": {
+        "displacement_filtered_shifts": 2,
+        "fvg_entries": 13,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "displacement_0p00": {
+      "params": {
+        "displacement_body_min_pct": 0.0,
+        "fvg_revisit_min_delay_bars": 2,
+        "fvg_revisit_depth_ratio": 0.5,
+        "liq_sweep_threshold": 0.0006
+      },
+      "metrics": {
+        "total_return_pct": 0.3378,
+        "sharpe_ratio": 2.0475,
+        "sortino_ratio": 3.2725,
+        "calmar_ratio": 3.5317,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 70.5882,
+        "total_trades": 17,
+        "profit_factor": 4.4993,
+        "avg_trade_pct": 0.0199
+      },
+      "metadata": {
+        "displacement_filtered_shifts": 0,
+        "fvg_entries": 12,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "displacement_0p05": {
+      "params": {
+        "displacement_body_min_pct": 0.05,
+        "fvg_revisit_min_delay_bars": 2,
+        "fvg_revisit_depth_ratio": 0.5,
+        "liq_sweep_threshold": 0.0006
+      },
+      "metrics": {
+        "total_return_pct": 0.3378,
+        "sharpe_ratio": 2.0475,
+        "sortino_ratio": 3.2725,
+        "calmar_ratio": 3.5317,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 70.5882,
+        "total_trades": 17,
+        "profit_factor": 4.4993,
+        "avg_trade_pct": 0.0199
+      },
+      "metadata": {
+        "displacement_filtered_shifts": 0,
+        "fvg_entries": 12,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "displacement_0p15": {
+      "params": {
+        "displacement_body_min_pct": 0.15,
+        "fvg_revisit_min_delay_bars": 2,
+        "fvg_revisit_depth_ratio": 0.5,
+        "liq_sweep_threshold": 0.0006
+      },
+      "metrics": {
+        "total_return_pct": 0.3529,
+        "sharpe_ratio": 2.1338,
+        "sortino_ratio": 3.4169,
+        "calmar_ratio": 3.6906,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 4.6792,
+        "avg_trade_pct": 0.0196
+      },
+      "metadata": {
+        "displacement_filtered_shifts": 3,
+        "fvg_entries": 13,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    },
+    "displacement_0p20": {
+      "params": {
+        "displacement_body_min_pct": 0.2,
+        "fvg_revisit_min_delay_bars": 2,
+        "fvg_revisit_depth_ratio": 0.5,
+        "liq_sweep_threshold": 0.0006
+      },
+      "metrics": {
+        "total_return_pct": 0.3529,
+        "sharpe_ratio": 2.1338,
+        "sortino_ratio": 3.4169,
+        "calmar_ratio": 3.6906,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 4.6792,
+        "avg_trade_pct": 0.0196
+      },
+      "metadata": {
+        "displacement_filtered_shifts": 5,
+        "fvg_entries": 13,
+        "ob_entries": 4,
+        "breaker_entries": 1,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "lite_frontier_base",
+      "displacement_body_min_pct": 0.1,
+      "total_trades": 18,
+      "total_return_pct": 0.3529,
+      "profit_factor": 4.6792,
+      "trade_gain_vs_base": 0,
+      "displacement_filtered_shifts": 2,
+      "fvg_entries": 13,
+      "ob_entries": 4,
+      "breaker_entries": 1
+    },
+    {
+      "label": "displacement_0p15",
+      "displacement_body_min_pct": 0.15,
+      "total_trades": 18,
+      "total_return_pct": 0.3529,
+      "profit_factor": 4.6792,
+      "trade_gain_vs_base": 0,
+      "displacement_filtered_shifts": 3,
+      "fvg_entries": 13,
+      "ob_entries": 4,
+      "breaker_entries": 1
+    },
+    {
+      "label": "displacement_0p20",
+      "displacement_body_min_pct": 0.2,
+      "total_trades": 18,
+      "total_return_pct": 0.3529,
+      "profit_factor": 4.6792,
+      "trade_gain_vs_base": 0,
+      "displacement_filtered_shifts": 5,
+      "fvg_entries": 13,
+      "ob_entries": 4,
+      "breaker_entries": 1
+    },
+    {
+      "label": "displacement_0p00",
+      "displacement_body_min_pct": 0.0,
+      "total_trades": 17,
+      "total_return_pct": 0.3378,
+      "profit_factor": 4.4993,
+      "trade_gain_vs_base": -1,
+      "displacement_filtered_shifts": 0,
+      "fvg_entries": 12,
+      "ob_entries": 4,
+      "breaker_entries": 1
+    },
+    {
+      "label": "displacement_0p05",
+      "displacement_body_min_pct": 0.05,
+      "total_trades": 17,
+      "total_return_pct": 0.3378,
+      "profit_factor": 4.4993,
+      "trade_gain_vs_base": -1,
+      "displacement_filtered_shifts": 0,
+      "fvg_entries": 12,
+      "ob_entries": 4,
+      "breaker_entries": 1
+    }
+  ],
+  "base_label": "lite_frontier_base",
+  "base_trades": 18,
+  "base_total_return_pct": 0.3529,
+  "best_non_base_variant": {
+    "label": "displacement_0p15",
+    "displacement_body_min_pct": 0.15,
+    "total_trades": 18,
+    "total_return_pct": 0.3529,
+    "profit_factor": 4.6792,
+    "trade_gain_vs_base": 0,
+    "displacement_filtered_shifts": 3,
+    "fvg_entries": 13,
+    "ob_entries": 4,
+    "breaker_entries": 1
+  },
+  "best_positive_density_variant": null,
+  "best_robust_variant": null,
+  "verdict": "LITE_FRONTIER_DISPLACEMENT_SURVIVOR_BUT_NOT_EXTENSION",
+  "interpretation": "Positive displacement-body variants survive on the active lite frontier, but none improve it enough to promote."
+}

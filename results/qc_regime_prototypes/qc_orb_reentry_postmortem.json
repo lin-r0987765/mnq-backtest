@@ -1,0 +1,255 @@
+{
+    "bundle": "Retrospective Red Orange Whale",
+    "orders_file": "QuantConnect results\\2017-2026\\Retrospective Red Orange Whale_orders.csv",
+    "trades_file": "QuantConnect results\\2017-2026\\Retrospective Red Orange Whale_trades.csv",
+    "order_id_mapping_assumption": "trades.csv order ids are matched to 1-based data row numbers in orders.csv because the orders export has no explicit order-id column.",
+    "exit_tag_summary": {
+        "ORB EOD Flatten": {
+            "count": 275,
+            "total_pnl": 19443.45,
+            "avg_pnl": 70.7,
+            "mean_mfe": 123.15,
+            "yearly": {
+                "2017": {
+                    "count": 33,
+                    "total_pnl": 801.07
+                },
+                "2018": {
+                    "count": 30,
+                    "total_pnl": 2271.97
+                },
+                "2019": {
+                    "count": 38,
+                    "total_pnl": 2262.34
+                },
+                "2020": {
+                    "count": 31,
+                    "total_pnl": 1950.75
+                },
+                "2021": {
+                    "count": 30,
+                    "total_pnl": 1957.87
+                },
+                "2022": {
+                    "count": 17,
+                    "total_pnl": 2877.0
+                },
+                "2023": {
+                    "count": 27,
+                    "total_pnl": 2564.53
+                },
+                "2024": {
+                    "count": 36,
+                    "total_pnl": 2398.01
+                },
+                "2025": {
+                    "count": 33,
+                    "total_pnl": 2359.91
+                }
+            }
+        },
+        "ORB Long Stop": {
+            "count": 96,
+            "total_pnl": -14365.21,
+            "avg_pnl": -149.64,
+            "mean_mfe": 45.49,
+            "yearly": {
+                "2017": {
+                    "count": 6,
+                    "total_pnl": -696.18
+                },
+                "2018": {
+                    "count": 11,
+                    "total_pnl": -1662.02
+                },
+                "2019": {
+                    "count": 12,
+                    "total_pnl": -1327.45
+                },
+                "2020": {
+                    "count": 16,
+                    "total_pnl": -2821.54
+                },
+                "2021": {
+                    "count": 9,
+                    "total_pnl": -1222.15
+                },
+                "2022": {
+                    "count": 9,
+                    "total_pnl": -1958.79
+                },
+                "2023": {
+                    "count": 14,
+                    "total_pnl": -2083.67
+                },
+                "2024": {
+                    "count": 11,
+                    "total_pnl": -1414.22
+                },
+                "2025": {
+                    "count": 8,
+                    "total_pnl": -1179.19
+                }
+            }
+        },
+        "ORB Long TP": {
+            "count": 11,
+            "total_pnl": 2702.68,
+            "avg_pnl": 245.7,
+            "mean_mfe": 250.19,
+            "yearly": {
+                "2018": {
+                    "count": 1,
+                    "total_pnl": 161.77
+                },
+                "2020": {
+                    "count": 4,
+                    "total_pnl": 1281.23
+                },
+                "2023": {
+                    "count": 2,
+                    "total_pnl": 437.96
+                },
+                "2024": {
+                    "count": 4,
+                    "total_pnl": 821.72
+                }
+            }
+        },
+        "ORB Long ORB Reentry Exit": {
+            "count": 12,
+            "total_pnl": -757.67,
+            "avg_pnl": -63.14,
+            "mean_mfe": 120.59,
+            "yearly": {
+                "2018": {
+                    "count": 2,
+                    "total_pnl": -121.66
+                },
+                "2019": {
+                    "count": 2,
+                    "total_pnl": -122.36
+                },
+                "2020": {
+                    "count": 1,
+                    "total_pnl": -39.56
+                },
+                "2021": {
+                    "count": 1,
+                    "total_pnl": -55.26
+                },
+                "2022": {
+                    "count": 1,
+                    "total_pnl": -113.28
+                },
+                "2023": {
+                    "count": 1,
+                    "total_pnl": -121.39
+                },
+                "2024": {
+                    "count": 2,
+                    "total_pnl": -89.35
+                },
+                "2025": {
+                    "count": 1,
+                    "total_pnl": -51.18
+                },
+                "2026": {
+                    "count": 1,
+                    "total_pnl": -43.63
+                }
+            }
+        },
+        "ORB Long Profit Lock Stop": {
+            "count": 10,
+            "total_pnl": 70.41,
+            "avg_pnl": 7.04,
+            "mean_mfe": 193.07,
+            "yearly": {
+                "2017": {
+                    "count": 2,
+                    "total_pnl": -10.12
+                },
+                "2019": {
+                    "count": 2,
+                    "total_pnl": 6.75
+                },
+                "2020": {
+                    "count": 2,
+                    "total_pnl": 32.02
+                },
+                "2021": {
+                    "count": 1,
+                    "total_pnl": -14.12
+                },
+                "2022": {
+                    "count": 2,
+                    "total_pnl": 41.54
+                },
+                "2023": {
+                    "count": 1,
+                    "total_pnl": 14.34
+                }
+            }
+        },
+        "ORB Long BE Stop": {
+            "count": 1,
+            "total_pnl": -17.02,
+            "avg_pnl": -17.02,
+            "mean_mfe": 253.13,
+            "yearly": {
+                "2022": {
+                    "count": 1,
+                    "total_pnl": -17.02
+                }
+            }
+        }
+    },
+    "orb_reentry_exit_focus": {
+        "tag": "ORB Long ORB Reentry Exit",
+        "count": 12,
+        "total_pnl": -757.67,
+        "avg_pnl": -63.14,
+        "positive_years": 0,
+        "years_active": 9,
+        "yearly": {
+            "2018": {
+                "count": 2,
+                "total_pnl": -121.66
+            },
+            "2019": {
+                "count": 2,
+                "total_pnl": -122.36
+            },
+            "2020": {
+                "count": 1,
+                "total_pnl": -39.56
+            },
+            "2021": {
+                "count": 1,
+                "total_pnl": -55.26
+            },
+            "2022": {
+                "count": 1,
+                "total_pnl": -113.28
+            },
+            "2023": {
+                "count": 1,
+                "total_pnl": -121.39
+            },
+            "2024": {
+                "count": 2,
+                "total_pnl": -89.35
+            },
+            "2025": {
+                "count": 1,
+                "total_pnl": -51.18
+            },
+            "2026": {
+                "count": 1,
+                "total_pnl": -43.63
+            }
+        }
+    },
+    "verdict": "ORB re-entry exits were realized negative in aggregate and in every active year, so the QC proxy remains a mixed analyzer-only signal and should not launch v27."
+}

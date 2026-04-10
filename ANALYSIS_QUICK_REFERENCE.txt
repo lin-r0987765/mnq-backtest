@@ -1,0 +1,89 @@
+================================================================================
+QC BASELINE TRADES ANALYSIS - QUICK REFERENCE
+================================================================================
+
+FILES GENERATED:
+  1. EXECUTIVE_SUMMARY.txt      ← START HERE (1-page overview)
+  2. RESEARCH_HYPOTHESES.txt    ← Detailed findings with action items
+  3. analysis.py                 ← Python script used for analysis
+
+DATASET ANALYZED:
+  File: Retrospective Tan Salmon_trades.csv (2017-2026)
+  Trades: 404 total | 221 wins (54.7%) | 183 losses
+  P&L: $6,310.72 | Avg win: $28.54 | Avg loss: -$34.54
+
+================================================================================
+THE 5 KEY FINDINGS
+================================================================================
+
+1. EXIT RULES ARE BROKEN ($15k opportunity)
+   - 89% of losses were profitable at some point
+   - 39% of losses had MFE > $50 (major missed exits)
+   - Strategy exiting prematurely on mean reversals
+
+2. DURATION EFFECT IS DOMINANT (227% of profits from 5+ hour trades)
+   - < 1 hour: -$3,595 (0% WR)
+   - 1-3 hours: -$5,494 (18% WR)
+   - 3-5 hours: +$1,038 (56% WR)
+   - 5+ hours: +$14,362 (71% WR) ← ALL THE MONEY
+
+3. TIME-OF-DAY CLUSTERING (Best 10am-1pm ET)
+   - Hour 12: 75% WR (20 trades)
+   - Hour 11: 57% WR (72 trades)
+   - Hour 10: 54% WR (259 trades)
+   - Hour 9: 49% WR (53 trades)
+
+4. DAY-OF-WEEK SEASONALITY (Mon/Fri > Tue)
+   - Friday: 64% WR, $2,068 P&L
+   - Monday: 62% WR, $2,333 P&L
+   - Tuesday: 49% WR, $41 P&L ← WORST DAY
+
+5. MONTHLY SEASONALITY (Summer > Winter)
+   - July: 63% WR, $1,998 P&L
+   - May: 54% WR, $1,409 P&L
+   - February: 46% WR, -$426 P&L ← WORST MONTH
+
+================================================================================
+IMMEDIATE ACTION ITEMS (PRIORITY ORDER)
+================================================================================
+
+PRIORITY 1: FIX EXIT RULES (2-3 weeks, +$15k estimated)
+   What: Replace fixed 19:50 ET exit with dynamic MFE-based exit
+   Why: 72 trades with MFE > $50 turned into losses
+   Test: If MFE > $50, exit automatically. Estimate: ~$15k recoverable
+
+PRIORITY 2: ENFORCE MINIMUM DURATION (1-2 weeks, +$5k estimated)
+   What: Restrict trading to 3-5+ hour minimum hold
+   Why: Sub-3-hour trades lose $9k combined, 5+ hour trades win $14k
+   Test: Backtest with 3-hour minimum hold requirement
+
+PRIORITY 3: TIME-OF-DAY FILTER (1 week, +$500 estimated)
+   What: Restrict entries to 10am-1pm ET
+   Why: 49% WR at 9am vs 57-75% for 10am-12pm
+   Test: Filter all pre-10am and post-1pm entries
+
+PRIORITY 4: DAY-OF-WEEK FILTER (1 week, +$750 estimated)
+   What: Skip Tuesday trades, increase Mon/Fri position size
+   Why: Tuesday generates $0.44/trade vs $12-30 other days
+   Test: Exclude Tuesday or apply tighter exits
+
+PRIORITY 5: SEASONAL SIZING (1 week, +$1.5k estimated)
+   What: 2x position size May-Aug, 0.5x position size Feb-Mar
+   Why: July peak $1,998 (67% WR) vs Feb trough -$426 (46% WR)
+   Test: Apply seasonal position multipliers
+
+================================================================================
+VALIDATION STEPS
+================================================================================
+
+[ ] 1. Confirm current exit time is 19:50 ET (fixed?)
+[ ] 2. Audit exit rule in strategy code
+[ ] 3. Test MFE-based exit rules in backtest
+[ ] 4. Walk-forward test on 2025+ data only
+[ ] 5. Check statistical significance of duration correlation
+[ ] 6. Verify day-of-week effect isn't driven by volatility
+[ ] 7. Combine all fixes - stress test upside
+
+EXPECTED OUTCOME: 2-3x improvement (from $6.3k to $15-20k annually)
+
+================================================================================

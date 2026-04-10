@@ -1,0 +1,344 @@
+{
+  "version": "v1.0",
+  "iteration": 57,
+  "data_source": "QuantConnect results/2017-2026",
+  "total_trades": 171,
+  "daily_data_range": "2017-04-03 ~ 2026-04-02",
+  "candidates": {
+    "baseline": {
+      "trades": 171,
+      "wr_pct": 53.8,
+      "net_pnl": 1496.66,
+      "avg_pnl": 8.75,
+      "pf": 1.21,
+      "rolling_6m_positive_pct": 71.4,
+      "rolling_12m_positive_pct": 81.4,
+      "cross_validation": "UNSTABLE",
+      "yearly": {
+        "2017": {
+          "trades": 13,
+          "wr": 30.76923076923077,
+          "net": -356.22
+        },
+        "2018": {
+          "trades": 19,
+          "wr": 52.63157894736842,
+          "net": -50.86
+        },
+        "2019": {
+          "trades": 25,
+          "wr": 56.00000000000001,
+          "net": -8.41
+        },
+        "2020": {
+          "trades": 24,
+          "wr": 58.333333333333336,
+          "net": 411.77
+        },
+        "2021": {
+          "trades": 29,
+          "wr": 62.06896551724138,
+          "net": 699.13
+        },
+        "2023": {
+          "trades": 19,
+          "wr": 47.368421052631575,
+          "net": 396.03
+        },
+        "2024": {
+          "trades": 23,
+          "wr": 52.17391304347826,
+          "net": 275.86
+        },
+        "2025": {
+          "trades": 19,
+          "wr": 57.89473684210527,
+          "net": 129.36
+        }
+      }
+    },
+    "A_no_late_entry": {
+      "trades": 171,
+      "wr_pct": 53.8,
+      "net_pnl": 1496.66,
+      "avg_pnl": 8.75,
+      "pf": 1.21,
+      "rolling_6m_positive_pct": 71.4,
+      "rolling_12m_positive_pct": 81.4,
+      "cross_validation": "UNSTABLE",
+      "yearly": {
+        "2017": {
+          "trades": 13,
+          "wr": 30.76923076923077,
+          "net": -356.22
+        },
+        "2018": {
+          "trades": 19,
+          "wr": 52.63157894736842,
+          "net": -50.86
+        },
+        "2019": {
+          "trades": 25,
+          "wr": 56.00000000000001,
+          "net": -8.41
+        },
+        "2020": {
+          "trades": 24,
+          "wr": 58.333333333333336,
+          "net": 411.77
+        },
+        "2021": {
+          "trades": 29,
+          "wr": 62.06896551724138,
+          "net": 699.13
+        },
+        "2023": {
+          "trades": 19,
+          "wr": 47.368421052631575,
+          "net": 396.03
+        },
+        "2024": {
+          "trades": 23,
+          "wr": 52.17391304347826,
+          "net": 275.86
+        },
+        "2025": {
+          "trades": 19,
+          "wr": 57.89473684210527,
+          "net": 129.36
+        }
+      }
+    },
+    "A2_peak_hours_only": {
+      "trades": 156,
+      "wr_pct": 55.1,
+      "net_pnl": 1733.93,
+      "avg_pnl": 11.11,
+      "pf": 1.281,
+      "rolling_6m_positive_pct": 82.6,
+      "rolling_12m_positive_pct": 97.5,
+      "cross_validation": "ROBUST",
+      "yearly": {
+        "2017": {
+          "trades": 12,
+          "wr": 33.33333333333333,
+          "net": -228.42
+        },
+        "2018": {
+          "trades": 18,
+          "wr": 55.55555555555556,
+          "net": 90.71
+        },
+        "2019": {
+          "trades": 23,
+          "wr": 56.52173913043478,
+          "net": 54.37
+        },
+        "2020": {
+          "trades": 24,
+          "wr": 58.333333333333336,
+          "net": 411.77
+        },
+        "2021": {
+          "trades": 26,
+          "wr": 69.23076923076923,
+          "net": 967.57
+        },
+        "2023": {
+          "trades": 16,
+          "wr": 50.0,
+          "net": 300.49
+        },
+        "2024": {
+          "trades": 21,
+          "wr": 52.38095238095239,
+          "net": 294.42
+        },
+        "2025": {
+          "trades": 16,
+          "wr": 50.0,
+          "net": -156.98
+        }
+      }
+    },
+    "B_no_may": {
+      "trades": 152,
+      "wr_pct": 57.2,
+      "net_pnl": 1899.24,
+      "avg_pnl": 12.5,
+      "pf": 1.314,
+      "rolling_6m_positive_pct": 77.3,
+      "rolling_12m_positive_pct": 100.0,
+      "cross_validation": "ROBUST",
+      "yearly": {
+        "2017": {
+          "trades": 8,
+          "wr": 50.0,
+          "net": -230.84
+        },
+        "2018": {
+          "trades": 15,
+          "wr": 60.0,
+          "net": 271.88
+        },
+        "2019": {
+          "trades": 25,
+          "wr": 56.00000000000001,
+          "net": -8.41
+        },
+        "2020": {
+          "trades": 20,
+          "wr": 60.0,
+          "net": 490.36
+        },
+        "2021": {
+          "trades": 29,
+          "wr": 62.06896551724138,
+          "net": 699.13
+        },
+        "2023": {
+          "trades": 17,
+          "wr": 47.05882352941176,
+          "net": 86.26
+        },
+        "2024": {
+          "trades": 19,
+          "wr": 57.89473684210527,
+          "net": 461.5
+        },
+        "2025": {
+          "trades": 19,
+          "wr": 57.89473684210527,
+          "net": 129.36
+        }
+      }
+    },
+    "C_no_may_dec": {
+      "trades": 138,
+      "wr_pct": 57.2,
+      "net_pnl": 2096.72,
+      "avg_pnl": 15.19,
+      "pf": 1.389,
+      "rolling_6m_positive_pct": 84.6,
+      "rolling_12m_positive_pct": 100.0,
+      "cross_validation": "ROBUST",
+      "yearly": {
+        "2017": {
+          "trades": 8,
+          "wr": 50.0,
+          "net": -230.84
+        },
+        "2018": {
+          "trades": 15,
+          "wr": 60.0,
+          "net": 271.88
+        },
+        "2019": {
+          "trades": 24,
+          "wr": 54.166666666666664,
+          "net": -72.77
+        },
+        "2020": {
+          "trades": 15,
+          "wr": 66.66666666666666,
+          "net": 793.57
+        },
+        "2021": {
+          "trades": 29,
+          "wr": 62.06896551724138,
+          "net": 699.13
+        },
+        "2023": {
+          "trades": 13,
+          "wr": 46.15384615384615,
+          "net": -34.74
+        },
+        "2024": {
+          "trades": 16,
+          "wr": 56.25,
+          "net": 573.09
+        },
+        "2025": {
+          "trades": 18,
+          "wr": 55.55555555555556,
+          "net": 97.4
+        }
+      }
+    },
+    "E_no_late_no_may": {
+      "trades": 152,
+      "wr_pct": 57.2,
+      "net_pnl": 1899.24,
+      "avg_pnl": 12.5,
+      "pf": 1.314,
+      "rolling_6m_positive_pct": 77.3,
+      "rolling_12m_positive_pct": 100.0,
+      "cross_validation": "ROBUST",
+      "yearly": {
+        "2017": {
+          "trades": 8,
+          "wr": 50.0,
+          "net": -230.84
+        },
+        "2018": {
+          "trades": 15,
+          "wr": 60.0,
+          "net": 271.88
+        },
+        "2019": {
+          "trades": 25,
+          "wr": 56.00000000000001,
+          "net": -8.41
+        },
+        "2020": {
+          "trades": 20,
+          "wr": 60.0,
+          "net": 490.36
+        },
+        "2021": {
+          "trades": 29,
+          "wr": 62.06896551724138,
+          "net": 699.13
+        },
+        "2023": {
+          "trades": 17,
+          "wr": 47.05882352941176,
+          "net": 86.26
+        },
+        "2024": {
+          "trades": 19,
+          "wr": 57.89473684210527,
+          "net": 461.5
+        },
+        "2025": {
+          "trades": 19,
+          "wr": 57.89473684210527,
+          "net": 129.36
+        }
+      }
+    }
+  },
+  "excluded_analysis": {
+    "17+ UTC": {
+      "first_half_net": 0,
+      "second_half_net": 0,
+      "verdict": "UNSTABLE"
+    },
+    "May": {
+      "first_half_net": -526.71,
+      "second_half_net": 124.13,
+      "verdict": "UNSTABLE"
+    },
+    "December": {
+      "first_half_net": -238.85,
+      "second_half_net": 41.37,
+      "verdict": "UNSTABLE"
+    }
+  },
+  "recommendation": {
+    "primary": "A_no_late_entry",
+    "reason": "17+ UTC 排除是唯一在前後半期一致為虧損的被排除群組，穩健性最高",
+    "best_combo": "C_no_may_dec",
+    "caution": "5月排除後半期方向反轉，暫不建議採用"
+  }
+}

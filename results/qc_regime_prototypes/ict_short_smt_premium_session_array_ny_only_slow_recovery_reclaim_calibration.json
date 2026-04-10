@@ -1,0 +1,292 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_slow_recovery_reclaim_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "slow_recovery_base": {
+      "params": {
+        "liq_sweep_reclaim_ratio": 0.0,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "reclaim_0p05": {
+      "params": {
+        "liq_sweep_reclaim_ratio": 0.05,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 144,
+        "bearish_sweeps": 116
+      }
+    },
+    "reclaim_0p10": {
+      "params": {
+        "liq_sweep_reclaim_ratio": 0.1,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1616,
+        "sharpe_ratio": 2.2156,
+        "sortino_ratio": 3.6648,
+        "calmar_ratio": 5.4252,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0323
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 135,
+        "bearish_sweeps": 109
+      }
+    },
+    "reclaim_0p15": {
+      "params": {
+        "liq_sweep_reclaim_ratio": 0.15,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1616,
+        "sharpe_ratio": 2.2156,
+        "sortino_ratio": 3.6648,
+        "calmar_ratio": 5.4252,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0323
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 124,
+        "bearish_sweeps": 105
+      }
+    },
+    "reclaim_0p20": {
+      "params": {
+        "liq_sweep_reclaim_ratio": 0.2,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1409,
+        "sharpe_ratio": 2.1243,
+        "sortino_ratio": 3.5152,
+        "calmar_ratio": 4.7322,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 4,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0352
+      },
+      "metadata": {
+        "fvg_entries": 4,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 116,
+        "bearish_sweeps": 103
+      }
+    },
+    "reclaim_0p25": {
+      "params": {
+        "liq_sweep_reclaim_ratio": 0.25,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1409,
+        "sharpe_ratio": 2.1243,
+        "sortino_ratio": 3.5152,
+        "calmar_ratio": 4.7322,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 4,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0352
+      },
+      "metadata": {
+        "fvg_entries": 4,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 110,
+        "bearish_sweeps": 94
+      }
+    },
+    "reclaim_0p30": {
+      "params": {
+        "liq_sweep_reclaim_ratio": 0.3,
+        "liq_sweep_recovery_bars": 4,
+        "smt_lookback": 10
+      },
+      "metrics": {
+        "total_return_pct": 0.1409,
+        "sharpe_ratio": 2.1243,
+        "sortino_ratio": 3.5152,
+        "calmar_ratio": 4.7322,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 4,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0352
+      },
+      "metadata": {
+        "fvg_entries": 4,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 104,
+        "bearish_sweeps": 89
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "slow_recovery_base",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "liq_sweep_reclaim_ratio": 0.0,
+      "fvg_entries": 6
+    },
+    {
+      "label": "reclaim_0p05",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "liq_sweep_reclaim_ratio": 0.05,
+      "fvg_entries": 6
+    },
+    {
+      "label": "reclaim_0p10",
+      "total_trades": 5,
+      "total_return_pct": 0.1616,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.8333333333333334,
+      "liq_sweep_reclaim_ratio": 0.1,
+      "fvg_entries": 5
+    },
+    {
+      "label": "reclaim_0p15",
+      "total_trades": 5,
+      "total_return_pct": 0.1616,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.8333333333333334,
+      "liq_sweep_reclaim_ratio": 0.15,
+      "fvg_entries": 5
+    },
+    {
+      "label": "reclaim_0p20",
+      "total_trades": 4,
+      "total_return_pct": 0.1409,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.6666666666666666,
+      "liq_sweep_reclaim_ratio": 0.2,
+      "fvg_entries": 4
+    },
+    {
+      "label": "reclaim_0p25",
+      "total_trades": 4,
+      "total_return_pct": 0.1409,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.6666666666666666,
+      "liq_sweep_reclaim_ratio": 0.25,
+      "fvg_entries": 4
+    },
+    {
+      "label": "reclaim_0p30",
+      "total_trades": 4,
+      "total_return_pct": 0.1409,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.6666666666666666,
+      "liq_sweep_reclaim_ratio": 0.3,
+      "fvg_entries": 4
+    }
+  ],
+  "best_variant": {
+    "label": "slow_recovery_base",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "liq_sweep_reclaim_ratio": 0.0,
+    "fvg_entries": 6
+  },
+  "best_non_base_variant": {
+    "label": "reclaim_0p05",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "liq_sweep_reclaim_ratio": 0.05,
+    "fvg_entries": 6
+  },
+  "best_robust_reclaim_variant": {
+    "label": "reclaim_0p05",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "liq_sweep_reclaim_ratio": 0.05,
+    "fvg_entries": 6
+  },
+  "base_label": "slow_recovery_base",
+  "base_trades": 6,
+  "base_total_return_pct": 0.1627,
+  "robust_trade_floor": 4,
+  "verdict": "ROBUST_RECLAIM_SURVIVOR_BUT_NOT_FRONTIER_ON_SLOW_RECOVERY_BASE",
+  "interpretation": "A reclaim-strength calibration survives on top of the slow-recovery NY-only paired ICT base without collapsing activity, but it does not beat the frontier."
+}

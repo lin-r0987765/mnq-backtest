@@ -1,0 +1,268 @@
+[
+  {
+    "symbol": "QQQ",
+    "source_file": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\data\\QQQ\\2026.4.10QQQUSUSD-M1-No Session.csv",
+    "source_meta": {
+      "source_rows": 896789,
+      "collapsed_duplicate_rows": 0,
+      "unique_timestamp_rows": 896789
+    },
+    "sessions": {
+      "first_session": "2017-01-26",
+      "last_session": "2026-04-08",
+      "total_sessions": 2312,
+      "complete_sessions": 2141,
+      "incomplete_sessions": 171
+    },
+    "cleaned_1m": {
+      "rows": 898080,
+      "missing_minutes": 1534,
+      "dropped_extra_rows": 243
+    },
+    "top_missing_days": [
+      {
+        "session_date": "2019-03-11",
+        "missing_minutes": 160
+      },
+      {
+        "session_date": "2022-10-18",
+        "missing_minutes": 120
+      },
+      {
+        "session_date": "2019-10-24",
+        "missing_minutes": 94
+      },
+      {
+        "session_date": "2023-11-24",
+        "missing_minutes": 61
+      },
+      {
+        "session_date": "2020-01-02",
+        "missing_minutes": 53
+      },
+      {
+        "session_date": "2020-08-31",
+        "missing_minutes": 52
+      },
+      {
+        "session_date": "2024-04-02",
+        "missing_minutes": 50
+      },
+      {
+        "session_date": "2026-03-04",
+        "missing_minutes": 44
+      },
+      {
+        "session_date": "2021-02-09",
+        "missing_minutes": 43
+      },
+      {
+        "session_date": "2022-09-15",
+        "missing_minutes": 38
+      }
+    ],
+    "top_extra_days": [
+      {
+        "session_date": "2019-07-03",
+        "extra_rows_dropped": 72
+      },
+      {
+        "session_date": "2017-03-13",
+        "extra_rows_dropped": 56
+      },
+      {
+        "session_date": "2019-11-29",
+        "extra_rows_dropped": 22
+      },
+      {
+        "session_date": "2017-01-26",
+        "extra_rows_dropped": 1
+      },
+      {
+        "session_date": "2017-02-01",
+        "extra_rows_dropped": 1
+      },
+      {
+        "session_date": "2017-02-02",
+        "extra_rows_dropped": 1
+      },
+      {
+        "session_date": "2017-01-30",
+        "extra_rows_dropped": 1
+      },
+      {
+        "session_date": "2017-01-27",
+        "extra_rows_dropped": 1
+      },
+      {
+        "session_date": "2017-02-07",
+        "extra_rows_dropped": 1
+      },
+      {
+        "session_date": "2017-02-08",
+        "extra_rows_dropped": 1
+      }
+    ],
+    "timeframes": {
+      "1m": {
+        "rows": 898080,
+        "complete_bars": 896546,
+        "incomplete_bars": 1534,
+        "first_timestamp_et": "2017-01-26 09:30:00-05:00",
+        "last_timestamp_et": "2026-04-08 15:59:00-04:00"
+      },
+      "5m": {
+        "rows": 179616,
+        "complete_bars": 178974,
+        "incomplete_bars": 642,
+        "first_timestamp_et": "2017-01-26 09:30:00-05:00",
+        "last_timestamp_et": "2026-04-08 15:55:00-04:00"
+      },
+      "15m": {
+        "rows": 59872,
+        "complete_bars": 59436,
+        "incomplete_bars": 436,
+        "first_timestamp_et": "2017-01-26 09:30:00-05:00",
+        "last_timestamp_et": "2026-04-08 15:45:00-04:00"
+      },
+      "1h": {
+        "rows": 16124,
+        "complete_bars": 15845,
+        "incomplete_bars": 279,
+        "first_timestamp_et": "2017-01-26 09:30:00-05:00",
+        "last_timestamp_et": "2026-04-08 15:30:00-04:00"
+      },
+      "4h": {
+        "rows": 4604,
+        "complete_bars": 4399,
+        "incomplete_bars": 205,
+        "first_timestamp_et": "2017-01-26 09:30:00-05:00",
+        "last_timestamp_et": "2026-04-08 13:30:00-04:00"
+      },
+      "1d": {
+        "rows": 2312,
+        "complete_bars": 2141,
+        "incomplete_bars": 171,
+        "first_timestamp_et": "2017-01-26 09:30:00-05:00",
+        "last_timestamp_et": "2026-04-08 09:30:00-04:00"
+      }
+    }
+  },
+  {
+    "symbol": "SPY",
+    "source_file": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\data\\SPY\\2026.4.10SPYUSUSD-M1-No Session.csv",
+    "source_meta": {
+      "source_rows": 821144,
+      "collapsed_duplicate_rows": 0,
+      "unique_timestamp_rows": 821144
+    },
+    "sessions": {
+      "first_session": "2017-11-02",
+      "last_session": "2026-04-08",
+      "total_sessions": 2117,
+      "complete_sessions": 2008,
+      "incomplete_sessions": 109
+    },
+    "cleaned_1m": {
+      "rows": 822210,
+      "missing_minutes": 1229,
+      "dropped_extra_rows": 163
+    },
+    "top_missing_days": [
+      {
+        "session_date": "2019-03-11",
+        "missing_minutes": 160
+      },
+      {
+        "session_date": "2022-10-18",
+        "missing_minutes": 120
+      },
+      {
+        "session_date": "2019-10-24",
+        "missing_minutes": 95
+      },
+      {
+        "session_date": "2023-11-24",
+        "missing_minutes": 61
+      },
+      {
+        "session_date": "2020-01-02",
+        "missing_minutes": 54
+      },
+      {
+        "session_date": "2017-11-29",
+        "missing_minutes": 53
+      },
+      {
+        "session_date": "2020-08-31",
+        "missing_minutes": 52
+      },
+      {
+        "session_date": "2024-04-02",
+        "missing_minutes": 50
+      },
+      {
+        "session_date": "2022-09-15",
+        "missing_minutes": 44
+      },
+      {
+        "session_date": "2026-03-04",
+        "missing_minutes": 44
+      }
+    ],
+    "top_extra_days": [
+      {
+        "session_date": "2019-07-03",
+        "extra_rows_dropped": 136
+      },
+      {
+        "session_date": "2019-11-29",
+        "extra_rows_dropped": 27
+      }
+    ],
+    "timeframes": {
+      "1m": {
+        "rows": 822210,
+        "complete_bars": 820981,
+        "incomplete_bars": 1229,
+        "first_timestamp_et": "2017-11-02 09:30:00-04:00",
+        "last_timestamp_et": "2026-04-08 15:59:00-04:00"
+      },
+      "5m": {
+        "rows": 164442,
+        "complete_bars": 164100,
+        "incomplete_bars": 342,
+        "first_timestamp_et": "2017-11-02 09:30:00-04:00",
+        "last_timestamp_et": "2026-04-08 15:55:00-04:00"
+      },
+      "15m": {
+        "rows": 54814,
+        "complete_bars": 54626,
+        "incomplete_bars": 188,
+        "first_timestamp_et": "2017-11-02 09:30:00-04:00",
+        "last_timestamp_et": "2026-04-08 15:45:00-04:00"
+      },
+      "1h": {
+        "rows": 14762,
+        "complete_bars": 14633,
+        "incomplete_bars": 129,
+        "first_timestamp_et": "2017-11-02 09:30:00-04:00",
+        "last_timestamp_et": "2026-04-08 15:30:00-04:00"
+      },
+      "4h": {
+        "rows": 4215,
+        "complete_bars": 4104,
+        "incomplete_bars": 111,
+        "first_timestamp_et": "2017-11-02 09:30:00-04:00",
+        "last_timestamp_et": "2026-04-08 13:30:00-04:00"
+      },
+      "1d": {
+        "rows": 2117,
+        "complete_bars": 2008,
+        "incomplete_bars": 109,
+        "first_timestamp_et": "2017-11-02 09:30:00-04:00",
+        "last_timestamp_et": "2026-04-08 09:30:00-04:00"
+      }
+    }
+  }
+]

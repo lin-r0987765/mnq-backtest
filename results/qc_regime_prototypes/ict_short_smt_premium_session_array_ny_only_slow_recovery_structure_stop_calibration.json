@@ -1,0 +1,278 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_slow_recovery_structure_stop_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "structure_frontier_base": {
+      "params": {
+        "stop_loss_atr_mult": 2.0,
+        "take_profit_rr": 4.0,
+        "fvg_min_gap_pct": 0.0006,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1831,
+        "sharpe_ratio": 1.9595,
+        "sortino_ratio": 3.0993,
+        "calmar_ratio": 3.3892,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0262
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "stop_atr_1p5": {
+      "params": {
+        "stop_loss_atr_mult": 1.5,
+        "take_profit_rr": 4.0,
+        "fvg_min_gap_pct": 0.0006,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1831,
+        "sharpe_ratio": 1.9595,
+        "sortino_ratio": 3.0993,
+        "calmar_ratio": 3.3892,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0262
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "stop_atr_1p75": {
+      "params": {
+        "stop_loss_atr_mult": 1.75,
+        "take_profit_rr": 4.0,
+        "fvg_min_gap_pct": 0.0006,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1831,
+        "sharpe_ratio": 1.9595,
+        "sortino_ratio": 3.0993,
+        "calmar_ratio": 3.3892,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0262
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "stop_atr_2p25": {
+      "params": {
+        "stop_loss_atr_mult": 2.25,
+        "take_profit_rr": 4.0,
+        "fvg_min_gap_pct": 0.0006,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1831,
+        "sharpe_ratio": 1.9595,
+        "sortino_ratio": 3.0993,
+        "calmar_ratio": 3.3892,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0262
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "stop_atr_2p5": {
+      "params": {
+        "stop_loss_atr_mult": 2.5,
+        "take_profit_rr": 4.0,
+        "fvg_min_gap_pct": 0.0006,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1831,
+        "sharpe_ratio": 1.9595,
+        "sortino_ratio": 3.0993,
+        "calmar_ratio": 3.3892,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0262
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "stop_atr_3p0": {
+      "params": {
+        "stop_loss_atr_mult": 3.0,
+        "take_profit_rr": 4.0,
+        "fvg_min_gap_pct": 0.0006,
+        "structure_lookback": 12,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1831,
+        "sharpe_ratio": 1.9595,
+        "sortino_ratio": 3.0993,
+        "calmar_ratio": 3.3892,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0262
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "structure_frontier_base",
+      "total_trades": 7,
+      "total_return_pct": 0.1831,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "stop_loss_atr_mult": 2.0,
+      "avg_trade_pct": 0.0262,
+      "fvg_entries": 7
+    },
+    {
+      "label": "stop_atr_1p5",
+      "total_trades": 7,
+      "total_return_pct": 0.1831,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "stop_loss_atr_mult": 1.5,
+      "avg_trade_pct": 0.0262,
+      "fvg_entries": 7
+    },
+    {
+      "label": "stop_atr_1p75",
+      "total_trades": 7,
+      "total_return_pct": 0.1831,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "stop_loss_atr_mult": 1.75,
+      "avg_trade_pct": 0.0262,
+      "fvg_entries": 7
+    },
+    {
+      "label": "stop_atr_2p25",
+      "total_trades": 7,
+      "total_return_pct": 0.1831,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "stop_loss_atr_mult": 2.25,
+      "avg_trade_pct": 0.0262,
+      "fvg_entries": 7
+    },
+    {
+      "label": "stop_atr_2p5",
+      "total_trades": 7,
+      "total_return_pct": 0.1831,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "stop_loss_atr_mult": 2.5,
+      "avg_trade_pct": 0.0262,
+      "fvg_entries": 7
+    },
+    {
+      "label": "stop_atr_3p0",
+      "total_trades": 7,
+      "total_return_pct": 0.1831,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "stop_loss_atr_mult": 3.0,
+      "avg_trade_pct": 0.0262,
+      "fvg_entries": 7
+    }
+  ],
+  "best_variant": {
+    "label": "structure_frontier_base",
+    "total_trades": 7,
+    "total_return_pct": 0.1831,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "stop_loss_atr_mult": 2.0,
+    "avg_trade_pct": 0.0262,
+    "fvg_entries": 7
+  },
+  "best_non_base_variant": {
+    "label": "stop_atr_1p5",
+    "total_trades": 7,
+    "total_return_pct": 0.1831,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "stop_loss_atr_mult": 1.5,
+    "avg_trade_pct": 0.0262,
+    "fvg_entries": 7
+  },
+  "best_robust_stop_variant": {
+    "label": "stop_atr_1p5",
+    "total_trades": 7,
+    "total_return_pct": 0.1831,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "stop_loss_atr_mult": 1.5,
+    "avg_trade_pct": 0.0262,
+    "fvg_entries": 7
+  },
+  "base_label": "structure_frontier_base",
+  "base_trades": 7,
+  "base_total_return_pct": 0.1831,
+  "robust_trade_floor": 4,
+  "verdict": "STOP_CALIBRATION_PLATEAU_ON_STRUCTURE_BASE",
+  "interpretation": "All tested stop-loss ATR variants collapse to the same structure-aware frontier result, indicating a plateau rather than a new edge."
+}

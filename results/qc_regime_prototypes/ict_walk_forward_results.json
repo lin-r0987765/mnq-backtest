@@ -1,0 +1,2858 @@
+{
+  "analysis": "ict_walk_forward",
+  "profile": "lite_ict_reversal_relaxed_smt_looser_sweep_faster_retest_frontier",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "walk_forward_config": {
+    "train_days": 60,
+    "validation_days": 20,
+    "holdout_days": 20,
+    "step_days": 20
+  },
+  "frontier_params": {
+    "structure_lookback": 12,
+    "liq_sweep_threshold": 0.0006,
+    "liq_sweep_recovery_bars": 4,
+    "smt_threshold": 0.0015,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_revisit_min_delay_bars": 2,
+    "displacement_body_min_pct": 0.1
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train_period": {
+        "start": "2020-07-27",
+        "end": "2020-10-19"
+      },
+      "validation_period": {
+        "start": "2020-10-20",
+        "end": "2020-11-16"
+      },
+      "holdout_period": {
+        "start": "2020-11-17",
+        "end": "2020-12-15"
+      },
+      "train": {
+        "total_return_pct": 0.0007,
+        "sharpe_ratio": 0.1518,
+        "max_drawdown_pct": -0.0197,
+        "profit_factor": 1.0168,
+        "total_trades": 2,
+        "win_rate_pct": 50.0,
+        "avg_trade_pct": 0.0003
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 2,
+      "train_period": {
+        "start": "2020-08-24",
+        "end": "2020-11-16"
+      },
+      "validation_period": {
+        "start": "2020-11-17",
+        "end": "2020-12-15"
+      },
+      "holdout_period": {
+        "start": "2020-12-16",
+        "end": "2021-01-14"
+      },
+      "train": {
+        "total_return_pct": 0.0151,
+        "sharpe_ratio": 6.1457,
+        "max_drawdown_pct": -0.0036,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0151
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 3,
+      "train_period": {
+        "start": "2020-09-22",
+        "end": "2020-12-15"
+      },
+      "validation_period": {
+        "start": "2020-12-16",
+        "end": "2021-01-14"
+      },
+      "holdout_period": {
+        "start": "2021-01-15",
+        "end": "2021-02-12"
+      },
+      "train": {
+        "total_return_pct": 0.0151,
+        "sharpe_ratio": 6.1755,
+        "max_drawdown_pct": -0.0036,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0151
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 4,
+      "train_period": {
+        "start": "2020-10-20",
+        "end": "2021-01-14"
+      },
+      "validation_period": {
+        "start": "2021-01-15",
+        "end": "2021-02-12"
+      },
+      "holdout_period": {
+        "start": "2021-02-16",
+        "end": "2021-03-15"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0318,
+        "sharpe_ratio": 8.0966,
+        "max_drawdown_pct": -0.0225,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0318
+      }
+    },
+    {
+      "fold": 5,
+      "train_period": {
+        "start": "2020-11-17",
+        "end": "2021-02-12"
+      },
+      "validation_period": {
+        "start": "2021-02-16",
+        "end": "2021-03-15"
+      },
+      "holdout_period": {
+        "start": "2021-03-16",
+        "end": "2021-04-13"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0318,
+        "sharpe_ratio": 8.0966,
+        "max_drawdown_pct": -0.0225,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0318
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 6,
+      "train_period": {
+        "start": "2020-12-16",
+        "end": "2021-03-15"
+      },
+      "validation_period": {
+        "start": "2021-03-16",
+        "end": "2021-04-13"
+      },
+      "holdout_period": {
+        "start": "2021-04-14",
+        "end": "2021-05-11"
+      },
+      "train": {
+        "total_return_pct": 0.0318,
+        "sharpe_ratio": 4.7013,
+        "max_drawdown_pct": -0.0225,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0318
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 7,
+      "train_period": {
+        "start": "2021-01-15",
+        "end": "2021-04-13"
+      },
+      "validation_period": {
+        "start": "2021-04-14",
+        "end": "2021-05-11"
+      },
+      "holdout_period": {
+        "start": "2021-05-12",
+        "end": "2021-06-09"
+      },
+      "train": {
+        "total_return_pct": 0.0318,
+        "sharpe_ratio": 4.6861,
+        "max_drawdown_pct": -0.0225,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0318
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 8,
+      "train_period": {
+        "start": "2021-02-16",
+        "end": "2021-05-11"
+      },
+      "validation_period": {
+        "start": "2021-05-12",
+        "end": "2021-06-09"
+      },
+      "holdout_period": {
+        "start": "2021-06-10",
+        "end": "2021-07-08"
+      },
+      "train": {
+        "total_return_pct": 0.0318,
+        "sharpe_ratio": 4.6831,
+        "max_drawdown_pct": -0.0225,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0318
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 9,
+      "train_period": {
+        "start": "2021-03-16",
+        "end": "2021-06-09"
+      },
+      "validation_period": {
+        "start": "2021-06-10",
+        "end": "2021-07-08"
+      },
+      "holdout_period": {
+        "start": "2021-07-09",
+        "end": "2021-08-05"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 10,
+      "train_period": {
+        "start": "2021-04-14",
+        "end": "2021-07-08"
+      },
+      "validation_period": {
+        "start": "2021-07-09",
+        "end": "2021-08-05"
+      },
+      "holdout_period": {
+        "start": "2021-08-06",
+        "end": "2021-09-02"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 11,
+      "train_period": {
+        "start": "2021-05-12",
+        "end": "2021-08-05"
+      },
+      "validation_period": {
+        "start": "2021-08-06",
+        "end": "2021-09-02"
+      },
+      "holdout_period": {
+        "start": "2021-09-03",
+        "end": "2021-10-01"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 12,
+      "train_period": {
+        "start": "2021-06-10",
+        "end": "2021-09-02"
+      },
+      "validation_period": {
+        "start": "2021-09-03",
+        "end": "2021-10-01"
+      },
+      "holdout_period": {
+        "start": "2021-10-04",
+        "end": "2021-10-29"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 13,
+      "train_period": {
+        "start": "2021-07-09",
+        "end": "2021-10-01"
+      },
+      "validation_period": {
+        "start": "2021-10-04",
+        "end": "2021-10-29"
+      },
+      "holdout_period": {
+        "start": "2021-11-01",
+        "end": "2021-11-29"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 14,
+      "train_period": {
+        "start": "2021-08-06",
+        "end": "2021-10-29"
+      },
+      "validation_period": {
+        "start": "2021-11-01",
+        "end": "2021-11-29"
+      },
+      "holdout_period": {
+        "start": "2021-11-30",
+        "end": "2021-12-28"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 15,
+      "train_period": {
+        "start": "2021-09-03",
+        "end": "2021-11-29"
+      },
+      "validation_period": {
+        "start": "2021-11-30",
+        "end": "2021-12-28"
+      },
+      "holdout_period": {
+        "start": "2021-12-29",
+        "end": "2022-01-26"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.113,
+        "sharpe_ratio": 11.4497,
+        "max_drawdown_pct": -0.0257,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.113
+      }
+    },
+    {
+      "fold": 16,
+      "train_period": {
+        "start": "2021-10-04",
+        "end": "2021-12-28"
+      },
+      "validation_period": {
+        "start": "2021-12-29",
+        "end": "2022-01-26"
+      },
+      "holdout_period": {
+        "start": "2022-01-27",
+        "end": "2022-02-24"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.113,
+        "sharpe_ratio": 11.4497,
+        "max_drawdown_pct": -0.0257,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.113
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 17,
+      "train_period": {
+        "start": "2021-11-01",
+        "end": "2022-01-26"
+      },
+      "validation_period": {
+        "start": "2022-01-27",
+        "end": "2022-02-24"
+      },
+      "holdout_period": {
+        "start": "2022-02-25",
+        "end": "2022-03-24"
+      },
+      "train": {
+        "total_return_pct": 0.113,
+        "sharpe_ratio": 6.6305,
+        "max_drawdown_pct": -0.0257,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.113
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0062,
+        "sharpe_ratio": 1.0117,
+        "max_drawdown_pct": -0.0453,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0062
+      }
+    },
+    {
+      "fold": 18,
+      "train_period": {
+        "start": "2021-11-30",
+        "end": "2022-02-24"
+      },
+      "validation_period": {
+        "start": "2022-02-25",
+        "end": "2022-03-24"
+      },
+      "holdout_period": {
+        "start": "2022-03-25",
+        "end": "2022-04-22"
+      },
+      "train": {
+        "total_return_pct": 0.113,
+        "sharpe_ratio": 6.6035,
+        "max_drawdown_pct": -0.0257,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.113
+      },
+      "validation": {
+        "total_return_pct": 0.0062,
+        "sharpe_ratio": 1.0117,
+        "max_drawdown_pct": -0.0453,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0062
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 19,
+      "train_period": {
+        "start": "2021-12-29",
+        "end": "2022-03-24"
+      },
+      "validation_period": {
+        "start": "2022-03-25",
+        "end": "2022-04-22"
+      },
+      "holdout_period": {
+        "start": "2022-04-25",
+        "end": "2022-05-20"
+      },
+      "train": {
+        "total_return_pct": 0.1192,
+        "sharpe_ratio": 5.9199,
+        "max_drawdown_pct": -0.0453,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0596
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0717,
+        "sharpe_ratio": 9.0668,
+        "max_drawdown_pct": -0.0394,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0358
+      }
+    },
+    {
+      "fold": 20,
+      "train_period": {
+        "start": "2022-01-27",
+        "end": "2022-04-22"
+      },
+      "validation_period": {
+        "start": "2022-04-25",
+        "end": "2022-05-20"
+      },
+      "holdout_period": {
+        "start": "2022-05-23",
+        "end": "2022-06-21"
+      },
+      "train": {
+        "total_return_pct": 0.0062,
+        "sharpe_ratio": 0.5842,
+        "max_drawdown_pct": -0.0453,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0062
+      },
+      "validation": {
+        "total_return_pct": 0.0717,
+        "sharpe_ratio": 9.0668,
+        "max_drawdown_pct": -0.0394,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0358
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 21,
+      "train_period": {
+        "start": "2022-02-25",
+        "end": "2022-05-20"
+      },
+      "validation_period": {
+        "start": "2022-05-23",
+        "end": "2022-06-21"
+      },
+      "holdout_period": {
+        "start": "2022-06-22",
+        "end": "2022-07-20"
+      },
+      "train": {
+        "total_return_pct": 0.0779,
+        "sharpe_ratio": 4.4938,
+        "max_drawdown_pct": -0.0697,
+        "profit_factor": "Infinity",
+        "total_trades": 3,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.026
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.01,
+        "sharpe_ratio": 2.4685,
+        "max_drawdown_pct": -0.0298,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.01
+      }
+    },
+    {
+      "fold": 22,
+      "train_period": {
+        "start": "2022-03-25",
+        "end": "2022-06-21"
+      },
+      "validation_period": {
+        "start": "2022-06-22",
+        "end": "2022-07-20"
+      },
+      "holdout_period": {
+        "start": "2022-07-21",
+        "end": "2022-08-17"
+      },
+      "train": {
+        "total_return_pct": 0.0717,
+        "sharpe_ratio": 5.2344,
+        "max_drawdown_pct": -0.0394,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0358
+      },
+      "validation": {
+        "total_return_pct": 0.01,
+        "sharpe_ratio": 2.4685,
+        "max_drawdown_pct": -0.0298,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.01
+      },
+      "holdout": {
+        "total_return_pct": 0.0382,
+        "sharpe_ratio": 8.8619,
+        "max_drawdown_pct": -0.0182,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0382
+      }
+    },
+    {
+      "fold": 23,
+      "train_period": {
+        "start": "2022-04-25",
+        "end": "2022-07-20"
+      },
+      "validation_period": {
+        "start": "2022-07-21",
+        "end": "2022-08-17"
+      },
+      "holdout_period": {
+        "start": "2022-08-18",
+        "end": "2022-09-15"
+      },
+      "train": {
+        "total_return_pct": 0.0817,
+        "sharpe_ratio": 5.3081,
+        "max_drawdown_pct": -0.0394,
+        "profit_factor": "Infinity",
+        "total_trades": 3,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0272
+      },
+      "validation": {
+        "total_return_pct": 0.0382,
+        "sharpe_ratio": 8.8619,
+        "max_drawdown_pct": -0.0182,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0382
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 24,
+      "train_period": {
+        "start": "2022-05-23",
+        "end": "2022-08-17"
+      },
+      "validation_period": {
+        "start": "2022-08-18",
+        "end": "2022-09-15"
+      },
+      "holdout_period": {
+        "start": "2022-09-16",
+        "end": "2022-10-13"
+      },
+      "train": {
+        "total_return_pct": 0.0482,
+        "sharpe_ratio": 4.7022,
+        "max_drawdown_pct": -0.0298,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0241
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0232,
+        "sharpe_ratio": 7.6626,
+        "max_drawdown_pct": -0.015,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0232
+      }
+    },
+    {
+      "fold": 25,
+      "train_period": {
+        "start": "2022-06-22",
+        "end": "2022-09-15"
+      },
+      "validation_period": {
+        "start": "2022-09-16",
+        "end": "2022-10-13"
+      },
+      "holdout_period": {
+        "start": "2022-10-14",
+        "end": "2022-11-10"
+      },
+      "train": {
+        "total_return_pct": 0.0482,
+        "sharpe_ratio": 4.7022,
+        "max_drawdown_pct": -0.0298,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0241
+      },
+      "validation": {
+        "total_return_pct": 0.0232,
+        "sharpe_ratio": 7.6626,
+        "max_drawdown_pct": -0.015,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0232
+      },
+      "holdout": {
+        "total_return_pct": 0.0641,
+        "sharpe_ratio": 21.0441,
+        "max_drawdown_pct": -0.0079,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0641
+      }
+    },
+    {
+      "fold": 26,
+      "train_period": {
+        "start": "2022-07-21",
+        "end": "2022-10-13"
+      },
+      "validation_period": {
+        "start": "2022-10-14",
+        "end": "2022-11-10"
+      },
+      "holdout_period": {
+        "start": "2022-11-11",
+        "end": "2022-12-09"
+      },
+      "train": {
+        "total_return_pct": 0.0614,
+        "sharpe_ratio": 6.7299,
+        "max_drawdown_pct": -0.0196,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0307
+      },
+      "validation": {
+        "total_return_pct": 0.0641,
+        "sharpe_ratio": 21.0441,
+        "max_drawdown_pct": -0.0079,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0641
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 27,
+      "train_period": {
+        "start": "2022-08-18",
+        "end": "2022-11-10"
+      },
+      "validation_period": {
+        "start": "2022-11-11",
+        "end": "2022-12-09"
+      },
+      "holdout_period": {
+        "start": "2022-12-12",
+        "end": "2023-01-10"
+      },
+      "train": {
+        "total_return_pct": 0.0873,
+        "sharpe_ratio": 11.7328,
+        "max_drawdown_pct": -0.015,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0437
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": -0.0303,
+        "sharpe_ratio": -13.2264,
+        "max_drawdown_pct": -0.0329,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0303
+      }
+    },
+    {
+      "fold": 28,
+      "train_period": {
+        "start": "2022-09-16",
+        "end": "2022-12-09"
+      },
+      "validation_period": {
+        "start": "2022-12-12",
+        "end": "2023-01-10"
+      },
+      "holdout_period": {
+        "start": "2023-01-11",
+        "end": "2023-02-08"
+      },
+      "train": {
+        "total_return_pct": 0.0873,
+        "sharpe_ratio": 11.7757,
+        "max_drawdown_pct": -0.015,
+        "profit_factor": "Infinity",
+        "total_trades": 2,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0437
+      },
+      "validation": {
+        "total_return_pct": -0.0303,
+        "sharpe_ratio": -13.2264,
+        "max_drawdown_pct": -0.0329,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0303
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 29,
+      "train_period": {
+        "start": "2022-10-14",
+        "end": "2023-01-10"
+      },
+      "validation_period": {
+        "start": "2023-01-11",
+        "end": "2023-02-08"
+      },
+      "holdout_period": {
+        "start": "2023-02-09",
+        "end": "2023-03-09"
+      },
+      "train": {
+        "total_return_pct": 0.0338,
+        "sharpe_ratio": 5.1301,
+        "max_drawdown_pct": -0.0341,
+        "profit_factor": 2.0346,
+        "total_trades": 2,
+        "win_rate_pct": 50.0,
+        "avg_trade_pct": 0.0169
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 30,
+      "train_period": {
+        "start": "2022-11-11",
+        "end": "2023-02-08"
+      },
+      "validation_period": {
+        "start": "2023-02-09",
+        "end": "2023-03-09"
+      },
+      "holdout_period": {
+        "start": "2023-03-10",
+        "end": "2023-04-06"
+      },
+      "train": {
+        "total_return_pct": -0.0303,
+        "sharpe_ratio": -7.6616,
+        "max_drawdown_pct": -0.0329,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0303
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 31,
+      "train_period": {
+        "start": "2022-12-12",
+        "end": "2023-03-09"
+      },
+      "validation_period": {
+        "start": "2023-03-10",
+        "end": "2023-04-06"
+      },
+      "holdout_period": {
+        "start": "2023-04-10",
+        "end": "2023-05-05"
+      },
+      "train": {
+        "total_return_pct": -0.0303,
+        "sharpe_ratio": -7.6337,
+        "max_drawdown_pct": -0.0329,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0303
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 32,
+      "train_period": {
+        "start": "2023-01-11",
+        "end": "2023-04-06"
+      },
+      "validation_period": {
+        "start": "2023-04-10",
+        "end": "2023-05-05"
+      },
+      "holdout_period": {
+        "start": "2023-05-08",
+        "end": "2023-06-05"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 33,
+      "train_period": {
+        "start": "2023-02-09",
+        "end": "2023-05-05"
+      },
+      "validation_period": {
+        "start": "2023-05-08",
+        "end": "2023-06-05"
+      },
+      "holdout_period": {
+        "start": "2023-06-06",
+        "end": "2023-07-05"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0199,
+        "sharpe_ratio": 6.3358,
+        "max_drawdown_pct": -0.0175,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0199
+      }
+    },
+    {
+      "fold": 34,
+      "train_period": {
+        "start": "2023-03-10",
+        "end": "2023-06-05"
+      },
+      "validation_period": {
+        "start": "2023-06-06",
+        "end": "2023-07-05"
+      },
+      "holdout_period": {
+        "start": "2023-07-06",
+        "end": "2023-08-02"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0199,
+        "sharpe_ratio": 6.3358,
+        "max_drawdown_pct": -0.0175,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0199
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 35,
+      "train_period": {
+        "start": "2023-04-10",
+        "end": "2023-07-05"
+      },
+      "validation_period": {
+        "start": "2023-07-06",
+        "end": "2023-08-02"
+      },
+      "holdout_period": {
+        "start": "2023-08-03",
+        "end": "2023-08-30"
+      },
+      "train": {
+        "total_return_pct": 0.0199,
+        "sharpe_ratio": 3.6307,
+        "max_drawdown_pct": -0.0175,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0199
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 36,
+      "train_period": {
+        "start": "2023-05-08",
+        "end": "2023-08-02"
+      },
+      "validation_period": {
+        "start": "2023-08-03",
+        "end": "2023-08-30"
+      },
+      "holdout_period": {
+        "start": "2023-08-31",
+        "end": "2023-09-28"
+      },
+      "train": {
+        "total_return_pct": 0.0199,
+        "sharpe_ratio": 3.6307,
+        "max_drawdown_pct": -0.0175,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0199
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 37,
+      "train_period": {
+        "start": "2023-06-06",
+        "end": "2023-08-30"
+      },
+      "validation_period": {
+        "start": "2023-08-31",
+        "end": "2023-09-28"
+      },
+      "holdout_period": {
+        "start": "2023-09-29",
+        "end": "2023-10-26"
+      },
+      "train": {
+        "total_return_pct": 0.0199,
+        "sharpe_ratio": 3.6307,
+        "max_drawdown_pct": -0.0175,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0199
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0372,
+        "sharpe_ratio": 11.1047,
+        "max_drawdown_pct": -0.0123,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0372
+      }
+    },
+    {
+      "fold": 38,
+      "train_period": {
+        "start": "2023-07-06",
+        "end": "2023-09-28"
+      },
+      "validation_period": {
+        "start": "2023-09-29",
+        "end": "2023-10-26"
+      },
+      "holdout_period": {
+        "start": "2023-10-27",
+        "end": "2023-11-24"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0372,
+        "sharpe_ratio": 11.1047,
+        "max_drawdown_pct": -0.0123,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0372
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 39,
+      "train_period": {
+        "start": "2023-08-03",
+        "end": "2023-10-26"
+      },
+      "validation_period": {
+        "start": "2023-10-27",
+        "end": "2023-11-24"
+      },
+      "holdout_period": {
+        "start": "2023-11-27",
+        "end": "2023-12-22"
+      },
+      "train": {
+        "total_return_pct": 0.0372,
+        "sharpe_ratio": 6.4108,
+        "max_drawdown_pct": -0.0123,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0372
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 40,
+      "train_period": {
+        "start": "2023-08-31",
+        "end": "2023-11-24"
+      },
+      "validation_period": {
+        "start": "2023-11-27",
+        "end": "2023-12-22"
+      },
+      "holdout_period": {
+        "start": "2023-12-26",
+        "end": "2024-01-24"
+      },
+      "train": {
+        "total_return_pct": 0.0372,
+        "sharpe_ratio": 6.4356,
+        "max_drawdown_pct": -0.0123,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0372
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 41,
+      "train_period": {
+        "start": "2023-09-29",
+        "end": "2023-12-22"
+      },
+      "validation_period": {
+        "start": "2023-12-26",
+        "end": "2024-01-24"
+      },
+      "holdout_period": {
+        "start": "2024-01-25",
+        "end": "2024-02-22"
+      },
+      "train": {
+        "total_return_pct": 0.0372,
+        "sharpe_ratio": 6.4349,
+        "max_drawdown_pct": -0.0123,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0372
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 42,
+      "train_period": {
+        "start": "2023-10-27",
+        "end": "2024-01-24"
+      },
+      "validation_period": {
+        "start": "2024-01-25",
+        "end": "2024-02-22"
+      },
+      "holdout_period": {
+        "start": "2024-02-23",
+        "end": "2024-03-21"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 43,
+      "train_period": {
+        "start": "2023-11-27",
+        "end": "2024-02-22"
+      },
+      "validation_period": {
+        "start": "2024-02-23",
+        "end": "2024-03-21"
+      },
+      "holdout_period": {
+        "start": "2024-03-22",
+        "end": "2024-04-19"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 44,
+      "train_period": {
+        "start": "2023-12-26",
+        "end": "2024-03-21"
+      },
+      "validation_period": {
+        "start": "2024-03-22",
+        "end": "2024-04-19"
+      },
+      "holdout_period": {
+        "start": "2024-04-22",
+        "end": "2024-05-17"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 45,
+      "train_period": {
+        "start": "2024-01-25",
+        "end": "2024-04-19"
+      },
+      "validation_period": {
+        "start": "2024-04-22",
+        "end": "2024-05-17"
+      },
+      "holdout_period": {
+        "start": "2024-05-20",
+        "end": "2024-06-17"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 46,
+      "train_period": {
+        "start": "2024-02-23",
+        "end": "2024-05-17"
+      },
+      "validation_period": {
+        "start": "2024-05-20",
+        "end": "2024-06-17"
+      },
+      "holdout_period": {
+        "start": "2024-06-18",
+        "end": "2024-07-17"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 47,
+      "train_period": {
+        "start": "2024-03-22",
+        "end": "2024-06-17"
+      },
+      "validation_period": {
+        "start": "2024-06-18",
+        "end": "2024-07-17"
+      },
+      "holdout_period": {
+        "start": "2024-07-18",
+        "end": "2024-08-14"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 48,
+      "train_period": {
+        "start": "2024-04-22",
+        "end": "2024-07-17"
+      },
+      "validation_period": {
+        "start": "2024-07-18",
+        "end": "2024-08-14"
+      },
+      "holdout_period": {
+        "start": "2024-08-15",
+        "end": "2024-09-12"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": -0.0484,
+        "sharpe_ratio": -7.9918,
+        "max_drawdown_pct": -0.0793,
+        "profit_factor": 0.0,
+        "total_trades": 2,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0242
+      }
+    },
+    {
+      "fold": 49,
+      "train_period": {
+        "start": "2024-05-20",
+        "end": "2024-08-14"
+      },
+      "validation_period": {
+        "start": "2024-08-15",
+        "end": "2024-09-12"
+      },
+      "holdout_period": {
+        "start": "2024-09-13",
+        "end": "2024-10-10"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": -0.0484,
+        "sharpe_ratio": -7.9918,
+        "max_drawdown_pct": -0.0793,
+        "profit_factor": 0.0,
+        "total_trades": 2,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0242
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 50,
+      "train_period": {
+        "start": "2024-06-18",
+        "end": "2024-09-12"
+      },
+      "validation_period": {
+        "start": "2024-09-13",
+        "end": "2024-10-10"
+      },
+      "holdout_period": {
+        "start": "2024-10-11",
+        "end": "2024-11-07"
+      },
+      "train": {
+        "total_return_pct": -0.0484,
+        "sharpe_ratio": -4.632,
+        "max_drawdown_pct": -0.0793,
+        "profit_factor": 0.0,
+        "total_trades": 2,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0242
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 51,
+      "train_period": {
+        "start": "2024-07-18",
+        "end": "2024-10-10"
+      },
+      "validation_period": {
+        "start": "2024-10-11",
+        "end": "2024-11-07"
+      },
+      "holdout_period": {
+        "start": "2024-11-08",
+        "end": "2024-12-06"
+      },
+      "train": {
+        "total_return_pct": -0.0484,
+        "sharpe_ratio": -4.6141,
+        "max_drawdown_pct": -0.0793,
+        "profit_factor": 0.0,
+        "total_trades": 2,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0242
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 52,
+      "train_period": {
+        "start": "2024-08-15",
+        "end": "2024-11-07"
+      },
+      "validation_period": {
+        "start": "2024-11-08",
+        "end": "2024-12-06"
+      },
+      "holdout_period": {
+        "start": "2024-12-09",
+        "end": "2025-01-07"
+      },
+      "train": {
+        "total_return_pct": -0.0484,
+        "sharpe_ratio": -4.6146,
+        "max_drawdown_pct": -0.0793,
+        "profit_factor": 0.0,
+        "total_trades": 2,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0242
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 53,
+      "train_period": {
+        "start": "2024-09-13",
+        "end": "2024-12-06"
+      },
+      "validation_period": {
+        "start": "2024-12-09",
+        "end": "2025-01-07"
+      },
+      "holdout_period": {
+        "start": "2025-01-08",
+        "end": "2025-02-06"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0342,
+        "sharpe_ratio": 6.5144,
+        "max_drawdown_pct": -0.0272,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0342
+      }
+    },
+    {
+      "fold": 54,
+      "train_period": {
+        "start": "2024-10-11",
+        "end": "2025-01-07"
+      },
+      "validation_period": {
+        "start": "2025-01-08",
+        "end": "2025-02-06"
+      },
+      "holdout_period": {
+        "start": "2025-02-07",
+        "end": "2025-03-07"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0342,
+        "sharpe_ratio": 6.5144,
+        "max_drawdown_pct": -0.0272,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0342
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 55,
+      "train_period": {
+        "start": "2024-11-08",
+        "end": "2025-02-06"
+      },
+      "validation_period": {
+        "start": "2025-02-07",
+        "end": "2025-03-07"
+      },
+      "holdout_period": {
+        "start": "2025-03-11",
+        "end": "2025-04-07"
+      },
+      "train": {
+        "total_return_pct": 0.0342,
+        "sharpe_ratio": 3.8179,
+        "max_drawdown_pct": -0.0272,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0342
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 56,
+      "train_period": {
+        "start": "2024-12-09",
+        "end": "2025-03-07"
+      },
+      "validation_period": {
+        "start": "2025-03-11",
+        "end": "2025-04-07"
+      },
+      "holdout_period": {
+        "start": "2025-04-08",
+        "end": "2025-05-06"
+      },
+      "train": {
+        "total_return_pct": 0.0342,
+        "sharpe_ratio": 3.8032,
+        "max_drawdown_pct": -0.0272,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0342
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 57,
+      "train_period": {
+        "start": "2025-01-08",
+        "end": "2025-04-07"
+      },
+      "validation_period": {
+        "start": "2025-04-08",
+        "end": "2025-05-06"
+      },
+      "holdout_period": {
+        "start": "2025-05-07",
+        "end": "2025-06-04"
+      },
+      "train": {
+        "total_return_pct": 0.0342,
+        "sharpe_ratio": 3.7586,
+        "max_drawdown_pct": -0.0272,
+        "profit_factor": "Infinity",
+        "total_trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_pct": 0.0342
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 58,
+      "train_period": {
+        "start": "2025-02-07",
+        "end": "2025-05-06"
+      },
+      "validation_period": {
+        "start": "2025-05-07",
+        "end": "2025-06-04"
+      },
+      "holdout_period": {
+        "start": "2025-06-05",
+        "end": "2025-07-03"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 59,
+      "train_period": {
+        "start": "2025-03-11",
+        "end": "2025-06-04"
+      },
+      "validation_period": {
+        "start": "2025-06-05",
+        "end": "2025-07-03"
+      },
+      "holdout_period": {
+        "start": "2025-07-07",
+        "end": "2025-08-01"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 60,
+      "train_period": {
+        "start": "2025-04-08",
+        "end": "2025-07-03"
+      },
+      "validation_period": {
+        "start": "2025-07-07",
+        "end": "2025-08-01"
+      },
+      "holdout_period": {
+        "start": "2025-08-04",
+        "end": "2025-08-29"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 61,
+      "train_period": {
+        "start": "2025-05-07",
+        "end": "2025-08-01"
+      },
+      "validation_period": {
+        "start": "2025-08-04",
+        "end": "2025-08-29"
+      },
+      "holdout_period": {
+        "start": "2025-09-02",
+        "end": "2025-09-29"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 62,
+      "train_period": {
+        "start": "2025-06-05",
+        "end": "2025-08-29"
+      },
+      "validation_period": {
+        "start": "2025-09-02",
+        "end": "2025-09-29"
+      },
+      "holdout_period": {
+        "start": "2025-09-30",
+        "end": "2025-10-27"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 63,
+      "train_period": {
+        "start": "2025-07-07",
+        "end": "2025-09-29"
+      },
+      "validation_period": {
+        "start": "2025-09-30",
+        "end": "2025-10-27"
+      },
+      "holdout_period": {
+        "start": "2025-10-28",
+        "end": "2025-11-24"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 64,
+      "train_period": {
+        "start": "2025-08-04",
+        "end": "2025-10-27"
+      },
+      "validation_period": {
+        "start": "2025-10-28",
+        "end": "2025-11-24"
+      },
+      "holdout_period": {
+        "start": "2025-11-25",
+        "end": "2025-12-23"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": -0.0185,
+        "sharpe_ratio": -4.0364,
+        "max_drawdown_pct": -0.031,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0185
+      }
+    },
+    {
+      "fold": 65,
+      "train_period": {
+        "start": "2025-09-02",
+        "end": "2025-11-24"
+      },
+      "validation_period": {
+        "start": "2025-11-25",
+        "end": "2025-12-23"
+      },
+      "holdout_period": {
+        "start": "2025-12-24",
+        "end": "2026-01-23"
+      },
+      "train": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "validation": {
+        "total_return_pct": -0.0185,
+        "sharpe_ratio": -4.0364,
+        "max_drawdown_pct": -0.031,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0185
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 66,
+      "train_period": {
+        "start": "2025-09-30",
+        "end": "2025-12-23"
+      },
+      "validation_period": {
+        "start": "2025-12-24",
+        "end": "2026-01-23"
+      },
+      "holdout_period": {
+        "start": "2026-01-26",
+        "end": "2026-02-23"
+      },
+      "train": {
+        "total_return_pct": -0.0185,
+        "sharpe_ratio": -2.3177,
+        "max_drawdown_pct": -0.031,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0185
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    },
+    {
+      "fold": 67,
+      "train_period": {
+        "start": "2025-10-28",
+        "end": "2026-01-23"
+      },
+      "validation_period": {
+        "start": "2026-01-26",
+        "end": "2026-02-23"
+      },
+      "holdout_period": {
+        "start": "2026-02-24",
+        "end": "2026-03-23"
+      },
+      "train": {
+        "total_return_pct": -0.0185,
+        "sharpe_ratio": -2.3255,
+        "max_drawdown_pct": -0.031,
+        "profit_factor": 0.0,
+        "total_trades": 1,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": -0.0185
+      },
+      "validation": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      },
+      "holdout": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": "Infinity",
+        "max_drawdown_pct": 0.0,
+        "profit_factor": "Infinity",
+        "total_trades": 0,
+        "win_rate_pct": 0.0,
+        "avg_trade_pct": 0.0
+      }
+    }
+  ],
+  "summary": {
+    "folds": 67,
+    "avg_validation_return_pct": 0.0053,
+    "avg_holdout_return_pct": 0.0053,
+    "avg_holdout_sharpe_ratio": 4.883,
+    "positive_holdout_fold_pct": 16.4179,
+    "holdout_trade_total": 16,
+    "best_holdout_fold": {
+      "fold": 15,
+      "holdout_return_pct": 0.113,
+      "holdout_profit_factor": "Infinity",
+      "holdout_trades": 1
+    }
+  },
+  "verdict": "ICT_WALK_FORWARD_MIXED_BUT_POSITIVE",
+  "interpretation": "The active lite ICT frontier stays positive on average in holdout, but fold-level stability is still mixed and should not be treated as promotion-ready."
+}

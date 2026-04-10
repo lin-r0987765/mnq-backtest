@@ -1,0 +1,235 @@
+{
+  "analysis": "ict_asymmetric_long_tp_sweep_intrabar_tp45_framework",
+  "variants": [
+    {
+      "label": "longtp_40_recovery_sl135",
+      "family": "recovery_sl135",
+      "take_profit_rr": 4.0,
+      "full_metrics": {
+        "total_return_pct": 30.3477,
+        "sharpe_ratio": 0.67,
+        "sortino_ratio": 0.2077,
+        "calmar_ratio": 4.9597,
+        "max_drawdown_pct": -6.1188,
+        "win_rate_pct": 48.8722,
+        "total_trades": 266,
+        "profit_factor": 1.6223,
+        "avg_trade_pct": 0.1141
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.4497,
+        "avg_holdout_return_pct": 0.7753,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 68
+      }
+    },
+    {
+      "label": "longtp_425_recovery_sl135",
+      "family": "recovery_sl135",
+      "take_profit_rr": 4.25,
+      "full_metrics": {
+        "total_return_pct": 30.7214,
+        "sharpe_ratio": 0.6771,
+        "sortino_ratio": 0.21,
+        "calmar_ratio": 5.0131,
+        "max_drawdown_pct": -6.1282,
+        "win_rate_pct": 48.8722,
+        "total_trades": 266,
+        "profit_factor": 1.6264,
+        "avg_trade_pct": 0.1155
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.4497,
+        "avg_holdout_return_pct": 0.7753,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 68
+      }
+    },
+    {
+      "label": "longtp_45_recovery_sl135",
+      "family": "recovery_sl135",
+      "take_profit_rr": 4.5,
+      "full_metrics": {
+        "total_return_pct": 31.0506,
+        "sharpe_ratio": 0.6827,
+        "sortino_ratio": 0.2117,
+        "calmar_ratio": 5.071,
+        "max_drawdown_pct": -6.1232,
+        "win_rate_pct": 48.8722,
+        "total_trades": 266,
+        "profit_factor": 1.6291,
+        "avg_trade_pct": 0.1167
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.5021,
+        "avg_holdout_return_pct": 0.8277,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 68
+      }
+    },
+    {
+      "label": "longtp_475_recovery_sl135",
+      "family": "recovery_sl135",
+      "take_profit_rr": 4.75,
+      "full_metrics": {
+        "total_return_pct": 31.0506,
+        "sharpe_ratio": 0.6827,
+        "sortino_ratio": 0.2117,
+        "calmar_ratio": 5.071,
+        "max_drawdown_pct": -6.1232,
+        "win_rate_pct": 48.8722,
+        "total_trades": 266,
+        "profit_factor": 1.6291,
+        "avg_trade_pct": 0.1167
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.5021,
+        "avg_holdout_return_pct": 0.8277,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 68
+      }
+    },
+    {
+      "label": "longtp_50_recovery_sl135",
+      "family": "recovery_sl135",
+      "take_profit_rr": 5.0,
+      "full_metrics": {
+        "total_return_pct": 31.0506,
+        "sharpe_ratio": 0.6827,
+        "sortino_ratio": 0.2117,
+        "calmar_ratio": 5.071,
+        "max_drawdown_pct": -6.1232,
+        "win_rate_pct": 48.8722,
+        "total_trades": 266,
+        "profit_factor": 1.6291,
+        "avg_trade_pct": 0.1167
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.5021,
+        "avg_holdout_return_pct": 0.8277,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 68
+      }
+    },
+    {
+      "label": "longtp_40_density_sl135",
+      "family": "density_sl135",
+      "take_profit_rr": 4.0,
+      "full_metrics": {
+        "total_return_pct": 28.1653,
+        "sharpe_ratio": 0.6205,
+        "sortino_ratio": 0.1982,
+        "calmar_ratio": 4.6314,
+        "max_drawdown_pct": -6.0814,
+        "win_rate_pct": 48.2639,
+        "total_trades": 288,
+        "profit_factor": 1.5665,
+        "avg_trade_pct": 0.0978
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 0.9967,
+        "avg_holdout_return_pct": 1.2332,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 71
+      }
+    },
+    {
+      "label": "longtp_425_density_sl135",
+      "family": "density_sl135",
+      "take_profit_rr": 4.25,
+      "full_metrics": {
+        "total_return_pct": 28.4793,
+        "sharpe_ratio": 0.6268,
+        "sortino_ratio": 0.2002,
+        "calmar_ratio": 4.695,
+        "max_drawdown_pct": -6.0658,
+        "win_rate_pct": 48.2639,
+        "total_trades": 288,
+        "profit_factor": 1.5699,
+        "avg_trade_pct": 0.0989
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 0.9967,
+        "avg_holdout_return_pct": 1.2332,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 71
+      }
+    },
+    {
+      "label": "longtp_45_density_sl135",
+      "family": "density_sl135",
+      "take_profit_rr": 4.5,
+      "full_metrics": {
+        "total_return_pct": 28.8951,
+        "sharpe_ratio": 0.6349,
+        "sortino_ratio": 0.2029,
+        "calmar_ratio": 4.7671,
+        "max_drawdown_pct": -6.0613,
+        "win_rate_pct": 48.2639,
+        "total_trades": 288,
+        "profit_factor": 1.575,
+        "avg_trade_pct": 0.1003
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.0491,
+        "avg_holdout_return_pct": 1.2857,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 71
+      }
+    },
+    {
+      "label": "longtp_475_density_sl135",
+      "family": "density_sl135",
+      "take_profit_rr": 4.75,
+      "full_metrics": {
+        "total_return_pct": 28.8951,
+        "sharpe_ratio": 0.6349,
+        "sortino_ratio": 0.2029,
+        "calmar_ratio": 4.7671,
+        "max_drawdown_pct": -6.0613,
+        "win_rate_pct": 48.2639,
+        "total_trades": 288,
+        "profit_factor": 1.575,
+        "avg_trade_pct": 0.1003
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.0491,
+        "avg_holdout_return_pct": 1.2857,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 71
+      }
+    },
+    {
+      "label": "longtp_50_density_sl135",
+      "family": "density_sl135",
+      "take_profit_rr": 5.0,
+      "full_metrics": {
+        "total_return_pct": 28.8951,
+        "sharpe_ratio": 0.6349,
+        "sortino_ratio": 0.2029,
+        "calmar_ratio": 4.7671,
+        "max_drawdown_pct": -6.0613,
+        "win_rate_pct": 48.2639,
+        "total_trades": 288,
+        "profit_factor": 1.575,
+        "avg_trade_pct": 0.1003
+      },
+      "walk_forward_summary": {
+        "folds": 2,
+        "avg_validation_return_pct": 1.0491,
+        "avg_holdout_return_pct": 1.2857,
+        "positive_holdout_fold_pct": 100.0,
+        "holdout_trade_total": 71
+      }
+    }
+  ]
+}

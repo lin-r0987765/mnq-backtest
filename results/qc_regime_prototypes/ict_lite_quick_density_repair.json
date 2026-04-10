@@ -1,0 +1,396 @@
+{
+  "analysis": "ict_lite_quick_density_repair",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "strict_frontier": {
+    "profile": "strict_ict_frontier",
+    "params": {
+      "use_smt_filter": true,
+      "structure_lookback": 12,
+      "liq_sweep_threshold": 0.0008,
+      "liq_sweep_recovery_bars": 4,
+      "fvg_min_gap_pct": 0.0006,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_revisit_min_delay_bars": 3,
+      "use_premium_discount_filter": true,
+      "use_prev_session_anchor_filter": true,
+      "use_external_liquidity_filter": true,
+      "use_session_array_refinement": true,
+      "trade_sessions": true
+    },
+    "metrics": {
+      "total_return_pct": 0.2119,
+      "sharpe_ratio": 2.3084,
+      "sortino_ratio": 3.7047,
+      "calmar_ratio": 3.9239,
+      "max_drawdown_pct": -0.054,
+      "win_rate_pct": 100.0,
+      "total_trades": 8,
+      "profit_factor": Infinity,
+      "avg_trade_pct": 0.0265
+    },
+    "delivery_breakdown": {
+      "fvg_entries": 8,
+      "ob_entries": 0,
+      "breaker_entries": 0,
+      "ifvg_entries": 0
+    },
+    "funnel": {
+      "stages": {
+        "raw_sweep_candidates": 847,
+        "accepted_sweeps": 273,
+        "shift_candidates": 25,
+        "armed_setups": 10,
+        "retest_candidates": 8,
+        "entries": 8
+      },
+      "direction_breakdown": {
+        "bullish_sweep_candidates": 505,
+        "bearish_sweep_candidates": 342,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122,
+        "bullish_shift_candidates": 7,
+        "bearish_shift_candidates": 18,
+        "bullish_armed_setups": 4,
+        "bearish_armed_setups": 6,
+        "bullish_retest_candidates": 2,
+        "bearish_retest_candidates": 6,
+        "long_entries": 2,
+        "short_entries": 6
+      },
+      "conversion_rates_pct": {
+        "sweep_acceptance_rate": 32.23,
+        "accepted_sweep_to_shift_rate": 9.16,
+        "shift_to_armed_rate": 40.0,
+        "armed_to_retest_rate": 80.0,
+        "retest_to_entry_rate": 100.0,
+        "raw_sweep_to_entry_rate": 0.94
+      },
+      "filtered_breakdown": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 287,
+        "amd_filtered_setups": 0,
+        "prev_session_anchor_filtered_setups": 225,
+        "external_liquidity_filtered_sweeps": 216,
+        "smt_filtered_sweeps": 305,
+        "smt_missing_peer_bars": 2,
+        "macro_timing_filtered_sweeps": 0,
+        "kill_zone_filtered_sweeps": 0,
+        "displacement_filtered_shifts": 1,
+        "displacement_range_filtered_shifts": 0,
+        "structure_buffer_filtered_shifts": 0,
+        "session_array_filtered_shifts": 7,
+        "delivery_missing_shifts": 14,
+        "score_filtered_shifts": 0,
+        "fvg_delay_filtered_retests": 3,
+        "fvg_depth_filtered_retests": 7,
+        "fvg_touch_filtered_retests": 0,
+        "fvg_close_filtered_retests": 0,
+        "fvg_wick_filtered_retests": 0,
+        "fvg_body_filtered_retests": 0,
+        "sweep_blocked_by_existing_pending": 18,
+        "sweep_expired_before_shift": 263,
+        "armed_setup_expired_before_retest": 2
+      },
+      "top_filters": [
+        {
+          "label": "smt_filtered_sweeps",
+          "count": 305
+        },
+        {
+          "label": "premium_discount_filtered_setups",
+          "count": 287
+        },
+        {
+          "label": "sweep_expired_before_shift",
+          "count": 263
+        },
+        {
+          "label": "prev_session_anchor_filtered_setups",
+          "count": 225
+        },
+        {
+          "label": "external_liquidity_filtered_sweeps",
+          "count": 216
+        },
+        {
+          "label": "sweep_blocked_by_existing_pending",
+          "count": 18
+        },
+        {
+          "label": "delivery_missing_shifts",
+          "count": 14
+        },
+        {
+          "label": "session_array_filtered_shifts",
+          "count": 7
+        }
+      ]
+    }
+  },
+  "active_lite_frontier": {
+    "profile": "active_lite_frontier",
+    "params": {
+      "use_smt_filter": true,
+      "structure_lookback": 12,
+      "liq_sweep_threshold": 0.0006,
+      "liq_sweep_recovery_bars": 4,
+      "fvg_min_gap_pct": 0.001,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_revisit_min_delay_bars": 2,
+      "use_premium_discount_filter": false,
+      "use_prev_session_anchor_filter": false,
+      "use_external_liquidity_filter": false,
+      "use_session_array_refinement": false,
+      "trade_sessions": true
+    },
+    "metrics": {
+      "total_return_pct": 0.4353,
+      "sharpe_ratio": 2.4866,
+      "sortino_ratio": 3.992,
+      "calmar_ratio": 4.5516,
+      "max_drawdown_pct": -0.0956,
+      "win_rate_pct": 72.2222,
+      "total_trades": 18,
+      "profit_factor": 5.0247,
+      "avg_trade_pct": 0.0242
+    },
+    "delivery_breakdown": {
+      "fvg_entries": 12,
+      "ob_entries": 5,
+      "breaker_entries": 1,
+      "ifvg_entries": 0
+    },
+    "funnel": {
+      "stages": {
+        "raw_sweep_candidates": 1351,
+        "accepted_sweeps": 1036,
+        "shift_candidates": 58,
+        "armed_setups": 36,
+        "retest_candidates": 20,
+        "entries": 18
+      },
+      "direction_breakdown": {
+        "bullish_sweep_candidates": 806,
+        "bearish_sweep_candidates": 545,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33,
+        "bullish_armed_setups": 14,
+        "bearish_armed_setups": 22,
+        "bullish_retest_candidates": 7,
+        "bearish_retest_candidates": 13,
+        "long_entries": 6,
+        "short_entries": 12
+      },
+      "conversion_rates_pct": {
+        "sweep_acceptance_rate": 76.68,
+        "accepted_sweep_to_shift_rate": 5.6,
+        "shift_to_armed_rate": 62.07,
+        "armed_to_retest_rate": 55.56,
+        "retest_to_entry_rate": 90.0,
+        "raw_sweep_to_entry_rate": 1.33
+      },
+      "filtered_breakdown": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 0,
+        "amd_filtered_setups": 0,
+        "prev_session_anchor_filtered_setups": 0,
+        "external_liquidity_filtered_sweeps": 0,
+        "smt_filtered_sweeps": 191,
+        "smt_missing_peer_bars": 2,
+        "macro_timing_filtered_sweeps": 0,
+        "kill_zone_filtered_sweeps": 0,
+        "displacement_filtered_shifts": 2,
+        "displacement_range_filtered_shifts": 0,
+        "structure_buffer_filtered_shifts": 0,
+        "session_array_filtered_shifts": 0,
+        "delivery_missing_shifts": 20,
+        "score_filtered_shifts": 0,
+        "fvg_delay_filtered_retests": 5,
+        "fvg_depth_filtered_retests": 22,
+        "fvg_touch_filtered_retests": 0,
+        "fvg_close_filtered_retests": 0,
+        "fvg_wick_filtered_retests": 0,
+        "fvg_body_filtered_retests": 0,
+        "sweep_blocked_by_existing_pending": 122,
+        "sweep_expired_before_shift": 1000,
+        "armed_setup_expired_before_retest": 18
+      },
+      "top_filters": [
+        {
+          "label": "sweep_expired_before_shift",
+          "count": 1000
+        },
+        {
+          "label": "smt_filtered_sweeps",
+          "count": 191
+        },
+        {
+          "label": "sweep_blocked_by_existing_pending",
+          "count": 122
+        },
+        {
+          "label": "fvg_depth_filtered_retests",
+          "count": 22
+        },
+        {
+          "label": "delivery_missing_shifts",
+          "count": 20
+        },
+        {
+          "label": "armed_setup_expired_before_retest",
+          "count": 18
+        },
+        {
+          "label": "fvg_delay_filtered_retests",
+          "count": 5
+        },
+        {
+          "label": "smt_missing_peer_bars",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "quick_density_repair": {
+    "profile": "quick_density_repair",
+    "params": {
+      "use_smt_filter": false,
+      "structure_lookback": 5,
+      "liq_sweep_threshold": 0.0008,
+      "liq_sweep_recovery_bars": 15,
+      "fvg_min_gap_pct": 0.0003,
+      "fvg_revisit_depth_ratio": 0.0,
+      "fvg_revisit_min_delay_bars": 3,
+      "use_premium_discount_filter": false,
+      "use_prev_session_anchor_filter": false,
+      "use_external_liquidity_filter": false,
+      "use_session_array_refinement": false,
+      "trade_sessions": true
+    },
+    "metrics": {
+      "total_return_pct": -0.9467,
+      "sharpe_ratio": -2.9918,
+      "sortino_ratio": -4.0595,
+      "calmar_ratio": 1.0,
+      "max_drawdown_pct": -0.9467,
+      "win_rate_pct": 30.2752,
+      "total_trades": 109,
+      "profit_factor": 0.4595,
+      "avg_trade_pct": -0.0087
+    },
+    "delivery_breakdown": {
+      "fvg_entries": 82,
+      "ob_entries": 24,
+      "breaker_entries": 3,
+      "ifvg_entries": 0
+    },
+    "funnel": {
+      "stages": {
+        "raw_sweep_candidates": 844,
+        "accepted_sweeps": 712,
+        "shift_candidates": 240,
+        "armed_setups": 184,
+        "retest_candidates": 115,
+        "entries": 109
+      },
+      "direction_breakdown": {
+        "bullish_sweep_candidates": 502,
+        "bearish_sweep_candidates": 342,
+        "bullish_sweeps": 411,
+        "bearish_sweeps": 301,
+        "bullish_shift_candidates": 112,
+        "bearish_shift_candidates": 128,
+        "bullish_armed_setups": 93,
+        "bearish_armed_setups": 91,
+        "bullish_retest_candidates": 58,
+        "bearish_retest_candidates": 57,
+        "long_entries": 55,
+        "short_entries": 54
+      },
+      "conversion_rates_pct": {
+        "sweep_acceptance_rate": 84.36,
+        "accepted_sweep_to_shift_rate": 33.71,
+        "shift_to_armed_rate": 76.67,
+        "armed_to_retest_rate": 62.5,
+        "retest_to_entry_rate": 94.78,
+        "raw_sweep_to_entry_rate": 12.91
+      },
+      "filtered_breakdown": {
+        "daily_bias_filtered_setups": 0,
+        "premium_discount_filtered_setups": 0,
+        "amd_filtered_setups": 0,
+        "prev_session_anchor_filtered_setups": 0,
+        "external_liquidity_filtered_sweeps": 0,
+        "smt_filtered_sweeps": 0,
+        "smt_missing_peer_bars": 0,
+        "macro_timing_filtered_sweeps": 0,
+        "kill_zone_filtered_sweeps": 0,
+        "displacement_filtered_shifts": 7,
+        "displacement_range_filtered_shifts": 0,
+        "structure_buffer_filtered_shifts": 0,
+        "session_array_filtered_shifts": 0,
+        "delivery_missing_shifts": 49,
+        "score_filtered_shifts": 0,
+        "fvg_delay_filtered_retests": 72,
+        "fvg_depth_filtered_retests": 0,
+        "fvg_touch_filtered_retests": 0,
+        "fvg_close_filtered_retests": 0,
+        "fvg_wick_filtered_retests": 0,
+        "fvg_body_filtered_retests": 0,
+        "sweep_blocked_by_existing_pending": 132,
+        "sweep_expired_before_shift": 516,
+        "armed_setup_expired_before_retest": 72
+      },
+      "top_filters": [
+        {
+          "label": "sweep_expired_before_shift",
+          "count": 516
+        },
+        {
+          "label": "sweep_blocked_by_existing_pending",
+          "count": 132
+        },
+        {
+          "label": "fvg_delay_filtered_retests",
+          "count": 72
+        },
+        {
+          "label": "armed_setup_expired_before_retest",
+          "count": 72
+        },
+        {
+          "label": "delivery_missing_shifts",
+          "count": 49
+        },
+        {
+          "label": "displacement_filtered_shifts",
+          "count": 7
+        }
+      ]
+    }
+  },
+  "density_comparison": {
+    "strict_trades": 8,
+    "active_lite_trades": 18,
+    "quick_repair_trades": 109,
+    "gain_vs_strict": 101,
+    "gain_vs_active_lite": 91,
+    "multiple_vs_strict": 13.62,
+    "multiple_vs_active_lite": 6.06,
+    "strict_total_return_pct": 0.2119,
+    "active_lite_total_return_pct": 0.4353,
+    "quick_repair_total_return_pct": -0.9467,
+    "toward_100_trade_gate": 0,
+    "toward_500_trade_gate": 391
+  },
+  "verdict": "QUICK_DENSITY_REPAIR_REJECTED",
+  "interpretation": "The four-change repair branch does not improve the active lite frontier enough to justify promotion."
+}

@@ -31,6 +31,8 @@ _DEFAULT_PARAMS: dict[str, Any] = {
     "vol_norm_mode": "rolling",  # v22: "rolling"=20-bar MA (舊), "tod"=同時段均量（時段感知）
     "entry_start_time": "09:45",   # 最早入場時間（09:35/09:40 測試均退步）
     "entry_end_time": "15:30",     # 最晚入場時間
+    "late_long_start_time": "14:00",  # v29: 晚盤多單需更深超賣，避免尾盤逆勢 long
+    "late_long_rsi_max": 30,          # 晚盤 long 僅允許 RSI 更深超賣的 setup
     "max_trades_per_day": 2,       # 每日最大交易次數（3筆測試退步，維持2）
     # v4 趨勢過濾（改為 price vs EMA20）
     "ema_trend_filter": True,      # EMA 趨勢過濾開關
@@ -149,24 +151,26 @@ class VWAPReversionStrategy(BaseStrategy):
         vol_filter: bool = bool(self.params.get("vol_filter", True))
         vol_min_mult: float = float(self.params.get("vol_min_mult", 0.5))
         vol_norm_mode: str = str(self.params.get("vol_norm_mode", "rolling"))
-        entry_start = self.params.get("entry_start_time", "10:00")
+        entry_start = self.params.get("entry_start_time", "09:45")
         entry_end = self.params.get("entry_end_time", "15:30")
-        max_trades = int(self.params.get("max_trades_per_day", 1))
+        late_long_start = str(self.params.get("late_long_start_time", "14:00"))
+        late_long_rsi_max: float = float(self.params.get("late_long_rsi_max", 30))
+        max_trades = int(self.params.get("max_trades_per_day", 2))
 
         # v4 趨勢過濾參數
         ema_trend_filter: bool = bool(self.params.get("ema_trend_filter", True))
         ema_fast: int = int(self.params.get("ema_fast", 20))
         ema_slow: int = int(self.params.get("ema_slow", 50))
-        ema_mode: str = str(self.params.get("ema_mode", "price_vs_ema"))
+        ema_mode: str = str(self.params.get("ema_mode", "ema_cross"))
         dynamic_tp: bool = bool(self.params.get("dynamic_tp", True))
         tp_bonus_pct: float = float(self.params.get("tp_bonus_pct", 0.2))
-        bb_width_min: float = float(self.params.get("bb_width_min", 0.001))
-        reversal_confirm: bool = bool(self.params.get("reversal_confirm", True))
+        bb_width_min: float = float(self.params.get("bb_width_min", 0.0005))
+        reversal_confirm: bool = bool(self.params.get("reversal_confirm", False))
         reversal_mode: str = str(self.params.get("reversal_mode", "relaxed"))
         prev_bar_reversal: bool = bool(self.params.get("prev_bar_reversal", False))
-        partial_tp: bool = bool(self.params.get("partial_tp", False))
-        partial_tp_trail_pct: float = float(self.params.get("partial_tp_trail_pct", 0.003))
-        partial_tp_max_hold: int = int(self.params.get("partial_tp_max_hold", 24))
+        partial_tp: bool = bool(self.params.get("partial_tp", True))
+        partial_tp_trail_pct: float = float(self.params.get("partial_tp_trail_pct", 0.002))
+        partial_tp_max_hold: int = int(self.params.get("partial_tp_max_hold", 32))
         # v22 橫盤 regime 放寬
         sideways_ema_gap: float = float(self.params.get("sideways_ema_gap", 0.0))
 
@@ -308,6 +312,9 @@ class VWAPReversionStrategy(BaseStrategy):
 
                     # 做多入場：價格低於下軌 + RSI 超賣
                     if close < lower_band and r < rsi_os:
+                        if time_str >= late_long_start and r > late_long_rsi_max:
+                            prev_row = row
+                            continue
                         # v3: 如果開啟 EMA 過濾，只在上升趨勢或無趨勢時做多
                         if ema_trend_filter and is_downtrend:
                             prev_row = row  # v10

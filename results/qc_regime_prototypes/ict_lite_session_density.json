@@ -1,0 +1,386 @@
+{
+  "analysis": "ict_lite_session_density",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "lite_faster_retest_base": {
+      "params": {
+        "trade_sessions": true,
+        "london_open": 0,
+        "london_close": 0,
+        "ny_open": 14,
+        "ny_close": 20,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4353,
+        "sharpe_ratio": 2.4866,
+        "sortino_ratio": 3.992,
+        "calmar_ratio": 4.5516,
+        "max_drawdown_pct": -0.0956,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 5.0247,
+        "avg_trade_pct": 0.0242
+      },
+      "metadata": {
+        "fvg_entries": 12,
+        "ob_entries": 5,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33
+      }
+    },
+    "session_off_control": {
+      "params": {
+        "trade_sessions": false,
+        "london_open": 0,
+        "london_close": 0,
+        "ny_open": 14,
+        "ny_close": 20,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4151,
+        "sharpe_ratio": 2.3665,
+        "sortino_ratio": 3.7927,
+        "calmar_ratio": 4.3391,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 68.4211,
+        "total_trades": 19,
+        "profit_factor": 4.4203,
+        "avg_trade_pct": 0.0218
+      },
+      "metadata": {
+        "fvg_entries": 12,
+        "ob_entries": 6,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33
+      }
+    },
+    "ny_13_20": {
+      "params": {
+        "trade_sessions": true,
+        "london_open": 0,
+        "london_close": 0,
+        "ny_open": 13,
+        "ny_close": 20,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4285,
+        "sharpe_ratio": 2.4471,
+        "sortino_ratio": 3.9269,
+        "calmar_ratio": 4.4801,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 4.9042,
+        "avg_trade_pct": 0.0238
+      },
+      "metadata": {
+        "fvg_entries": 12,
+        "ob_entries": 5,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33
+      }
+    },
+    "ny_14_21": {
+      "params": {
+        "trade_sessions": true,
+        "london_open": 0,
+        "london_close": 0,
+        "ny_open": 14,
+        "ny_close": 21,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4219,
+        "sharpe_ratio": 2.4059,
+        "sortino_ratio": 3.8576,
+        "calmar_ratio": 4.4105,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 68.4211,
+        "total_trades": 19,
+        "profit_factor": 4.5237,
+        "avg_trade_pct": 0.0222
+      },
+      "metadata": {
+        "fvg_entries": 12,
+        "ob_entries": 6,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33
+      }
+    },
+    "ny_13_21": {
+      "params": {
+        "trade_sessions": true,
+        "london_open": 0,
+        "london_close": 0,
+        "ny_open": 13,
+        "ny_close": 21,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4151,
+        "sharpe_ratio": 2.3665,
+        "sortino_ratio": 3.7927,
+        "calmar_ratio": 4.3391,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 68.4211,
+        "total_trades": 19,
+        "profit_factor": 4.4203,
+        "avg_trade_pct": 0.0218
+      },
+      "metadata": {
+        "fvg_entries": 12,
+        "ob_entries": 6,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33
+      }
+    },
+    "broader_sessions": {
+      "params": {
+        "trade_sessions": true,
+        "london_open": 8,
+        "london_close": 16,
+        "ny_open": 13,
+        "ny_close": 21,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4151,
+        "sharpe_ratio": 2.3665,
+        "sortino_ratio": 3.7927,
+        "calmar_ratio": 4.3391,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 68.4211,
+        "total_trades": 19,
+        "profit_factor": 4.4203,
+        "avg_trade_pct": 0.0218
+      },
+      "metadata": {
+        "fvg_entries": 12,
+        "ob_entries": 6,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33
+      }
+    },
+    "london_ny_overlap": {
+      "params": {
+        "trade_sessions": true,
+        "london_open": 12,
+        "london_close": 17,
+        "ny_open": 13,
+        "ny_close": 21,
+        "fvg_revisit_min_delay_bars": 2,
+        "liq_sweep_threshold": 0.0006,
+        "smt_threshold": 0.0015
+      },
+      "metrics": {
+        "total_return_pct": 0.4151,
+        "sharpe_ratio": 2.3665,
+        "sortino_ratio": 3.7927,
+        "calmar_ratio": 4.3391,
+        "max_drawdown_pct": -0.0957,
+        "win_rate_pct": 68.4211,
+        "total_trades": 19,
+        "profit_factor": 4.4203,
+        "avg_trade_pct": 0.0218
+      },
+      "metadata": {
+        "fvg_entries": 12,
+        "ob_entries": 6,
+        "breaker_entries": 1,
+        "ifvg_entries": 0,
+        "bullish_sweeps": 622,
+        "bearish_sweeps": 414,
+        "bullish_shift_candidates": 25,
+        "bearish_shift_candidates": 33
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "ny_14_21",
+      "trade_sessions": true,
+      "london_open": 0,
+      "london_close": 0,
+      "ny_open": 14,
+      "ny_close": 21,
+      "total_trades": 19,
+      "total_return_pct": 0.4219,
+      "profit_factor": 4.5237,
+      "trade_gain_vs_base": 1,
+      "fvg_entries": 12,
+      "ob_entries": 6,
+      "breaker_entries": 1
+    },
+    {
+      "label": "session_off_control",
+      "trade_sessions": false,
+      "london_open": 0,
+      "london_close": 0,
+      "ny_open": 14,
+      "ny_close": 20,
+      "total_trades": 19,
+      "total_return_pct": 0.4151,
+      "profit_factor": 4.4203,
+      "trade_gain_vs_base": 1,
+      "fvg_entries": 12,
+      "ob_entries": 6,
+      "breaker_entries": 1
+    },
+    {
+      "label": "ny_13_21",
+      "trade_sessions": true,
+      "london_open": 0,
+      "london_close": 0,
+      "ny_open": 13,
+      "ny_close": 21,
+      "total_trades": 19,
+      "total_return_pct": 0.4151,
+      "profit_factor": 4.4203,
+      "trade_gain_vs_base": 1,
+      "fvg_entries": 12,
+      "ob_entries": 6,
+      "breaker_entries": 1
+    },
+    {
+      "label": "broader_sessions",
+      "trade_sessions": true,
+      "london_open": 8,
+      "london_close": 16,
+      "ny_open": 13,
+      "ny_close": 21,
+      "total_trades": 19,
+      "total_return_pct": 0.4151,
+      "profit_factor": 4.4203,
+      "trade_gain_vs_base": 1,
+      "fvg_entries": 12,
+      "ob_entries": 6,
+      "breaker_entries": 1
+    },
+    {
+      "label": "london_ny_overlap",
+      "trade_sessions": true,
+      "london_open": 12,
+      "london_close": 17,
+      "ny_open": 13,
+      "ny_close": 21,
+      "total_trades": 19,
+      "total_return_pct": 0.4151,
+      "profit_factor": 4.4203,
+      "trade_gain_vs_base": 1,
+      "fvg_entries": 12,
+      "ob_entries": 6,
+      "breaker_entries": 1
+    },
+    {
+      "label": "lite_faster_retest_base",
+      "trade_sessions": true,
+      "london_open": 0,
+      "london_close": 0,
+      "ny_open": 14,
+      "ny_close": 20,
+      "total_trades": 18,
+      "total_return_pct": 0.4353,
+      "profit_factor": 5.0247,
+      "trade_gain_vs_base": 0,
+      "fvg_entries": 12,
+      "ob_entries": 5,
+      "breaker_entries": 1
+    },
+    {
+      "label": "ny_13_20",
+      "trade_sessions": true,
+      "london_open": 0,
+      "london_close": 0,
+      "ny_open": 13,
+      "ny_close": 20,
+      "total_trades": 18,
+      "total_return_pct": 0.4285,
+      "profit_factor": 4.9042,
+      "trade_gain_vs_base": 0,
+      "fvg_entries": 12,
+      "ob_entries": 5,
+      "breaker_entries": 1
+    }
+  ],
+  "base_label": "lite_faster_retest_base",
+  "base_trades": 18,
+  "base_total_return_pct": 0.4353,
+  "best_non_base_variant": {
+    "label": "ny_14_21",
+    "trade_sessions": true,
+    "london_open": 0,
+    "london_close": 0,
+    "ny_open": 14,
+    "ny_close": 21,
+    "total_trades": 19,
+    "total_return_pct": 0.4219,
+    "profit_factor": 4.5237,
+    "trade_gain_vs_base": 1,
+    "fvg_entries": 12,
+    "ob_entries": 6,
+    "breaker_entries": 1
+  },
+  "best_positive_density_variant": {
+    "label": "ny_14_21",
+    "trade_sessions": true,
+    "london_open": 0,
+    "london_close": 0,
+    "ny_open": 14,
+    "ny_close": 21,
+    "total_trades": 19,
+    "total_return_pct": 0.4219,
+    "profit_factor": 4.5237,
+    "trade_gain_vs_base": 1,
+    "fvg_entries": 12,
+    "ob_entries": 6,
+    "breaker_entries": 1
+  },
+  "best_robust_variant": null,
+  "verdict": "LITE_SESSION_DENSITY_EXTENSION_ONLY",
+  "interpretation": "A session-density variant improves activity on the active lite retest frontier, but not enough to replace the base cleanly."
+}

@@ -1,0 +1,106 @@
+{
+  "analysis": "mtf_topdown_continuation_quality_candidate",
+  "profile": "mtf_topdown_continuation_quality_candidate",
+  "risk_standard": {
+    "reward_risk_gate": ">= 1.5:1",
+    "engine": {
+      "initial_cash": 100000.0,
+      "fees_pct": 0.0005,
+      "position_size_mode": "capital_pct",
+      "capital_usage_pct": 1.0,
+      "min_shares": 40
+    }
+  },
+  "promotion_baselines": {
+    "mtf_prototype": {
+      "total_trades": 40,
+      "total_return_pct": 13.4177,
+      "profit_factor": 3.1879
+    },
+    "active_lite_frontier_standardized": {
+      "total_trades": 18,
+      "total_return_pct": 12.6548
+    }
+  },
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_1m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_1m_alpaca.csv",
+  "period": "2020-07-27 09:32:00-04:00 -> 2026-04-08 15:59:00-04:00",
+  "peer_fetch_period": null,
+  "data_window": {
+    "start": "2020-07-27 09:32:00-04:00",
+    "end": "2026-04-08 15:59:00-04:00",
+    "trading_days": 1431
+  },
+  "rows_primary": 508107,
+  "rows_peer": 545463,
+  "matched_peer_bars": 500503,
+  "mtf_params": {
+    "mtf_bias_daily_timeframe": "1D",
+    "mtf_bias_4h_timeframe": "4H",
+    "mtf_bias_1h_timeframe": "1H",
+    "mtf_setup_timeframe": "15m",
+    "mtf_confirmation_timeframe": "5m",
+    "mtf_trigger_timeframe": "1m",
+    "mtf_bias_lookback": 12,
+    "mtf_setup_structure_lookback": 12,
+    "mtf_setup_fvg_min_gap_pct": 0.001,
+    "mtf_setup_displacement_body_min_pct": 0.35,
+    "mtf_confirmation_close_ratio": 0.6,
+    "mtf_confirmation_body_min_pct": 0.3,
+    "mtf_trigger_close_ratio": 0.6,
+    "mtf_trigger_body_min_pct": 0.4,
+    "mtf_trigger_expiry_bars": 30
+  },
+  "metrics": {
+    "total_return_pct": -0.7145,
+    "sharpe_ratio": -0.0342,
+    "sortino_ratio": -0.0044,
+    "calmar_ratio": 0.2366,
+    "max_drawdown_pct": -3.0205,
+    "win_rate_pct": 45.4545,
+    "total_trades": 55,
+    "profit_factor": 1.2153,
+    "avg_trade_pct": -0.013
+  },
+  "metadata": {
+    "mtf_daily_blocked": 571,
+    "mtf_4h_blocked": 663,
+    "mtf_1h_blocked": 400,
+    "mtf_direction_long_allowed": 156,
+    "mtf_direction_short_allowed": 93,
+    "mtf_15m_setups": 249,
+    "mtf_5m_confirms": 97,
+    "mtf_1m_triggers": 55,
+    "mtf_setup_fvg_zones": 158,
+    "mtf_setup_ob_zones": 112,
+    "mtf_setup_missing_zone": 148,
+    "mtf_setup_missing_context": 24281,
+    "mtf_setup_score_filtered": 21,
+    "mtf_setup_expired": 101,
+    "mtf_confirm_expired": 28,
+    "mtf_neutral_1h_high_quality_setups": 0,
+    "rr_filtered_entries": 0,
+    "long_entries": 36,
+    "short_entries": 19
+  },
+  "canonical_resample_parity": {
+    "reference_available": true,
+    "matched_rows": 110816,
+    "open_max_abs_diff": 0.0,
+    "open_mean_abs_diff": 0.0,
+    "high_max_abs_diff": 0.0,
+    "high_mean_abs_diff": 0.0,
+    "low_max_abs_diff": 0.0,
+    "low_mean_abs_diff": 0.0,
+    "close_max_abs_diff": 0.02,
+    "close_mean_abs_diff": 1.8e-07
+  },
+  "promotion_summary": {
+    "meets_trade_gate": true,
+    "meets_return_gate": false,
+    "meets_profit_factor_gate": false,
+    "beats_active_lite_return": false,
+    "beats_active_lite_trade_count": true
+  }
+}

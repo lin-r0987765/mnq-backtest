@@ -1,0 +1,26 @@
+來源: C:\Users\LIN\Desktop\progamming\python\claude\mnq-backtest\QuantConnect results\2017-2026
+版本標記: True
+half-day 標記: True
+same_bar_eod_reentry_count: 0
+
+6m 視窗:
+- 視窗數: 100
+- 正報酬比例: 84.0%
+- 正 Sharpe 比例: 84.0%
+- 中位 Sharpe: 0.673
+- 中位 Net Profit: 0.338%
+- 中位 Win Rate: 54.77%
+- 中位 Profit Factor: 1.335
+- 最佳區間: 2024-03-01 -> 2024-08-31 | Sharpe 2.078
+- 最差區間: 2021-10-01 -> 2022-03-31 | Sharpe -0.926
+
+12m 視窗:
+- 視窗數: 94
+- 正報酬比例: 95.7%
+- 正 Sharpe 比例: 95.7%
+- 中位 Sharpe: 0.575
+- 中位 Net Profit: 0.685%
+- 中位 Win Rate: 53.45%
+- 中位 Profit Factor: 1.292
+- 最佳區間: 2024-02-01 -> 2025-01-31 | Sharpe 1.549
+- 最差區間: 2021-05-01 -> 2022-04-30 | Sharpe -0.419

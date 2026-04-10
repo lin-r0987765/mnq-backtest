@@ -1,0 +1,264 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_slow_recovery_structure_fvg_revisit_depth_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "structure_frontier_base": {
+      "params": {
+        "fvg_revisit_depth_ratio": 0.0,
+        "structure_lookback": 12,
+        "fvg_min_gap_pct": 0.0006,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1956,
+        "sharpe_ratio": 2.0999,
+        "sortino_ratio": 3.3372,
+        "calmar_ratio": 3.6218,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0279
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_depth_filtered_retests": 0,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_revisit_depth_0p25": {
+      "params": {
+        "fvg_revisit_depth_ratio": 0.25,
+        "structure_lookback": 12,
+        "fvg_min_gap_pct": 0.0006,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1894,
+        "sharpe_ratio": 2.0447,
+        "sortino_ratio": 3.234,
+        "calmar_ratio": 3.5071,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_depth_filtered_retests": 3,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_revisit_depth_0p50": {
+      "params": {
+        "fvg_revisit_depth_ratio": 0.5,
+        "structure_lookback": 12,
+        "fvg_min_gap_pct": 0.0006,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1968,
+        "sharpe_ratio": 2.1619,
+        "sortino_ratio": 3.448,
+        "calmar_ratio": 3.643,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 7,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0281
+      },
+      "metadata": {
+        "fvg_entries": 7,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_depth_filtered_retests": 6,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_revisit_depth_0p75": {
+      "params": {
+        "fvg_revisit_depth_ratio": 0.75,
+        "structure_lookback": 12,
+        "fvg_min_gap_pct": 0.0006,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1467,
+        "sharpe_ratio": 1.8177,
+        "sortino_ratio": 2.8736,
+        "calmar_ratio": 2.715,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0293
+      },
+      "metadata": {
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_depth_filtered_retests": 14,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    },
+    "fvg_revisit_depth_1p00": {
+      "params": {
+        "fvg_revisit_depth_ratio": 1.0,
+        "structure_lookback": 12,
+        "fvg_min_gap_pct": 0.0006,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1361,
+        "sharpe_ratio": 1.8944,
+        "sortino_ratio": 3.0603,
+        "calmar_ratio": 2.9053,
+        "max_drawdown_pct": -0.0469,
+        "win_rate_pct": 100.0,
+        "total_trades": 4,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.034
+      },
+      "metadata": {
+        "fvg_entries": 4,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_depth_filtered_retests": 30,
+        "bullish_sweeps": 151,
+        "bearish_sweeps": 122
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "fvg_revisit_depth_0p50",
+      "total_trades": 7,
+      "total_return_pct": 0.1968,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_revisit_depth_ratio": 0.5,
+      "fvg_entries": 7,
+      "ifvg_entries": 0,
+      "fvg_depth_filtered_retests": 6,
+      "bullish_sweeps": 151,
+      "bearish_sweeps": 122
+    },
+    {
+      "label": "structure_frontier_base",
+      "total_trades": 7,
+      "total_return_pct": 0.1956,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_revisit_depth_ratio": 0.0,
+      "fvg_entries": 7,
+      "ifvg_entries": 0,
+      "fvg_depth_filtered_retests": 0,
+      "bullish_sweeps": 151,
+      "bearish_sweeps": 122
+    },
+    {
+      "label": "fvg_revisit_depth_0p25",
+      "total_trades": 7,
+      "total_return_pct": 0.1894,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "fvg_revisit_depth_ratio": 0.25,
+      "fvg_entries": 7,
+      "ifvg_entries": 0,
+      "fvg_depth_filtered_retests": 3,
+      "bullish_sweeps": 151,
+      "bearish_sweeps": 122
+    },
+    {
+      "label": "fvg_revisit_depth_0p75",
+      "total_trades": 5,
+      "total_return_pct": 0.1467,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.7142857142857143,
+      "fvg_revisit_depth_ratio": 0.75,
+      "fvg_entries": 5,
+      "ifvg_entries": 0,
+      "fvg_depth_filtered_retests": 14,
+      "bullish_sweeps": 151,
+      "bearish_sweeps": 122
+    },
+    {
+      "label": "fvg_revisit_depth_1p00",
+      "total_trades": 4,
+      "total_return_pct": 0.1361,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.5714285714285714,
+      "fvg_revisit_depth_ratio": 1.0,
+      "fvg_entries": 4,
+      "ifvg_entries": 0,
+      "fvg_depth_filtered_retests": 30,
+      "bullish_sweeps": 151,
+      "bearish_sweeps": 122
+    }
+  ],
+  "best_variant": {
+    "label": "fvg_revisit_depth_0p50",
+    "total_trades": 7,
+    "total_return_pct": 0.1968,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_entries": 7,
+    "ifvg_entries": 0,
+    "fvg_depth_filtered_retests": 6,
+    "bullish_sweeps": 151,
+    "bearish_sweeps": 122
+  },
+  "best_non_base_variant": {
+    "label": "fvg_revisit_depth_0p50",
+    "total_trades": 7,
+    "total_return_pct": 0.1968,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_entries": 7,
+    "ifvg_entries": 0,
+    "fvg_depth_filtered_retests": 6,
+    "bullish_sweeps": 151,
+    "bearish_sweeps": 122
+  },
+  "best_robust_fvg_revisit_depth_variant": {
+    "label": "fvg_revisit_depth_0p50",
+    "total_trades": 7,
+    "total_return_pct": 0.1968,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_entries": 7,
+    "ifvg_entries": 0,
+    "fvg_depth_filtered_retests": 6,
+    "bullish_sweeps": 151,
+    "bearish_sweeps": 122
+  },
+  "base_label": "structure_frontier_base",
+  "base_trades": 7,
+  "base_total_return_pct": 0.1956,
+  "robust_trade_floor": 4,
+  "verdict": "ROBUST_FVG_REVISIT_DEPTH_EXTENSION_IDENTIFIED_ON_STRUCTURE_BASE",
+  "interpretation": "At least one FVG revisit-depth calibration improves the structure-aware slow-recovery NY-only paired ICT base while preserving most of its activity."
+}

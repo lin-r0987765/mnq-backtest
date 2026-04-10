@@ -1,0 +1,218 @@
+{
+  "research_scope": "v26_risk_normalized_sizing",
+  "hypothesis": "Size positions inversely proportional to ORB range for constant per-trade dollar risk",
+  "axis": "position_sizing (genuinely new axis - NOT exit modification)",
+  "baseline_version": "v26-profit-lock",
+  "data_source": "alpaca_normalized",
+  "baseline_trades": 459,
+  "baseline_pnl": 8563.78,
+  "baseline_pf": 1.4027,
+  "grid_tested": 6,
+  "best_variant": "risk_norm_0.004",
+  "best_delta": 3572.84,
+  "best_improved_folds": "4/4",
+  "verdict": "READY_FOR_QC_PROXY",
+  "dow_diagnostic": {
+    "Mon": {
+      "trades": 90,
+      "pnl": 1601.83,
+      "win_rate": 0.5333
+    },
+    "Tue": {
+      "trades": 94,
+      "pnl": 778.71,
+      "win_rate": 0.5
+    },
+    "Wed": {
+      "trades": 103,
+      "pnl": 1833.87,
+      "win_rate": 0.4854
+    },
+    "Thu": {
+      "trades": 82,
+      "pnl": 1269.26,
+      "win_rate": 0.5122
+    },
+    "Fri": {
+      "trades": 90,
+      "pnl": 3080.11,
+      "win_rate": 0.5111
+    }
+  },
+  "all_variants": [
+    {
+      "variant": "risk_norm_0.004",
+      "target_risk_pct": 0.004,
+      "trades": 459,
+      "total_pnl": 12136.62,
+      "delta": 3572.84,
+      "profit_factor": 1.4033,
+      "win_rate": 0.5076,
+      "improved_folds": "4/4",
+      "fold_deltas": [
+        86.22,
+        1262.05,
+        1436.9,
+        787.67
+      ],
+      "improved_years": "6/7",
+      "avg_alloc_pct": 0.347,
+      "min_alloc_pct": 0.2566,
+      "max_alloc_pct": 0.35,
+      "year_pnl": {
+        "2020": -689.36,
+        "2021": 1959.06,
+        "2022": 2607.39,
+        "2023": 3101.47,
+        "2024": 2901.97,
+        "2025": 1840.24,
+        "2026": 415.85
+      }
+    },
+    {
+      "variant": "risk_norm_0.003",
+      "target_risk_pct": 0.003,
+      "trades": 459,
+      "total_pnl": 11929.46,
+      "delta": 3365.68,
+      "profit_factor": 1.4054,
+      "win_rate": 0.5076,
+      "improved_folds": "4/4",
+      "fold_deltas": [
+        310.72,
+        886.77,
+        1434.3,
+        733.89
+      ],
+      "improved_years": "6/7",
+      "avg_alloc_pct": 0.3427,
+      "min_alloc_pct": 0.1927,
+      "max_alloc_pct": 0.35,
+      "year_pnl": {
+        "2020": -552.53,
+        "2021": 2047.82,
+        "2022": 2251.75,
+        "2023": 3076.48,
+        "2024": 2904.57,
+        "2025": 1793.41,
+        "2026": 407.96
+      }
+    },
+    {
+      "variant": "risk_norm_0.006",
+      "target_risk_pct": 0.006,
+      "trades": 459,
+      "total_pnl": 12173.37,
+      "delta": 3609.59,
+      "profit_factor": 1.4027,
+      "win_rate": 0.5076,
+      "improved_folds": "3/4",
+      "fold_deltas": [
+        -9.26,
+        1386.36,
+        1432.65,
+        799.84
+      ],
+      "improved_years": "6/7",
+      "avg_alloc_pct": 0.3481,
+      "min_alloc_pct": 0.3445,
+      "max_alloc_pct": 0.35,
+      "year_pnl": {
+        "2020": -726.68,
+        "2021": 1897.6,
+        "2022": 2753.91,
+        "2023": 3079.61,
+        "2024": 2902.75,
+        "2025": 1850.33,
+        "2026": 415.85
+      }
+    },
+    {
+      "variant": "risk_norm_0.007",
+      "target_risk_pct": 0.007,
+      "trades": 459,
+      "total_pnl": 12173.37,
+      "delta": 3609.59,
+      "profit_factor": 1.4027,
+      "win_rate": 0.5076,
+      "improved_folds": "3/4",
+      "fold_deltas": [
+        -9.26,
+        1386.36,
+        1432.65,
+        799.84
+      ],
+      "improved_years": "6/7",
+      "avg_alloc_pct": 0.3481,
+      "min_alloc_pct": 0.3445,
+      "max_alloc_pct": 0.35,
+      "year_pnl": {
+        "2020": -726.68,
+        "2021": 1897.6,
+        "2022": 2753.91,
+        "2023": 3079.61,
+        "2024": 2902.75,
+        "2025": 1850.33,
+        "2026": 415.85
+      }
+    },
+    {
+      "variant": "risk_norm_0.008",
+      "target_risk_pct": 0.008,
+      "trades": 459,
+      "total_pnl": 12173.37,
+      "delta": 3609.59,
+      "profit_factor": 1.4027,
+      "win_rate": 0.5076,
+      "improved_folds": "3/4",
+      "fold_deltas": [
+        -9.26,
+        1386.36,
+        1432.65,
+        799.84
+      ],
+      "improved_years": "6/7",
+      "avg_alloc_pct": 0.3481,
+      "min_alloc_pct": 0.3445,
+      "max_alloc_pct": 0.35,
+      "year_pnl": {
+        "2020": -726.68,
+        "2021": 1897.6,
+        "2022": 2753.91,
+        "2023": 3079.61,
+        "2024": 2902.75,
+        "2025": 1850.33,
+        "2026": 415.85
+      }
+    },
+    {
+      "variant": "risk_norm_0.005",
+      "target_risk_pct": 0.005,
+      "trades": 459,
+      "total_pnl": 12161.83,
+      "delta": 3598.05,
+      "profit_factor": 1.4024,
+      "win_rate": 0.5076,
+      "improved_folds": "3/4",
+      "fold_deltas": [
+        -9.26,
+        1374.95,
+        1434.6,
+        797.76
+      ],
+      "improved_years": "6/7",
+      "avg_alloc_pct": 0.348,
+      "min_alloc_pct": 0.3207,
+      "max_alloc_pct": 0.35,
+      "year_pnl": {
+        "2020": -726.68,
+        "2021": 1897.6,
+        "2022": 2746.8,
+        "2023": 3077.26,
+        "2024": 2900.67,
+        "2025": 1850.33,
+        "2026": 415.85
+      }
+    }
+  ]
+}

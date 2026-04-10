@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-MNQ Automated Backtest Runner
+Local Research Backtest Runner
 ==============================
 Usage:
-    python run_backtest.py [--quick] [--symbol NQ=F] [--period 60d]
+    python run_backtest.py [--quick] [--symbol QQQ] [--period 60d] [--include-vwap] [--include-ict]
 
 Steps
 -----
-1. Download NQ=F 5-minute data (60-day history)
+1. Load the repo-preferred intraday dataset (local QQQ CSV first, yfinance fallback)
 2. Run ORB strategy (default params)
-3. Run VWAP Reversion strategy (default params)
-4. Quick grid search → best params for each strategy
-5. Re-run both strategies with optimised params
+3. Optionally run VWAP Reversion strategy
+4. Quick grid search → best params for active strategies
+5. Re-run active strategies with optimised params
 6. Save results to results/ (JSON + CSV)
 7. Generate equity curve charts
 8. Print Rich summary table
@@ -39,7 +40,11 @@ from rich.panel import Panel
 from rich.table import Table
 from rich import box
 
-from src.data.fetcher import fetch_nq_data
+from src.data.fetcher import fetch_nq_data, fetch_peer_data, merge_peer_columns
+from src.strategies.ict_entry_model import (
+    ICTEntryModelStrategy,
+    build_ict_research_profile_params,
+)
 from src.strategies.orb import ORBStrategy
 from src.strategies.vwap_reversion import VWAPReversionStrategy
 from src.backtest.engine import BacktestEngine, BacktestResult
@@ -58,14 +63,14 @@ RESULTS_DIR = PROJECT_ROOT / "results"
 # ─────────────────────────────────────────────────────────────────────────────
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="MNQ Automated Backtest Runner")
+    parser = argparse.ArgumentParser(description="Local research backtest runner")
     parser.add_argument(
         "--quick", action="store_true",
         help="Skip full grid search, use compact param ranges"
     )
     parser.add_argument(
-        "--symbol", default="NQ=F",
-        help="Primary ticker symbol (default: NQ=F)"
+        "--symbol", default="QQQ",
+        help="Primary ticker symbol for fallback downloads (default: QQQ)"
     )
     parser.add_argument(
         "--period", default="60d",
@@ -75,14 +80,43 @@ def parse_args() -> argparse.Namespace:
         "--no-grid", action="store_true",
         help="Skip grid search entirely"
     )
+    parser.add_argument(
+        "--include-vwap", action="store_true",
+        help="Enable the optional VWAP module in default flow"
+    )
+    parser.add_argument(
+        "--include-ict", action="store_true",
+        help="Enable the experimental ICT entry model module"
+    )
+    parser.add_argument(
+        "--ict-basic", action="store_true",
+        help="Run the bare ICT baseline instead of the repo research profile"
+    )
+    parser.add_argument(
+        "--ict-peer-symbol", default=None,
+        help="Optional peer symbol for real SMT backtests (example: SPY)"
+    )
+    parser.add_argument(
+        "--ict-peer-csv", default=None,
+        help="Optional peer CSV path for real SMT backtests"
+    )
     return parser.parse_args()
 
 
-def print_header() -> None:
+def print_header(include_vwap: bool, include_ict: bool, peer_label: str | None) -> None:
+    modules = ["ORB"]
+    if include_vwap:
+        modules.append("VWAP Reversion")
+    if include_ict:
+        ict_label = "ICT Entry Model (research profile)"
+        if peer_label:
+            ict_label += f" + peer={peer_label}"
+        modules.append(ict_label)
+    strategy_label = " + ".join(modules)
     console.print(
         Panel.fit(
-            "[bold cyan]MNQ Quantitative Backtest System[/bold cyan]\n"
-            "[dim]Strategies: ORB + VWAP Reversion  |  Data: NQ=F 5-min[/dim]",
+            "[bold cyan]Local Quantitative Backtest System[/bold cyan]\n"
+            f"[dim]Strategies: {strategy_label}  |  Data: repo-preferred intraday feed[/dim]",
             border_style="cyan",
         )
     )
@@ -162,7 +196,8 @@ def run_single(
 
 def main() -> int:
     args = parse_args()
-    print_header()
+    peer_label = args.ict_peer_csv or args.ict_peer_symbol
+    print_header(args.include_vwap, args.include_ict, peer_label)
 
     RESULTS_DIR.mkdir(exist_ok=True)
 
@@ -173,6 +208,24 @@ def main() -> int:
     except Exception as exc:
         console.print(f"[red]Data download failed: {exc}[/red]")
         return 1
+
+    peer_df = None
+    if args.include_ict and (args.ict_peer_symbol or args.ict_peer_csv):
+        console.print("[cyan]Loading peer-symbol data for ICT SMT...[/cyan]")
+        try:
+            peer_df = fetch_peer_data(
+                peer_symbol=args.ict_peer_symbol,
+                peer_csv=args.ict_peer_csv,
+                period=args.period,
+            )
+            df = merge_peer_columns(df, peer_df)
+            matched_peer_bars = int(df["PeerHigh"].notna().sum()) if "PeerHigh" in df.columns else 0
+            console.print(
+                f"[green]Peer data merged[/green] | matched bars: [bold]{matched_peer_bars}[/bold]"
+            )
+        except Exception as exc:
+            console.print(f"[red]Peer data load failed: {exc}[/red]")
+            return 1
 
     console.print(
         f"  Bars: [bold]{len(df)}[/bold] | "
@@ -190,12 +243,31 @@ def main() -> int:
         all_results.append(orb_default)
 
     # ── 3. Default VWAP ───────────────────────────────────────────────────
-    console.rule("[bold]Step 3 – VWAP Reversion (default params)[/bold]")
-    vwap_default = run_single(VWAPReversionStrategy, None, df, engine, "(default)")
-    if vwap_default:
-        all_results.append(vwap_default)
+    vwap_default: BacktestResult | None = None
+    if args.include_vwap:
+        console.rule("[bold]Step 3 – VWAP Reversion (default params)[/bold]")
+        vwap_default = run_single(VWAPReversionStrategy, None, df, engine, "(default)")
+        if vwap_default:
+            all_results.append(vwap_default)
+    else:
+        console.rule("[bold]Step 3 – VWAP Module[/bold]")
+        console.print("[yellow]VWAP module disabled in default flow. Use --include-vwap to enable.[/yellow]")
 
     # ── 4. Grid search ────────────────────────────────────────────────────
+    ict_default: BacktestResult | None = None
+    if args.include_ict:
+        console.rule("[bold]Step 3B ??ICT Entry Model[/bold]")
+        ict_params = None
+        ict_label = "(basic defaults)" if args.ict_basic else "(research profile)"
+        if not args.ict_basic:
+            ict_params = build_ict_research_profile_params(enable_smt=peer_df is not None)
+        ict_default = run_single(ICTEntryModelStrategy, ict_params, df, engine, ict_label)
+        if ict_default:
+            all_results.append(ict_default)
+    else:
+        console.rule("[bold]Step 3B ??ICT Module[/bold]")
+        console.print("[yellow]ICT module disabled in default flow. Use --include-ict to enable.[/yellow]")
+
     best_orb_result: BacktestResult | None = orb_default
     best_vwap_result: BacktestResult | None = vwap_default
 
@@ -210,13 +282,14 @@ def main() -> int:
         if orb_top:
             best_orb_result = orb_top[0]
 
-        console.print("\n[cyan]VWAP Reversion grid search…[/cyan]")
-        vwap_top = grid_search(
-            VWAPReversionStrategy, VWAP_QUICK_RANGES, df, engine,
-            optimize_metric="sharpe_ratio", top_n=3
-        )
-        if vwap_top:
-            best_vwap_result = vwap_top[0]
+        if args.include_vwap:
+            console.print("\n[cyan]VWAP Reversion grid search…[/cyan]")
+            vwap_top = grid_search(
+                VWAPReversionStrategy, VWAP_QUICK_RANGES, df, engine,
+                optimize_metric="sharpe_ratio", top_n=3
+            )
+            if vwap_top:
+                best_vwap_result = vwap_top[0]
 
         # ── 5. Re-run with best params ────────────────────────────────────
         console.rule("[bold]Step 5 – Optimised Re-run[/bold]")
@@ -229,7 +302,7 @@ def main() -> int:
                 all_results.append(orb_opt)
                 best_orb_result = orb_opt
 
-        if best_vwap_result and best_vwap_result is not vwap_default:
+        if args.include_vwap and best_vwap_result and best_vwap_result is not vwap_default:
             vwap_opt = run_single(
                 VWAPReversionStrategy, best_vwap_result.params, df, engine,
                 "(optimised)"
@@ -272,23 +345,4 @@ def main() -> int:
         except Exception:
             pass
 
-    # ── 8. Summary table ──────────────────────────────────────────────────
-    console.rule("[bold]Step 8 – Summary[/bold]")
-    if all_results:
-        print_metrics_table(all_results)
-    else:
-        console.print("[red]No results to display.[/red]")
-
-    console.print(
-        f"\n[dim]Completed at "
-        f"{datetime.now(tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}[/dim]"
-    )
-    console.print(
-        f"[dim]Results saved to: {RESULTS_DIR}[/dim]\n"
-    )
-
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    # ── 8. Summary table ──────────�

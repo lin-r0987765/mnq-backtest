@@ -1,0 +1,360 @@
+{
+  "analysis": "ict_short_smt_premium_amd_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "premium_base": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_amd_filter": false,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "amd_accumulation_bars": 3,
+        "amd_manipulation_threshold": 0.001,
+        "amd_require_midpoint_reclaim": true
+      },
+      "metrics": {
+        "total_return_pct": 0.1375,
+        "sharpe_ratio": 1.6305,
+        "sortino_ratio": 2.5503,
+        "calmar_ratio": 2.546,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 5,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0275
+      },
+      "metadata": {
+        "amd_filtered_setups": 0,
+        "amd_bullish_sessions": 0,
+        "amd_bearish_sessions": 0,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 278,
+        "fvg_entries": 5,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "amd_default": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_amd_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "amd_accumulation_bars": 3,
+        "amd_manipulation_threshold": 0.001,
+        "amd_require_midpoint_reclaim": true
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "amd_filtered_setups": 527,
+        "amd_bullish_sessions": 268,
+        "amd_bearish_sessions": 268,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 12,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "amd_short_accumulation_2": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_amd_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "amd_accumulation_bars": 2,
+        "amd_manipulation_threshold": 0.001,
+        "amd_require_midpoint_reclaim": true
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "amd_filtered_setups": 513,
+        "amd_bullish_sessions": 308,
+        "amd_bearish_sessions": 289,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 14,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "amd_longer_accumulation_4": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_amd_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "amd_accumulation_bars": 4,
+        "amd_manipulation_threshold": 0.001,
+        "amd_require_midpoint_reclaim": true
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "amd_filtered_setups": 523,
+        "amd_bullish_sessions": 249,
+        "amd_bearish_sessions": 243,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 14,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "amd_softer_manipulation_0p0007": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_amd_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "amd_accumulation_bars": 3,
+        "amd_manipulation_threshold": 0.0007,
+        "amd_require_midpoint_reclaim": true
+      },
+      "metrics": {
+        "total_return_pct": 0.0,
+        "sharpe_ratio": Infinity,
+        "sortino_ratio": Infinity,
+        "calmar_ratio": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "total_trades": 0,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0
+      },
+      "metadata": {
+        "amd_filtered_setups": 514,
+        "amd_bullish_sessions": 358,
+        "amd_bearish_sessions": 346,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 18,
+        "fvg_entries": 0,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "amd_no_midpoint_reclaim": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_amd_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "amd_accumulation_bars": 3,
+        "amd_manipulation_threshold": 0.001,
+        "amd_require_midpoint_reclaim": false
+      },
+      "metrics": {
+        "total_return_pct": 0.0382,
+        "sharpe_ratio": 1.0514,
+        "sortino_ratio": 1.7779,
+        "calmar_ratio": 2.0995,
+        "max_drawdown_pct": -0.0182,
+        "win_rate_pct": 100.0,
+        "total_trades": 1,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0382
+      },
+      "metadata": {
+        "amd_filtered_setups": 432,
+        "amd_bullish_sessions": 378,
+        "amd_bearish_sessions": 366,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 57,
+        "fvg_entries": 1,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "amd_short_and_soft": {
+      "params": {
+        "use_premium_discount_filter": true,
+        "use_amd_filter": true,
+        "smt_lookback": 10,
+        "liq_sweep_threshold": 0.0008,
+        "amd_accumulation_bars": 2,
+        "amd_manipulation_threshold": 0.0007,
+        "amd_require_midpoint_reclaim": false
+      },
+      "metrics": {
+        "total_return_pct": 0.0482,
+        "sharpe_ratio": 0.9663,
+        "sortino_ratio": 1.5394,
+        "calmar_ratio": 1.6187,
+        "max_drawdown_pct": -0.0298,
+        "win_rate_pct": 100.0,
+        "total_trades": 2,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0241
+      },
+      "metadata": {
+        "amd_filtered_setups": 388,
+        "amd_bullish_sessions": 515,
+        "amd_bearish_sessions": 488,
+        "premium_discount_filtered_setups": 287,
+        "smt_confirmed_sweeps": 92,
+        "fvg_entries": 2,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "premium_base",
+      "total_trades": 5,
+      "total_return_pct": 0.1375,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "amd_filtered_setups": 0,
+      "amd_bullish_sessions": 0,
+      "amd_bearish_sessions": 0,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 278
+    },
+    {
+      "label": "amd_short_and_soft",
+      "total_trades": 2,
+      "total_return_pct": 0.0482,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.4,
+      "amd_filtered_setups": 388,
+      "amd_bullish_sessions": 515,
+      "amd_bearish_sessions": 488,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 92
+    },
+    {
+      "label": "amd_no_midpoint_reclaim",
+      "total_trades": 1,
+      "total_return_pct": 0.0382,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.2,
+      "amd_filtered_setups": 432,
+      "amd_bullish_sessions": 378,
+      "amd_bearish_sessions": 366,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 57
+    },
+    {
+      "label": "amd_default",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "amd_filtered_setups": 527,
+      "amd_bullish_sessions": 268,
+      "amd_bearish_sessions": 268,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 12
+    },
+    {
+      "label": "amd_short_accumulation_2",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "amd_filtered_setups": 513,
+      "amd_bullish_sessions": 308,
+      "amd_bearish_sessions": 289,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 14
+    },
+    {
+      "label": "amd_longer_accumulation_4",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "amd_filtered_setups": 523,
+      "amd_bullish_sessions": 249,
+      "amd_bearish_sessions": 243,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 14
+    },
+    {
+      "label": "amd_softer_manipulation_0p0007",
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 0.0,
+      "amd_filtered_setups": 514,
+      "amd_bullish_sessions": 358,
+      "amd_bearish_sessions": 346,
+      "premium_discount_filtered_setups": 287,
+      "smt_confirmed_sweeps": 18
+    }
+  ],
+  "best_variant": {
+    "label": "premium_base",
+    "total_trades": 5,
+    "total_return_pct": 0.1375,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "amd_filtered_setups": 0,
+    "amd_bullish_sessions": 0,
+    "amd_bearish_sessions": 0,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 278
+  },
+  "best_non_base_variant": {
+    "label": "amd_short_and_soft",
+    "total_trades": 2,
+    "total_return_pct": 0.0482,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 0.4,
+    "amd_filtered_setups": 388,
+    "amd_bullish_sessions": 515,
+    "amd_bearish_sessions": 488,
+    "premium_discount_filtered_setups": 287,
+    "smt_confirmed_sweeps": 92
+  },
+  "best_robust_amd_variant": null,
+  "base_label": "premium_base",
+  "base_trades": 5,
+  "base_total_return_pct": 0.1375,
+  "robust_trade_floor": 3,
+  "verdict": "THIN_AMD_EXTENSION_ONLY",
+  "interpretation": "A positive AMD calibration exists on top of the short-SMT premium base, but only as a thinner continuation. The next step should treat AMD as optional refinement rather than a new frontier."
+}

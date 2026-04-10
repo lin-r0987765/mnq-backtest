@@ -1,0 +1,287 @@
+{
+  "analysis": "ict_short_smt_premium_session_array_ny_only_slow_recovery_smt_lookback_calibration",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "slow_recovery_base": {
+      "params": {
+        "use_smt_filter": true,
+        "smt_lookback": 10,
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "smt_confirmed_sweeps": 273,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "smt_lookback_8": {
+      "params": {
+        "use_smt_filter": true,
+        "smt_lookback": 8,
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "smt_confirmed_sweeps": 271,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "smt_lookback_12": {
+      "params": {
+        "use_smt_filter": true,
+        "smt_lookback": 12,
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "smt_confirmed_sweeps": 274,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "smt_lookback_6": {
+      "params": {
+        "use_smt_filter": true,
+        "smt_lookback": 6,
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "smt_confirmed_sweeps": 267,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "smt_lookback_14": {
+      "params": {
+        "use_smt_filter": true,
+        "smt_lookback": 14,
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.1627,
+        "sharpe_ratio": 1.8167,
+        "sortino_ratio": 2.862,
+        "calmar_ratio": 3.0114,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 100.0,
+        "total_trades": 6,
+        "profit_factor": Infinity,
+        "avg_trade_pct": 0.0271
+      },
+      "metadata": {
+        "smt_confirmed_sweeps": 276,
+        "fvg_entries": 6,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    },
+    "smt_off_control": {
+      "params": {
+        "use_smt_filter": false,
+        "smt_lookback": 10,
+        "trade_sessions": true,
+        "ny_open": 14,
+        "ny_close": 20,
+        "liq_sweep_recovery_bars": 4
+      },
+      "metrics": {
+        "total_return_pct": 0.107,
+        "sharpe_ratio": 1.0615,
+        "sortino_ratio": 1.5354,
+        "calmar_ratio": 1.9802,
+        "max_drawdown_pct": -0.054,
+        "win_rate_pct": 75.0,
+        "total_trades": 8,
+        "profit_factor": 2.8856,
+        "avg_trade_pct": 0.0134
+      },
+      "metadata": {
+        "smt_confirmed_sweeps": 0,
+        "fvg_entries": 7,
+        "ob_entries": 1,
+        "breaker_entries": 0,
+        "ifvg_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "slow_recovery_base",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "smt_lookback": 10,
+      "use_smt_filter": true,
+      "smt_confirmed_sweeps": 273,
+      "fvg_entries": 6
+    },
+    {
+      "label": "smt_lookback_8",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "smt_lookback": 8,
+      "use_smt_filter": true,
+      "smt_confirmed_sweeps": 271,
+      "fvg_entries": 6
+    },
+    {
+      "label": "smt_lookback_12",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "smt_lookback": 12,
+      "use_smt_filter": true,
+      "smt_confirmed_sweeps": 274,
+      "fvg_entries": 6
+    },
+    {
+      "label": "smt_lookback_6",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "smt_lookback": 6,
+      "use_smt_filter": true,
+      "smt_confirmed_sweeps": 267,
+      "fvg_entries": 6
+    },
+    {
+      "label": "smt_lookback_14",
+      "total_trades": 6,
+      "total_return_pct": 0.1627,
+      "profit_factor": Infinity,
+      "trade_retention_vs_base": 1.0,
+      "smt_lookback": 14,
+      "use_smt_filter": true,
+      "smt_confirmed_sweeps": 276,
+      "fvg_entries": 6
+    },
+    {
+      "label": "smt_off_control",
+      "total_trades": 8,
+      "total_return_pct": 0.107,
+      "profit_factor": 2.8856,
+      "trade_retention_vs_base": 1.3333333333333333,
+      "smt_lookback": 10,
+      "use_smt_filter": false,
+      "smt_confirmed_sweeps": 0,
+      "fvg_entries": 7
+    }
+  ],
+  "best_variant": {
+    "label": "slow_recovery_base",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "smt_lookback": 10,
+    "use_smt_filter": true,
+    "smt_confirmed_sweeps": 273,
+    "fvg_entries": 6
+  },
+  "best_non_base_variant": {
+    "label": "smt_lookback_8",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "smt_lookback": 8,
+    "use_smt_filter": true,
+    "smt_confirmed_sweeps": 271,
+    "fvg_entries": 6
+  },
+  "best_robust_smt_variant": {
+    "label": "smt_lookback_8",
+    "total_trades": 6,
+    "total_return_pct": 0.1627,
+    "profit_factor": Infinity,
+    "trade_retention_vs_base": 1.0,
+    "smt_lookback": 8,
+    "use_smt_filter": true,
+    "smt_confirmed_sweeps": 271,
+    "fvg_entries": 6
+  },
+  "base_label": "slow_recovery_base",
+  "base_trades": 6,
+  "base_total_return_pct": 0.1627,
+  "robust_trade_floor": 4,
+  "verdict": "ROBUST_SMT_LOOKBACK_SURVIVOR_BUT_NOT_FRONTIER_ON_SLOW_RECOVERY_BASE",
+  "interpretation": "An SMT lookback calibration survives on top of the slow-recovery NY-only paired ICT base without collapsing activity, but it does not beat the frontier."
+}

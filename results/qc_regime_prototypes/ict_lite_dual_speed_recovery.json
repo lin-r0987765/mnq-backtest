@@ -1,0 +1,270 @@
+{
+  "analysis": "ict_lite_dual_speed_recovery",
+  "profile": "dual_speed_reversal_compare",
+  "risk_standard": {
+    "initial_cash_usd": 100000,
+    "capital_usage_pct": 1.0,
+    "minimum_order_shares": 40,
+    "reward_risk_floor": 1.5
+  },
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "fast_only_base": {
+      "params": {
+        "liq_sweep_recovery_bars": 4,
+        "slow_recovery_enabled": false,
+        "slow_recovery_bars": 0,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "min_reward_risk_ratio": 1.5
+      },
+      "metrics": {
+        "total_return_pct": 13.8395,
+        "sharpe_ratio": 1.1819,
+        "sortino_ratio": 0.1714,
+        "calmar_ratio": 7.0073,
+        "max_drawdown_pct": -1.975,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 6.3079,
+        "avg_trade_pct": 0.7689
+      },
+      "metadata": {
+        "fast_recovery_shifts": 36,
+        "slow_recovery_shifts": 0,
+        "fast_recovery_entries": 18,
+        "slow_recovery_entries": 0,
+        "bullish_shifts": 14,
+        "bearish_shifts": 22,
+        "bullish_retest_candidates": 7,
+        "bearish_retest_candidates": 13,
+        "delivery_missing_shifts": 20,
+        "fvg_depth_filtered_retests": 22,
+        "fvg_delay_filtered_retests": 5,
+        "sweep_expired_before_shift": 1000,
+        "armed_setup_expired_before_retest": 18,
+        "rr_filtered_entries": 0
+      }
+    },
+    "dual_speed_6": {
+      "params": {
+        "liq_sweep_recovery_bars": 4,
+        "slow_recovery_enabled": true,
+        "slow_recovery_bars": 6,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "min_reward_risk_ratio": 1.5
+      },
+      "metrics": {
+        "total_return_pct": 10.2286,
+        "sharpe_ratio": 0.8332,
+        "sortino_ratio": 0.1359,
+        "calmar_ratio": 4.2814,
+        "max_drawdown_pct": -2.3891,
+        "win_rate_pct": 53.5714,
+        "total_trades": 28,
+        "profit_factor": 2.9682,
+        "avg_trade_pct": 0.3653
+      },
+      "metadata": {
+        "fast_recovery_shifts": 36,
+        "slow_recovery_shifts": 16,
+        "fast_recovery_entries": 18,
+        "slow_recovery_entries": 10,
+        "bullish_shifts": 17,
+        "bearish_shifts": 35,
+        "bullish_retest_candidates": 9,
+        "bearish_retest_candidates": 21,
+        "delivery_missing_shifts": 23,
+        "fvg_depth_filtered_retests": 29,
+        "fvg_delay_filtered_retests": 10,
+        "sweep_expired_before_shift": 959,
+        "armed_setup_expired_before_retest": 24,
+        "rr_filtered_entries": 0
+      }
+    },
+    "dual_speed_8": {
+      "params": {
+        "liq_sweep_recovery_bars": 4,
+        "slow_recovery_enabled": true,
+        "slow_recovery_bars": 8,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "min_reward_risk_ratio": 1.5
+      },
+      "metrics": {
+        "total_return_pct": 9.2985,
+        "sharpe_ratio": 0.7385,
+        "sortino_ratio": 0.1313,
+        "calmar_ratio": 3.8925,
+        "max_drawdown_pct": -2.3888,
+        "win_rate_pct": 52.9412,
+        "total_trades": 34,
+        "profit_factor": 2.4896,
+        "avg_trade_pct": 0.2735
+      },
+      "metadata": {
+        "fast_recovery_shifts": 36,
+        "slow_recovery_shifts": 26,
+        "fast_recovery_entries": 18,
+        "slow_recovery_entries": 16,
+        "bullish_shifts": 24,
+        "bearish_shifts": 38,
+        "bullish_retest_candidates": 13,
+        "bearish_retest_candidates": 24,
+        "delivery_missing_shifts": 25,
+        "fvg_depth_filtered_retests": 31,
+        "fvg_delay_filtered_retests": 11,
+        "sweep_expired_before_shift": 924,
+        "armed_setup_expired_before_retest": 28,
+        "rr_filtered_entries": 0
+      }
+    },
+    "dual_speed_12": {
+      "params": {
+        "liq_sweep_recovery_bars": 4,
+        "slow_recovery_enabled": true,
+        "slow_recovery_bars": 12,
+        "fvg_min_gap_pct": 0.001,
+        "fvg_revisit_min_delay_bars": 2,
+        "min_reward_risk_ratio": 1.5
+      },
+      "metrics": {
+        "total_return_pct": 10.02,
+        "sharpe_ratio": 0.7202,
+        "sortino_ratio": 0.143,
+        "calmar_ratio": 4.1898,
+        "max_drawdown_pct": -2.3916,
+        "win_rate_pct": 51.1111,
+        "total_trades": 45,
+        "profit_factor": 2.2037,
+        "avg_trade_pct": 0.2227
+      },
+      "metadata": {
+        "fast_recovery_shifts": 35,
+        "slow_recovery_shifts": 50,
+        "fast_recovery_entries": 18,
+        "slow_recovery_entries": 27,
+        "bullish_shifts": 37,
+        "bearish_shifts": 48,
+        "bullish_retest_candidates": 19,
+        "bearish_retest_candidates": 30,
+        "delivery_missing_shifts": 27,
+        "fvg_depth_filtered_retests": 38,
+        "fvg_delay_filtered_retests": 14,
+        "sweep_expired_before_shift": 861,
+        "armed_setup_expired_before_retest": 40,
+        "rr_filtered_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "fast_only_base",
+      "slow_recovery_enabled": false,
+      "slow_recovery_bars": 0,
+      "total_trades": 18,
+      "total_return_pct": 13.8395,
+      "profit_factor": 6.3079,
+      "win_rate_pct": 72.2222,
+      "trade_gain_vs_base": 0,
+      "fast_recovery_entries": 18,
+      "slow_recovery_entries": 0,
+      "sweep_expired_before_shift": 1000,
+      "armed_setup_expired_before_retest": 18,
+      "delivery_missing_shifts": 20,
+      "fvg_depth_filtered_retests": 22
+    },
+    {
+      "label": "dual_speed_6",
+      "slow_recovery_enabled": true,
+      "slow_recovery_bars": 6,
+      "total_trades": 28,
+      "total_return_pct": 10.2286,
+      "profit_factor": 2.9682,
+      "win_rate_pct": 53.5714,
+      "trade_gain_vs_base": 10,
+      "fast_recovery_entries": 18,
+      "slow_recovery_entries": 10,
+      "sweep_expired_before_shift": 959,
+      "armed_setup_expired_before_retest": 24,
+      "delivery_missing_shifts": 23,
+      "fvg_depth_filtered_retests": 29
+    },
+    {
+      "label": "dual_speed_12",
+      "slow_recovery_enabled": true,
+      "slow_recovery_bars": 12,
+      "total_trades": 45,
+      "total_return_pct": 10.02,
+      "profit_factor": 2.2037,
+      "win_rate_pct": 51.1111,
+      "trade_gain_vs_base": 27,
+      "fast_recovery_entries": 18,
+      "slow_recovery_entries": 27,
+      "sweep_expired_before_shift": 861,
+      "armed_setup_expired_before_retest": 40,
+      "delivery_missing_shifts": 27,
+      "fvg_depth_filtered_retests": 38
+    },
+    {
+      "label": "dual_speed_8",
+      "slow_recovery_enabled": true,
+      "slow_recovery_bars": 8,
+      "total_trades": 34,
+      "total_return_pct": 9.2985,
+      "profit_factor": 2.4896,
+      "win_rate_pct": 52.9412,
+      "trade_gain_vs_base": 16,
+      "fast_recovery_entries": 18,
+      "slow_recovery_entries": 16,
+      "sweep_expired_before_shift": 924,
+      "armed_setup_expired_before_retest": 28,
+      "delivery_missing_shifts": 25,
+      "fvg_depth_filtered_retests": 31
+    }
+  ],
+  "base_label": "fast_only_base",
+  "base_trades": 18,
+  "base_total_return_pct": 13.8395,
+  "best_density_variant": {
+    "label": "dual_speed_6",
+    "slow_recovery_enabled": true,
+    "slow_recovery_bars": 6,
+    "total_trades": 28,
+    "total_return_pct": 10.2286,
+    "profit_factor": 2.9682,
+    "win_rate_pct": 53.5714,
+    "trade_gain_vs_base": 10,
+    "fast_recovery_entries": 18,
+    "slow_recovery_entries": 10,
+    "sweep_expired_before_shift": 959,
+    "armed_setup_expired_before_retest": 24,
+    "delivery_missing_shifts": 23,
+    "fvg_depth_filtered_retests": 29
+  },
+  "best_return_variant": {
+    "label": "dual_speed_6",
+    "slow_recovery_enabled": true,
+    "slow_recovery_bars": 6,
+    "total_trades": 28,
+    "total_return_pct": 10.2286,
+    "profit_factor": 2.9682,
+    "win_rate_pct": 53.5714,
+    "trade_gain_vs_base": 10,
+    "fast_recovery_entries": 18,
+    "slow_recovery_entries": 10,
+    "sweep_expired_before_shift": 959,
+    "armed_setup_expired_before_retest": 24,
+    "delivery_missing_shifts": 23,
+    "fvg_depth_filtered_retests": 29
+  },
+  "verdict": "DUAL_SPEED_RECOVERY_DENSITY_EXTENSION_ONLY",
+  "interpretation": "Dual-speed recovery improves density materially, but the higher-activity branch still trails the active lite frontier's fast-only return profile."
+}

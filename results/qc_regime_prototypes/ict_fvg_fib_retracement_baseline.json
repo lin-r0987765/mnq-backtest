@@ -1,0 +1,179 @@
+{
+  "analysis": "ict_fvg_fib_retracement_baseline",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\regularized\\QQQ\\qqq_5m_regular_et.csv",
+  "period": "2017-01-26 09:30:00-05:00 -> 2026-04-08 15:55:00-04:00",
+  "rows_primary": 179429,
+  "risk_standard": {
+    "initial_cash": 10000.0,
+    "fees_pct": 0.0005,
+    "position_size_mode": "capital_pct",
+    "capital_usage_pct": 1.0,
+    "min_shares": 0,
+    "reward_risk_gate": ">= 1.5:1"
+  },
+  "variants": {
+    "fvg_fib_050_079": {
+      "params": {
+        "require_fvg_delivery": true,
+        "require_ote_zone": true,
+        "ote_fib_low": 0.5,
+        "ote_fib_high": 0.79,
+        "min_score_to_trade": 5.0,
+        "structure_reference_mode": "swing",
+        "swing_threshold": 2,
+        "fvg_min_gap_pct": 0.0003
+      },
+      "metrics": {
+        "total_return_pct": 1.2109,
+        "sharpe_ratio": 0.0837,
+        "sortino_ratio": 0.0086,
+        "calmar_ratio": 0.2478,
+        "max_drawdown_pct": -4.8871,
+        "win_rate_pct": 47.619,
+        "total_trades": 21,
+        "profit_factor": 1.3766,
+        "avg_trade_pct": 0.0577
+      },
+      "metadata": {
+        "bullish_sweeps": 284,
+        "bearish_sweeps": 199,
+        "bullish_shifts": 19,
+        "bearish_shifts": 15,
+        "fvg_entries": 21,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_required_filtered_shifts": 109,
+        "ote_required_filtered_shifts": 293,
+        "rr_filtered_entries": 0
+      }
+    },
+    "fvg_only_control": {
+      "params": {
+        "require_fvg_delivery": true,
+        "require_ote_zone": false,
+        "ote_fib_low": 0.5,
+        "ote_fib_high": 0.79,
+        "min_score_to_trade": 5.0,
+        "structure_reference_mode": "swing",
+        "swing_threshold": 2,
+        "fvg_min_gap_pct": 0.0003
+      },
+      "metrics": {
+        "total_return_pct": -0.0174,
+        "sharpe_ratio": 0.0124,
+        "sortino_ratio": 0.0021,
+        "calmar_ratio": 0.0028,
+        "max_drawdown_pct": -6.2595,
+        "win_rate_pct": 44.4444,
+        "total_trades": 63,
+        "profit_factor": 1.1465,
+        "avg_trade_pct": -0.0003
+      },
+      "metadata": {
+        "bullish_sweeps": 283,
+        "bearish_sweeps": 200,
+        "bullish_shifts": 50,
+        "bearish_shifts": 48,
+        "fvg_entries": 63,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_required_filtered_shifts": 108,
+        "ote_required_filtered_shifts": 0,
+        "rr_filtered_entries": 0
+      }
+    },
+    "fvg_fib_062_079": {
+      "params": {
+        "require_fvg_delivery": true,
+        "require_ote_zone": true,
+        "ote_fib_low": 0.618,
+        "ote_fib_high": 0.79,
+        "min_score_to_trade": 5.0,
+        "structure_reference_mode": "swing",
+        "swing_threshold": 2,
+        "fvg_min_gap_pct": 0.0003
+      },
+      "metrics": {
+        "total_return_pct": -0.8732,
+        "sharpe_ratio": -0.123,
+        "sortino_ratio": -0.0053,
+        "calmar_ratio": 0.4453,
+        "max_drawdown_pct": -1.9609,
+        "win_rate_pct": 33.3333,
+        "total_trades": 3,
+        "profit_factor": 0.2801,
+        "avg_trade_pct": -0.2911
+      },
+      "metadata": {
+        "bullish_sweeps": 284,
+        "bearish_sweeps": 199,
+        "bullish_shifts": 6,
+        "bearish_shifts": 1,
+        "fvg_entries": 3,
+        "ob_entries": 0,
+        "breaker_entries": 0,
+        "ifvg_entries": 0,
+        "fvg_required_filtered_shifts": 109,
+        "ote_required_filtered_shifts": 445,
+        "rr_filtered_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "fvg_fib_050_079",
+      "total_trades": 21,
+      "total_return_pct": 1.2109,
+      "profit_factor": 1.3766,
+      "win_rate_pct": 47.619,
+      "fvg_entries": 21,
+      "ote_required_filtered_shifts": 293,
+      "fvg_required_filtered_shifts": 109
+    },
+    {
+      "label": "fvg_only_control",
+      "total_trades": 63,
+      "total_return_pct": -0.0174,
+      "profit_factor": 1.1465,
+      "win_rate_pct": 44.4444,
+      "fvg_entries": 63,
+      "ote_required_filtered_shifts": 0,
+      "fvg_required_filtered_shifts": 108
+    },
+    {
+      "label": "fvg_fib_062_079",
+      "total_trades": 3,
+      "total_return_pct": -0.8732,
+      "profit_factor": 0.2801,
+      "win_rate_pct": 33.3333,
+      "fvg_entries": 3,
+      "ote_required_filtered_shifts": 445,
+      "fvg_required_filtered_shifts": 109
+    }
+  ],
+  "baseline_label": "fvg_fib_050_079",
+  "baseline_metrics": {
+    "total_return_pct": 1.2109,
+    "sharpe_ratio": 0.0837,
+    "sortino_ratio": 0.0086,
+    "calmar_ratio": 0.2478,
+    "max_drawdown_pct": -4.8871,
+    "win_rate_pct": 47.619,
+    "total_trades": 21,
+    "profit_factor": 1.3766,
+    "avg_trade_pct": 0.0577
+  },
+  "best_variant": {
+    "label": "fvg_fib_050_079",
+    "total_trades": 21,
+    "total_return_pct": 1.2109,
+    "profit_factor": 1.3766,
+    "win_rate_pct": 47.619,
+    "fvg_entries": 21,
+    "ote_required_filtered_shifts": 293,
+    "fvg_required_filtered_shifts": 109
+  },
+  "interpretation": "The simplified FVG + fib retracement study isolates whether hard-requiring the delivery FVG to sit inside the requested retracement window helps or hurts relative to a pure FVG-only control."
+}

@@ -1,0 +1,1470 @@
+{
+  "research_scope": "v18_trade_autocorrelation_bridge_family",
+  "analysis_version": "v1_sequential_trade_performance_gates",
+  "source_bundle": "Alert Asparagus Panda",
+  "source_trades_csv": "Alert Asparagus Panda_trades.csv",
+  "source_intraday_csv": "qqq_5m.csv",
+  "source_daily_csv": "qqq_1d.csv",
+  "source_walk_forward_json": "walk_forward_results.json",
+  "base_filter": "prev_day_up_and_mom3_positive",
+  "baseline": {
+    "local": {
+      "trades": 13,
+      "win_rate_pct": 38.46,
+      "profit_factor": 1.466,
+      "net_pnl": 56.69
+    },
+    "qc_proxy": {
+      "trades": 405,
+      "win_rate_pct": 54.07,
+      "profit_factor": 1.275,
+      "net_pnl": 5454.15,
+      "avg_trade_pnl": 13.47,
+      "positive_years": 8,
+      "negative_years": 2,
+      "year_net_pnl": {
+        "2017": -105.75,
+        "2018": 461.3,
+        "2019": 742.96,
+        "2020": 227.79,
+        "2021": 516.2,
+        "2022": 686.07,
+        "2023": 528.19,
+        "2024": 1489.33,
+        "2025": 956.62,
+        "2026": -48.56
+      },
+      "rolling_6m": {
+        "window_count": 108,
+        "positive_sharpe_pct": 80.6,
+        "median_sharpe": 0.711,
+        "median_net_profit_pct": 0.255,
+        "median_profit_factor": 1.287
+      },
+      "rolling_12m": {
+        "window_count": 108,
+        "positive_sharpe_pct": 90.7,
+        "median_sharpe": 0.598,
+        "median_net_profit_pct": 0.476,
+        "median_profit_factor": 1.243
+      }
+    }
+  },
+  "candidates": {
+    "prev_trade_winner": {
+      "spec": "prev_trade_winner",
+      "local": {
+        "kept": {
+          "trades": 4,
+          "win_rate_pct": 50.0,
+          "profit_factor": 3.64,
+          "net_pnl": 93.62
+        },
+        "excluded": {
+          "trades": 9,
+          "win_rate_pct": 33.33,
+          "profit_factor": 0.571,
+          "net_pnl": -36.93
+        },
+        "walkforward": {
+          "folds": [
+            {
+              "fold": 1,
+              "test_period": "2026-02-05 ~ 2026-02-19",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "kept": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -18.09
+              },
+              "excluded": {
+                "trades": 2,
+                "win_rate_pct": 50.0,
+                "profit_factor": 1.838,
+                "net_pnl": 14.54
+              },
+              "delta_vs_baseline": -14.54
+            },
+            {
+              "fold": 2,
+              "test_period": "2026-02-20 ~ 2026-03-05",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "kept": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -20.35
+              },
+              "excluded": {
+                "trades": 2,
+                "win_rate_pct": 50.0,
+                "profit_factor": 0.228,
+                "net_pnl": -35.97
+              },
+              "delta_vs_baseline": 35.96
+            },
+            {
+              "fold": 3,
+              "test_period": "2026-03-06 ~ 2026-03-19",
+              "baseline": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "delta_vs_baseline": 10.51
+            },
+            {
+              "fold": 4,
+              "test_period": "2026-03-20 ~ 2026-04-02",
+              "baseline": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "kept": {
+                "trades": 1,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 58.5
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 15.45
+              },
+              "delta_vs_baseline": -15.44
+            }
+          ],
+          "summary": {
+            "improved_vs_baseline_folds": 2,
+            "positive_kept_folds": 1,
+            "excluded_negative_folds": 2,
+            "kept_net_pnl": 20.06,
+            "baseline_net_pnl": 3.57,
+            "delta_vs_baseline": 16.49
+          }
+        },
+        "verdict": "LOCAL_RESEARCH_LEADER"
+      },
+      "qc_proxy": {
+        "kept": {
+          "trades": 219,
+          "win_rate_pct": 50.68,
+          "profit_factor": 1.124,
+          "net_pnl": 1374.17,
+          "avg_trade_pnl": 6.27,
+          "positive_years": 7,
+          "negative_years": 3,
+          "year_net_pnl": {
+            "2017": -106.91,
+            "2018": 295.11,
+            "2019": 134.1,
+            "2020": -172.57,
+            "2021": 280.7,
+            "2022": 188.56,
+            "2023": 102.75,
+            "2024": 144.18,
+            "2025": 556.81,
+            "2026": -48.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 55.6,
+            "median_sharpe": 0.147,
+            "median_net_profit_pct": 0.02,
+            "median_profit_factor": 1.06
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 65.7,
+            "median_sharpe": 0.287,
+            "median_net_profit_pct": 0.169,
+            "median_profit_factor": 1.149
+          }
+        },
+        "excluded": {
+          "trades": 186,
+          "win_rate_pct": 58.06,
+          "profit_factor": 1.465,
+          "net_pnl": 4079.98,
+          "avg_trade_pnl": 21.94,
+          "positive_years": 9,
+          "negative_years": 0,
+          "year_net_pnl": {
+            "2017": 1.16,
+            "2018": 166.19,
+            "2019": 608.86,
+            "2020": 400.36,
+            "2021": 235.5,
+            "2022": 497.51,
+            "2023": 425.44,
+            "2024": 1345.15,
+            "2025": 399.81
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 71.3,
+            "median_sharpe": 0.668,
+            "median_net_profit_pct": 0.164,
+            "median_profit_factor": 1.331
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 78.7,
+            "median_sharpe": 0.62,
+            "median_net_profit_pct": 0.432,
+            "median_profit_factor": 1.376
+          }
+        },
+        "delta_vs_baseline_net_pnl": -4079.98,
+        "delta_vs_baseline_6m_positive_pct": -25.0,
+        "delta_vs_baseline_12m_positive_pct": -25.0,
+        "verdict": "QC_PROXY_WEAK_OR_MIXED"
+      },
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED"
+    },
+    "prev_2_of_3_winners": {
+      "spec": "prev_2_of_3_winners",
+      "local": {
+        "kept": {
+          "trades": 3,
+          "win_rate_pct": 33.33,
+          "profit_factor": 0.9,
+          "net_pnl": -3.55
+        },
+        "excluded": {
+          "trades": 10,
+          "win_rate_pct": 40.0,
+          "profit_factor": 1.7,
+          "net_pnl": 60.24
+        },
+        "walkforward": {
+          "folds": [
+            {
+              "fold": 1,
+              "test_period": "2026-02-05 ~ 2026-02-19",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "delta_vs_baseline": 3.55
+            },
+            {
+              "fold": 2,
+              "test_period": "2026-02-20 ~ 2026-03-05",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "delta_vs_baseline": 56.31
+            },
+            {
+              "fold": 3,
+              "test_period": "2026-03-06 ~ 2026-03-19",
+              "baseline": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "delta_vs_baseline": 10.51
+            },
+            {
+              "fold": 4,
+              "test_period": "2026-03-20 ~ 2026-04-02",
+              "baseline": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "delta_vs_baseline": -73.94
+            }
+          ],
+          "summary": {
+            "improved_vs_baseline_folds": 3,
+            "positive_kept_folds": 0,
+            "excluded_negative_folds": 3,
+            "kept_net_pnl": 0.0,
+            "baseline_net_pnl": 3.57,
+            "delta_vs_baseline": -3.57
+          }
+        },
+        "verdict": "LOCAL_WEAK_OR_MIXED"
+      },
+      "qc_proxy": {
+        "kept": {
+          "trades": 233,
+          "win_rate_pct": 51.5,
+          "profit_factor": 1.063,
+          "net_pnl": 740.23,
+          "avg_trade_pnl": 3.18,
+          "positive_years": 6,
+          "negative_years": 4,
+          "year_net_pnl": {
+            "2017": -367.99,
+            "2018": 138.88,
+            "2019": 370.01,
+            "2020": -801.47,
+            "2021": 101.65,
+            "2022": 203.1,
+            "2023": -250.03,
+            "2024": 593.51,
+            "2025": 801.13,
+            "2026": -48.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 54.6,
+            "median_sharpe": 0.237,
+            "median_net_profit_pct": 0.048,
+            "median_profit_factor": 1.107
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 58.3,
+            "median_sharpe": 0.075,
+            "median_net_profit_pct": 0.044,
+            "median_profit_factor": 1.037
+          }
+        },
+        "excluded": {
+          "trades": 172,
+          "win_rate_pct": 57.56,
+          "profit_factor": 1.579,
+          "net_pnl": 4713.92,
+          "avg_trade_pnl": 27.41,
+          "positive_years": 9,
+          "negative_years": 0,
+          "year_net_pnl": {
+            "2017": 262.24,
+            "2018": 322.42,
+            "2019": 372.95,
+            "2020": 1029.26,
+            "2021": 414.55,
+            "2022": 482.97,
+            "2023": 778.22,
+            "2024": 895.82,
+            "2025": 155.49
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 84.3,
+            "median_sharpe": 0.797,
+            "median_net_profit_pct": 0.183,
+            "median_profit_factor": 1.538
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 91.7,
+            "median_sharpe": 0.763,
+            "median_net_profit_pct": 0.436,
+            "median_profit_factor": 1.509
+          }
+        },
+        "delta_vs_baseline_net_pnl": -4713.92,
+        "delta_vs_baseline_6m_positive_pct": -26.0,
+        "delta_vs_baseline_12m_positive_pct": -32.4,
+        "verdict": "QC_PROXY_WEAK_OR_MIXED"
+      },
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED"
+    },
+    "recent_3_trades_net_pos": {
+      "spec": "recent_3_trades_net_pos",
+      "local": {
+        "kept": {
+          "trades": 3,
+          "win_rate_pct": 33.33,
+          "profit_factor": 0.9,
+          "net_pnl": -3.55
+        },
+        "excluded": {
+          "trades": 10,
+          "win_rate_pct": 40.0,
+          "profit_factor": 1.7,
+          "net_pnl": 60.24
+        },
+        "walkforward": {
+          "folds": [
+            {
+              "fold": 1,
+              "test_period": "2026-02-05 ~ 2026-02-19",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "delta_vs_baseline": 3.55
+            },
+            {
+              "fold": 2,
+              "test_period": "2026-02-20 ~ 2026-03-05",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "delta_vs_baseline": 56.31
+            },
+            {
+              "fold": 3,
+              "test_period": "2026-03-06 ~ 2026-03-19",
+              "baseline": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "delta_vs_baseline": 10.51
+            },
+            {
+              "fold": 4,
+              "test_period": "2026-03-20 ~ 2026-04-02",
+              "baseline": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "delta_vs_baseline": -73.94
+            }
+          ],
+          "summary": {
+            "improved_vs_baseline_folds": 3,
+            "positive_kept_folds": 0,
+            "excluded_negative_folds": 3,
+            "kept_net_pnl": 0.0,
+            "baseline_net_pnl": 3.57,
+            "delta_vs_baseline": -3.57
+          }
+        },
+        "verdict": "LOCAL_WEAK_OR_MIXED"
+      },
+      "qc_proxy": {
+        "kept": {
+          "trades": 239,
+          "win_rate_pct": 51.05,
+          "profit_factor": 1.085,
+          "net_pnl": 1064.54,
+          "avg_trade_pnl": 4.45,
+          "positive_years": 6,
+          "negative_years": 4,
+          "year_net_pnl": {
+            "2017": -97.56,
+            "2018": 125.97,
+            "2019": 386.6,
+            "2020": -207.27,
+            "2021": -242.87,
+            "2022": 143.99,
+            "2023": 143.48,
+            "2024": 308.86,
+            "2025": 551.9,
+            "2026": -48.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 62.0,
+            "median_sharpe": 0.29,
+            "median_net_profit_pct": 0.079,
+            "median_profit_factor": 1.137
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 69.4,
+            "median_sharpe": 0.193,
+            "median_net_profit_pct": 0.121,
+            "median_profit_factor": 1.094
+          }
+        },
+        "excluded": {
+          "trades": 166,
+          "win_rate_pct": 58.43,
+          "profit_factor": 1.597,
+          "net_pnl": 4389.61,
+          "avg_trade_pnl": 26.44,
+          "positive_years": 8,
+          "negative_years": 1,
+          "year_net_pnl": {
+            "2017": -8.19,
+            "2018": 335.33,
+            "2019": 356.36,
+            "2020": 435.06,
+            "2021": 759.07,
+            "2022": 542.08,
+            "2023": 384.71,
+            "2024": 1180.47,
+            "2025": 404.72
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 85.2,
+            "median_sharpe": 0.863,
+            "median_net_profit_pct": 0.222,
+            "median_profit_factor": 1.634
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 92.6,
+            "median_sharpe": 0.707,
+            "median_net_profit_pct": 0.42,
+            "median_profit_factor": 1.492
+          }
+        },
+        "delta_vs_baseline_net_pnl": -4389.61,
+        "delta_vs_baseline_6m_positive_pct": -18.6,
+        "delta_vs_baseline_12m_positive_pct": -21.3,
+        "verdict": "QC_PROXY_WEAK_OR_MIXED"
+      },
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED"
+    },
+    "no_loss_streak_2": {
+      "spec": "no_loss_streak_2",
+      "local": {
+        "kept": {
+          "trades": 8,
+          "win_rate_pct": 37.5,
+          "profit_factor": 2.587,
+          "net_pnl": 98.76
+        },
+        "excluded": {
+          "trades": 5,
+          "win_rate_pct": 40.0,
+          "profit_factor": 0.291,
+          "net_pnl": -42.07
+        },
+        "walkforward": {
+          "folds": [
+            {
+              "fold": 1,
+              "test_period": "2026-02-05 ~ 2026-02-19",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "kept": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "excluded": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "delta_vs_baseline": 0.0
+            },
+            {
+              "fold": 2,
+              "test_period": "2026-02-20 ~ 2026-03-05",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "kept": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "excluded": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "delta_vs_baseline": 0.0
+            },
+            {
+              "fold": 3,
+              "test_period": "2026-03-06 ~ 2026-03-19",
+              "baseline": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "delta_vs_baseline": 10.51
+            },
+            {
+              "fold": 4,
+              "test_period": "2026-03-20 ~ 2026-04-02",
+              "baseline": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "kept": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "excluded": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "delta_vs_baseline": 0.0
+            }
+          ],
+          "summary": {
+            "improved_vs_baseline_folds": 1,
+            "positive_kept_folds": 1,
+            "excluded_negative_folds": 1,
+            "kept_net_pnl": 14.08,
+            "baseline_net_pnl": 3.57,
+            "delta_vs_baseline": 10.51
+          }
+        },
+        "verdict": "LOCAL_PROMISING"
+      },
+      "qc_proxy": {
+        "kept": {
+          "trades": 328,
+          "win_rate_pct": 53.35,
+          "profit_factor": 1.161,
+          "net_pnl": 2572.79,
+          "avg_trade_pnl": 7.84,
+          "positive_years": 7,
+          "negative_years": 3,
+          "year_net_pnl": {
+            "2017": -392.62,
+            "2018": 43.25,
+            "2019": 449.81,
+            "2020": -626.49,
+            "2021": 615.93,
+            "2022": 67.72,
+            "2023": 138.31,
+            "2024": 1324.26,
+            "2025": 1001.18,
+            "2026": -48.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 64.8,
+            "median_sharpe": 0.369,
+            "median_net_profit_pct": 0.144,
+            "median_profit_factor": 1.157
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 63.0,
+            "median_sharpe": 0.182,
+            "median_net_profit_pct": 0.133,
+            "median_profit_factor": 1.073
+          }
+        },
+        "excluded": {
+          "trades": 77,
+          "win_rate_pct": 57.14,
+          "profit_factor": 1.754,
+          "net_pnl": 2881.36,
+          "avg_trade_pnl": 37.42,
+          "positive_years": 7,
+          "negative_years": 2,
+          "year_net_pnl": {
+            "2017": 286.87,
+            "2018": 418.05,
+            "2019": 293.15,
+            "2020": 854.28,
+            "2021": -99.73,
+            "2022": 618.35,
+            "2023": 389.88,
+            "2024": 165.07,
+            "2025": -44.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 73.1,
+            "median_sharpe": 1.015,
+            "median_net_profit_pct": 0.134,
+            "median_profit_factor": 1.27
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 90.7,
+            "median_sharpe": 0.759,
+            "median_net_profit_pct": 0.284,
+            "median_profit_factor": 1.887
+          }
+        },
+        "delta_vs_baseline_net_pnl": -2881.36,
+        "delta_vs_baseline_6m_positive_pct": -15.8,
+        "delta_vs_baseline_12m_positive_pct": -27.7,
+        "verdict": "QC_PROXY_WEAK_OR_MIXED"
+      },
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED"
+    },
+    "no_loss_streak_3": {
+      "spec": "no_loss_streak_3",
+      "local": {
+        "kept": {
+          "trades": 10,
+          "win_rate_pct": 30.0,
+          "profit_factor": 1.45,
+          "net_pnl": 49.96
+        },
+        "excluded": {
+          "trades": 3,
+          "win_rate_pct": 66.67,
+          "profit_factor": 1.641,
+          "net_pnl": 6.73
+        },
+        "walkforward": {
+          "folds": [
+            {
+              "fold": 1,
+              "test_period": "2026-02-05 ~ 2026-02-19",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "kept": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "excluded": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "delta_vs_baseline": 0.0
+            },
+            {
+              "fold": 2,
+              "test_period": "2026-02-20 ~ 2026-03-05",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "kept": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "excluded": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "delta_vs_baseline": 0.0
+            },
+            {
+              "fold": 3,
+              "test_period": "2026-03-06 ~ 2026-03-19",
+              "baseline": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "delta_vs_baseline": 10.51
+            },
+            {
+              "fold": 4,
+              "test_period": "2026-03-20 ~ 2026-04-02",
+              "baseline": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "kept": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "excluded": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "delta_vs_baseline": 0.0
+            }
+          ],
+          "summary": {
+            "improved_vs_baseline_folds": 1,
+            "positive_kept_folds": 1,
+            "excluded_negative_folds": 1,
+            "kept_net_pnl": 14.08,
+            "baseline_net_pnl": 3.57,
+            "delta_vs_baseline": 10.51
+          }
+        },
+        "verdict": "LOCAL_WEAK_OR_MIXED"
+      },
+      "qc_proxy": {
+        "kept": {
+          "trades": 372,
+          "win_rate_pct": 53.49,
+          "profit_factor": 1.193,
+          "net_pnl": 3524.42,
+          "avg_trade_pnl": 9.47,
+          "positive_years": 7,
+          "negative_years": 3,
+          "year_net_pnl": {
+            "2017": -326.96,
+            "2018": 174.29,
+            "2019": 514.8,
+            "2020": -529.99,
+            "2021": 482.31,
+            "2022": 482.09,
+            "2023": 422.93,
+            "2024": 1511.04,
+            "2025": 842.47,
+            "2026": -48.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 67.6,
+            "median_sharpe": 0.519,
+            "median_net_profit_pct": 0.19,
+            "median_profit_factor": 1.215
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 75.0,
+            "median_sharpe": 0.328,
+            "median_net_profit_pct": 0.217,
+            "median_profit_factor": 1.124
+          }
+        },
+        "excluded": {
+          "trades": 33,
+          "win_rate_pct": 60.61,
+          "profit_factor": 2.208,
+          "net_pnl": 1929.73,
+          "avg_trade_pnl": 58.48,
+          "positive_years": 8,
+          "negative_years": 1,
+          "year_net_pnl": {
+            "2017": 221.21,
+            "2018": 287.01,
+            "2019": 228.16,
+            "2020": 757.78,
+            "2021": 33.89,
+            "2022": 203.98,
+            "2023": 105.26,
+            "2024": -21.71,
+            "2025": 114.15
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 56.5,
+            "median_sharpe": 0.323,
+            "median_net_profit_pct": 0.099,
+            "median_profit_factor": 0.967
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 83.3,
+            "median_sharpe": 0.511,
+            "median_net_profit_pct": 0.165,
+            "median_profit_factor": 1.788
+          }
+        },
+        "delta_vs_baseline_net_pnl": -1929.73,
+        "delta_vs_baseline_6m_positive_pct": -13.0,
+        "delta_vs_baseline_12m_positive_pct": -15.7,
+        "verdict": "QC_PROXY_WEAK_OR_MIXED"
+      },
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED"
+    },
+    "recent_5_winrate_ge_50": {
+      "spec": "recent_5_winrate_ge_50",
+      "local": {
+        "kept": {
+          "trades": 2,
+          "win_rate_pct": 0.0,
+          "profit_factor": 0.0,
+          "net_pnl": -38.44
+        },
+        "excluded": {
+          "trades": 11,
+          "win_rate_pct": 45.45,
+          "profit_factor": 2.145,
+          "net_pnl": 95.13
+        },
+        "walkforward": {
+          "folds": [
+            {
+              "fold": 1,
+              "test_period": "2026-02-05 ~ 2026-02-19",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "delta_vs_baseline": 3.55
+            },
+            {
+              "fold": 2,
+              "test_period": "2026-02-20 ~ 2026-03-05",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "delta_vs_baseline": 56.31
+            },
+            {
+              "fold": 3,
+              "test_period": "2026-03-06 ~ 2026-03-19",
+              "baseline": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "delta_vs_baseline": 10.51
+            },
+            {
+              "fold": 4,
+              "test_period": "2026-03-20 ~ 2026-04-02",
+              "baseline": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "delta_vs_baseline": -73.94
+            }
+          ],
+          "summary": {
+            "improved_vs_baseline_folds": 3,
+            "positive_kept_folds": 0,
+            "excluded_negative_folds": 3,
+            "kept_net_pnl": 0.0,
+            "baseline_net_pnl": 3.57,
+            "delta_vs_baseline": -3.57
+          }
+        },
+        "verdict": "LOCAL_WEAK_OR_MIXED"
+      },
+      "qc_proxy": {
+        "kept": {
+          "trades": 233,
+          "win_rate_pct": 51.5,
+          "profit_factor": 1.13,
+          "net_pnl": 1479.08,
+          "avg_trade_pnl": 6.35,
+          "positive_years": 5,
+          "negative_years": 5,
+          "year_net_pnl": {
+            "2017": -148.69,
+            "2018": 260.13,
+            "2019": -200.28,
+            "2020": -537.14,
+            "2021": 238.52,
+            "2022": 373.58,
+            "2023": -160.71,
+            "2024": 990.45,
+            "2025": 711.78,
+            "2026": -48.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 59.3,
+            "median_sharpe": 0.273,
+            "median_net_profit_pct": 0.066,
+            "median_profit_factor": 1.122
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 55.6,
+            "median_sharpe": 0.16,
+            "median_net_profit_pct": 0.074,
+            "median_profit_factor": 1.083
+          }
+        },
+        "excluded": {
+          "trades": 172,
+          "win_rate_pct": 57.56,
+          "profit_factor": 1.472,
+          "net_pnl": 3975.07,
+          "avg_trade_pnl": 23.11,
+          "positive_years": 9,
+          "negative_years": 0,
+          "year_net_pnl": {
+            "2017": 42.94,
+            "2018": 201.17,
+            "2019": 943.24,
+            "2020": 764.93,
+            "2021": 277.68,
+            "2022": 312.49,
+            "2023": 688.9,
+            "2024": 498.88,
+            "2025": 244.84
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 75.9,
+            "median_sharpe": 0.761,
+            "median_net_profit_pct": 0.151,
+            "median_profit_factor": 1.428
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 90.7,
+            "median_sharpe": 0.634,
+            "median_net_profit_pct": 0.372,
+            "median_profit_factor": 1.517
+          }
+        },
+        "delta_vs_baseline_net_pnl": -3975.07,
+        "delta_vs_baseline_6m_positive_pct": -21.3,
+        "delta_vs_baseline_12m_positive_pct": -35.1,
+        "verdict": "QC_PROXY_WEAK_OR_MIXED"
+      },
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED"
+    },
+    "recent_5_net_positive": {
+      "spec": "recent_5_net_positive",
+      "local": {
+        "kept": {
+          "trades": 5,
+          "win_rate_pct": 20.0,
+          "profit_factor": 0.312,
+          "net_pnl": -70.49
+        },
+        "excluded": {
+          "trades": 8,
+          "win_rate_pct": 50.0,
+          "profit_factor": 7.646,
+          "net_pnl": 127.18
+        },
+        "walkforward": {
+          "folds": [
+            {
+              "fold": 1,
+              "test_period": "2026-02-05 ~ 2026-02-19",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.9,
+                "net_pnl": -3.55
+              },
+              "delta_vs_baseline": 3.55
+            },
+            {
+              "fold": 2,
+              "test_period": "2026-02-20 ~ 2026-03-05",
+              "baseline": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 3,
+                "win_rate_pct": 33.33,
+                "profit_factor": 0.159,
+                "net_pnl": -56.31
+              },
+              "delta_vs_baseline": 56.31
+            },
+            {
+              "fold": 3,
+              "test_period": "2026-03-06 ~ 2026-03-19",
+              "baseline": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 1,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": -10.51
+              },
+              "delta_vs_baseline": 10.51
+            },
+            {
+              "fold": 4,
+              "test_period": "2026-03-20 ~ 2026-04-02",
+              "baseline": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "kept": {
+                "trades": 0,
+                "win_rate_pct": 0.0,
+                "profit_factor": 0.0,
+                "net_pnl": 0.0
+              },
+              "excluded": {
+                "trades": 2,
+                "win_rate_pct": 100.0,
+                "profit_factor": 999.0,
+                "net_pnl": 73.94
+              },
+              "delta_vs_baseline": -73.94
+            }
+          ],
+          "summary": {
+            "improved_vs_baseline_folds": 3,
+            "positive_kept_folds": 0,
+            "excluded_negative_folds": 3,
+            "kept_net_pnl": 0.0,
+            "baseline_net_pnl": 3.57,
+            "delta_vs_baseline": -3.57
+          }
+        },
+        "verdict": "LOCAL_WEAK_OR_MIXED"
+      },
+      "qc_proxy": {
+        "kept": {
+          "trades": 240,
+          "win_rate_pct": 50.83,
+          "profit_factor": 1.062,
+          "net_pnl": 757.24,
+          "avg_trade_pnl": 3.16,
+          "positive_years": 4,
+          "negative_years": 6,
+          "year_net_pnl": {
+            "2017": -300.98,
+            "2018": -6.44,
+            "2019": 331.0,
+            "2020": -964.61,
+            "2021": -264.53,
+            "2022": 487.36,
+            "2023": -18.72,
+            "2024": 709.86,
+            "2025": 832.86,
+            "2026": -48.56
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 53.7,
+            "median_sharpe": 0.117,
+            "median_net_profit_pct": 0.037,
+            "median_profit_factor": 1.046
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 50.0,
+            "median_sharpe": 0.002,
+            "median_net_profit_pct": 0.006,
+            "median_profit_factor": 0.999
+          }
+        },
+        "excluded": {
+          "trades": 165,
+          "win_rate_pct": 58.79,
+          "profit_factor": 1.622,
+          "net_pnl": 4696.91,
+          "avg_trade_pnl": 28.47,
+          "positive_years": 9,
+          "negative_years": 0,
+          "year_net_pnl": {
+            "2017": 195.23,
+            "2018": 467.74,
+            "2019": 411.96,
+            "2020": 1192.4,
+            "2021": 780.73,
+            "2022": 198.71,
+            "2023": 546.91,
+            "2024": 779.47,
+            "2025": 123.76
+          },
+          "rolling_6m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 88.0,
+            "median_sharpe": 0.984,
+            "median_net_profit_pct": 0.208,
+            "median_profit_factor": 1.68
+          },
+          "rolling_12m": {
+            "window_count": 108,
+            "positive_sharpe_pct": 92.6,
+            "median_sharpe": 0.838,
+            "median_net_profit_pct": 0.46,
+            "median_profit_factor": 1.58
+          }
+        },
+        "delta_vs_baseline_net_pnl": -4696.91,
+        "delta_vs_baseline_6m_positive_pct": -26.9,
+        "delta_vs_baseline_12m_positive_pct": -40.7,
+        "verdict": "QC_PROXY_WEAK_OR_MIXED"
+      },
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED"
+    }
+  },
+  "candidate_summary": {
+    "best_overall": {
+      "label": "no_loss_streak_3",
+      "spec": "no_loss_streak_3",
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED",
+      "local_verdict": "LOCAL_WEAK_OR_MIXED",
+      "qc_verdict": "QC_PROXY_WEAK_OR_MIXED",
+      "local_walkforward_delta_vs_baseline": 10.51,
+      "local_total_delta_vs_baseline": -6.73,
+      "qc_delta_vs_baseline_net_pnl": -1929.73,
+      "qc_delta_vs_baseline_6m_positive_pct": -13.0,
+      "qc_delta_vs_baseline_12m_positive_pct": -15.7
+    },
+    "strongest_qc_only_near_miss": null,
+    "strongest_local_only_near_miss": {
+      "label": "prev_trade_winner",
+      "spec": "prev_trade_winner",
+      "combined_verdict": "ORTHOGONAL_WEAK_OR_MIXED",
+      "local_verdict": "LOCAL_RESEARCH_LEADER",
+      "qc_verdict": "QC_PROXY_WEAK_OR_MIXED",
+      "local_walkforward_delta_vs_baseline": 16.49,
+      "local_total_delta_vs_baseline": 36.93,
+      "qc_delta_vs_baseline_net_pnl": -4079.98,
+      "qc_delta_vs_baseline_6m_positive_pct": -25.0,
+      "qc_delta_vs_baseline_12m_positive_pct": -25.0
+    },
+    "strongest_balanced_near_miss": null,
+    "interpretation": "This family tests whether the strategy's own recent trade sequence carries predictive signal for future entry quality. It is orthogonal to all prior families because it uses the trade outcome history itself as a filter — not market data, daily features, intraday structure, or timing. It tests serial autocorrelation in strategy returns at the trade level."
+  }
+}

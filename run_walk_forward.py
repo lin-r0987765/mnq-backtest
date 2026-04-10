@@ -10,6 +10,7 @@ Walk-Forward Validation Framework
 - 匯總所有 OOS 窗口的績效，評估策略穩定性
 """
 from __future__ import annotations
+import argparse
 import sys, json
 from pathlib import Path
 from datetime import timedelta
@@ -32,7 +33,18 @@ from src.backtest.engine import BacktestEngine, BacktestResult
 from src.portfolio_overlay import (
     DEFAULT_ACTIVE_REUSE_WEIGHT,
     combine_results_active_reuse,
+    combine_results_active_reuse_kelly,
 )
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Walk-Forward Validation Framework")
+    parser.add_argument(
+        "--include-vwap",
+        action="store_true",
+        help="Enable the optional VWAP module and combined portfolio walk-forward",
+    )
+    return parser.parse_args()
 
 
 def compute_metrics(equity, trades=None):
@@ -207,6 +219,12 @@ def walk_forward_combined(df, engine, train_days=20, test_days=10, step_days=10)
             
             combo_eq = combine_results_active_reuse(orb_r, vwap_r, active_weight=DEFAULT_ACTIVE_REUSE_WEIGHT)
             combo_m = compute_metrics(combo_eq)
+
+            kelly_eq = combine_results_active_reuse_kelly(
+                orb_r, vwap_r, active_weight=DEFAULT_ACTIVE_REUSE_WEIGHT,
+                kelly_mult=0.5, lookback_trades=10,
+            )
+            kelly_m = compute_metrics(kelly_eq)
             
             bh = (df_test["Close"].iloc[-1] / df_test["Close"].iloc[0] - 1) * 100
             
@@ -217,6 +235,7 @@ def walk_forward_combined(df, engine, train_days=20, test_days=10, step_days=10)
                 "orb": orb_m,
                 "vwap": vwap_m,
                 "combined": combo_m,
+                "kelly": kelly_m,
                 "bh_pct": round(bh, 4),
             })
         except Exception as e:
@@ -307,11 +326,12 @@ def print_combined_wf_summary(folds):
         print("  No valid folds.")
         return {}
     
-    print(f"{'Fold':>4} | {'Test Period':<25} | {'ORB Sh':>8} | {'VWAP Sh':>8} | {'Combo Sh':>8} | {'Combo Ret':>9} | {'B&H':>8}")
-    print("-" * 100)
+    print(f"{'Fold':>4} | {'Test Period':<25} | {'ORB Sh':>8} | {'VWAP Sh':>8} | {'Combo Sh':>8} | {'Kelly Sh':>8} | {'Combo Ret':>9} | {'B&H':>8}")
+    print("-" * 115)
     
     combo_sharpes = []
     combo_returns = []
+    kelly_sharpes = []
     orb_sharpes = []
     vwap_sharpes = []
     
@@ -320,13 +340,16 @@ def print_combined_wf_summary(folds):
             print(f"{f['fold']:>4} | ERROR: {f['error']}")
             continue
         
+        kelly_sh = f.get('kelly', {}).get('sharpe', 0)
         print(f"{f['fold']:>4} | {f['test_period']:<25} | "
               f"{f['orb']['sharpe']:>8.3f} | {f['vwap']['sharpe']:>8.3f} | "
-              f"{f['combined']['sharpe']:>8.3f} | {f['combined']['return_pct']:>+8.3f}% | "
+              f"{f['combined']['sharpe']:>8.3f} | {kelly_sh:>8.3f} | "
+              f"{f['combined']['return_pct']:>+8.3f}% | "
               f"{f['bh_pct']:>+7.3f}%")
         
         combo_sharpes.append(f["combined"]["sharpe"])
         combo_returns.append(f["combined"]["return_pct"])
+        kelly_sharpes.append(kelly_sh)
         orb_sharpes.append(f["orb"]["sharpe"])
         vwap_sharpes.append(f["vwap"]["sharpe"])
     
@@ -341,63 +364,72 @@ def print_combined_wf_summary(folds):
         "avg_combo_return": round(np.mean(combo_returns), 4),
         "avg_orb_sharpe": round(np.mean(orb_sharpes), 3),
         "avg_vwap_sharpe": round(np.mean(vwap_sharpes), 3),
+        "avg_kelly_sharpe": round(np.mean(kelly_sharpes), 3),
+        "std_kelly_sharpe": round(np.std(kelly_sharpes), 3),
         "positive_combo_sharpe_pct": round(sum(1 for s in combo_sharpes if s > 0) / n * 100, 1),
+        "positive_kelly_sharpe_pct": round(sum(1 for s in kelly_sharpes if s > 0) / n * 100, 1),
     }
     
-    print("-" * 100)
+    print("-" * 115)
     print(f"{'Avg':>4} | {'Folds: ' + str(n):<25} | "
           f"{summary['avg_orb_sharpe']:>8.3f} | {summary['avg_vwap_sharpe']:>8.3f} | "
-          f"{summary['avg_combo_sharpe']:>8.3f} | {summary['avg_combo_return']:>+8.3f}% |")
+          f"{summary['avg_combo_sharpe']:>8.3f} | {summary['avg_kelly_sharpe']:>8.3f} | "
+          f"{summary['avg_combo_return']:>+8.3f}% |")
     print(f"       | Combo Sharpe StdDev: {summary['std_combo_sharpe']:.3f} | "
-          f"Positive Sharpe: {summary['positive_combo_sharpe_pct']:.0f}%")
+          f"Positive Sharpe: {summary['positive_combo_sharpe_pct']:.0f}% | "
+          f"Kelly Pos: {summary['positive_kelly_sharpe_pct']:.0f}%")
     
     return summary
 
 
 def main():
+    args = parse_args()
+    vwap_enabled = args.include_vwap
+
     print("=" * 80)
     print("Walk-Forward Validation Framework")
     print("=" * 80)
-    
-    # Load data
+
     df = fetch_nq_data()
     if df is None or df.empty:
         print("ERROR: No data loaded.")
         return 1
-    
+
     dates = sorted(set(df.index.date))
     n_days = len(dates)
     print(f"\n數據: {dates[0]} ~ {dates[-1]} ({n_days} 交易日, {len(df)} 根 K 棒)")
-    
+
     engine = BacktestEngine(initial_cash=100_000.0, fees_pct=0.0005, size=10.0)
-    
-    # Walk-forward config: 20-day train, 10-day test, 10-day step
-    # This gives overlapping training windows but non-overlapping test windows
+
     TRAIN_DAYS = 20
     TEST_DAYS = 10
     STEP_DAYS = 10
-    
+
     print(f"\n配置: 訓練窗口={TRAIN_DAYS}天, 測試窗口={TEST_DAYS}天, 步進={STEP_DAYS}天")
     print(f"預計 fold 數量: ~{(n_days - TRAIN_DAYS) // STEP_DAYS}")
-    
-    # ORB Walk-Forward
+
     orb_folds = walk_forward(df, ORBStrategy, engine, TRAIN_DAYS, TEST_DAYS, STEP_DAYS)
-    orb_summary = print_wf_summary("ORB v8", orb_folds)
-    
-    # VWAP Walk-Forward
-    vwap_folds = walk_forward(df, VWAPReversionStrategy, engine, TRAIN_DAYS, TEST_DAYS, STEP_DAYS)
-    vwap_summary = print_wf_summary("VWAP v13", vwap_folds)
-    
-    # Combined Walk-Forward
-    combo_folds = walk_forward_combined(df, engine, TRAIN_DAYS, TEST_DAYS, STEP_DAYS)
-    combo_summary = print_combined_wf_summary(combo_folds)
-    
-    # Overall assessment
+    orb_summary = print_wf_summary("ORB v19", orb_folds)
+
+    if vwap_enabled:
+        vwap_folds = walk_forward(df, VWAPReversionStrategy, engine, TRAIN_DAYS, TEST_DAYS, STEP_DAYS)
+        vwap_summary = print_wf_summary("VWAP v23", vwap_folds)
+        combo_folds = walk_forward_combined(df, engine, TRAIN_DAYS, TEST_DAYS, STEP_DAYS)
+        combo_summary = print_combined_wf_summary(combo_folds)
+    else:
+        vwap_folds = []
+        vwap_summary = {}
+        combo_folds = []
+        combo_summary = {}
+        print("\nVWAP optional module disabled in default flow; skipping VWAP and combined walk-forward.")
+
     print(f"\n{'='*80}")
     print("Walk-Forward 綜合評估")
     print(f"{'='*80}")
-    
+
     all_results = {
+        "mode": "orb_plus_vwap" if vwap_enabled else "orb_only_default",
+        "vwap_enabled": vwap_enabled,
         "config": {
             "train_days": TRAIN_DAYS,
             "test_days": TEST_DAYS,
@@ -409,32 +441,36 @@ def main():
         "vwap": {"folds": vwap_folds, "summary": vwap_summary},
         "combined": {"folds": combo_folds, "summary": combo_summary},
     }
-    
-    # Stability score
+
     stability_items = []
     if orb_summary:
         orb_stable = orb_summary.get("positive_sharpe_pct", 0)
-        print(f"  ORB:  平均 Sharpe={orb_summary['avg_sharpe']:.3f} (±{orb_summary['std_sharpe']:.3f}), "
-              f"正 Sharpe 比率={orb_stable:.0f}%, Alpha 命中={orb_summary['alpha_hit_rate']:.0f}%")
-        stability_items.append(("ORB", orb_stable, orb_summary['avg_sharpe']))
-    
+        print(
+            f"  ORB:  平均 Sharpe={orb_summary['avg_sharpe']:.3f} (±{orb_summary['std_sharpe']:.3f}), "
+            f"正 Sharpe 比率={orb_stable:.0f}%, Alpha 命中={orb_summary['alpha_hit_rate']:.0f}%"
+        )
+        stability_items.append(("ORB", orb_stable, orb_summary["avg_sharpe"]))
+
     if vwap_summary:
         vwap_stable = vwap_summary.get("positive_sharpe_pct", 0)
-        print(f"  VWAP: 平均 Sharpe={vwap_summary['avg_sharpe']:.3f} (±{vwap_summary['std_sharpe']:.3f}), "
-              f"正 Sharpe 比率={vwap_stable:.0f}%, Alpha 命中={vwap_summary['alpha_hit_rate']:.0f}%")
-        stability_items.append(("VWAP", vwap_stable, vwap_summary['avg_sharpe']))
-    
+        print(
+            f"  VWAP: 平均 Sharpe={vwap_summary['avg_sharpe']:.3f} (±{vwap_summary['std_sharpe']:.3f}), "
+            f"正 Sharpe 比率={vwap_stable:.0f}%, Alpha 命中={vwap_summary['alpha_hit_rate']:.0f}%"
+        )
+        stability_items.append(("VWAP", vwap_stable, vwap_summary["avg_sharpe"]))
+
     if combo_summary:
         combo_stable = combo_summary.get("positive_combo_sharpe_pct", 0)
-        print(f"  組合: 平均 Sharpe={combo_summary['avg_combo_sharpe']:.3f} (±{combo_summary['std_combo_sharpe']:.3f}), "
-              f"正 Sharpe 比率={combo_stable:.0f}%")
-        stability_items.append(("Combined", combo_stable, combo_summary['avg_combo_sharpe']))
-    
-    # Grade
+        print(
+            f"  組合: 平均 Sharpe={combo_summary['avg_combo_sharpe']:.3f} (±{combo_summary['std_combo_sharpe']:.3f}), "
+            f"正 Sharpe 比率={combo_stable:.0f}%"
+        )
+        stability_items.append(("Combined", combo_stable, combo_summary["avg_combo_sharpe"]))
+
     if stability_items:
         avg_positive_rate = np.mean([s[1] for s in stability_items])
         avg_sharpe = np.mean([s[2] for s in stability_items])
-        
+
         if avg_positive_rate >= 80 and avg_sharpe > 2:
             grade = "A（優秀）— 策略在不同時間段表現穩健"
         elif avg_positive_rate >= 60 and avg_sharpe > 1:
@@ -443,16 +479,15 @@ def main():
             grade = "C（一般）— 策略不夠穩定，需進一步優化"
         else:
             grade = "D（較差）— 策略可能過擬合"
-        
+
         print(f"\n  穩健性評級: {grade}")
         all_results["grade"] = grade
         all_results["avg_positive_sharpe_rate"] = round(avg_positive_rate, 1)
-    
-    # Save
-    with open(PROJECT_ROOT / "walk_forward_results.json", "w") as f:
+
+    with open(PROJECT_ROOT / "walk_forward_results.json", "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, default=str)
     print("\nWalk-forward 結果已保存至 walk_forward_results.json")
-    
+
     return 0
 
 

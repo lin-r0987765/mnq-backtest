@@ -1,0 +1,153 @@
+{
+  "analysis": "ict_lite_frontier_funnel",
+  "profile": "lite_ict_reversal_relaxed_smt_looser_sweep_faster_retest_frontier",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "frontier_params": {
+    "structure_lookback": 12,
+    "liq_sweep_threshold": 0.0006,
+    "liq_sweep_recovery_bars": 4,
+    "smt_threshold": 0.0015,
+    "fvg_revisit_depth_ratio": 0.5,
+    "fvg_revisit_min_delay_bars": 2,
+    "displacement_body_min_pct": 0.1
+  },
+  "metrics": {
+    "total_return_pct": 0.3529,
+    "sharpe_ratio": 2.1338,
+    "sortino_ratio": 3.4169,
+    "calmar_ratio": 3.6906,
+    "max_drawdown_pct": -0.0956,
+    "win_rate_pct": 72.2222,
+    "total_trades": 18,
+    "profit_factor": 4.6792,
+    "avg_trade_pct": 0.0196
+  },
+  "trade_gap_to_100": 82,
+  "delivery_breakdown": {
+    "fvg_entries": 13,
+    "ob_entries": 4,
+    "breaker_entries": 1,
+    "ifvg_entries": 0
+  },
+  "funnel": {
+    "stages": {
+      "raw_sweep_candidates": 1229,
+      "accepted_sweeps": 1036,
+      "shift_candidates": 57,
+      "armed_setups": 36,
+      "retest_candidates": 20,
+      "entries": 18
+    },
+    "direction_breakdown": {
+      "bullish_sweep_candidates": 723,
+      "bearish_sweep_candidates": 506,
+      "bullish_sweeps": 622,
+      "bearish_sweeps": 414,
+      "bullish_shift_candidates": 25,
+      "bearish_shift_candidates": 32,
+      "bullish_armed_setups": 14,
+      "bearish_armed_setups": 22,
+      "bullish_retest_candidates": 7,
+      "bearish_retest_candidates": 13,
+      "long_entries": 6,
+      "short_entries": 12
+    },
+    "conversion_rates_pct": {
+      "sweep_acceptance_rate": 84.3,
+      "accepted_sweep_to_shift_rate": 5.5,
+      "shift_to_armed_rate": 63.16,
+      "armed_to_retest_rate": 55.56,
+      "retest_to_entry_rate": 90.0,
+      "raw_sweep_to_entry_rate": 1.46
+    },
+    "filtered_breakdown": {
+      "daily_bias_filtered_setups": 0,
+      "premium_discount_filtered_setups": 0,
+      "amd_filtered_setups": 0,
+      "prev_session_anchor_filtered_setups": 0,
+      "external_liquidity_filtered_sweeps": 0,
+      "smt_filtered_sweeps": 191,
+      "smt_missing_peer_bars": 2,
+      "macro_timing_filtered_sweeps": 0,
+      "kill_zone_filtered_sweeps": 0,
+      "displacement_filtered_shifts": 2,
+      "displacement_range_filtered_shifts": 0,
+      "structure_buffer_filtered_shifts": 0,
+      "session_array_filtered_shifts": 0,
+      "delivery_missing_shifts": 19,
+      "score_filtered_shifts": 0,
+      "fvg_delay_filtered_retests": 4,
+      "fvg_depth_filtered_retests": 23,
+      "fvg_touch_filtered_retests": 0,
+      "fvg_close_filtered_retests": 0,
+      "fvg_wick_filtered_retests": 0,
+      "fvg_body_filtered_retests": 0
+    },
+    "top_filters": [
+      {
+        "label": "smt_filtered_sweeps",
+        "count": 191
+      },
+      {
+        "label": "fvg_depth_filtered_retests",
+        "count": 23
+      },
+      {
+        "label": "delivery_missing_shifts",
+        "count": 19
+      },
+      {
+        "label": "fvg_delay_filtered_retests",
+        "count": 4
+      },
+      {
+        "label": "smt_missing_peer_bars",
+        "count": 2
+      },
+      {
+        "label": "displacement_filtered_shifts",
+        "count": 2
+      }
+    ]
+  },
+  "stage_drop_summary": [
+    {
+      "transition": "accepted_sweeps->shift_candidates",
+      "source_count": 1036,
+      "target_count": 57,
+      "drop_count": 979
+    },
+    {
+      "transition": "raw_sweep_candidates->accepted_sweeps",
+      "source_count": 1229,
+      "target_count": 1036,
+      "drop_count": 193
+    },
+    {
+      "transition": "shift_candidates->armed_setups",
+      "source_count": 57,
+      "target_count": 36,
+      "drop_count": 21
+    },
+    {
+      "transition": "armed_setups->retest_candidates",
+      "source_count": 36,
+      "target_count": 20,
+      "drop_count": 16
+    },
+    {
+      "transition": "retest_candidates->entries",
+      "source_count": 20,
+      "target_count": 18,
+      "drop_count": 2
+    }
+  ],
+  "verdict": "LITE_FRONTIER_FUNNEL_IDENTIFIED_NEXT_CHOKE_POINT",
+  "interpretation": "The active lite frontier is still 82 trades short of the 100-trade gate, and the largest recorded filter choke point is smt_filtered_sweeps = 191."
+}

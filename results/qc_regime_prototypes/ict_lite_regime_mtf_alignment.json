@@ -1,0 +1,225 @@
+{
+  "analysis": "ict_lite_regime_mtf_alignment",
+  "profile": "regime_mtf_reversal_compare",
+  "risk_standard": {
+    "initial_cash_usd": 100000,
+    "capital_usage_pct": 1.0,
+    "minimum_order_shares": 40,
+    "reward_risk_floor": 1.5
+  },
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "active_lite_quality_base": {
+      "label": "active_lite_quality_base",
+      "params": {
+        "use_regime_adaptation": false,
+        "use_higher_timeframe_alignment": false,
+        "higher_timeframe_alignment_mode": "hard",
+        "regime_high_fvg_min_gap_pct": 0.0,
+        "regime_high_fvg_revisit_depth_ratio": -1.0,
+        "regime_high_smt_threshold": 0.0
+      },
+      "metrics": {
+        "total_return_pct": 13.8395,
+        "sharpe_ratio": 1.1819,
+        "sortino_ratio": 0.1714,
+        "calmar_ratio": 7.0073,
+        "max_drawdown_pct": -1.975,
+        "win_rate_pct": 72.2222,
+        "total_trades": 18,
+        "profit_factor": 6.3079,
+        "avg_trade_pct": 0.7689
+      },
+      "metadata": {
+        "high_regime_bars": 0,
+        "higher_timeframe_filtered_setups": 0,
+        "higher_timeframe_softened_setups": 0,
+        "higher_timeframe_score_penalty_shifts": 0,
+        "fvg_depth_filtered_retests": 22,
+        "fvg_delay_filtered_retests": 5,
+        "smt_filtered_sweeps": 191,
+        "bullish_entries": 0,
+        "bearish_entries": 0
+      }
+    },
+    "qualified_reversal_balance": {
+      "label": "qualified_reversal_balance",
+      "params": {
+        "use_regime_adaptation": false,
+        "use_higher_timeframe_alignment": false,
+        "higher_timeframe_alignment_mode": "hard",
+        "regime_high_fvg_min_gap_pct": 0.0,
+        "regime_high_fvg_revisit_depth_ratio": -1.0,
+        "regime_high_smt_threshold": 0.0
+      },
+      "metrics": {
+        "total_return_pct": 13.4177,
+        "sharpe_ratio": 1.0865,
+        "sortino_ratio": 0.2159,
+        "calmar_ratio": 5.9863,
+        "max_drawdown_pct": -2.2414,
+        "win_rate_pct": 60.0,
+        "total_trades": 40,
+        "profit_factor": 3.1879,
+        "avg_trade_pct": 0.3354
+      },
+      "metadata": {
+        "high_regime_bars": 0,
+        "higher_timeframe_filtered_setups": 0,
+        "higher_timeframe_softened_setups": 0,
+        "higher_timeframe_score_penalty_shifts": 0,
+        "fvg_depth_filtered_retests": 31,
+        "fvg_delay_filtered_retests": 50,
+        "smt_filtered_sweeps": 342,
+        "bullish_entries": 0,
+        "bearish_entries": 0
+      }
+    },
+    "regime_mtf_hard": {
+      "label": "regime_mtf_hard",
+      "params": {
+        "use_regime_adaptation": true,
+        "use_higher_timeframe_alignment": true,
+        "higher_timeframe_alignment_mode": "hard",
+        "regime_high_fvg_min_gap_pct": 0.0003,
+        "regime_high_fvg_revisit_depth_ratio": 0.35,
+        "regime_high_smt_threshold": 0.001
+      },
+      "metrics": {
+        "total_return_pct": 2.4277,
+        "sharpe_ratio": 0.464,
+        "sortino_ratio": 0.0246,
+        "calmar_ratio": 1.9799,
+        "max_drawdown_pct": -1.2262,
+        "win_rate_pct": 75.0,
+        "total_trades": 4,
+        "profit_factor": 7.0005,
+        "avg_trade_pct": 0.6069
+      },
+      "metadata": {
+        "high_regime_bars": 91322,
+        "higher_timeframe_filtered_setups": 723,
+        "higher_timeframe_softened_setups": 0,
+        "higher_timeframe_score_penalty_shifts": 0,
+        "fvg_depth_filtered_retests": 10,
+        "fvg_delay_filtered_retests": 0,
+        "smt_filtered_sweeps": 351,
+        "bullish_entries": 0,
+        "bearish_entries": 0
+      }
+    },
+    "regime_mtf_soft": {
+      "label": "regime_mtf_soft",
+      "params": {
+        "use_regime_adaptation": true,
+        "use_higher_timeframe_alignment": true,
+        "higher_timeframe_alignment_mode": "soft",
+        "regime_high_fvg_min_gap_pct": 0.0003,
+        "regime_high_fvg_revisit_depth_ratio": 0.35,
+        "regime_high_smt_threshold": 0.001
+      },
+      "metrics": {
+        "total_return_pct": 12.2669,
+        "sharpe_ratio": 1.0885,
+        "sortino_ratio": 0.1549,
+        "calmar_ratio": 6.2001,
+        "max_drawdown_pct": -1.9785,
+        "win_rate_pct": 70.5882,
+        "total_trades": 17,
+        "profit_factor": 7.6287,
+        "avg_trade_pct": 0.7216
+      },
+      "metadata": {
+        "high_regime_bars": 91322,
+        "higher_timeframe_filtered_setups": 0,
+        "higher_timeframe_softened_setups": 667,
+        "higher_timeframe_score_penalty_shifts": 23,
+        "fvg_depth_filtered_retests": 15,
+        "fvg_delay_filtered_retests": 3,
+        "smt_filtered_sweeps": 342,
+        "bullish_entries": 0,
+        "bearish_entries": 0
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "active_lite_quality_base",
+      "total_trades": 18,
+      "total_return_pct": 13.8395,
+      "profit_factor": 6.3079,
+      "win_rate_pct": 72.2222,
+      "high_regime_bars": 0,
+      "higher_timeframe_filtered_setups": 0,
+      "higher_timeframe_softened_setups": 0
+    },
+    {
+      "label": "qualified_reversal_balance",
+      "total_trades": 40,
+      "total_return_pct": 13.4177,
+      "profit_factor": 3.1879,
+      "win_rate_pct": 60.0,
+      "high_regime_bars": 0,
+      "higher_timeframe_filtered_setups": 0,
+      "higher_timeframe_softened_setups": 0
+    },
+    {
+      "label": "regime_mtf_soft",
+      "total_trades": 17,
+      "total_return_pct": 12.2669,
+      "profit_factor": 7.6287,
+      "win_rate_pct": 70.5882,
+      "high_regime_bars": 91322,
+      "higher_timeframe_filtered_setups": 0,
+      "higher_timeframe_softened_setups": 667
+    },
+    {
+      "label": "regime_mtf_hard",
+      "total_trades": 4,
+      "total_return_pct": 2.4277,
+      "profit_factor": 7.0005,
+      "win_rate_pct": 75.0,
+      "high_regime_bars": 91322,
+      "higher_timeframe_filtered_setups": 723,
+      "higher_timeframe_softened_setups": 0
+    }
+  ],
+  "quality_base": {
+    "label": "active_lite_quality_base",
+    "total_trades": 18,
+    "total_return_pct": 13.8395,
+    "profit_factor": 6.3079,
+    "win_rate_pct": 72.2222,
+    "high_regime_bars": 0,
+    "higher_timeframe_filtered_setups": 0,
+    "higher_timeframe_softened_setups": 0
+  },
+  "qualified_reversal_balance": {
+    "label": "qualified_reversal_balance",
+    "total_trades": 40,
+    "total_return_pct": 13.4177,
+    "profit_factor": 3.1879,
+    "win_rate_pct": 60.0,
+    "high_regime_bars": 0,
+    "higher_timeframe_filtered_setups": 0,
+    "higher_timeframe_softened_setups": 0
+  },
+  "best_regime_variant": {
+    "label": "regime_mtf_soft",
+    "total_trades": 17,
+    "total_return_pct": 12.2669,
+    "profit_factor": 7.6287,
+    "win_rate_pct": 70.5882,
+    "high_regime_bars": 91322,
+    "higher_timeframe_filtered_setups": 0,
+    "higher_timeframe_softened_setups": 667
+  },
+  "verdict": "REGIME_MTF_REVERSAL_REJECTED",
+  "interpretation": "Regime adaptation plus 1H alignment does not currently improve the reversal lane enough to justify promotion."
+}

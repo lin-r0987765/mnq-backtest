@@ -1,0 +1,636 @@
+{
+  "analysis": "ict_swing_recovery_repair",
+  "primary_intraday_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\qqq_5m_alpaca.csv",
+  "peer_symbol": "SPY",
+  "peer_csv": "C:\\Users\\LIN\\Desktop\\progamming\\python\\claude\\mnq-backtest\\alpaca\\normalized\\spy_5m_alpaca.csv",
+  "period": "60d",
+  "rows_primary": 110816,
+  "rows_peer": 111064,
+  "matched_peer_bars": 110789,
+  "variants": {
+    "swing_3_recovery_15": {
+      "label": "swing_3_recovery_15",
+      "params": {
+        "structure_reference_mode": "swing",
+        "swing_threshold": 3,
+        "liq_sweep_recovery_bars": 15,
+        "slow_recovery_enabled": false,
+        "slow_recovery_bars": 15,
+        "fvg_min_gap_pct": 0.0003,
+        "fvg_revisit_depth_ratio": 0.0
+      },
+      "metrics": {
+        "total_return_pct": -0.0865,
+        "sharpe_ratio": -0.6832,
+        "sortino_ratio": -0.9267,
+        "calmar_ratio": 0.6001,
+        "max_drawdown_pct": -0.1442,
+        "win_rate_pct": 35.0,
+        "total_trades": 20,
+        "profit_factor": 0.6166,
+        "avg_trade_pct": -0.0043
+      },
+      "funnel": {
+        "stages": {
+          "raw_sweep_candidates": 846,
+          "accepted_sweeps": 166,
+          "shift_candidates": 41,
+          "armed_setups": 38,
+          "retest_candidates": 20,
+          "entries": 20
+        },
+        "direction_breakdown": {
+          "bullish_sweep_candidates": 504,
+          "bearish_sweep_candidates": 342,
+          "bullish_sweeps": 90,
+          "bearish_sweeps": 76,
+          "bullish_shift_candidates": 18,
+          "bearish_shift_candidates": 23,
+          "bullish_armed_setups": 16,
+          "bearish_armed_setups": 22,
+          "bullish_retest_candidates": 10,
+          "bearish_retest_candidates": 10,
+          "long_entries": 10,
+          "short_entries": 10
+        },
+        "conversion_rates_pct": {
+          "sweep_acceptance_rate": 19.62,
+          "accepted_sweep_to_shift_rate": 24.7,
+          "shift_to_armed_rate": 92.68,
+          "armed_to_retest_rate": 52.63,
+          "retest_to_entry_rate": 100.0,
+          "raw_sweep_to_entry_rate": 2.36
+        },
+        "filtered_breakdown": {
+          "daily_bias_filtered_setups": 0,
+          "premium_discount_filtered_setups": 0,
+          "amd_filtered_setups": 0,
+          "prev_session_anchor_filtered_setups": 0,
+          "external_liquidity_filtered_sweeps": 0,
+          "smt_filtered_sweeps": 0,
+          "smt_missing_peer_bars": 0,
+          "macro_timing_filtered_sweeps": 0,
+          "kill_zone_filtered_sweeps": 0,
+          "displacement_filtered_shifts": 0,
+          "displacement_range_filtered_shifts": 0,
+          "structure_buffer_filtered_shifts": 0,
+          "session_array_filtered_shifts": 0,
+          "delivery_missing_shifts": 3,
+          "score_filtered_shifts": 0,
+          "fvg_delay_filtered_retests": 13,
+          "fvg_depth_filtered_retests": 0,
+          "fvg_touch_filtered_retests": 0,
+          "fvg_close_filtered_retests": 0,
+          "fvg_wick_filtered_retests": 0,
+          "fvg_body_filtered_retests": 0,
+          "sweep_blocked_by_existing_pending": 33,
+          "sweep_expired_before_shift": 127,
+          "armed_setup_expired_before_retest": 18
+        },
+        "top_filters": [
+          {
+            "label": "sweep_expired_before_shift",
+            "count": 127
+          },
+          {
+            "label": "sweep_blocked_by_existing_pending",
+            "count": 33
+          },
+          {
+            "label": "armed_setup_expired_before_retest",
+            "count": 18
+          },
+          {
+            "label": "fvg_delay_filtered_retests",
+            "count": 13
+          },
+          {
+            "label": "delivery_missing_shifts",
+            "count": 3
+          }
+        ]
+      },
+      "metadata": {
+        "sweep_expired_before_shift": 127,
+        "armed_setup_expired_before_retest": 18,
+        "fast_recovery_shifts": 38,
+        "slow_recovery_shifts": 0,
+        "fast_recovery_entries": 20,
+        "slow_recovery_entries": 0,
+        "delivery_missing_shifts": 3
+      }
+    },
+    "swing_3_recovery_20": {
+      "label": "swing_3_recovery_20",
+      "params": {
+        "structure_reference_mode": "swing",
+        "swing_threshold": 3,
+        "liq_sweep_recovery_bars": 20,
+        "slow_recovery_enabled": false,
+        "slow_recovery_bars": 20,
+        "fvg_min_gap_pct": 0.0003,
+        "fvg_revisit_depth_ratio": 0.0
+      },
+      "metrics": {
+        "total_return_pct": -0.1052,
+        "sharpe_ratio": -0.659,
+        "sortino_ratio": -0.9075,
+        "calmar_ratio": 0.5933,
+        "max_drawdown_pct": -0.1773,
+        "win_rate_pct": 40.0,
+        "total_trades": 25,
+        "profit_factor": 0.6016,
+        "avg_trade_pct": -0.0042
+      },
+      "funnel": {
+        "stages": {
+          "raw_sweep_candidates": 846,
+          "accepted_sweeps": 165,
+          "shift_candidates": 53,
+          "armed_setups": 50,
+          "retest_candidates": 25,
+          "entries": 25
+        },
+        "direction_breakdown": {
+          "bullish_sweep_candidates": 504,
+          "bearish_sweep_candidates": 342,
+          "bullish_sweeps": 89,
+          "bearish_sweeps": 76,
+          "bullish_shift_candidates": 27,
+          "bearish_shift_candidates": 26,
+          "bullish_armed_setups": 25,
+          "bearish_armed_setups": 25,
+          "bullish_retest_candidates": 15,
+          "bearish_retest_candidates": 10,
+          "long_entries": 15,
+          "short_entries": 10
+        },
+        "conversion_rates_pct": {
+          "sweep_acceptance_rate": 19.5,
+          "accepted_sweep_to_shift_rate": 32.12,
+          "shift_to_armed_rate": 94.34,
+          "armed_to_retest_rate": 50.0,
+          "retest_to_entry_rate": 100.0,
+          "raw_sweep_to_entry_rate": 2.96
+        },
+        "filtered_breakdown": {
+          "daily_bias_filtered_setups": 0,
+          "premium_discount_filtered_setups": 0,
+          "amd_filtered_setups": 0,
+          "prev_session_anchor_filtered_setups": 0,
+          "external_liquidity_filtered_sweeps": 0,
+          "smt_filtered_sweeps": 0,
+          "smt_missing_peer_bars": 0,
+          "macro_timing_filtered_sweeps": 0,
+          "kill_zone_filtered_sweeps": 0,
+          "displacement_filtered_shifts": 0,
+          "displacement_range_filtered_shifts": 0,
+          "structure_buffer_filtered_shifts": 0,
+          "session_array_filtered_shifts": 0,
+          "delivery_missing_shifts": 3,
+          "score_filtered_shifts": 0,
+          "fvg_delay_filtered_retests": 14,
+          "fvg_depth_filtered_retests": 0,
+          "fvg_touch_filtered_retests": 0,
+          "fvg_close_filtered_retests": 0,
+          "fvg_wick_filtered_retests": 0,
+          "fvg_body_filtered_retests": 0,
+          "sweep_blocked_by_existing_pending": 37,
+          "sweep_expired_before_shift": 114,
+          "armed_setup_expired_before_retest": 24
+        },
+        "top_filters": [
+          {
+            "label": "sweep_expired_before_shift",
+            "count": 114
+          },
+          {
+            "label": "sweep_blocked_by_existing_pending",
+            "count": 37
+          },
+          {
+            "label": "armed_setup_expired_before_retest",
+            "count": 24
+          },
+          {
+            "label": "fvg_delay_filtered_retests",
+            "count": 14
+          },
+          {
+            "label": "delivery_missing_shifts",
+            "count": 3
+          }
+        ]
+      },
+      "metadata": {
+        "sweep_expired_before_shift": 114,
+        "armed_setup_expired_before_retest": 24,
+        "fast_recovery_shifts": 50,
+        "slow_recovery_shifts": 0,
+        "fast_recovery_entries": 25,
+        "slow_recovery_entries": 0,
+        "delivery_missing_shifts": 3
+      }
+    },
+    "swing_3_recovery_30": {
+      "label": "swing_3_recovery_30",
+      "params": {
+        "structure_reference_mode": "swing",
+        "swing_threshold": 3,
+        "liq_sweep_recovery_bars": 30,
+        "slow_recovery_enabled": false,
+        "slow_recovery_bars": 30,
+        "fvg_min_gap_pct": 0.0003,
+        "fvg_revisit_depth_ratio": 0.0
+      },
+      "metrics": {
+        "total_return_pct": -0.1321,
+        "sharpe_ratio": -0.7919,
+        "sortino_ratio": -1.091,
+        "calmar_ratio": 0.6926,
+        "max_drawdown_pct": -0.1907,
+        "win_rate_pct": 37.931,
+        "total_trades": 29,
+        "profit_factor": 0.5678,
+        "avg_trade_pct": -0.0046
+      },
+      "funnel": {
+        "stages": {
+          "raw_sweep_candidates": 846,
+          "accepted_sweeps": 164,
+          "shift_candidates": 59,
+          "armed_setups": 56,
+          "retest_candidates": 29,
+          "entries": 29
+        },
+        "direction_breakdown": {
+          "bullish_sweep_candidates": 504,
+          "bearish_sweep_candidates": 342,
+          "bullish_sweeps": 89,
+          "bearish_sweeps": 75,
+          "bullish_shift_candidates": 32,
+          "bearish_shift_candidates": 27,
+          "bullish_armed_setups": 30,
+          "bearish_armed_setups": 26,
+          "bullish_retest_candidates": 19,
+          "bearish_retest_candidates": 10,
+          "long_entries": 19,
+          "short_entries": 10
+        },
+        "conversion_rates_pct": {
+          "sweep_acceptance_rate": 19.39,
+          "accepted_sweep_to_shift_rate": 35.98,
+          "shift_to_armed_rate": 94.92,
+          "armed_to_retest_rate": 51.79,
+          "retest_to_entry_rate": 100.0,
+          "raw_sweep_to_entry_rate": 3.43
+        },
+        "filtered_breakdown": {
+          "daily_bias_filtered_setups": 0,
+          "premium_discount_filtered_setups": 0,
+          "amd_filtered_setups": 0,
+          "prev_session_anchor_filtered_setups": 0,
+          "external_liquidity_filtered_sweeps": 0,
+          "smt_filtered_sweeps": 0,
+          "smt_missing_peer_bars": 0,
+          "macro_timing_filtered_sweeps": 0,
+          "kill_zone_filtered_sweeps": 0,
+          "displacement_filtered_shifts": 0,
+          "displacement_range_filtered_shifts": 0,
+          "structure_buffer_filtered_shifts": 0,
+          "session_array_filtered_shifts": 0,
+          "delivery_missing_shifts": 3,
+          "score_filtered_shifts": 0,
+          "fvg_delay_filtered_retests": 15,
+          "fvg_depth_filtered_retests": 0,
+          "fvg_touch_filtered_retests": 0,
+          "fvg_close_filtered_retests": 0,
+          "fvg_wick_filtered_retests": 0,
+          "fvg_body_filtered_retests": 0,
+          "sweep_blocked_by_existing_pending": 41,
+          "sweep_expired_before_shift": 107,
+          "armed_setup_expired_before_retest": 26
+        },
+        "top_filters": [
+          {
+            "label": "sweep_expired_before_shift",
+            "count": 107
+          },
+          {
+            "label": "sweep_blocked_by_existing_pending",
+            "count": 41
+          },
+          {
+            "label": "armed_setup_expired_before_retest",
+            "count": 26
+          },
+          {
+            "label": "fvg_delay_filtered_retests",
+            "count": 15
+          },
+          {
+            "label": "delivery_missing_shifts",
+            "count": 3
+          }
+        ]
+      },
+      "metadata": {
+        "sweep_expired_before_shift": 107,
+        "armed_setup_expired_before_retest": 26,
+        "fast_recovery_shifts": 56,
+        "slow_recovery_shifts": 0,
+        "fast_recovery_entries": 29,
+        "slow_recovery_entries": 0,
+        "delivery_missing_shifts": 3
+      }
+    },
+    "swing_3_dual_12_30": {
+      "label": "swing_3_dual_12_30",
+      "params": {
+        "structure_reference_mode": "swing",
+        "swing_threshold": 3,
+        "liq_sweep_recovery_bars": 12,
+        "slow_recovery_enabled": true,
+        "slow_recovery_bars": 30,
+        "fvg_min_gap_pct": 0.0003,
+        "fvg_revisit_depth_ratio": 0.0
+      },
+      "metrics": {
+        "total_return_pct": -0.1321,
+        "sharpe_ratio": -0.7919,
+        "sortino_ratio": -1.091,
+        "calmar_ratio": 0.6926,
+        "max_drawdown_pct": -0.1907,
+        "win_rate_pct": 37.931,
+        "total_trades": 29,
+        "profit_factor": 0.5678,
+        "avg_trade_pct": -0.0046
+      },
+      "funnel": {
+        "stages": {
+          "raw_sweep_candidates": 846,
+          "accepted_sweeps": 164,
+          "shift_candidates": 59,
+          "armed_setups": 56,
+          "retest_candidates": 29,
+          "entries": 29
+        },
+        "direction_breakdown": {
+          "bullish_sweep_candidates": 504,
+          "bearish_sweep_candidates": 342,
+          "bullish_sweeps": 89,
+          "bearish_sweeps": 75,
+          "bullish_shift_candidates": 32,
+          "bearish_shift_candidates": 27,
+          "bullish_armed_setups": 30,
+          "bearish_armed_setups": 26,
+          "bullish_retest_candidates": 19,
+          "bearish_retest_candidates": 10,
+          "long_entries": 19,
+          "short_entries": 10
+        },
+        "conversion_rates_pct": {
+          "sweep_acceptance_rate": 19.39,
+          "accepted_sweep_to_shift_rate": 35.98,
+          "shift_to_armed_rate": 94.92,
+          "armed_to_retest_rate": 51.79,
+          "retest_to_entry_rate": 100.0,
+          "raw_sweep_to_entry_rate": 3.43
+        },
+        "filtered_breakdown": {
+          "daily_bias_filtered_setups": 0,
+          "premium_discount_filtered_setups": 0,
+          "amd_filtered_setups": 0,
+          "prev_session_anchor_filtered_setups": 0,
+          "external_liquidity_filtered_sweeps": 0,
+          "smt_filtered_sweeps": 0,
+          "smt_missing_peer_bars": 0,
+          "macro_timing_filtered_sweeps": 0,
+          "kill_zone_filtered_sweeps": 0,
+          "displacement_filtered_shifts": 0,
+          "displacement_range_filtered_shifts": 0,
+          "structure_buffer_filtered_shifts": 0,
+          "session_array_filtered_shifts": 0,
+          "delivery_missing_shifts": 3,
+          "score_filtered_shifts": 0,
+          "fvg_delay_filtered_retests": 15,
+          "fvg_depth_filtered_retests": 0,
+          "fvg_touch_filtered_retests": 0,
+          "fvg_close_filtered_retests": 0,
+          "fvg_wick_filtered_retests": 0,
+          "fvg_body_filtered_retests": 0,
+          "sweep_blocked_by_existing_pending": 41,
+          "sweep_expired_before_shift": 107,
+          "armed_setup_expired_before_retest": 26
+        },
+        "top_filters": [
+          {
+            "label": "sweep_expired_before_shift",
+            "count": 107
+          },
+          {
+            "label": "sweep_blocked_by_existing_pending",
+            "count": 41
+          },
+          {
+            "label": "armed_setup_expired_before_retest",
+            "count": 26
+          },
+          {
+            "label": "fvg_delay_filtered_retests",
+            "count": 15
+          },
+          {
+            "label": "delivery_missing_shifts",
+            "count": 3
+          }
+        ]
+      },
+      "metadata": {
+        "sweep_expired_before_shift": 107,
+        "armed_setup_expired_before_retest": 26,
+        "fast_recovery_shifts": 27,
+        "slow_recovery_shifts": 29,
+        "fast_recovery_entries": 18,
+        "slow_recovery_entries": 11,
+        "delivery_missing_shifts": 3
+      }
+    },
+    "swing_2_dual_12_30": {
+      "label": "swing_2_dual_12_30",
+      "params": {
+        "structure_reference_mode": "swing",
+        "swing_threshold": 2,
+        "liq_sweep_recovery_bars": 12,
+        "slow_recovery_enabled": true,
+        "slow_recovery_bars": 30,
+        "fvg_min_gap_pct": 0.0003,
+        "fvg_revisit_depth_ratio": 0.0
+      },
+      "metrics": {
+        "total_return_pct": -0.5455,
+        "sharpe_ratio": -2.5666,
+        "sortino_ratio": -3.438,
+        "calmar_ratio": 0.9197,
+        "max_drawdown_pct": -0.5931,
+        "win_rate_pct": 31.0345,
+        "total_trades": 58,
+        "profit_factor": 0.3844,
+        "avg_trade_pct": -0.0094
+      },
+      "funnel": {
+        "stages": {
+          "raw_sweep_candidates": 846,
+          "accepted_sweeps": 301,
+          "shift_candidates": 123,
+          "armed_setups": 101,
+          "retest_candidates": 58,
+          "entries": 58
+        },
+        "direction_breakdown": {
+          "bullish_sweep_candidates": 504,
+          "bearish_sweep_candidates": 342,
+          "bullish_sweeps": 161,
+          "bearish_sweeps": 140,
+          "bullish_shift_candidates": 65,
+          "bearish_shift_candidates": 58,
+          "bullish_armed_setups": 54,
+          "bearish_armed_setups": 47,
+          "bullish_retest_candidates": 36,
+          "bearish_retest_candidates": 22,
+          "long_entries": 36,
+          "short_entries": 22
+        },
+        "conversion_rates_pct": {
+          "sweep_acceptance_rate": 35.58,
+          "accepted_sweep_to_shift_rate": 40.86,
+          "shift_to_armed_rate": 82.11,
+          "armed_to_retest_rate": 57.43,
+          "retest_to_entry_rate": 100.0,
+          "raw_sweep_to_entry_rate": 6.86
+        },
+        "filtered_breakdown": {
+          "daily_bias_filtered_setups": 0,
+          "premium_discount_filtered_setups": 0,
+          "amd_filtered_setups": 0,
+          "prev_session_anchor_filtered_setups": 0,
+          "external_liquidity_filtered_sweeps": 0,
+          "smt_filtered_sweeps": 0,
+          "smt_missing_peer_bars": 0,
+          "macro_timing_filtered_sweeps": 0,
+          "kill_zone_filtered_sweeps": 0,
+          "displacement_filtered_shifts": 1,
+          "displacement_range_filtered_shifts": 0,
+          "structure_buffer_filtered_shifts": 0,
+          "session_array_filtered_shifts": 0,
+          "delivery_missing_shifts": 21,
+          "score_filtered_shifts": 0,
+          "fvg_delay_filtered_retests": 37,
+          "fvg_depth_filtered_retests": 0,
+          "fvg_touch_filtered_retests": 0,
+          "fvg_close_filtered_retests": 0,
+          "fvg_wick_filtered_retests": 0,
+          "fvg_body_filtered_retests": 0,
+          "sweep_blocked_by_existing_pending": 78,
+          "sweep_expired_before_shift": 196,
+          "armed_setup_expired_before_retest": 42
+        },
+        "top_filters": [
+          {
+            "label": "sweep_expired_before_shift",
+            "count": 196
+          },
+          {
+            "label": "sweep_blocked_by_existing_pending",
+            "count": 78
+          },
+          {
+            "label": "armed_setup_expired_before_retest",
+            "count": 42
+          },
+          {
+            "label": "fvg_delay_filtered_retests",
+            "count": 37
+          },
+          {
+            "label": "delivery_missing_shifts",
+            "count": 21
+          },
+          {
+            "label": "displacement_filtered_shifts",
+            "count": 1
+          }
+        ]
+      },
+      "metadata": {
+        "sweep_expired_before_shift": 196,
+        "armed_setup_expired_before_retest": 42,
+        "fast_recovery_shifts": 62,
+        "slow_recovery_shifts": 39,
+        "fast_recovery_entries": 43,
+        "slow_recovery_entries": 15,
+        "delivery_missing_shifts": 21
+      }
+    }
+  },
+  "variant_ranking": [
+    {
+      "label": "swing_3_recovery_15",
+      "swing_threshold": 3,
+      "liq_sweep_recovery_bars": 15,
+      "slow_recovery_enabled": false,
+      "slow_recovery_bars": 15,
+      "total_trades": 20,
+      "total_return_pct": -0.0865,
+      "profit_factor": 0.6166,
+      "win_rate_pct": 35.0
+    },
+    {
+      "label": "swing_3_recovery_20",
+      "swing_threshold": 3,
+      "liq_sweep_recovery_bars": 20,
+      "slow_recovery_enabled": false,
+      "slow_recovery_bars": 20,
+      "total_trades": 25,
+      "total_return_pct": -0.1052,
+      "profit_factor": 0.6016,
+      "win_rate_pct": 40.0
+    },
+    {
+      "label": "swing_3_recovery_30",
+      "swing_threshold": 3,
+      "liq_sweep_recovery_bars": 30,
+      "slow_recovery_enabled": false,
+      "slow_recovery_bars": 30,
+      "total_trades": 29,
+      "total_return_pct": -0.1321,
+      "profit_factor": 0.5678,
+      "win_rate_pct": 37.931
+    },
+    {
+      "label": "swing_3_dual_12_30",
+      "swing_threshold": 3,
+      "liq_sweep_recovery_bars": 12,
+      "slow_recovery_enabled": true,
+      "slow_recovery_bars": 30,
+      "total_trades": 29,
+      "total_return_pct": -0.1321,
+      "profit_factor": 0.5678,
+      "win_rate_pct": 37.931
+    },
+    {
+      "label": "swing_2_dual_12_30",
+      "swing_threshold": 2,
+      "liq_sweep_recovery_bars": 12,
+      "slow_recovery_enabled": true,
+      "slow_recovery_bars": 30,
+      "total_trades": 58,
+      "total_return_pct": -0.5455,
+      "profit_factor": 0.3844,
+      "win_rate_pct": 31.0345
+    }
+  ],
+  "best_variant": "swing_3_recovery_15",
+  "verdict": "SWING_RECOVERY_REPAIR_STILL_NEGATIVE",
+  "interpretation": "Longer recovery windows improve the swing branch only partially and do not restore positive expectancy."
+}
